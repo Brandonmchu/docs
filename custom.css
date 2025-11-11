@@ -2,13 +2,13 @@
 /* Matches the Every React design system from @every-react/ui/styles */
 
 :root {
-  /* Core Design Tokens - matching theme.css */
+  /* Core Design Tokens - matching theme.css exactly */
   --background: 0 0% 98%;          /* #FAFAFA */
   --foreground: 0 0% 4%;           /* #0A0A0A */
   --primary: 0 0% 4%;              /* #0A0A0A */
   --muted: 60 5% 42%;              /* #6B6A68 */
   --muted-foreground: 60 5% 42%;   /* #6B6A68 */
-  --accent: 60 5% 96%;             /* #f5f4f2 - hover states */
+  --accent: 60 5% 95%;             /* #f5f4f2 - hover states (FIXED) */
   --border: 60 5% 80%;             /* Borders and dividers */
   --contrast-background: 60 5% 92%; /* #edece8 */
 
@@ -148,7 +148,7 @@ tbody tr:hover {
   background-color: hsl(var(--accent));
 }
 
-/* Callout boxes (Note, Tip, Warning) - matching app badges */
+/* Callout boxes (Note, Tip, Warning) - matching app */
 .callout {
   border-radius: var(--radius);
   padding: 1rem;
@@ -171,97 +171,7 @@ tbody tr:hover {
   border-left-color: rgb(202 138 4); /* yellow-600 */
 }
 
-/* Cards - matching app's card component */
-.card {
-  background-color: hsl(var(--background));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  margin: 1rem 0;
-}
-
-/* Buttons - matching app's button styling */
-.button-primary {
-  background-color: hsl(var(--primary));
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: calc(var(--radius) - 4px); /* rounded-md */
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.button-primary:hover {
-  opacity: 0.9;
-}
-
-.button-outline {
-  background-color: transparent;
-  color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
-  padding: 0.5rem 1rem;
-  border-radius: calc(var(--radius) - 4px);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.button-outline:hover {
-  background-color: hsl(var(--accent));
-}
-
-/* Navigation sidebar - subtle, matches app */
-.sidebar {
-  background-color: hsl(var(--background));
-  border-right: 1px solid hsl(var(--border));
-}
-
-.sidebar-item {
-  color: hsl(var(--foreground));
-  padding: 0.5rem 1rem;
-  border-radius: calc(var(--radius) - 4px);
-  transition: background-color 0.2s ease;
-}
-
-.sidebar-item:hover {
-  background-color: hsl(var(--accent));
-}
-
-.sidebar-item-active {
-  background-color: hsl(var(--accent));
-  font-weight: 500;
-}
-
-/* Search bar - matches app input styling */
-.search-input {
-  background-color: hsl(var(--background));
-  border: 1px solid hsl(var(--border));
-  border-radius: calc(var(--radius) - 4px);
-  padding: 0.5rem 1rem;
-  font-size: 14px;
-  color: hsl(var(--foreground));
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: hsl(var(--primary));
-}
-
-/* Breadcrumbs - subtle */
-.breadcrumb {
-  color: hsl(var(--muted-foreground));
-  font-size: 14px;
-}
-
-.breadcrumb-separator {
-  color: hsl(var(--muted));
-  margin: 0 0.5rem;
-}
-
-/* Responsive spacing - mobile-first like app */
+/* Responsive typography - mobile-first like app */
 @media (max-width: 768px) {
   h1 {
     font-size: 24px !important;
@@ -278,17 +188,6 @@ tbody tr:hover {
   p, li, td {
     font-size: 16px;
   }
-
-  .card {
-    padding: 1rem;
-  }
-}
-
-/* Smooth transitions everywhere - matches app feel */
-* {
-  transition-property: background-color, border-color, color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
 }
 
 /* Scrollbar styling - matches app's subtle scrollbars */
