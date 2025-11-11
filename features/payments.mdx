@@ -121,7 +121,7 @@ When clients pay online via Stripe, both parties automatically receive email not
 
 Clients can report payments they've made, which you approve or reject.
 
-**How It Works:** Client views invoice → Clicks "I've paid this invoice" → Enters payment details → You receive notification → Review claim → Approve (creates payment record automatically) or Reject (request more info)
+**How It Works:** Client views invoice → Clicks **Confirm Payment** → Chooses payment type, optional reference, and note → You receive notification → Review claim → Approve (creates payment record automatically) or Reject (request more info)
 
 **Benefits:** Client-initiated payment tracking, reduced back-and-forth, audit trail, you maintain control
 
@@ -172,9 +172,12 @@ Navigate to invoice → Find payment in Payments section → Click payment → D
 
 ### Payment List View
 
-View all payments across all invoices with summary cards (total received, pending, etc.), filters (date range, payment method, client), search (invoice or amount), sort options, and CSV export.
+View all payments across all invoices with:
+- **Summary cards** for payment count and total amount received (click to filter the table)
+- **Search** across payment amounts, invoices, or clients
+- **Row selection** to send payment confirmation emails or delete manual entries in bulk
 
-**Summary Metrics:** Total received, total outstanding, average payment time, payment method breakdown
+**Summary Metrics:** Payments received count, total amount received
 
 <Tip>
   **Ask Every Agent:** View payment reports:
@@ -185,12 +188,12 @@ View all payments across all invoices with summary cards (total received, pendin
 
 ### Payment Analytics
 
-**Metrics:** On-time payment rate, average days to payment, payment method preferences, client payment history, monthly revenue trends
+Deeper analytics (average days to payment, on-time rate, method breakdowns, revenue trends) live in **Reports → Payment Time/Revenue**. Use those reports—or ask Every Agent—to pull the aggregated metrics while the Payments page focuses on day-to-day operations.
 
 <Tip>
   **Ask Every Agent:** Analyze payment patterns:
-  - "What's the average time to payment for ACME Corp?"
-  - "What's our most common payment method?"
+  - "Run the payment time report for ACME Corp"
+  - "What's our most common payment method last quarter?"
   - "How much revenue did we receive in December?"
 </Tip>
 

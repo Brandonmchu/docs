@@ -15,7 +15,7 @@ Clients are the customers you invoice for services. Manage contact information, 
 - Store contact info (email, phone, address)
 - Add CC email recipients for invoice copies
 - AI-powered company enrichment
-- Import from Google Contacts
+- Pull contacts from Google Workspace (inline suggestions + Scan Contacts workflow)
 - Track payment history and invoices
 - View complete activity timeline
 
@@ -51,7 +51,7 @@ Add up to 2 additional recipients per client. All CC recipients receive invoice 
 
 AI-powered enrichment automatically finds and fills company information.
 
-**How it works:** Check **Enable Client Enrichment** when creating/editing → Every Agent searches for company data → Review and approve
+**How it works:** Open a client record → Click the **Actions** menu (⋯) → **Enrich Client**. Every Agent queries Gmail, Calendar, and public data via `/api/enrich-company`, then updates the client once you approve the toast.
 
 **What gets enriched:** Company name, logo, website, address, industry info
 
@@ -60,31 +60,33 @@ AI-powered enrichment automatically finds and fills company information.
 </Tip>
 
 <Tip>
-  **Ask Every Agent:** Enable enrichment automatically when creating clients:
+  **Ask Every Agent:** Trigger enrichment from chat:
   - "Create and enrich a client for Microsoft Corporation"
-  - "Add XYZ Consulting as a client and find their company information"
+  - "Add XYZ Consulting as a client and pull their latest company information"
   - "Enrich the existing client Tesla Inc with updated company details"
 </Tip>
 
 ## Google Contacts Integration
 
-Import existing contacts from Google Contacts.
+Bring Google Workspace context directly into client creation.
 
-**Setup:** Settings → Integrations → Connect Google Account
+**Setup:** Settings → Integrations → Connect Google Account (grant Contacts plus Gmail/Calendar for best results)
 
-**Import:** Clients → Import from Google Contacts → Select contacts → Import Selected
+**Two ways to use it:**
+- **Inline suggestions:** When you type in the Email field on the client form, the Google Contacts search component appears and auto-fills the rest of the contact details you select.
+- **Scan Contacts workflow:** On the **Home** dashboard, open the **Get Started** card → **Scan Contacts**. Google Contacts Analysis reviews recent Gmail, Calendar, and Contacts activity so you can select which suggested contacts to add as clients.
 
-**What imports:** Name, email, phone, company, address, notes
+**What gets imported:** Name, email, phone, organization, notes (plus any extra context surfaced by the analysis)
 
 <Note>
-  Import is one-time, not continuous sync. Re-import to refresh. Duplicates prevented by email check.
+  Scans are on-demand, not continuous sync. Re-run **Scan Contacts** or ask Every Agent again when you want a fresh batch of suggestions. Duplicate clients are prevented via email matching.
 </Note>
 
 <Tip>
-  **Ask Every Agent:** Import contacts seamlessly:
-  - "Import all my Google Contacts as clients"
-  - "Sync my contacts from Google and create clients for them"
-  - "Import contacts from Google that have email addresses"
+  **Ask Every Agent:** Run the scan from chat:
+  - "Scan my Google contacts and add likely clients"
+  - "Review Google contacts tagged as clients and add them to Every"
+  - "Show me Google contacts we haven't added yet"
 </Tip>
 
 ## Client Features
@@ -100,9 +102,10 @@ View complete activity timeline per client:
 ### Client Pipeline
 
 Track deals and opportunities:
-- Active proposals by stage
-- Deal values
-- HubSpot deal sync (if connected)
+- Drag-and-drop pipeline stages (configure statuses in **Clients → Pipeline Settings**)
+- Proposal badges on each card show stage and amount
+- Quick actions for invoices, proposals, automations, time, and expenses
+- HubSpot-sourced clients show HubSpot deal badges on the client detail page so you know which CRM owns the record
 
 ### Search & Filtering
 
