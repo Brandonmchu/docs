@@ -3,9 +3,34 @@
   "theme": "mint",
   "name": "Every AI",
   "colors": {
-    "primary": "#6366F1",
-    "light": "#818CF8",
-    "dark": "#4F46E5"
+    "primary": "#0A0A0A",
+    "light": "#6B6A68",
+    "dark": "#000000",
+    "background": {
+      "light": "#FAFAFA",
+      "dark": "#0A0A0A"
+    }
+  },
+  "font": {
+    "family": "Inter",
+    "weight": 400,
+    "heading": {
+      "family": "Inter",
+      "weight": 600
+    }
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": "github-light"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "primaryTab": {
+    "name": "Product Guide"
   },
   "favicon": "/favicon.svg",
   "navigation": {
