@@ -2,10 +2,15 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Every AI",
+  "css": "custom.css",
   "colors": {
     "primary": "#0A0A0A",
     "light": "#6B6A68",
-    "dark": "#000000"
+    "dark": "#000000",
+    "anchors": {
+      "from": "#0A0A0A",
+      "to": "#6B6A68"
+    }
   },
   "font": {
     "family": "Inter",

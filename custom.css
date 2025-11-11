@@ -1,0 +1,311 @@
+/* Every AI Documentation Custom Styles */
+/* Matches the Every React design system from @every-react/ui/styles */
+
+:root {
+  /* Core Design Tokens - matching theme.css */
+  --background: 0 0% 98%;          /* #FAFAFA */
+  --foreground: 0 0% 4%;           /* #0A0A0A */
+  --primary: 0 0% 4%;              /* #0A0A0A */
+  --muted: 60 5% 42%;              /* #6B6A68 */
+  --muted-foreground: 60 5% 42%;   /* #6B6A68 */
+  --accent: 60 5% 95%;             /* #f5f4f2 - hover states */
+  --border: 60 5% 80%;             /* Borders and dividers */
+  --contrast-background: 60 5% 92%; /* #edece8 */
+
+  /* Border radius system - matching Every AI */
+  --radius: 0.5rem; /* 8px base */
+
+  /* Line height */
+  --line-height-base: 1.5;
+}
+
+/* Typography Hierarchy - matching STYLES.md */
+h1 {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 1rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+h2 {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.75rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+h3 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+h4 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+h5 {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+h6 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Body text - matching Every AI */
+p, li, td {
+  font-size: 16px;
+  line-height: var(--line-height-base);
+  color: hsl(var(--foreground));
+}
+
+/* Secondary text */
+.text-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Links - subtle, matches app */
+a {
+  color: hsl(var(--foreground));
+  text-decoration: underline;
+  text-decoration-color: hsl(var(--muted));
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--foreground));
+  text-decoration-color: hsl(var(--foreground));
+}
+
+/* Code blocks - matching app's code styling */
+code {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--foreground));
+  padding: 0.125rem 0.375rem;
+  border-radius: calc(var(--radius) - 4px); /* rounded-md */
+  font-size: 14px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+pre {
+  background-color: hsl(var(--contrast-background));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius); /* rounded-lg */
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Tables - matching app's table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 16px;
+}
+
+thead {
+  background-color: hsl(var(--contrast-background));
+}
+
+th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+tbody tr:hover {
+  background-color: hsl(var(--accent));
+}
+
+/* Callout boxes (Note, Tip, Warning) - matching app badges */
+.callout {
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid;
+}
+
+.callout-note {
+  background-color: hsl(var(--accent));
+  border-left-color: hsl(var(--primary));
+}
+
+.callout-tip {
+  background-color: hsl(var(--accent));
+  border-left-color: hsl(var(--primary));
+}
+
+.callout-warning {
+  background-color: rgb(254 252 232); /* yellow-50 */
+  border-left-color: rgb(202 138 4); /* yellow-600 */
+}
+
+/* Cards - matching app's card component */
+.card {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+/* Buttons - matching app's button styling */
+.button-primary {
+  background-color: hsl(var(--primary));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--radius) - 4px); /* rounded-md */
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+}
+
+.button-outline {
+  background-color: transparent;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--radius) - 4px);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-outline:hover {
+  background-color: hsl(var(--accent));
+}
+
+/* Navigation sidebar - subtle, matches app */
+.sidebar {
+  background-color: hsl(var(--background));
+  border-right: 1px solid hsl(var(--border));
+}
+
+.sidebar-item {
+  color: hsl(var(--foreground));
+  padding: 0.5rem 1rem;
+  border-radius: calc(var(--radius) - 4px);
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: hsl(var(--accent));
+}
+
+.sidebar-item-active {
+  background-color: hsl(var(--accent));
+  font-weight: 500;
+}
+
+/* Search bar - matches app input styling */
+.search-input {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 4px);
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  color: hsl(var(--foreground));
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+}
+
+/* Breadcrumbs - subtle */
+.breadcrumb {
+  color: hsl(var(--muted-foreground));
+  font-size: 14px;
+}
+
+.breadcrumb-separator {
+  color: hsl(var(--muted));
+  margin: 0 0.5rem;
+}
+
+/* Responsive spacing - mobile-first like app */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  p, li, td {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* Smooth transitions everywhere - matches app feel */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Scrollbar styling - matches app's subtle scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted));
+}
