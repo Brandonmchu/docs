@@ -1,46 +1,34 @@
 ---
 title: "Organization Setup"
-description: "Complete guide to configuring your Every AI organization settings, branding, and defaults"
+description: "Configure your Every AI organization settings, branding, and defaults"
 ---
 
 ## Overview
 
-Your organization is the foundation of your Every AI account. It stores your business information, branding, payment settings, and financial defaults. Proper organization configuration ensures all your invoices look professional and include the correct information.
+Your organization stores business information, branding, payment settings, and financial defaults that appear on all invoices and proposals.
 
 <Note>
-  **Important:** Every feature in Every AI depends on having a properly configured organization. Complete this setup before creating invoices or adding clients.
+  Complete this setup before creating invoices or adding clients for best results.
 </Note>
 
 ## Business Profile
 
-Your business profile information appears on all invoices, proposals, and client-facing documents.
+Your profile appears on all invoices, proposals, and client-facing documents.
 
-### Required Information
+### Setup
 
-Navigate to **Settings** → **Organization** to set up your profile:
+Go to **Settings** → **Organization** and enter:
 
-**Business Name** (Required)
-- Your company or business name
-- Appears prominently on all invoices
+**Business Name** (Required) - Appears prominently on all invoices
 
 **Contact Information**
-- **Email**: Business email for client communications
-- **Phone**: Business phone number
-- **Address**: Full business address (street, city, state/province, postal code, country)
-- **Website**: Your business website URL (optional)
+- Email and phone for client communications
+- Full address (street, city, state/province, postal code, country)
+- Website URL (optional)
 
 <Tip>
-  This information is public-facing and appears on invoices, so ensure it's accurate and professional.
+  **Ask Every Agent:** "Update my business name to Acme Consulting LLC" or "Set my business address to 123 Main Street, Toronto, ON M5V 1A1, Canada"
 </Tip>
-
-### How Business Profile is Used
-
-Your business profile information automatically populates:
-- Invoice headers and footers
-- Public invoice pages
-- Proposal documents
-- Email communications with clients
-- Payment receipts
 
 ## Branding & Customization
 
@@ -48,328 +36,174 @@ Make your invoices match your brand identity.
 
 ### Logo Upload
 
-1. Navigate to **Settings** → **Organization**
-2. Click **Upload Logo** in the branding section
-3. Select your logo file (PNG, JPG, or SVG recommended)
-4. Logo appears on all invoices and public pages
+**Settings** → **Organization** → **Upload Logo** (PNG, JPG, or SVG)
 
-**Logo Requirements:**
-- Recommended size: 200x200px to 400x400px
-- Transparent background works best
-- Supported formats: PNG, JPG, SVG
+- Recommended: 200x200px to 400x400px with transparent background
+- Appears on all invoices and public pages
+
+<Tip>
+  **Ask Every Agent:** "Upload my company logo" or "Update my logo to the file at /path/to/new-logo.png"
+</Tip>
 
 ### Brand Color
 
-Choose a primary color that represents your brand:
+Select your primary brand color in **Settings** → **Organization**. Applied to invoice templates, public pages, and buttons.
 
-1. Click the **Brand Color** picker
-2. Select your brand color or enter a hex code
-3. Color is applied to:
-   - Invoice templates
-   - Public invoice pages
-   - Call-to-action buttons
-   - Accent elements
+<Tip>
+  **Ask Every Agent:** "Change my brand color to #0066CC" or "Set my brand color to navy blue"
+</Tip>
 
 ### Invoice Templates
 
-Every AI provides multiple professional invoice templates:
-
-1. In **Settings** → **Organization**, find **Invoice Template**
-2. Preview available templates
-3. Select the template that best fits your business style
-
-Available templates include:
-- **Modern**: Clean, minimalist design
-- **Classic**: Traditional invoice layout
-- **Professional**: Corporate-style format
-- **Creative**: Stylish design for creative businesses
+Choose from Modern, Classic, Professional, or Creative templates in **Settings** → **Organization**.
 
 <Note>
-  You can change your template at any time. Existing invoices keep their original template, but new invoices use the updated template.
+  You can change templates anytime. Existing invoices keep their original template.
 </Note>
+
+<Tip>
+  **Ask Every Agent:** "Change my invoice template to Modern" or "What invoice template am I currently using?"
+</Tip>
 
 ### Default Invoice Notes
 
-Set standard terms and conditions that appear on all new invoices:
+Set standard terms in **Settings** → **Organization** → **Default Invoice Note**. Automatically appears on all new invoices.
 
-1. In **Settings** → **Organization**, find **Default Invoice Note**
-2. Add your standard payment terms, thank you message, or other notes
-3. This text automatically appears on all new invoices
-
-**Common uses:**
-- Payment instructions
-- Thank you messages
-- Late payment policies
-- Bank transfer details
-- Terms and conditions
+**Common uses:** Payment instructions, thank you messages, late payment policies, bank transfer details
 
 <Tip>
-  You can still customize notes for individual invoices. The default just saves you time.
+  **Ask Every Agent:** "Set my default invoice note to 'Payment due within 30 days. Thank you for your business!'"
 </Tip>
 
 ## Financial Configuration
 
-Set default financial settings that streamline invoice creation.
-
 ### Default Currency
 
-Choose your primary currency:
+Choose USD or CAD in **Settings** → **Organization**. Used for all new invoices (can override per invoice).
 
-**Supported Currencies:**
-- USD (United States Dollar)
-- CAD (Canadian Dollar)
-
-1. Select **Default Currency** in organization settings
-2. This currency is used for all new invoices by default
-3. You can override currency on individual invoices if needed
-
-**How Currency Works:**
-- All monetary amounts display in the selected currency
-- Automatic formatting ($ for USD and CAD)
-- Exchange rate helpers available for reporting
-- Multi-currency support allows per-invoice overrides
+<Tip>
+  **Ask Every Agent:** "Change my default currency to USD" or "What's my current default currency?"
+</Tip>
 
 ### Default Due Days
 
-Set how many days clients have to pay invoices:
+Set payment timeline (1-365 days) in **Settings** → **Organization**. Due date auto-calculates as: Issue Date + Default Due Days.
 
-1. In **Settings** → **Organization**, find **Default Due Days**
-2. Enter a number between 1 and 365
-3. Common values:
-   - **Net 15**: Payment due in 15 days
-   - **Net 30**: Payment due in 30 days (most common)
-   - **Net 60**: Payment due in 60 days
-   - **Due on Receipt**: 0 or 1 days
+**Common values:** Net 15, Net 30 (most common), Net 60, Due on Receipt (0-1 days)
 
-When you create an invoice, the due date is automatically calculated as:
-```
-Due Date = Issue Date + Default Due Days
-```
-
-You can always adjust the due date for individual invoices.
+<Tip>
+  **Ask Every Agent:** "Set my default payment terms to Net 30" or "Change my invoice due days to 45"
+</Tip>
 
 ### Sales Tax Default
 
-Set your standard sales tax rate:
+Set your standard tax percentage in **Settings** → **Organization**. Applied to new offerings and invoices.
 
-1. Enter **Sales Tax Default** as a percentage
-2. This rate is applied to new offerings and invoices
-3. Common values:
-   - **5%**: Canadian GST
-   - **13%**: Ontario HST
-   - **0%**: If you don't charge sales tax
+**Common values:** 5% (Canadian GST), 13% (Ontario HST), 0% (no tax)
 
 <Note>
-  Tax rates can be overridden per line item on invoices. The default just provides a starting point.
+  Tax rates can be overridden per line item on invoices.
 </Note>
+
+<Tip>
+  **Ask Every Agent:** "Set my default tax rate to 13%" or "Change my sales tax to 5% for GST"
+</Tip>
 
 ### Invoice Numbering
 
-Every AI automatically assigns sequential invoice numbers:
+Automatic sequential numbering: `INV-001`, `INV-002`, `INV-003`, etc.
 
-**Automatic Numbering:**
-- Format: `INV-001`, `INV-002`, `INV-003`, etc.
-- Sequential and unique per organization
-- Starts at 1 and increments for each new invoice
-
-**Custom Numbering:**
-- You can manually set invoice numbers when creating invoices
-- Useful if migrating from another system
-- Must be unique within your organization
+You can manually set custom numbers when creating invoices (useful when migrating from another system).
 
 ## Payment Processing Setup
 
-Configure how you accept payments from clients.
-
 ### Stripe Integration
 
-Stripe enables online credit card payments on your invoices.
+Enable online credit card payments on your invoices.
 
-**To Connect Stripe:**
+**Connect:** **Settings** → **Payments** → **Connect Stripe Account** → Complete onboarding (business details, bank account, identity verification)
 
-1. Navigate to **Settings** → **Payments**
-2. Click **Connect Stripe Account**
-3. You'll be redirected to Stripe's onboarding flow
-4. Provide required information:
-   - Business details
-   - Bank account for payouts
-   - Identity verification documents
-5. Complete onboarding
+**After connection:**
+- Invoices include "Pay Now" button
+- Payments process automatically through Stripe
+- Funds deposit to your bank account
+- Invoice status updates to **Paid** automatically
+- Processing fees: Typically 2.9% + $0.30 per transaction
 
-**Stripe Account Status:**
-
-- **Enabled**: Fully operational, can accept payments and receive payouts
-- **Payouts Disabled**: Can accept payments but payout setup incomplete
-- **Restricted**: Account under review or requires additional information
-- **Not Connected**: Stripe not set up
+**Account Status:**
+- **Enabled**: Fully operational with payouts
+- **Payouts Disabled**: Can accept payments, complete setup for payouts
+- **Restricted**: Under review or needs more info
 
 <Tip>
-  Both "Enabled" and "Payouts Disabled" status allow clients to pay invoices online. Focus on completing full onboarding for payouts.
+  **Ask Every Agent:** "Connect my Stripe account" or "What's my Stripe account status?"
 </Tip>
-
-**What Happens After Connection:**
-
-- All new invoices include online payment option
-- Clients see "Pay Now" button on invoice pages
-- Payments process through your Stripe account
-- Funds deposit to your bank account
-- Invoice status updates automatically when paid
-
-**Processing Fees:**
-- Standard Stripe rates apply (typically 2.9% + $0.30 per transaction)
-- Fees deducted from payment before deposit
-- You receive net amount after fees
 
 ### Manual Payment Methods
 
-Even without Stripe, you can track payments received offline:
-
-**Supported Payment Methods:**
-- Cash
-- Check
-- Bank Transfer
-- Credit Card (processed outside platform)
-- Other
-
-Record payments manually in the invoice detail page.
+Without Stripe, you can still track offline payments (cash, check, bank transfer, credit card, other) in the invoice detail page.
 
 ## Tax Management
 
-Configure regional tax rates for automatic application.
+Set **Sales Tax Default** percentage in **Settings** → **Organization**. Applied to new offerings and invoices with automatic calculations.
 
-### Setting Tax Rates
-
-1. Navigate to **Settings** → **Organization**
-2. Set **Sales Tax Default** percentage
-3. This rate is used for:
-   - New offerings (can be overridden)
-   - Quick invoice creation
-   - Automatic tax calculations
+<Tip>
+  **Ask Every Agent:** "What tax rate am I currently using?" or "Update my organization tax settings"
+</Tip>
 
 ### Tax-Inclusive vs. Tax-Exclusive
 
-**Tax-Exclusive (Default):**
-- Line item amount + tax = total
-- Tax calculated and shown separately
-- Most common in North America
+**Tax-Exclusive (Default):** Line item + tax = total (e.g., $100 + $13 tax = $113)
 
-Example:
-```
-Service: $100.00
-Tax (13%): $13.00
-Total: $113.00
-```
-
-**Tax-Inclusive:**
-- Line item amount includes tax
-- Tax is part of the displayed price
-- Common in some regions
-
-Example:
-```
-Service: $113.00 (includes $13.00 tax)
-Total: $113.00
-```
+**Tax-Inclusive:** Line item includes tax (e.g., $113 includes $13 tax)
 
 Configure per line item when creating invoices.
 
 ## Team Management
 
-Invite team members to collaborate on your Every AI organization.
+**Settings** → **Team** → **Invite Team Member** → Enter email → They receive invitation
 
-### Adding Team Members
-
-1. Navigate to **Settings** → **Team**
-2. Click **Invite Team Member**
-3. Enter their email address
-4. They receive an invitation to join your organization
-
-**What Team Members Can Do:**
-- View and create clients
-- Create and send invoices
-- Track payments and expenses
-- Access all organization data
-- Use Every Agent
+**Team members can:** View/create clients, create/send invoices, track payments/expenses, access all organization data, use Every Agent
 
 <Note>
-  All team members have full access to organization data. Every AI currently doesn't support role-based permissions.
+  All team members have full access. Role-based permissions are not currently supported.
 </Note>
 
-## Organization Dependencies
+<Tip>
+  **Ask Every Agent:** "Invite sarah@example.com to my organization" or "Who are the members of my team?"
+</Tip>
 
-Understanding what depends on proper organization setup:
+## How Organization Settings are Used
 
-```
-Organization Settings (Foundation)
-├── Invoice Creation
-│   ├── Uses business profile for headers
-│   ├── Applies default currency
-│   ├── Calculates due date from default due days
-│   └── Includes default notes
-│
-├── Branding
-│   ├── Logo on all invoices
-│   ├── Brand color in templates
-│   └── Consistent professional appearance
-│
-├── Payment Processing
-│   ├── Stripe integration for online payments
-│   └── Payment status tracking
-│
-├── Tax Calculations
-│   ├── Default tax rate application
-│   └── Automatic tax calculations
-│
-└── Public Pages
-    ├── Branded invoice viewing
-    └── Professional client experience
-```
+- **Invoices**: Business profile in headers, default currency, auto-calculated due dates, default notes
+- **Branding**: Logo and brand color on all invoices and templates
+- **Payments**: Stripe integration for online payments, automatic status tracking
+- **Tax**: Default tax rate application and automatic calculations
+- **Public Pages**: Branded invoice viewing for professional client experience
 
 ## Best Practices
 
 <Tip>
-  **Complete setup before creating invoices** - Taking 10 minutes to configure everything properly saves hours later.
+  **Complete setup before creating invoices** - 10 minutes of configuration saves hours later.
 </Tip>
 
 <Tip>
-  **Use high-quality logo** - Your logo appears on all client-facing documents, so use a professional image.
+  **Use high-quality logo and set realistic due days** - Professional branding matters, and Net 30 is standard.
 </Tip>
 
 <Tip>
-  **Set realistic due days** - Net 30 is standard. Shorter terms may strain client relationships.
-</Tip>
-
-<Tip>
-  **Connect Stripe early** - Clients pay significantly faster when they can pay online immediately.
-</Tip>
-
-<Tip>
-  **Keep business information updated** - If you move or change contact info, update it in organization settings.
+  **Connect Stripe early** - Clients pay significantly faster with online payment options.
 </Tip>
 
 ## Troubleshooting
 
-### Logo Not Appearing
-- Check file size (under 5MB)
-- Verify file format (PNG, JPG, SVG)
-- Try re-uploading
-- Clear browser cache
+**Logo not appearing:** Check file size (under 5MB), format (PNG/JPG/SVG), re-upload, clear cache
 
-### Stripe Connection Issues
-- Complete all onboarding steps
-- Verify bank account
-- Check account status in Settings → Payments
-- Contact Stripe support for account-specific issues
+**Stripe connection issues:** Complete all onboarding steps, verify bank account, check status in Settings → Payments
 
-### Tax Not Calculating
-- Verify sales tax default is set
-- Check line item tax settings on invoice
-- Ensure tax rate is entered as percentage (e.g., 13, not 0.13)
+**Tax not calculating:** Verify sales tax default is set, check line item tax settings, enter rate as percentage (13, not 0.13)
 
-### Default Notes Not Appearing
-- Save organization settings after adding notes
-- Refresh invoice creation page
-- Check that you're creating new invoices (existing drafts keep old settings)
+**Default notes not appearing:** Save settings after adding notes, refresh invoice page, create new invoices (drafts keep old settings)
 
 ## Next Steps
 

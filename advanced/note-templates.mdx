@@ -5,256 +5,147 @@ description: "Create reusable note templates for invoices and proposals to maint
 
 ## Overview
 
-Note templates let you create reusable text snippets for invoices and proposals. Standardize payment terms, thank-you messages, scope descriptions, and other common text to save time and maintain consistency.
+Note templates are reusable text snippets for invoices and proposals. Standardize payment terms, thank-you messages, and scope descriptions to save time and maintain consistency.
 
-## What Are Note Templates?
-
-Templates are saved text blocks that can be inserted into:
+**Use templates in:**
 - Invoice notes
 - Proposal scope sections
-- Proposal client messages
-- Email templates
+- Client messages
 
-**Benefits:**
-- **Consistency**: Same professional messaging every time
-- **Time Savings**: Don't retype common text
-- **Professionalism**: Well-crafted, error-free messaging
-- **AI Integration**: Agents reference templates for consistent language
+**Benefits:** Consistency, time savings, and Every Agent integration for professional messaging
 
 ## Creating Note Templates
 
-### Basic Template Creation
+Go to **Settings** → **Note Templates** → **Create Template**
 
-1. Navigate to **Settings** → **Note Templates**
-2. Click **Create Template**
-3. Fill in template details
+**Fields:**
+- **Name**: Internal identifier
+- **Content**: The reusable text
+- **Category** (optional): Organize by type
+- **Default** (optional): Auto-fill on new invoices/proposals
 
-**Required:**
-- **Name**: Template identifier (for you, not client-facing)
-- **Content**: The text to reuse
+<Tip>
+  **Ask Every Agent:** Create templates quickly:
+  - "Create a note template called 'Net 30 Payment Terms' with standard payment instructions"
+  - "Make a thank you message template for first-time clients"
+  - "Create a project scope template for website development projects"
+</Tip>
 
-**Optional:**
-- **Description**: What this template is for
-- **Category**: Organize by type (Payment Terms, Thank You, Scope, etc.)
-- **Default**: Set as default for invoices or proposals
-
-4. Click **Save**
-
-### Template Types
+### Common Template Types
 
 **Payment Terms:**
 ```
-Payment is due within 30 days of invoice date.
-Late payments subject to 1.5% monthly interest.
-For questions, contact accounting@yourbusiness.com.
+Payment due within 30 days. Late payments subject to 1.5% monthly interest.
 ```
 
-**Thank You Messages:**
+**Thank You:**
 ```
-Thank you for your business! We appreciate the opportunity
-to work with you and look forward to our continued partnership.
+Thank you for your business! We appreciate the opportunity to work with you.
 ```
 
 **Project Scope:**
 ```
-This project includes design, development, testing, and deployment.
-Two rounds of revisions included. Additional revisions billed at
-standard hourly rate. Timeline: 4-6 weeks from approval.
-```
-
-**Late Payment Notice:**
-```
-This invoice is now overdue. Please remit payment immediately
-to avoid service interruption. Contact us if you need to discuss
-payment arrangements.
+Includes design, development, testing, deployment. Two revision rounds included.
+Timeline: 4-6 weeks from approval.
 ```
 
 ## Using Templates
 
 ### In Invoices
 
-**To Insert Template:**
-1. Create or edit invoice
-2. In **Notes** field, click **Insert Template**
-3. Select template from list
-4. Template text inserted
-5. Edit if needed for this specific invoice
-6. Save invoice
+Create/edit invoice → **Notes** field → **Insert Template** → Select template → Edit if needed → Save
 
-**Default Templates:**
-- Set default template for all new invoices
-- Auto-fills notes field
-- Can override per invoice
+**Default templates** auto-fill on new invoices but can be overridden
+
+<Tip>
+  **Ask Every Agent:** Apply templates to invoices:
+  - "Use my standard payment terms template on this invoice for ACME Corp"
+  - "Create an invoice with my 'Thank You' template in the notes"
+  - "Add the late payment notice template to invoice #1234"
+</Tip>
 
 ### In Proposals
 
-**Scope Section:**
-1. Create or edit proposal
-2. In **Scope** field, click **Insert Template**
-3. Select scope template
-4. Customize for this proposal
+**Scope/Client Message:** Click **Insert Template** → Select → Customize
 
-**Client Message:**
-1. In **Client Message** field
-2. Click **Insert Template**
-3. Select message template
-4. Personalize as needed
+### Setting Defaults
 
-### Default Templates
+Edit template → Check **Default for Invoices/Proposals** → Save. All new documents will auto-fill with this template.
 
-Set templates to prefill automatically:
+## Every Agent Integration
 
-**Invoice Default:**
-1. Edit template
-2. Check **Default for Invoices**
-3. Save
-4. All new invoices use this template
+Every Agent references your templates when creating invoices/proposals, ensuring consistent language and maintaining your brand voice.
 
-**Proposal Default:**
-1. Edit template
-2. Check **Default for Proposals**
-3. Save
-4. All new proposals use this template
-
-<Tip>
-  Default templates save the most time. Set them for your most common messaging!
-</Tip>
-
-## AI Integration
-
-Templates enhance AI Agent capabilities:
-
-**How AI Uses Templates:**
-- References stored templates when creating invoices/proposals
-- Ensures consistent client-facing language
-- Maintains your brand voice
-- Reduces hallucinations (uses your actual text)
-
-**Example:**
-```
-User: "Create an invoice for ACME Corp for consulting"
-Agent: Generates invoice with your default payment terms template
-Result: Consistent, professional invoice matching your brand
-```
+**Example:** "Create an invoice for ACME Corp" → Agent uses your default payment terms template automatically
 
 ## Managing Templates
 
-### Template Library
+**Organize:** Create categories (Payment, Scope, Legal), search by name, archive outdated templates
 
-**Organization:**
-- Create categories: Payment, Scope, Thank You, Legal, etc.
-- Search by name or content
-- Sort by category or frequency of use
-- Archive outdated templates
+<Tip>
+  **Ask Every Agent:** Manage your template library:
+  - "Show me all my note templates"
+  - "List all payment terms templates"
+  - "What templates do I have for proposals?"
+</Tip>
 
 ### Editing Templates
 
-**To Edit:**
-1. Open template
-2. Click **Edit**
-3. Update content
-4. Save changes
+Open template → **Edit** → Update → **Save**
 
-**Impact:**
-- Existing invoices/proposals NOT affected
-- Only new uses of template get updated text
-- Historical documents preserved
+**Impact:** Only new uses get updated text. Existing documents preserved.
+
+<Tip>
+  **Ask Every Agent:** Update templates easily:
+  - "Update my 'Net 30 Terms' template to change the email to billing@mybusiness.com"
+  - "Edit the thank you template to add our new phone number"
+  - "Change my default invoice template to include online payment instructions"
+</Tip>
 
 ### Deleting Templates
 
-**To Delete:**
-1. Open template
-2. Click **Delete**
-3. Confirm deletion
-
-**Impact:**
-- Template removed from library
-- Cannot be inserted into new documents
-- Historical uses preserved (text already in documents stays)
+Open template → **Delete** → Confirm. Historical documents preserved.
 
 <Warning>
-  Only delete templates you're certain you won't need. Consider archiving instead.
+  Consider archiving instead of deleting. You can't recover deleted templates.
 </Warning>
 
 ## Best Practices
 
 <Tip>
-  **Create templates for repetitive text** - Anything you type more than 3 times deserves a template.
+  **Create templates for repetitive text** - Anything typed more than 3 times deserves a template.
 </Tip>
 
 <Tip>
-  **Use clear template names** - "Net 30 Payment Terms" is better than "Terms 1".
+  **Use clear names** - "Net 30 Payment Terms" > "Terms 1"
 </Tip>
 
 <Tip>
-  **Keep templates professional** - These appear in client-facing documents.
+  **Set defaults** - Default templates save the most time on common documents.
 </Tip>
 
 <Tip>
-  **Review and update regularly** - Update contact info, policies, pricing as they change.
+  **Update regularly** - Keep contact info, policies, and pricing current.
 </Tip>
 
-<Tip>
-  **Set defaults for common cases** - Default invoice and proposal templates save the most time.
-</Tip>
+## Template Examples
 
-<Tip>
-  **Categorize templates** - Helps find the right template quickly.
-</Tip>
-
-## Common Template Examples
-
-### Payment Terms
-
-**Net 30 Standard:**
+**Net 30 Payment Terms:**
 ```
-Payment due within 30 days of invoice date. We accept credit cards,
-bank transfers, and checks. Late payments subject to 1.5% monthly interest.
+Payment due within 30 days. We accept credit cards and bank transfers.
+Late payments subject to 1.5% monthly interest.
 ```
 
-**Net 15 with Online Payment:**
-```
-Payment due within 15 days. Pay securely online with credit card using
-the "Pay Now" button above, or send payment to [bank details].
-```
-
-### Thank You Messages
-
-**Standard Thank You:**
+**Thank You:**
 ```
 Thank you for your business! We appreciate your trust and look forward
 to continuing to serve you.
 ```
 
-**First-Time Client:**
+**Website Development Scope:**
 ```
-Welcome! Thank you for choosing us for your project. We're excited to
-work with you and committed to exceeding your expectations.
-```
-
-### Scope Templates
-
-**Website Development:**
-```
-Includes: Custom design, responsive development, CMS integration, SEO
-optimization, 2 revision rounds. Excludes: Content creation, photography,
-ongoing maintenance. Timeline: 6-8 weeks from approval.
-```
-
-**Monthly Consulting Retainer:**
-```
-10 hours per month of consulting services. Unused hours do not roll over.
-Additional hours billed at $[rate]/hour. Includes email/phone support
-and one monthly strategy session.
-```
-
-### Legal/Terms
-
-**Standard Terms:**
-```
-Work begins upon receipt of signed agreement and 50% deposit. Final
-payment due upon completion. Client owns final deliverables upon full
-payment. [Your Business] retains right to use work in portfolio.
+Includes: Custom design, responsive development, CMS integration, SEO, 2 revision
+rounds. Excludes: Content creation, photography. Timeline: 6-8 weeks from approval.
 ```
 
 ## Next Steps
@@ -281,7 +172,7 @@ payment. [Your Business] retains right to use work in portfolio.
     icon="robot"
     href="/ai/every-agent"
   >
-    AI uses your templates for consistency
+    Every Agent uses your templates for consistency
   </Card>
 
   <Card

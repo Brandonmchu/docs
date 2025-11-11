@@ -120,7 +120,7 @@
       "anchors": [
         {
           "anchor": "Launch App",
-          "href": "https://app.every.ai",
+          "href": "https://every.ai",
           "icon": "rocket"
         },
         {
@@ -145,7 +145,7 @@
     "primary": {
       "type": "button",
       "label": "Login",
-      "href": "https://app.every.ai"
+      "href": "https://every.ai"
     }
   },
   "contextual": {

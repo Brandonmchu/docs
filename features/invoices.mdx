@@ -11,40 +11,13 @@ Invoices are the core of Every AI. Create professional, branded invoices, send t
 
 Every invoice moves through defined states during its lifecycle:
 
-### Draft
-- Work in progress
-- Not sent to client
-- Can be edited freely
-- Not visible to client
-- No email sent
-
-### Issued
-- Sent to client
-- Client has access
-- Payment pending
-- Email delivered
-- Public page available
-
-### Paid
-- Payment received (full amount)
-- No outstanding balance
-- Payment recorded
-- Status automatically updated
-- Client notified (if online payment)
-
-### Overdue
-- Past due date
-- No payment received
-- Payment reminder recommended
-- Status shown in red
-- Tracked separately for follow-up
-
-### Void
-- Cancelled invoice
-- No payment expected
-- Removed from outstanding balance
-- Preserved for records
-- Cannot be un-voided
+| Status | Description | Key Features |
+|--------|-------------|--------------|
+| **Draft** | Work in progress | Not sent, fully editable, not visible to client |
+| **Issued** | Sent to client | Payment pending, email delivered, public page available |
+| **Paid** | Payment received | Full amount paid, balance = $0, automatically updated |
+| **Overdue** | Past due date | No payment received, shown in red, needs follow-up |
+| **Void** | Cancelled | No payment expected, preserved for records, cannot be un-voided |
 
 <Note>
   Invoice status updates automatically based on due dates and payments received.
@@ -54,13 +27,14 @@ Every invoice moves through defined states during its lifecycle:
 
 ### Basic Invoice Creation
 
-1. Navigate to **Invoices** in main menu
-2. Click **Create Invoice** or **+** button
-3. Select a **client** (required)
-4. Add **line items** (services/products)
-5. Set **payment terms** (dates, reference)
-6. Add optional **notes** and **attachments**
-7. **Save as Draft** or **Send Invoice**
+Go to Invoices → Create Invoice → Select client → Add line items → Set payment terms → Save as Draft or Send
+
+<Tip>
+  **Ask Every Agent:** Create invoices with natural language:
+  - "Create an invoice for ACME Corp for $5,000"
+  - "Make a draft invoice for Tech Solutions with 20 hours of consulting at $150/hour"
+  - "Invoice Client ABC for the web design project we discussed"
+</Tip>
 
 ### Invoice Components
 
@@ -82,93 +56,42 @@ Every invoice moves through defined states during its lifecycle:
 
 #### Line Items
 
-Line items are the individual services or products you're billing.
-
-**Line Item Fields:**
-- **Description**: What you're billing for
-- **Quantity**: How many units
-- **Rate**: Price per unit
-- **Tax**: Tax percentage (if applicable)
-- **Total**: Calculated automatically (quantity × rate + tax)
+**Line Item Fields:** Description, quantity, rate, tax (optional), total (auto-calculated)
 
 **Adding Line Items:**
+- **From Offerings** (Recommended): Select offering → Details auto-fill → Adjust quantity
+- **Manual Entry**: Add line item → Enter description, quantity, rate, tax
+- **From Time Records**: Select unbilled time → Converts to line items (hours × rate) → Marked as billed
+- **From Expenses**: Select billable expenses → Becomes line items → Marked as billed
 
-**Option 1: From Offerings** (Recommended)
-1. Click **Add Line Item**
-2. Select **Choose Offering**
-3. Pick from your offering list
-4. Details auto-fill (description, rate, tax)
-5. Adjust quantity if needed
-
-**Option 2: Manual Entry**
-1. Click **Add Line Item**
-2. Type description manually
-3. Enter quantity and rate
-4. Set tax rate
-5. Save line item
-
-**Option 3: From Time Records**
-1. Select **Add from Time Tracking**
-2. Choose unbilled time records
-3. Time converts to line items
-4. Calculation: hours × hourly rate
-5. Time records marked as "billed"
-
-**Option 4: From Expenses**
-1. Select **Add from Expenses**
-2. Choose billable expenses for this client
-3. Expenses become line items
-4. Includes expense amount and description
-5. Expenses marked as "billed"
+<Tip>
+  **Ask Every Agent:** Add line items easily:
+  - "Add 10 hours of consulting to the invoice for Client ABC"
+  - "Add my unbilled time from last month to this invoice"
+  - "Include the web design service from my offerings at $2,500"
+  - "Add all billable expenses for ACME Corp to their invoice"
+</Tip>
 
 #### Financial Details
 
-**Subtotal**: Sum of all line item amounts (before tax)
+**Calculation**: Subtotal - Discount + Tax = Total Amount Due (all automatic)
 
-**Tax**: Applied per line item or to subtotal
-- Set per line item, or
-- Apply to entire invoice
-- Automatic calculation
-- Configurable tax rate
+**Tax**: Applied per line item or to entire invoice with configurable rate
 
-**Discounts** (Optional):
-- **Percentage Discount**: 10% off, 15% off, etc.
-- **Fixed Amount Discount**: $50 off, $100 off, etc.
-- Applied to subtotal before tax
-- Discount reason can be added
+**Discounts**: Percentage (10%, 15%) or fixed amount ($50, $100) applied to subtotal before tax
 
-**Total Amount**:
-```
-Subtotal
-- Discount
-+ Tax
-= Total Amount Due
-```
-
-Calculated automatically. No manual calculation needed!
+<Tip>
+  **Ask Every Agent:** Apply discounts to invoices:
+  - "Apply a 10% discount to the invoice for returning customer"
+  - "Give ACME Corp a $500 discount on their invoice"
+</Tip>
 
 #### Payment Terms
 
-**Issue Date**: Date invoice is created/sent
-- Defaults to today
-- Can be backdated if needed
-
-**Due Date**: Payment deadline
-- Automatically calculated from organization default due days
-- Can be set manually
-- Determines when invoice becomes overdue
-
-**Reference/PO Number** (Optional):
-- Client's purchase order number
-- Project reference
-- Internal tracking code
-- Helps client match to their records
-
-**Online Payments**:
-- Enable/disable per invoice
-- Requires Stripe connection
-- Adds "Pay Now" button to invoice
-- Clients pay by credit card
+- **Issue Date**: Defaults to today, can be backdated
+- **Due Date**: Auto-calculated from org defaults or set manually (determines overdue status)
+- **Reference/PO Number**: Client's purchase order or project reference (optional)
+- **Online Payments**: Enable Stripe "Pay Now" button per invoice
 
 <Tip>
   Set realistic due dates. Net 30 (30 days) is industry standard for most services.
@@ -176,69 +99,17 @@ Calculated automatically. No manual calculation needed!
 
 #### Notes & Terms
 
-Add custom notes that appear on the invoice:
+Add custom notes for payment instructions, terms, or thank you messages. Organization defaults auto-fill and can be edited per invoice.
 
-**Common Uses:**
-- Payment instructions
-- Thank you message
-- Specific terms for this project
-- Late payment policies
-- Bank transfer details
-
-**Default Notes**:
-- Organization default notes auto-fill
-- Can be edited per invoice
-- Useful for standard terms
-
-**Example Note:**
-```
-Thank you for your business! Payment is due within 30 days.
-Late payments subject to 1.5% monthly interest. For questions,
-contact accounting@yourbusiness.com.
-```
+**Example:** "Thank you for your business! Payment is due within 30 days. Late payments subject to 1.5% monthly interest."
 
 #### Attachments
 
-Upload supporting documents to invoices:
-
-**Supported Files:**
-- PDFs (contracts, agreements)
-- Images (receipts, photos)
-- Word documents
-- Excel spreadsheets
-- Up to 5MB per file
-
-**Attachment Features:**
-- Visible to clients on public invoice page
-- Downloadable by client
-- Stored securely
-- Multiple attachments per invoice
-
-**Common Attachments:**
-- Service contracts
-- Work samples
-- Receipt documentation
-- Terms and conditions
-- Detailed specifications
+Upload PDFs, images, Word docs, or Excel files (up to 5MB each). Attachments are visible and downloadable by clients on the public invoice page. Common uses: contracts, work samples, terms, specifications.
 
 ### Currency Selection
 
-Choose currency per invoice:
-
-**Supported:**
-- USD (United States Dollar)
-- CAD (Canadian Dollar)
-
-**How it Works:**
-- Organization default currency pre-selected
-- Override per invoice if needed
-- All amounts displayed in selected currency
-- Automatic formatting ($ symbol)
-
-**Use Cases:**
-- US business billing Canadian client (CAD)
-- Canadian business billing US client (USD)
-- Mixed client base in both countries
+Select USD or CAD per invoice (defaults to organization currency). Useful for mixed client bases in both countries.
 
 <Note>
   Currency cannot be changed after invoice is issued.
@@ -246,108 +117,37 @@ Choose currency per invoice:
 
 ### Templates & Branding
 
-Invoice templates control visual appearance:
-
-**Template Features:**
-- Organization logo
-- Brand colors
-- Professional layouts
-- Consistent styling
-
-**Templates Available:**
-- Modern
-- Classic
-- Professional
-- Creative
-
-**Template Selection:**
-- Default: Organization's selected template
-- Override: Choose different template per invoice
-- Preview before sending
-
-**What's Branded:**
-- Invoice header with logo
-- Color accents
-- Typography
-- Layout structure
-- Public invoice page
-
-All branding from organization settings applied automatically!
+Choose from Modern, Classic, Professional, or Creative templates. Organization logo, brand colors, and styling apply automatically. Override default template per invoice if needed.
 
 ### Scheduled Sends
 
-Queue invoices to send automatically on future date:
+Queue invoices to send automatically on a future date/time. Create invoice → Choose Schedule Send → Select date/time → System sends automatically. Editable until send time.
 
-**How Scheduled Sends Work:**
-1. Create invoice
-2. Instead of "Send Now", choose **Schedule Send**
-3. Select future date and time
-4. Invoice saved as draft with scheduled task
-5. System automatically sends on scheduled date
-6. Email delivered, status changes to Issued
-
-**Use Cases:**
-- Schedule month-end invoicing
-- Send on project completion date
-- Coordinate with client's billing cycle
-- Queue multiple invoices to send together
-
-**Managing Scheduled Sends:**
-- View scheduled date on invoice
-- Edit schedule before send time
-- Cancel schedule if needed
-- Invoice remains draft until send
+**Use Cases:** Month-end invoicing, project completion dates, client billing cycles
 
 <Tip>
-  Scheduled sends are editable until the send time, so you can make changes if needed!
+  **Ask Every Agent:** Schedule invoice sends:
+  - "Schedule this invoice to send next Monday at 9am"
+  - "Send the ACME Corp invoice on the 1st of next month"
 </Tip>
 
 ## Sending Invoices
 
 ### Sending Process
 
-**To Send an Invoice:**
+Review invoice → Check client email → Preview → Click Send Invoice
 
-1. Review invoice details
-2. Check client email (and CC emails)
-3. Preview invoice appearance
-4. Click **Send Invoice**
-5. Confirm send
+**What Happens:** Email sent to client (and CC recipients), status changes to Issued, public invoice page created, email tracking begins. Email contains PDF attachment, public page link, and payment instructions.
 
-**What Happens:**
-- Email sent to client (and CC recipients)
-- Invoice status changes to **Issued**
-- Public invoice page created
-- Email tracking begins
-- Client can view and pay invoice
-
-**Email Contains:**
-- Invoice PDF attachment
-- Link to public invoice page
-- Payment instructions
-- Professional branded message
+<Tip>
+  **Ask Every Agent:** Send invoices to clients:
+  - "Send invoice INV-123 to the client"
+  - "Send the ACME Corp invoice now"
+</Tip>
 
 ### Email Delivery Tracking
 
-Track every step of invoice delivery:
-
-**Tracked Events:**
-- **Delivered**: Email successfully delivered
-- **Opened**: Client opened the email
-- **Clicked**: Client clicked invoice link
-- **Bounced**: Email failed to deliver
-- **Spam**: Marked as spam (rare)
-
-**View Tracking:**
-1. Open invoice detail page
-2. See **Email Activity** section
-3. View all events with timestamps
-
-**Benefits:**
-- Know when client saw invoice
-- Time follow-ups appropriately
-- Identify delivery issues
-- Measure engagement
+Track delivery, opens, clicks, bounces, and spam reports with timestamps in the Email Activity section. Use this to time follow-ups and identify delivery issues.
 
 <Tip>
   Wait to follow up until you see the client opened the email. No need to bother them before they've seen it!
@@ -355,255 +155,106 @@ Track every step of invoice delivery:
 
 ### Resending Invoices
 
-Need to send again? Easy:
+Open invoice → Click Resend Invoice → Add message (optional) → Send. Creates new email event with separate tracking while preserving full history.
 
-1. Open invoice
-2. Click **Resend Invoice**
-3. Optionally add a message
-4. Click **Send**
-
-**Resend Tracking:**
-- New email event created
-- Separate tracking for resend
-- Full history preserved
-
-**When to Resend:**
-- Client didn't receive original
-- Client lost invoice
-- Need to remind about payment
-- Update client on payment terms
+<Tip>
+  **Ask Every Agent:** Resend invoices:
+  - "Resend invoice INV-123 to the client"
+  - "Send a reminder for the ACME Corp invoice"
+</Tip>
 
 ## Public Invoice Pages
 
-Every issued invoice has a secure, branded public page.
+Every issued invoice has a secure, branded public page with full invoice details, organization branding, line items, payment terms, downloadable attachments, and Pay Now button (if Stripe connected). Mobile-responsive, print-friendly, with unique non-guessable URL.
 
-### Public Page Features
-
-**Client View:**
-- Full invoice details
-- Organization branding (logo, colors)
-- Line items and totals
-- Payment terms
-- Attachments (downloadable)
-- Pay Now button (if Stripe connected)
-- Mobile-responsive design
-
-**Security:**
-- Unique, non-guessable URL
-- No login required
-- Secure HTTPS
-- Optional password protection (future)
-
-**Professional Appearance:**
-- Branded with your organization
-- Clean, modern design
-- Print-friendly
-- PDF download option
-
-### Payment on Public Page
-
-If Stripe is connected:
-
-1. Client opens public invoice page
-2. Clicks **Pay Now** button
-3. Enters credit card details
-4. Payment processes through Stripe
-5. Invoice marked as **Paid** automatically
-6. Client and business receive confirmation
-
-Clients can pay invoices anytime, 24/7, from anywhere!
+**Payment Flow:** Client opens page → Clicks Pay Now → Enters card details → Payment processes → Invoice marked Paid automatically → Confirmation sent to both parties
 
 ## Managing Invoices
 
 ### Invoice List View
 
-**Features:**
-- **Summary Cards**: Quick stats (total, paid, overdue)
-- **Filters**: Status, client, date range
-- **Search**: By invoice number, client, amount
-- **Sort**: Date, amount, status, client
-- **Bulk Actions**: Send, archive, delete multiple invoices
+**Features:** Summary cards (total, paid, overdue), filters (status, client, date range), search (invoice number, client, amount), sort options, bulk actions (send, archive, delete)
 
-**Status Filters:**
-- All Invoices
-- Drafts
-- Issued (unpaid)
-- Paid
-- Overdue
-- Void
+**Status Filters:** All, Drafts, Issued (unpaid), Paid, Overdue, Void
+
+<Tip>
+  **Ask Every Agent:** View and filter invoices:
+  - "Show me all draft invoices"
+  - "List all overdue invoices"
+  - "Show invoices for ACME Corp from last month"
+</Tip>
 
 ### Editing Invoices
 
-**Draft Invoices:**
-- Edit freely
-- Change any field
-- Add/remove line items
-- Update client (before issuing)
+**Draft Invoices:** Edit freely - change any field, add/remove line items, update client
 
-**Issued Invoices:**
-- Limited editing
-- Can't change amounts or client
-- Can add attachments
-- Can add notes
-- Can record payments
+**Issued Invoices:** Limited editing - can't change amounts or client, but can add attachments/notes and record payments
 
 <Warning>
   Once an invoice is issued, major changes are restricted. Create a new invoice or void the old one if significant changes are needed.
 </Warning>
 
+<Tip>
+  **Ask Every Agent:** Edit draft invoices:
+  - "Update the invoice for ACME Corp to $6,000"
+  - "Change the due date on invoice INV-123 to next Friday"
+</Tip>
+
 ### Voiding Invoices
 
-Cancel invoices that won't be paid:
+Open invoice → Click Void Invoice → Add reason (optional) → Confirm
 
-**To Void:**
-1. Open invoice
-2. Click **Void Invoice**
-3. Add reason (optional)
-4. Confirm voiding
+**Result:** Status changes to Void, removed from outstanding balances, hidden from overdue list, preserved in history (cannot be un-voided)
 
-**What Happens:**
-- Status changes to **Void**
-- Removed from outstanding balances
-- Hidden from overdue list
-- Preserved in history
-- Cannot be un-voided
+**When to Void:** Client cancelled project, invoice created in error, service not provided, replaced by new invoice
 
-**When to Void:**
-- Client cancelled project
-- Invoice created in error
-- Service not provided
-- Replaced by new invoice
-
-**Alternative to Voiding:**
-- Apply full discount
-- Record $0 payment
-- Mark as paid without payment
+<Tip>
+  **Ask Every Agent:** Void invoices:
+  - "Void invoice INV-123"
+  - "Cancel the invoice for XYZ Company"
+</Tip>
 
 ### Duplicating Invoices
 
-Create copy of existing invoice:
+Open invoice → Click Duplicate Invoice → New draft created with same client, line items, notes, terms → Adjust as needed → Send
 
-1. Open invoice
-2. Click **Duplicate Invoice**
-3. New draft created with same:
-   - Client
-   - Line items
-   - Notes
-   - Terms
-4. Adjust as needed
-5. Send new invoice
+**Use Cases:** Recurring manual invoicing, similar projects for same client, template for similar services
 
-**Use Cases:**
-- Recurring manual invoicing
-- Similar projects for same client
-- Template for similar services
-- Correcting issued invoice (void original, send duplicate with changes)
+<Tip>
+  **Ask Every Agent:** Duplicate invoices:
+  - "Duplicate invoice INV-123 for next month"
+  - "Create a copy of the ACME Corp invoice"
+</Tip>
 
 ### Archiving Invoices
 
-Archive old paid invoices:
+Select invoices → Click Archive bulk action → Invoices hidden from main view (still accessible via filter, included in reports, can be restored)
 
-**To Archive:**
-1. Select invoices
-2. Click **Archive** bulk action
-3. Invoices hidden from main view
+**When to Archive:** Old paid invoices, completed projects, end of fiscal year cleanup
 
-**Archived Invoices:**
-- Hidden from default list
-- Still accessible via filter
-- Included in reports
-- Can be restored
-- Data preserved
-
-**When to Archive:**
-- Old paid invoices
-- Completed projects
-- Clean up invoice list
-- End of fiscal year
+<Tip>
+  **Ask Every Agent:** Archive old invoices:
+  - "Archive all paid invoices from last year"
+  - "Move all 2024 paid invoices to archive"
+</Tip>
 
 ## Invoice Attachments
 
-### Adding Attachments
+Create/edit invoice → Find Attachments section → Add Attachment → Select file → Upload (max 5MB per file, multiple supported)
 
-**To Attach Files:**
-1. Create or edit invoice
-2. Find **Attachments** section
-3. Click **Add Attachment**
-4. Select file from computer
-5. Wait for upload
-6. File appears on invoice
+Files stored securely in cloud storage, accessible to you always and to clients via public invoice page. URLs expire for security.
 
-**Attachment Limits:**
-- Maximum 5MB per file
-- Multiple attachments supported
-- Total storage: Organization plan dependent
+**Common Uses:** Service agreements, work orders, project specifications, design mockups, proof of work, terms and conditions
 
-### Attachment Storage
-
-**Storage Details:**
-- Files stored in Supabase receipts bucket
-- Secure cloud storage
-- Signed URLs for access
-- Automatic backups
-
-**Access:**
-- You: Always accessible
-- Client: Accessible via public invoice page
-- Downloadable by client
-- URL expires for security (regenerated as needed)
-
-### Common Attachment Uses
-
-**Contracts:**
-- Service agreements
-- Master service agreements
-- Work orders
-
-**Documentation:**
-- Project specifications
-- Design mockups
-- Technical documentation
-
-**Proof of Work:**
-- Screenshots
-- Reports
-- Completed deliverables
-
-**Terms:**
-- Terms and conditions
-- Payment policies
-- SLAs
+<Tip>
+  **Ask Every Agent:** Manage invoice attachments:
+  - "Attach the contract to invoice INV-123"
+  - "Add the signed agreement to the ACME Corp invoice"
+</Tip>
 
 ## Invoice Activity Timeline
 
-Every invoice has a complete history:
-
-**Tracked Activities:**
-- Invoice created
-- Edited
-- Sent to client
-- Email delivered
-- Email opened
-- Email clicked
-- Payment received
-- Invoice voided
-- Notes added
-- Attachments added
-
-**Timeline Features:**
-- Chronological order
-- Timestamps
-- Actor (who did it)
-- Event details
-- Filterable
-- Exportable
-
-**Benefits:**
-- Complete audit trail
-- Track client engagement
-- Identify delays
-- Support disputes
-- Historical record
+Complete chronological history of all invoice events (created, edited, sent, delivered, opened, clicked, payment received, voided, notes/attachments added) with timestamps, actor, and event details. Filterable and exportable for audit trails and dispute support.
 
 ## Best Practices
 
@@ -612,119 +263,34 @@ Every invoice has a complete history:
 </Tip>
 
 <Tip>
-  **Use offerings** - Speed up invoice creation with pre-defined services.
+  **Use offerings and enable online payments** - Pre-defined services speed up creation, and online payment options help clients pay significantly faster.
 </Tip>
 
 <Tip>
-  **Enable online payments** - Clients pay significantly faster when they can pay immediately.
+  **Set clear due dates and detailed line items** - Net 30 is standard. Clear descriptions reduce client questions.
 </Tip>
 
 <Tip>
-  **Set clear due dates** - Net 30 is standard. Shorter terms may strain relationships.
-</Tip>
-
-<Tip>
-  **Add detailed line items** - Clear descriptions reduce client questions.
-</Tip>
-
-<Tip>
-  **Attach relevant documents** - Contracts and agreements keep everyone aligned.
-</Tip>
-
-<Tip>
-  **Track email opens** - Follow up after client has seen the invoice.
-</Tip>
-
-<Tip>
-  **Use scheduled sends** - Queue invoices to send at optimal times.
+  **Track email opens before follow-ups** - Use scheduled sends for optimal timing and wait to follow up until clients have seen the invoice.
 </Tip>
 
 ## Common Workflows
 
-### Standard Invoicing Workflow
+**Standard Invoicing:** Create invoice → Select client → Add line items from offerings → Review totals → Add notes/attachments → Send → Track delivery/opens → Receive payment → Record (or automatic if Stripe)
 
-1. Create invoice
-2. Select client
-3. Add line items from offerings
-4. Review totals
-5. Add notes if needed
-6. Attach contract (if applicable)
-7. Send invoice
-8. Track email delivery and opens
-9. Client pays online or sends payment
-10. Record payment (or automatic if Stripe)
-11. Invoice marked as paid
+**Time-Based Invoicing:** Track time during work period → Create invoice at billing cycle → Add time records as line items → Review hours/rates → Send → Time records marked as billed
 
-### Time-Based Invoicing
-
-1. Track time during work period
-2. Create invoice at billing cycle
-3. Select client
-4. Add time records as line items
-5. Review hours and rates
-6. Send invoice
-7. Time records marked as billed
-
-### Expense Billback Invoicing
-
-1. Log expenses throughout project
-2. Mark expenses as billable to client
-3. Create invoice
-4. Add billable expenses as line items
-5. Include other services
-6. Send invoice
-7. Expenses marked as billed
+**Expense Billback Invoicing:** Log expenses throughout project → Mark as billable → Create invoice → Add billable expenses as line items → Include other services → Send → Expenses marked as billed
 
 ## Troubleshooting
 
-### Invoice Not Sending
+**Invoice Not Sending:** Verify client email address, check internet connection, try resending, check email delivery status in invoice activity
 
-**Check:**
-- Client has valid email address
-- Internet connection active
-- Email service operational
-- Client email not typo
+**Client Didn't Receive Invoice:** Check email delivery status → Verify email address → Ask client to check spam → Resend invoice or send public invoice link directly
 
-**Solution:**
-- Verify client email
-- Try resending
-- Check email delivery status
-- Contact support if persistent
+**Can't Edit Issued Invoice:** Invoices are locked after sending for protection. Void and create new invoice, or record payment adjustment if minor change needed
 
-### Client Says They Didn't Receive Invoice
-
-**Steps:**
-1. Check email delivery status
-2. Verify email address correct
-3. Ask client to check spam folder
-4. Resend invoice
-5. Send public invoice link directly
-6. Try CC email if available
-
-### Can't Edit Issued Invoice
-
-**Reason:** Protection against altering invoices after sending
-
-**Solutions:**
-- Void invoice and create new one
-- Add credit note (future feature)
-- Record payment adjustment
-- Contact client to explain change
-
-### Wrong Total Calculation
-
-**Check:**
-- Tax applied correctly per line item
-- Discount applied correctly
-- All line items included
-- Currency correct
-- No duplicate line items
-
-**Solution:**
-- Review each line item
-- Recalculate manually to verify
-- Check tax settings
-- Contact support if calculation appears wrong
+**Wrong Total Calculation:** Review each line item, verify tax applied correctly per line item, check discount applied correctly, ensure no duplicate line items
 
 ## Next Steps
 

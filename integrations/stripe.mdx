@@ -5,302 +5,120 @@ description: "Accept online credit card payments, manage payouts, and track paym
 
 ## Overview
 
-Stripe integration enables online credit card payments on your invoices. Clients can pay instantly with major credit cards, payments are processed automatically, and invoice status updates in real-time.
+Stripe integration enables online credit card payments on your invoices. Clients pay instantly with major credit cards, payments are processed automatically, and invoice status updates in real-time.
 
 **Why Use Stripe:**
-- Clients pay 5-10x faster with instant payment option
-- Automatic payment tracking
-- Secure payment processing
-- Professional payment experience
-- Standard industry rates
+- Clients pay 5-10x faster with instant payment
+- Automatic payment tracking and invoice updates
+- Secure, professional payment experience
+- Standard industry rates (2.9% + $0.30)
 
-## Stripe Requirements
+## Connecting Stripe
 
-### What You Need
+### Quick Setup
 
-**Business Information:**
-- Legal business name
-- Business address
-- Tax ID/EIN (or SSN for sole proprietors)
-- Business type (LLC, Corporation, Sole Proprietor, etc.)
+Go to **Settings** → **Payments** → **Connect Stripe Account** → Choose to create new or connect existing Stripe account → Complete verification → Return to Every AI.
 
-**Banking Information:**
-- Business bank account
-- Account and routing numbers
-- Bank account ownership verification
-
-**Identity Verification:**
-- Government-issued ID
-- Business ownership documentation
-- May require additional documents for certain business types
-
-<Note>
-  You can start accepting payments during verification. Payouts may be held until full verification complete.
-</Note>
-
-## Setting Up Stripe
-
-### Initial Connection
-
-**Step-by-Step:**
-
-1. Navigate to **Settings** → **Payments**
-2. Click **Connect Stripe Account**
-3. You'll be redirected to Stripe's website
-4. Choose: **Create new Stripe account** or **Connect existing account**
-
-**If Creating New Account:**
-5. Enter email and create password
-6. Provide business information
-7. Add bank account details
-8. Submit identity documents
-9. Complete onboarding
-10. Return to Every AI
-
-**If Connecting Existing:**
-5. Log in to your Stripe account
-6. Authorize Every AI access
-7. Return to Every AI
-
-**Setup Complete:**
-- Connection status shown in Settings
-- Online payments now available on invoices
-- Test by creating and viewing sample invoice
+**What You Need:**
+- Business information (name, address, tax ID)
+- Bank account details for payouts
+- Government ID for verification
 
 <Tip>
-  Most users complete basic setup in 10 minutes. Full verification takes 1-3 business days.
+  **Ask Every Agent:** Connect Stripe:
+  - "Connect my Stripe account"
+  - "Set up online payments for invoices"
+  - "How do I enable Stripe integration?"
 </Tip>
 
-### Stripe Account Status
-
-**Enabled:**
-- ✅ Fully operational
-- ✅ Accept payments
-- ✅ Receive payouts
-- ✅ No restrictions
-
-**Payouts Disabled:**
-- ✅ Can accept payments from clients
-- ⚠️ Payouts on hold
-- Action: Complete bank account setup
-- Action: Finish identity verification
-
-**Restricted:**
-- ⚠️ Account under review
-- May need additional information
-- Check Stripe dashboard for details
-- Contact Stripe support
-
-**Not Connected:**
-- ❌ No Stripe integration
-- Cannot accept online payments
-- Need to connect account
-
 <Note>
-  Both "Enabled" and "Payouts Disabled" allow clients to pay. Focus on completing full onboarding for payouts.
+  You can start accepting payments during verification. Full setup takes 10 minutes; verification completes in 1-3 business days.
 </Note>
 
-## Using Stripe for Payments
+### Account Status
+
+**Enabled:** Fully operational, accept payments and receive payouts
+
+**Payouts Disabled:** Accept payments but payouts on hold (complete bank setup/verification)
+
+**Restricted:** Account under review (check Stripe dashboard)
+
+**Not Connected:** No integration active
+
+<Tip>
+  **Ask Every Agent:** Check status:
+  - "What's my Stripe account status?"
+  - "Check if Stripe is connected"
+</Tip>
+
+## Using Stripe Payments
 
 ### Enabling Online Payments
 
-**On New Invoice:**
-- Online payments enabled by default
-- Client sees "Pay Now" button
-- Can disable per invoice if needed
+Online payments are enabled by default on new invoices. Clients see a "Pay Now" button with secure Stripe payment form showing accepted card types.
 
-**On Existing Invoice:**
-- Edit draft invoice
-- Toggle "Enable Online Payments"
-- Save changes
-
-**What Client Sees:**
-- Professional invoice page
-- "Pay Now" button prominently displayed
-- Secure Stripe payment form
-- Accepted card types shown
+**To toggle:** Edit invoice → Toggle "Enable Online Payments" → Save
 
 ### Payment Process
 
-**Client Side:**
-1. Opens invoice link
-2. Reviews invoice details
-3. Clicks **Pay Now** button
-4. Enters credit card details (secure Stripe form)
-5. Clicks **Pay $X.XX**
-6. Payment processes instantly
-7. Sees confirmation page
-8. Receives email receipt
+**Client:** Opens invoice link → Reviews details → Clicks Pay Now → Enters card info → Payment processes instantly → Receives confirmation and email receipt
 
-**Your Side:**
-1. Receive instant notification email
-2. Invoice status automatically updates to **Paid**
-3. Payment record created
-4. Activity timeline updated
-5. Funds added to Stripe balance
+**You:** Receive instant notification → Invoice auto-updates to Paid → Payment record created → Funds added to Stripe balance
 
 <Tip>
-  The entire process takes less than 60 seconds for clients. No invoicing delays!
+  **Ask Every Agent:** Track payments:
+  - "Check the status of payment for invoice INV-123"
+  - "Show me all Stripe payments this month"
+  - "Has ACME Corp paid their invoice?"
 </Tip>
 
-### Supported Payment Methods
+**Supported Cards:** Visa, MasterCard, American Express, Discover, and other major cards
 
-**Credit Cards:**
-- Visa
-- MasterCard
-- American Express
-- Discover
-- Other major cards
+## Fees & Payouts
 
-**Processing:**
-- Real-time authorization
-- Instant confirmation
-- Automatic receipt generation
+### Processing Fees
 
-## Stripe Processing Fees
+**US & Canada:** 2.9% + $0.30 per transaction
 
-### Standard Rates
+**Example:** $1,000 invoice = $29.30 fee, you receive $970.70
 
-**US & Canada:**
-- **Credit Card**: 2.9% + $0.30 per transaction
-- **American Express**: Same as above (no premium)
-
-**Fee Calculation Example:**
-```
-Invoice Amount: $1,000
-Stripe Fee: ($1,000 × 0.029) + $0.30 = $29.30
-You Receive: $970.70
-```
-
-**Who Pays Fees:**
-- You (the business) pay the fees
-- Fees deducted from payment automatically
-- Net amount deposited to your account
-
-**Volume Discounts:**
-- Available for high-volume businesses
-- Contact Stripe for custom pricing
-- Requires significant transaction volume
-
-<Note>
-  Stripe fees are standard across industry. They're worth it for faster payment!
-</Note>
-
-### Fee Transparency
-
-**Viewing Fees:**
-1. Go to Stripe Dashboard
-2. View **Payments** section
-3. See gross amount and fee for each transaction
-4. Net amount shown
-
-**Accounting for Fees:**
-- Fees are business expense (tax-deductible)
-- Track in accounting software
-- Include in expense reports
-- Reduce profit margin slightly
+Fees are automatically deducted and are tax-deductible business expenses. View detailed fees in Stripe Dashboard → Payments.
 
 <Tip>
   Factor processing fees into your pricing. Most businesses add 3% to rates to cover fees.
 </Tip>
 
-## Payouts & Banking
+### Payouts
 
-### How Payouts Work
+**How It Works:** Client pays → Funds collect in Stripe balance → Automatic payout to your bank → Arrives in 2-7 business days
 
-**Payout Process:**
-1. Client pays via Stripe
-2. Funds collect in your Stripe balance
-3. Stripe automatically initiates payout
-4. Funds transfer to your bank account
-5. Typically arrives in 2-7 business days
+**Schedule:** Daily automatic (default), or configure weekly/monthly in Stripe
 
-**Payout Schedule:**
-- **Default**: Daily automatic payouts
-- **Custom**: Weekly or monthly (configurable in Stripe)
-- **Manual**: On-demand payouts (requires setup)
+**First Payout:** 7-14 days (verification period)
 
-**Payout Timing:**
-- First payout: 7-14 days (verification period)
-- Subsequent payouts: 2 business days (US), 3-7 days (Canada)
-- Weekends/holidays may delay
+**Manage:** Log in to Stripe → Settings → Bank accounts and scheduling
 
-### Managing Bank Accounts
-
-**In Stripe Dashboard:**
-1. Log in to Stripe
-2. Go to **Settings** → **Bank accounts and scheduling**
-3. View connected bank accounts
-4. Add additional accounts
-5. Set default payout account
-6. Configure payout schedule
-
-**Multiple Bank Accounts:**
-- Add backup account
-- Route payouts to different accounts
-- Useful for accounting separation
+<Tip>
+  **Ask Every Agent:** Review payouts:
+  - "Show me my Stripe payouts this month"
+  - "When is my next payout?"
+  - "What's my current Stripe balance?"
+</Tip>
 
 <Warning>
-  Always verify bank account details. Incorrect routing/account numbers delay payouts!
+  Verify bank account details carefully. Incorrect numbers delay payouts!
 </Warning>
-
-### Payout Reports
-
-**Track Payouts:**
-- View in Stripe Dashboard
-- Download payout statements
-- See breakdown: gross, fees, net
-- Reconcile with bank statements
-
-**Accounting Integration:**
-- Export payout data
-- Provide to accountant
-- Track revenue vs payments received
 
 ## Stripe Dashboard
 
-### Accessing Dashboard
+Access via Settings → Payments → View Stripe Dashboard (or directly at stripe.com)
 
-**From Every AI:**
-1. Settings → Payments
-2. Click **View Stripe Dashboard**
-3. Opens Stripe (may require login)
-
-**Direct:**
-1. Go to stripe.com
-2. Log in with Stripe credentials
-3. View full account
-
-### What's in Dashboard
-
-**Home:**
-- Payment volume
-- Balance
-- Recent payments
-- Recent payouts
-
-**Payments:**
-- All processed payments
-- Filter and search
-- Refund payments
-- View details
-
-**Balance:**
-- Current Stripe balance
-- Pending payouts
-- Payout history
-
-**Reports:**
-- Revenue reports
-- Fee summaries
-- Reconciliation data
-- Tax documents
-
-**Settings:**
-- Bank accounts
-- Business details
-- Payment methods
-- Security settings
+**Key Sections:**
+- **Home:** Payment volume, balance, recent activity
+- **Payments:** All transactions, refunds, search/filter
+- **Balance:** Current balance, pending/completed payouts
+- **Reports:** Revenue, fees, reconciliation, tax documents
+- **Settings:** Bank accounts, business details, security
 
 <Tip>
   Check Stripe Dashboard weekly to monitor payment activity and payouts!
@@ -310,25 +128,18 @@ You Receive: $970.70
 
 ### Processing Refunds
 
-**To Refund Payment:**
-1. Log in to Stripe Dashboard
-2. Find payment in **Payments** section
-3. Click payment
-4. Click **Refund Payment**
-5. Enter amount (full or partial)
-6. Add reason
-7. Confirm refund
+**In Stripe Dashboard:** Find payment → Click Refund Payment → Enter amount (full or partial) → Add reason → Confirm
 
-**What Happens:**
-- Funds returned to client's card (5-10 business days)
-- Stripe fees NOT refunded to you
-- Every AI invoice NOT automatically updated
-- Update invoice manually (void or note refund)
+**Important:**
+- Stripe fees are NOT refunded to you
+- Refunds take 5-10 business days to reach client
+- Every AI invoice NOT automatically updated (void invoice or add note manually)
 
-**Partial Refunds:**
-- Refund any amount up to original
-- Useful for adjustments or credits
-- Multiple partial refunds allowed
+<Tip>
+  **Ask Every Agent:** Process refunds:
+  - "Process a refund for ACME Corp's last payment"
+  - "Issue a partial refund of $500 for TechCo"
+</Tip>
 
 <Warning>
   Refunds don't update Every AI invoices automatically. Void invoice or add note about refund.
@@ -336,111 +147,45 @@ You Receive: $970.70
 
 ### Disputes & Chargebacks
 
-**If Client Disputes:**
-1. Stripe notifies you via email
-2. You receive chargeback notification
-3. Funds held or withdrawn pending resolution
-4. You have 7-14 days to respond
+**If disputed:** Stripe notifies you via email → You have 7-14 days to respond → Upload evidence (invoice, delivery confirmation, correspondence) → Stripe adjudicates
 
-**How to Respond:**
-1. Log in to Stripe Dashboard
-2. Go to disputed payment
-3. Upload evidence:
-   - Invoice
-   - Delivery confirmation
-   - Client correspondence
-   - Terms and conditions
-   - Any relevant documentation
-4. Submit response
-
-**Outcomes:**
-- **Win**: Funds returned to you
-- **Lose**: Funds returned to client, chargeback fee applied
-- **Partial**: Sometimes partial refund negotiated
+**Outcomes:** Win (funds returned to you), Lose (funds returned to client + chargeback fee), or Partial refund
 
 <Tip>
-  Good documentation prevents disputes. Keep records of all client communications and deliverables!
+  Keep records of all client communications and deliverables to prevent disputes!
 </Tip>
 
 ## Security & Compliance
 
-### PCI Compliance
-
-**Good News:** You're automatically PCI compliant!
-
-**Why:**
-- Stripe handles all card data
-- No card details stored on Every AI servers
-- Payment form hosted securely by Stripe
-- Compliance burden on Stripe, not you
-
-### Data Security
+**PCI Compliance:** Automatic! Stripe handles all card data, no card details stored on Every AI servers.
 
 **Security Features:**
 - HTTPS encryption
-- Stripe-hosted payment forms
-- No card data exposure
+- Stripe-hosted payment forms (no card data exposure)
 - Secure token-based integration
-- Two-factor authentication (Stripe login)
-
-### Fraud Protection
-
-**Stripe Radar:**
-- Automatic fraud detection
-- Machine learning algorithms
-- Blocks suspicious payments
-- Reduces chargebacks
+- Two-factor authentication available
+- Stripe Radar fraud detection
 
 **Best Practices:**
 - Verify large or unusual payments
 - Contact client if payment flagged
-- Document all work/deliverables
-- Clear service descriptions on invoices
+- Document all work and deliverables
+- Use clear service descriptions on invoices
 
 ## Troubleshooting
 
-### Client Can't Complete Payment
+### Payment Issues
 
-**Common Issues:**
-- Insufficient funds
-- Card declined by bank
-- Incorrect card details
-- Address verification failure
-- Payment flagged as fraud
+**Client can't complete payment:** Insufficient funds, declined card, incorrect details, or fraud flag → Ask client to contact bank or try different card
 
-**Solutions:**
-- Ask client to contact their bank
-- Try different card
-- Verify billing address matches card
-- Contact Stripe support for fraud flags
+**Payout not received:** Check Stripe Dashboard for payout status, verify bank details, wait full 2-7 business days, or contact Stripe support
 
-### Payout Not Received
-
-**Check:**
-- Payout initiated? (view Stripe Dashboard)
-- Correct bank account?
-- Processing time (2-7 business days)
-- Bank account status (closed/frozen?)
-
-**Solutions:**
-- Wait full processing time
-- Verify bank details in Stripe
-- Contact Stripe support
-- Contact your bank
-
-### Connection Lost
-
-**Reconnecting:**
-1. Settings → Payments
-2. Click **Reconnect Stripe**
-3. Log in to Stripe
-4. Reauthorize Every AI
-5. Connection restored
+**Connection lost:** Settings → Payments → Reconnect Stripe → Log in and reauthorize
 
 ## Best Practices
 
 <Tip>
-  **Enable online payments on all invoices** - Even if clients usually pay by check, give them the option!
+  **Enable online payments on all invoices** - Give clients the fastest payment option!
 </Tip>
 
 <Tip>
@@ -448,19 +193,7 @@ You Receive: $970.70
 </Tip>
 
 <Tip>
-  **Monitor Stripe Dashboard** - Check weekly for issues, unusual activity, or needed actions.
-</Tip>
-
-<Tip>
-  **Keep business documentation** - Invoices, contracts, delivery proof protect against chargebacks.
-</Tip>
-
-<Tip>
   **Complete verification** - Full verification prevents payout delays and increases limits.
-</Tip>
-
-<Tip>
-  **Factor fees into pricing** - Add 3% to rates to cover processing costs.
 </Tip>
 
 ## Next Steps
@@ -469,7 +202,7 @@ You Receive: $970.70
   <Card
     title="Connect Stripe"
     icon="stripe"
-    href="https://app.every.ai/settings/payments"
+    href="https://every.ai/settings/payments"
   >
     Start accepting online payments now
   </Card>

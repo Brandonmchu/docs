@@ -11,30 +11,11 @@ Every AI supports both online credit card payments through Stripe and manual pay
 
 ### Online Payments (Stripe)
 
-Accept credit card payments directly on invoice pages.
+Accept major credit cards (Visa, MasterCard, Amex, Discover) directly on invoice pages.
 
-**Supported Cards:**
-- Visa
-- MasterCard
-- American Express
-- Discover
-- Other major credit cards
+**How It Works:** Connect Stripe account → Create invoice with online payments enabled → Client opens invoice page → Clicks Pay Now → Enters card details (secure Stripe form) → Payment processes instantly → Invoice marked Paid automatically → Both parties receive confirmation
 
-**How It Works:**
-1. Connect Stripe account (Settings → Payments)
-2. Create and send invoice with online payments enabled
-3. Client opens public invoice page
-4. Client clicks **Pay Now** button
-5. Enters credit card details (secure Stripe form)
-6. Payment processes instantly
-7. Invoice automatically marked as **Paid**
-8. Both parties receive email confirmation
-
-**Processing Fees:**
-- Standard Stripe rates: typically 2.9% + $0.30 per transaction
-- Fees automatically deducted before deposit
-- You receive net amount
-- Transparent pricing
+**Processing Fees:** Typically 2.9% + $0.30 per transaction (automatically deducted before deposit)
 
 <Tip>
   Clients pay significantly faster when they can pay with a credit card immediately!
@@ -42,53 +23,25 @@ Accept credit card payments directly on invoice pages.
 
 ### Manual Payment Methods
 
-Record payments received outside the platform:
+**Supported Methods:** Cash, Check, Bank Transfer (wire/ACH/EFT), Credit Card (processed elsewhere), Other
 
-**Supported Methods:**
-- **Cash**: Physical currency
-- **Check**: Paper check
-- **Bank Transfer**: Wire transfer, ACH, EFT
-- **Credit Card**: Card processed outside platform
-- **Other**: Any other payment method
+**Recording:** Open invoice → Click Record Payment → Enter amount, date, method, optional notes/reference → Save (invoice status updates automatically)
 
-**Recording Manual Payments:**
-1. Open invoice
-2. Click **Record Payment**
-3. Enter payment details:
-   - Amount received
-   - Payment date
-   - Payment method
-   - Optional notes/reference
-4. Save payment
-
-Invoice status updates automatically based on amount received.
+<Tip>
+  **Ask Every Agent:** Record manual payments:
+  - "Record a $5,000 check payment from ACME Corp"
+  - "Mark invoice INV-123 as paid by bank transfer"
+</Tip>
 
 ## Stripe Integration
 
 ### Setting Up Stripe
 
-**Requirements:**
-- Business bank account
-- Business information
-- Government ID for verification
-- Tax information
+**Requirements:** Business bank account, business information, government ID, tax information
 
-**Setup Process:**
+**Setup:** Settings → Payments → Connect Stripe Account → Complete Stripe onboarding (business details, bank account, identity verification, tax info) → Return to Every AI
 
-1. Navigate to **Settings** → **Payments**
-2. Click **Connect Stripe Account**
-3. You'll be redirected to Stripe
-4. Complete Stripe's onboarding:
-   - Provide business details
-   - Add bank account for payouts
-   - Verify identity
-   - Submit tax information
-5. Complete setup and return to Every AI
-
-**Onboarding Time:**
-- Basic setup: 5-10 minutes
-- Full verification: 1-3 business days
-- Can accept payments during verification
+**Timeline:** Basic setup 5-10 minutes, full verification 1-3 business days (can accept payments during verification)
 
 <Note>
   You can accept payments even if your Stripe account is still under review. Payouts may be delayed until verification is complete.
@@ -96,28 +49,12 @@ Invoice status updates automatically based on amount received.
 
 ### Stripe Account Status
 
-**Enabled:**
-- Fully operational
-- Can accept payments
-- Payouts active
-- No restrictions
-
-**Payouts Disabled:**
-- Can accept payments
-- Payout setup incomplete
-- Complete bank account setup
-- Finish verification
-
-**Restricted:**
-- Account under review
-- May need additional information
-- Contact Stripe support
-- Follow Stripe's instructions
-
-**Not Connected:**
-- Stripe not set up yet
-- Online payments unavailable
-- Connect account to enable
+| Status | Description | Can Accept Payments? |
+|--------|-------------|---------------------|
+| **Enabled** | Fully operational, payouts active | Yes |
+| **Payouts Disabled** | Payout setup incomplete | Yes |
+| **Restricted** | Account under review, may need more info | Contact Stripe |
+| **Not Connected** | Stripe not set up yet | No |
 
 <Tip>
   Both "Enabled" and "Payouts Disabled" allow clients to pay invoices online!
@@ -125,143 +62,56 @@ Invoice status updates automatically based on amount received.
 
 ### Managing Stripe Connection
 
-**View Connection Status:**
-1. Go to Settings → Payments
-2. See current Stripe status
-3. View account details
-4. Access Stripe dashboard
+**View Status:** Settings → Payments → See current status, account details, access Stripe dashboard
 
-**Disconnect Stripe:**
-1. Settings → Payments
-2. Click **Disconnect Stripe**
-3. Confirm disconnection
-4. Online payments disabled
-5. Historical payment records preserved
+**Disconnect:** Settings → Payments → Disconnect Stripe → Confirm (online payments disabled, historical records preserved)
 
-**Reconnect:**
-- Follow setup process again
-- Can use same Stripe account
-- Or connect different account
+**Reconnect:** Follow setup process again with same or different Stripe account
 
 ### Stripe Payouts
 
-**How Payouts Work:**
-- Payments collect in Stripe balance
-- Automatic payout to your bank account
-- Payout schedule: Stripe's standard (usually daily)
-- Processing time: 2-7 business days
-
-**Payout Details:**
-- View in Stripe dashboard
-- Track payout status
-- See fee breakdowns
-- Download statements
-
-**Managing Payouts:**
-- Controlled in Stripe dashboard
-- Change payout schedule
-- Update bank account
-- View payout history
+Payments collect in Stripe balance → Automatic payout to bank account (usually daily, 2-7 business days processing). View payout status, fee breakdowns, and statements in Stripe dashboard. Manage payout schedule and bank account in Stripe dashboard.
 
 ## Payment Tracking
 
 ### Recording Manual Payments
 
-**To Record Payment:**
+Open invoice (must be issued) → Click Record Payment → Enter amount (full or partial), payment date (defaults to today, can backdate), payment method (Cash, Check, Bank Transfer, Credit Card, Other), reference/notes (check #, transaction ID, etc.) → Save Payment
 
-1. Open invoice (must be issued, not draft)
-2. Click **Record Payment**
-3. Enter payment information:
+**Result:** Payment record created, invoice status updated (Paid/Partial/Unpaid), outstanding balance recalculated, activity timeline updated
 
-**Amount:**
-- Full invoice amount (full payment)
-- Partial amount (partial payment)
-- Multiple partial payments allowed
-
-**Payment Date:**
-- Date payment was received
-- Defaults to today
-- Can be backdated
-
-**Payment Method:**
-- Select from dropdown
-- Cash, Check, Bank Transfer, Credit Card, Other
-
-**Reference/Notes:**
-- Check number
-- Transaction ID
-- Bank reference
-- Any relevant details
-
-4. Click **Save Payment**
-
-**What Happens:**
-- Payment record created
-- Invoice status updated:
-  - **Paid**: If full amount received
-  - **Partial**: If partial payment
-  - **Unpaid**: If zero paid
-- Outstanding balance recalculated
-- Activity timeline updated
+<Tip>
+  **Ask Every Agent:** Record detailed payments:
+  - "Record a $3,000 partial payment from ACME Corp on invoice INV-123"
+  - "Add a bank transfer payment of $10,000 received yesterday"
+  - "Mark check #4567 for $2,500 from Tech Solutions as received"
+</Tip>
 
 ### Partial Payments
 
-Accept payments in installments:
+Record first partial payment → Invoice shows "Paid $X of $Y" with outstanding balance → Status: Partially Paid → Record additional payments → Once fully paid, status changes to Paid
 
-**How It Works:**
-- Record first partial payment
-- Invoice shows: Paid $X of $Y
-- Outstanding balance displayed
-- Invoice status: Partially Paid
-- Record additional payments
-- Once fully paid, status changes to Paid
+**Example:** Invoice $1,000 → Payment 1: $500 (Partially Paid, balance $500) → Payment 2: $500 (Paid, balance $0)
 
-**Example:**
-```
-Invoice Total: $1,000
-Payment 1: $500 (recorded)
-Status: Partially Paid
-Balance Due: $500
-
-Payment 2: $500 (recorded)
-Status: Paid
-Balance Due: $0
-```
+<Tip>
+  **Ask Every Agent:** Handle partial payments:
+  - "Record the first installment of $1,000 from ACME Corp"
+  - "Record the final payment of $3,000 to complete invoice INV-456"
+</Tip>
 
 ### Payment History
 
-View all payments per invoice:
+View all payment records per invoice in the Payments section (date, amount, method, who recorded it, reference/notes, timestamp). Click payment for full details.
 
-**Payment Details:**
-- Date received
-- Amount
-- Payment method
-- Who recorded it
-- Reference/notes
-- Timestamp
-
-**Access Payment History:**
-1. Open invoice
-2. Scroll to **Payments** section
-3. See all payment records
-4. Click payment for full details
+<Tip>
+  **Ask Every Agent:** View payment history:
+  - "Show me all payments received this month"
+  - "List payments from ACME Corp"
+</Tip>
 
 ### Automatic Payment Notifications
 
-When clients pay online via Stripe:
-
-**Email Notifications:**
-- You receive payment confirmation
-- Client receives receipt
-- Both emails sent automatically
-- Includes payment details
-
-**Notification Contents:**
-- Invoice number and client
-- Amount paid
-- Date and time
-- Payment method
-- Transaction ID
+When clients pay online via Stripe, both parties automatically receive email notifications with invoice number, client, amount, date/time, payment method, and transaction ID.
 
 <Tip>
   Set up email notifications in Settings to ensure you're always notified of payments!
@@ -269,138 +119,80 @@ When clients pay online via Stripe:
 
 ## Client Payment Claims
 
-Clients can report payments they've made, which you then approve.
+Clients can report payments they've made, which you approve or reject.
 
-### How Payment Claims Work
+**How It Works:** Client views invoice → Clicks "I've paid this invoice" → Enters payment details → You receive notification → Review claim → Approve (creates payment record automatically) or Reject (request more info)
 
-**Client Side:**
-1. Client views invoice
-2. Clicks "I've paid this invoice"
-3. Enters payment details
-4. Submits claim
+**Benefits:** Client-initiated payment tracking, reduced back-and-forth, audit trail, you maintain control
 
-**Your Side:**
-1. Receive notification of claim
-2. Review payment claim
-3. Verify payment received
-4. **Approve**: Creates payment record automatically
-5. **Reject**: Request more information
+**Managing Claims:** Navigate to Payments/Invoices → See pending claims badge → Review details → Approve (verify payment received, check amount) or Reject (add reason) → Client notified
 
-**Benefits:**
-- Client can initiate payment tracking
-- Reduces back-and-forth communication
-- Audit trail of who claimed payment
-- You maintain control (approve/reject)
-
-### Managing Payment Claims
-
-**View Claims:**
-1. Navigate to **Payments** or **Invoices**
-2. See pending payment claims badge
-3. Click to review details
-
-**Approve Claim:**
-1. Verify payment actually received
-2. Check amount matches
-3. Click **Approve Payment Claim**
-4. Payment record created
-5. Invoice status updated
-6. Client notified of approval
-
-**Reject Claim:**
-1. Click **Reject**
-2. Add reason (optional)
-3. Client notified
-4. Can submit corrected claim
+<Tip>
+  **Ask Every Agent:** Manage payment claims:
+  - "Approve the payment claim from ACME Corp"
+  - "Show me all pending payment claims"
+</Tip>
 
 ## Payment Status & Invoice Updates
 
-### How Payments Affect Invoice Status
+Invoice status auto-updates based on payments:
 
-**Invoice Status Auto-Updates:**
+| Status Change | Trigger |
+|--------------|---------|
+| Unpaid → Paid | Full payment recorded (balance = $0) |
+| Unpaid → Partially Paid | Partial payment recorded (balance > $0) |
+| Overdue → Paid | Late full payment received |
+| Partially Paid → Paid | Final payment completes balance |
 
-**Unpaid** → **Paid**
-- When full payment amount recorded
-- Balance = $0
+**Outstanding Balance:** Total invoice amount - all payments recorded (updates automatically with each payment)
 
-**Unpaid** → **Partially Paid**
-- When partial payment recorded
-- Balance > $0
-
-**Overdue** → **Paid**
-- Late payment received
-- Full amount recorded
-
-**Partially Paid** → **Paid**
-- Final payment completes balance
-- Balance reaches $0
-
-### Outstanding Balance Calculation
-
-```
-Total Invoice Amount: $1,000
-Payment 1: $400
-Payment 2: $300
-Outstanding Balance: $300
-
-Status: Partially Paid
-```
-
-Balance updates automatically with each payment recorded.
+<Tip>
+  **Ask Every Agent:** Check outstanding balances:
+  - "Which invoices are still waiting for payment?"
+  - "What's the total outstanding balance across all clients?"
+</Tip>
 
 ## Deleting Payments
 
-Remove incorrectly recorded payments:
+Navigate to invoice → Find payment in Payments section → Click payment → Delete Payment → Confirm
 
-**To Delete Payment:**
-1. Navigate to invoice
-2. Find payment in Payments section
-3. Click payment to open details
-4. Click **Delete Payment**
-5. Confirm deletion
-
-**What Happens:**
-- Payment record removed
-- Outstanding balance recalculated
-- Invoice status updates accordingly
-- Activity timeline updated with deletion event
-- Cannot delete Stripe payments (refund through Stripe instead)
+**Result:** Payment record removed, outstanding balance recalculated, invoice status updated, activity timeline updated (cannot delete Stripe payments - refund through Stripe instead)
 
 <Warning>
   Only delete payments recorded in error. For refunds, process through Stripe dashboard or record negative adjustment.
 </Warning>
 
+<Tip>
+  **Ask Every Agent:** Delete incorrect payments:
+  - "Delete the payment I just recorded on invoice INV-123"
+  - "Remove the incorrect payment from ACME Corp invoice"
+</Tip>
+
 ## Payment Reporting
 
 ### Payment List View
 
-View all payments across all invoices:
+View all payments across all invoices with summary cards (total received, pending, etc.), filters (date range, payment method, client), search (invoice or amount), sort options, and CSV export.
 
-**Features:**
-- Summary cards (total received, pending, etc.)
-- Filter by date range
-- Filter by payment method
-- Filter by client
-- Search by invoice or amount
-- Sort by date or amount
-- Export to CSV
+**Summary Metrics:** Total received, total outstanding, average payment time, payment method breakdown
 
-**Summary Metrics:**
-- Total payments received (current period)
-- Total outstanding
-- Average payment time
-- Payment method breakdown
+<Tip>
+  **Ask Every Agent:** View payment reports:
+  - "Show me all payments received in Q4"
+  - "What's the total amount received this year?"
+  - "Show payments for ACME Corp sorted by date"
+</Tip>
 
 ### Payment Analytics
 
-Track payment patterns:
+**Metrics:** On-time payment rate, average days to payment, payment method preferences, client payment history, monthly revenue trends
 
-**Metrics:**
-- On-time payment rate
-- Average days to payment
-- Payment method preferences
-- Client payment history
-- Monthly revenue trends
+<Tip>
+  **Ask Every Agent:** Analyze payment patterns:
+  - "What's the average time to payment for ACME Corp?"
+  - "What's our most common payment method?"
+  - "How much revenue did we receive in December?"
+</Tip>
 
 ## Best Practices
 
@@ -409,19 +201,11 @@ Track payment patterns:
 </Tip>
 
 <Tip>
-  **Record payments promptly** - Update invoices as soon as payments are received to keep records accurate.
+  **Record payments promptly with references** - Update invoices as soon as payments are received. Add check numbers or transaction IDs to track in your bank account.
 </Tip>
 
 <Tip>
-  **Use payment references** - Add check numbers or transaction IDs to track payments in your bank account.
-</Tip>
-
-<Tip>
-  **Review payment claims carefully** - Verify payment actually received before approving claims.
-</Tip>
-
-<Tip>
-  **Track partial payments** - Record installment payments as you receive them to maintain accurate balances.
+  **Review payment claims and track partial payments carefully** - Verify payment actually received before approving claims. Record installments as you receive them.
 </Tip>
 
 <Tip>
@@ -430,90 +214,21 @@ Track payment patterns:
 
 ## Common Workflows
 
-### Online Payment Workflow
+**Online Payment:** Create invoice with online payments enabled → Send to client → Client opens page → Clicks Pay Now → Enters card details → Payment processes → Invoice marked Paid automatically → Both receive confirmation → Funds in Stripe balance → Automatic payout to bank
 
-1. Create invoice with online payments enabled
-2. Send to client
-3. Client opens public invoice page
-4. Client clicks **Pay Now**
-5. Enters credit card details (Stripe form)
-6. Payment processes
-7. Invoice automatically marked **Paid**
-8. Both parties receive confirmation
-9. Funds appear in Stripe balance
-10. Automatic payout to your bank account
+**Manual Check Payment:** Client mails check → You receive and deposit → Once cleared, open invoice → Record Payment with amount and check number → Select method: Check → Save → Invoice status updates to Paid
 
-### Manual Check Payment Workflow
-
-1. Client mails check
-2. You receive check
-3. Deposit check in bank
-4. Once cleared, open invoice in Every AI
-5. Click **Record Payment**
-6. Enter amount and check number
-7. Select payment method: Check
-8. Save payment
-9. Invoice status updates to Paid
-
-### Partial Payment Workflow
-
-1. Client pays first installment
-2. Record first payment (partial amount)
-3. Invoice shows partially paid status
-4. Outstanding balance displayed
-5. Client pays second installment
-6. Record second payment
-7. Continue until fully paid
-8. Invoice status updates to Paid when balance = $0
+**Partial Payment:** Client pays first installment → Record first payment (partial) → Invoice shows Partially Paid with balance → Client pays second installment → Record second payment → Continue until fully paid (balance = $0, status = Paid)
 
 ## Troubleshooting
 
-### Client Can't Pay Online
+**Client Can't Pay Online:** Verify Stripe connected and active → Check invoice has online payments enabled and is issued (not draft) → Resend invoice link → Ask client to try different card or offer alternative payment method
 
-**Check:**
-- Stripe connected and active
-- Invoice has online payments enabled
-- Invoice is issued (not draft)
-- Public invoice link working
-- Client's card is valid
+**Payment Not Showing in Bank Account:** Check payout schedule in Stripe dashboard (standard 2-7 business days) → Verify bank account connected correctly → Check for Stripe holds or reviews → Contact Stripe support if delayed
 
-**Solutions:**
-- Verify Stripe connection status
-- Check invoice online payment setting
-- Resend invoice link
-- Ask client to try different card
-- Offer alternative payment method
+**Wrong Payment Amount Recorded:** Delete incorrect payment record → Record new payment with correct amount → Verify invoice status updated correctly
 
-### Payment Not Showing in Bank Account
-
-**For Stripe Payments:**
-- Check payout schedule in Stripe dashboard
-- Standard processing: 2-7 business days
-- Verify bank account connected correctly
-- Check for Stripe holds or reviews
-- Contact Stripe support if delayed
-
-### Wrong Payment Amount Recorded
-
-**Solution:**
-1. Delete incorrect payment record
-2. Record new payment with correct amount
-3. Or edit payment if feature available
-4. Verify invoice status updated correctly
-
-### Invoice Still Shows Unpaid After Recording Payment
-
-**Check:**
-- Payment amount matches invoice total
-- Payment was saved successfully
-- Page refreshed
-- Payment recorded against correct invoice
-
-**Solution:**
-- Refresh page
-- Check payment record exists
-- Verify payment amount
-- Contact support if issue persists
+**Invoice Still Shows Unpaid After Recording:** Verify payment amount matches invoice total → Refresh page → Check payment record exists and was saved to correct invoice → Contact support if issue persists
 
 ## Next Steps
 
