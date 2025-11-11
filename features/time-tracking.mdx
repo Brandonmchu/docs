@@ -1,0 +1,579 @@
+---
+title: "Time Tracking"
+description: "Track billable hours with live timer widgets and manual entry, then convert tracked time directly into invoice line items"
+---
+
+## Overview
+
+Every AI's time tracking system helps you track billable hours and convert them seamlessly into invoice line items. Perfect for consultants, developers, designers, lawyers, and any professional who bills by the hour.
+
+**Key Features:**
+- Live timer widget with client selection
+- Manual time entry for historical records
+- Integration with invoices (one-click conversion)
+- Billable vs non-billable tracking
+- Client-specific hourly rates
+- Detailed time records with descriptions
+
+## Time Tracking Methods
+
+### Live Timer Widget
+
+Real-time tracking with floating timer:
+
+**Timer Features:**
+- Appears globally when timing is active
+- Select client before starting
+- Add work description
+- Pause/resume functionality
+- Automatic duration calculation
+- Minimizable but always accessible
+
+**How to Use Live Timer:**
+
+1. Click **Start Timer** (clock icon or timer button)
+2. Timer widget appears
+3. **Select Client** from dropdown
+4. **Add Description** of work being done
+5. Click **Start**
+6. Timer runs in background
+7. Widget shows elapsed time
+8. **Pause** if taking break
+9. **Resume** to continue
+10. **Stop** when work complete
+11. Time record automatically saved
+
+**Timer Widget Location:**
+- Floats in corner of screen
+- Visible across all pages
+- Doesn't interfere with other work
+- Minimizable if needed
+
+<Tip>
+  The timer widget stays active even if you navigate to different pages. Your time keeps tracking!
+</Tip>
+
+### Manual Time Entry
+
+Add time records after the fact:
+
+**When to Use Manual Entry:**
+- Forgot to start timer
+- Recording historical time
+- Batch entry at end of day/week
+- Fixed-time entries
+
+**How to Add Manual Time:**
+
+1. Navigate to **Time Tracking**
+2. Click **Add Time Entry**
+3. Fill in details:
+   - **Client**: Who you worked for
+   - **Description**: What you did
+   - **Start Time**: When you started (date & time)
+   - **End Time**: When you finished (date & time)
+   - **Duration**: Auto-calculated (or enter directly)
+   - **Hourly Rate**: Your rate for this work
+   - **Billable**: Yes/No toggle
+4. Click **Save**
+
+Time record created with all details.
+
+## Time Record Details
+
+### What's Tracked
+
+Each time record includes:
+
+**Client:**
+- Which client you worked for
+- Required for billable time
+- Used when converting to invoice
+
+**Description:**
+- What work was performed
+- Detailed notes
+- Appears on invoice when billed
+
+**Duration:**
+- Start time
+- End time
+- Total hours (calculated)
+- Displayed as: 2.5 hours, 0.75 hours, etc.
+
+**Rate:**
+- Hourly rate for this work
+- Can be different per client or project
+- Used to calculate billable amount
+
+**Billing Status:**
+- **Unbilled**: Not yet invoiced
+- **Billed**: Added to invoice
+- **Non-billable**: Internal time, not charged
+
+**Date:**
+- Date work was performed
+- Used for reporting
+- Organizes time records chronologically
+
+### Billable vs Non-Billable
+
+**Billable Time:**
+- Will be invoiced to client
+- Counts toward revenue
+- Includes hourly rate
+- Appears in unbilled time list
+
+**Non-Billable Time:**
+- Internal work
+- Learning/training
+- Pro bono work
+- Admin tasks
+- Not invoiced
+
+Toggle billable status when creating time entry.
+
+<Tip>
+  Mark administrative work and internal meetings as non-billable to track time accurately without over-billing.
+</Tip>
+
+## Hourly Rate Management
+
+### Setting Rates
+
+Rates can be set:
+
+**Per Time Entry:**
+- Set rate when creating/editing time record
+- Allows different rates for different work
+
+**Client-Specific Default:**
+- Set default rate per client
+- Automatically applied to new time entries
+- Saves time on repetitive work
+
+**Project-Based Rates:**
+- Different rates for different project types
+- Consulting vs development vs design
+- Standard vs rush work
+
+**Example Rates:**
+```
+Client A - Standard Consulting: $150/hour
+Client A - After-hours Support: $225/hour
+Client B - Development Work: $175/hour
+Client C - Strategy Sessions: $200/hour
+```
+
+### Rate Changes Over Time
+
+**Updating Rates:**
+- Old time records keep original rate
+- New time records use new rate
+- No retroactive rate changes
+- Historical accuracy preserved
+
+**Example:**
+```
+January-March: $150/hour
+Time tracked: 40 hours at $150
+Total: $6,000
+
+April onwards: $175/hour (rate increase)
+Time tracked: 30 hours at $175
+Total: $5,250
+
+Historical time stays at $150, new time at $175
+```
+
+## Converting Time to Invoices
+
+### Adding Time to Invoices
+
+The main benefit of time tracking: Easy invoicing!
+
+**To Convert Time to Invoice:**
+
+1. Create new invoice
+2. Select client
+3. Click **Add from Time Tracking**
+4. See list of unbilled time records for this client
+5. Select time records to include
+6. Click **Add Selected**
+7. Time records become invoice line items:
+   - Description from time record
+   - Hours as quantity
+   - Hourly rate
+   - Total = hours × rate
+8. Time records marked as **Billed**
+
+**Automatic Calculation:**
+```
+Time Record: Website Development, 5.5 hours @ $150/hour
+Invoice Line Item:
+  Description: Website Development
+  Quantity: 5.5
+  Rate: $150
+  Total: $825
+```
+
+<Tip>
+  Time tracking makes invoicing incredibly fast. Just select unbilled time and everything calculates automatically!
+</Tip>
+
+### Batch Invoicing
+
+Invoice multiple time records at once:
+
+**Monthly Billing Example:**
+1. Track time all month for Client A
+2. End of month: Create invoice
+3. Select Client A
+4. Add from Time Tracking
+5. Select all unbilled time for the month
+6. Add to invoice
+7. All time converted to line items
+8. Review total
+9. Send invoice
+
+**Single Invoice from Multiple Time Records:**
+```
+Time Record 1: Strategy Meeting, 2 hours
+Time Record 2: Development, 8 hours
+Time Record 3: Code Review, 3 hours
+Time Record 4: Client Call, 1 hour
+
+Invoice Line Items:
+- Strategy Meeting: 2 hrs × $150 = $300
+- Development: 8 hrs × $150 = $1,200
+- Code Review: 3 hrs × $150 = $450
+- Client Call: 1 hr × $150 = $150
+Total: $2,100
+```
+
+### Marking Time as Billed
+
+**Automatic Marking:**
+- When you add time to invoice, status changes to **Billed**
+- Linked to specific invoice
+- Removed from unbilled time list
+- Cannot be added to another invoice
+
+**Unbilling Time:**
+- If you delete invoice (draft only), time becomes unbilled again
+- Can be added to different invoice
+- If invoice is issued, time stays billed
+
+## Managing Time Records
+
+### Viewing Time Records
+
+**Time List View:**
+- All time records displayed
+- Filter by client
+- Filter by billable status
+- Filter by date range
+- Search by description
+- Sort by date, duration, rate
+
+**Summary Cards:**
+- Total hours tracked (this period)
+- Total billable hours
+- Total non-billable hours
+- Total unbilled amount
+- Revenue from billed time
+
+### Editing Time Records
+
+**Editable for Unbilled Time:**
+1. Open time record
+2. Click **Edit**
+3. Change any field:
+   - Description
+   - Start/end time
+   - Duration
+   - Rate
+   - Billable status
+4. Save changes
+
+**Billed Time:**
+- Cannot edit once billed
+- Preserve invoice accuracy
+- Delete and re-add if needed (before invoice sent)
+
+### Deleting Time Records
+
+**To Delete:**
+1. Open time record
+2. Click **Delete**
+3. Confirm deletion
+
+**Restrictions:**
+- Can delete unbilled time anytime
+- Cannot delete billed time (linked to invoice)
+- To remove billed time, must remove from invoice first
+
+<Warning>
+  Only delete time records recorded in error. Deleting loses the historical record.
+</Warning>
+
+## Time Tracking Reports
+
+### Time Analytics
+
+Track productivity and billing:
+
+**Metrics:**
+- Total hours by client
+- Billable vs non-billable breakdown
+- Average hourly rate
+- Utilization rate
+- Revenue from time tracking
+- Unbilled time value
+
+**Date Range Reports:**
+- Daily time logs
+- Weekly summaries
+- Monthly totals
+- Quarterly analysis
+- Yearly overview
+
+### Client Time Reports
+
+Per-client time tracking:
+
+**View:**
+- Total hours per client
+- Revenue generated per client
+- Average rate per client
+- Project time breakdowns
+- Unbilled time per client
+
+Helps identify:
+- Most valuable clients
+- Time spent per client
+- Profitability per client
+- Clients with unbilled time
+
+## Integration with Other Features
+
+### Time + Offerings
+
+Associate time with offerings:
+
+**Example:**
+- Offering: "Consulting Services" ($150/hour)
+- Track time using timer
+- Associate with Consulting offering
+- Consistent rates and descriptions
+
+### Time + Invoices
+
+Seamless integration:
+
+**Workflow:**
+1. Track time (timer or manual)
+2. Create invoice
+3. Add unbilled time
+4. Time converts to line items
+5. Invoice sent
+6. Time marked as billed
+
+### Time + Projects (Future)
+
+Track time per project:
+
+- Multiple projects per client
+- Track time per project phase
+- Project profitability analysis
+- Budget vs actual time
+
+## Best Practices
+
+<Tip>
+  **Use the timer widget** - Real-time tracking is more accurate than manual entry after the fact.
+</Tip>
+
+<Tip>
+  **Add descriptions immediately** - Don't wait until later. Add what you're working on when you start the timer.
+</Tip>
+
+<Tip>
+  **Mark non-billable time** - Track all work, but mark internal time as non-billable for accurate reporting.
+</Tip>
+
+<Tip>
+  **Set client-specific rates** - Different clients may have different rates. Set defaults per client.
+</Tip>
+
+<Tip>
+  **Bill regularly** - Convert unbilled time to invoices regularly (weekly, bi-weekly, or monthly).
+</Tip>
+
+<Tip>
+  **Review unbilled time** - Check unbilled time regularly to ensure nothing falls through the cracks.
+</Tip>
+
+<Tip>
+  **Use detailed descriptions** - Future you (and your client) will appreciate clear time entry descriptions.
+</Tip>
+
+## Common Workflows
+
+### Daily Consulting Workflow
+
+**Morning:**
+1. Start timer for first client call
+2. Select client, add description
+3. Work and timer tracks time
+4. Stop timer when call ends
+
+**Afternoon:**
+1. Start timer for development work
+2. Select different client
+3. Add description
+4. Pause for lunch break
+5. Resume after lunch
+6. Stop when work complete
+
+**End of Day:**
+- Review time entries for accuracy
+- Adjust descriptions if needed
+- All time automatically saved
+
+**End of Week:**
+- Review week's time
+- Create invoices for clients
+- Add unbilled time to invoices
+- Send invoices
+
+### Project-Based Time Tracking
+
+**Project Start:**
+1. Set hourly rate for this project
+2. Track all time for project
+3. Use consistent description prefix: "[Project Name]"
+
+**During Project:**
+- Track time with timer
+- All entries include project name
+- Mark milestones in descriptions
+
+**Project End:**
+1. Review all unbilled time for project
+2. Create final invoice
+3. Add all project time
+4. Send invoice
+5. Project time fully billed
+
+### Retainer Time Tracking
+
+**Monthly Retainer with Hour Cap:**
+
+**Setup:**
+- Client has 40-hour monthly retainer
+- $150/hour rate
+
+**During Month:**
+- Track all time for client
+- Monitor approaching 40 hours
+- Notify client as limit approached
+
+**End of Month:**
+1. Review total hours (e.g., 38.5 hours)
+2. Create invoice
+3. Add all time for month
+4. Total: 38.5 × $150 = $5,775
+5. Send invoice
+
+**Overage Handling:**
+- If over 40 hours, invoice overage separately
+- Or roll over to next month per agreement
+
+## Troubleshooting
+
+### Timer Not Starting
+
+**Check:**
+- Client selected
+- Browser permissions (if needed)
+- Not already running another timer
+
+**Solution:**
+- Ensure client selected from dropdown
+- Try refreshing page
+- Stop any other active timers
+
+### Time Entry Missing
+
+**Check:**
+- Date filter on time list
+- Client filter
+- Billable/non-billable filter
+- Search function
+
+**Solution:**
+- Clear all filters
+- Search by client or description
+- Check if accidentally deleted
+
+### Can't Edit Billed Time
+
+**Reason:** Time linked to invoice, editing would change invoice
+
+**Solution:**
+- Remove time from invoice first (if invoice is draft)
+- Or leave as-is to maintain invoice accuracy
+- Future invoices will use correct rate
+
+### Time Not Appearing in "Add to Invoice"
+
+**Check:**
+- Time is unbilled (not already invoiced)
+- Time is for selected client
+- Time is marked as billable (not non-billable)
+
+**Solution:**
+- Verify time record client matches invoice client
+- Check billing status
+- Ensure not already added to different invoice
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Convert tracked time into invoices
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="users"
+    href="/features/clients"
+  >
+    Set up clients for time tracking
+  </Card>
+
+  <Card
+    title="Use Offerings"
+    icon="list"
+    href="/features/offerings"
+  >
+    Associate time with service offerings
+  </Card>
+
+  <Card
+    title="View Reports"
+    icon="chart-line"
+    href="/advanced/reporting"
+  >
+    Analyze time tracking data
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

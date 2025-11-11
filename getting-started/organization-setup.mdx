@@ -1,0 +1,414 @@
+---
+title: "Organization Setup"
+description: "Complete guide to configuring your Every AI organization settings, branding, and defaults"
+---
+
+## Overview
+
+Your organization is the foundation of your Every AI account. It stores your business information, branding, payment settings, and financial defaults. Proper organization configuration ensures all your invoices look professional and include the correct information.
+
+<Note>
+  **Important:** Every feature in Every AI depends on having a properly configured organization. Complete this setup before creating invoices or adding clients.
+</Note>
+
+## Business Profile
+
+Your business profile information appears on all invoices, proposals, and client-facing documents.
+
+### Required Information
+
+Navigate to **Settings** → **Organization** to set up your profile:
+
+**Business Name** (Required)
+- Your company or business name
+- Appears prominently on all invoices
+
+**Contact Information**
+- **Email**: Business email for client communications
+- **Phone**: Business phone number
+- **Address**: Full business address (street, city, state/province, postal code, country)
+- **Website**: Your business website URL (optional)
+
+<Tip>
+  This information is public-facing and appears on invoices, so ensure it's accurate and professional.
+</Tip>
+
+### How Business Profile is Used
+
+Your business profile information automatically populates:
+- Invoice headers and footers
+- Public invoice pages
+- Proposal documents
+- Email communications with clients
+- Payment receipts
+
+## Branding & Customization
+
+Make your invoices match your brand identity.
+
+### Logo Upload
+
+1. Navigate to **Settings** → **Organization**
+2. Click **Upload Logo** in the branding section
+3. Select your logo file (PNG, JPG, or SVG recommended)
+4. Logo appears on all invoices and public pages
+
+**Logo Requirements:**
+- Recommended size: 200x200px to 400x400px
+- Transparent background works best
+- Supported formats: PNG, JPG, SVG
+
+### Brand Color
+
+Choose a primary color that represents your brand:
+
+1. Click the **Brand Color** picker
+2. Select your brand color or enter a hex code
+3. Color is applied to:
+   - Invoice templates
+   - Public invoice pages
+   - Call-to-action buttons
+   - Accent elements
+
+### Invoice Templates
+
+Every AI provides multiple professional invoice templates:
+
+1. In **Settings** → **Organization**, find **Invoice Template**
+2. Preview available templates
+3. Select the template that best fits your business style
+
+Available templates include:
+- **Modern**: Clean, minimalist design
+- **Classic**: Traditional invoice layout
+- **Professional**: Corporate-style format
+- **Creative**: Stylish design for creative businesses
+
+<Note>
+  You can change your template at any time. Existing invoices keep their original template, but new invoices use the updated template.
+</Note>
+
+### Default Invoice Notes
+
+Set standard terms and conditions that appear on all new invoices:
+
+1. In **Settings** → **Organization**, find **Default Invoice Note**
+2. Add your standard payment terms, thank you message, or other notes
+3. This text automatically appears on all new invoices
+
+**Common uses:**
+- Payment instructions
+- Thank you messages
+- Late payment policies
+- Bank transfer details
+- Terms and conditions
+
+<Tip>
+  You can still customize notes for individual invoices. The default just saves you time.
+</Tip>
+
+## Financial Configuration
+
+Set default financial settings that streamline invoice creation.
+
+### Default Currency
+
+Choose your primary currency:
+
+**Supported Currencies:**
+- USD (United States Dollar)
+- CAD (Canadian Dollar)
+
+1. Select **Default Currency** in organization settings
+2. This currency is used for all new invoices by default
+3. You can override currency on individual invoices if needed
+
+**How Currency Works:**
+- All monetary amounts display in the selected currency
+- Automatic formatting ($ for USD and CAD)
+- Exchange rate helpers available for reporting
+- Multi-currency support allows per-invoice overrides
+
+### Default Due Days
+
+Set how many days clients have to pay invoices:
+
+1. In **Settings** → **Organization**, find **Default Due Days**
+2. Enter a number between 1 and 365
+3. Common values:
+   - **Net 15**: Payment due in 15 days
+   - **Net 30**: Payment due in 30 days (most common)
+   - **Net 60**: Payment due in 60 days
+   - **Due on Receipt**: 0 or 1 days
+
+When you create an invoice, the due date is automatically calculated as:
+```
+Due Date = Issue Date + Default Due Days
+```
+
+You can always adjust the due date for individual invoices.
+
+### Sales Tax Default
+
+Set your standard sales tax rate:
+
+1. Enter **Sales Tax Default** as a percentage
+2. This rate is applied to new offerings and invoices
+3. Common values:
+   - **5%**: Canadian GST
+   - **13%**: Ontario HST
+   - **0%**: If you don't charge sales tax
+
+<Note>
+  Tax rates can be overridden per line item on invoices. The default just provides a starting point.
+</Note>
+
+### Invoice Numbering
+
+Every AI automatically assigns sequential invoice numbers:
+
+**Automatic Numbering:**
+- Format: `INV-001`, `INV-002`, `INV-003`, etc.
+- Sequential and unique per organization
+- Starts at 1 and increments for each new invoice
+
+**Custom Numbering:**
+- You can manually set invoice numbers when creating invoices
+- Useful if migrating from another system
+- Must be unique within your organization
+
+## Payment Processing Setup
+
+Configure how you accept payments from clients.
+
+### Stripe Integration
+
+Stripe enables online credit card payments on your invoices.
+
+**To Connect Stripe:**
+
+1. Navigate to **Settings** → **Payments**
+2. Click **Connect Stripe Account**
+3. You'll be redirected to Stripe's onboarding flow
+4. Provide required information:
+   - Business details
+   - Bank account for payouts
+   - Identity verification documents
+5. Complete onboarding
+
+**Stripe Account Status:**
+
+- **Enabled**: Fully operational, can accept payments and receive payouts
+- **Payouts Disabled**: Can accept payments but payout setup incomplete
+- **Restricted**: Account under review or requires additional information
+- **Not Connected**: Stripe not set up
+
+<Tip>
+  Both "Enabled" and "Payouts Disabled" status allow clients to pay invoices online. Focus on completing full onboarding for payouts.
+</Tip>
+
+**What Happens After Connection:**
+
+- All new invoices include online payment option
+- Clients see "Pay Now" button on invoice pages
+- Payments process through your Stripe account
+- Funds deposit to your bank account
+- Invoice status updates automatically when paid
+
+**Processing Fees:**
+- Standard Stripe rates apply (typically 2.9% + $0.30 per transaction)
+- Fees deducted from payment before deposit
+- You receive net amount after fees
+
+### Manual Payment Methods
+
+Even without Stripe, you can track payments received offline:
+
+**Supported Payment Methods:**
+- Cash
+- Check
+- Bank Transfer
+- Credit Card (processed outside platform)
+- Other
+
+Record payments manually in the invoice detail page.
+
+## Tax Management
+
+Configure regional tax rates for automatic application.
+
+### Setting Tax Rates
+
+1. Navigate to **Settings** → **Organization**
+2. Set **Sales Tax Default** percentage
+3. This rate is used for:
+   - New offerings (can be overridden)
+   - Quick invoice creation
+   - Automatic tax calculations
+
+### Tax-Inclusive vs. Tax-Exclusive
+
+**Tax-Exclusive (Default):**
+- Line item amount + tax = total
+- Tax calculated and shown separately
+- Most common in North America
+
+Example:
+```
+Service: $100.00
+Tax (13%): $13.00
+Total: $113.00
+```
+
+**Tax-Inclusive:**
+- Line item amount includes tax
+- Tax is part of the displayed price
+- Common in some regions
+
+Example:
+```
+Service: $113.00 (includes $13.00 tax)
+Total: $113.00
+```
+
+Configure per line item when creating invoices.
+
+## Team Management
+
+Invite team members to collaborate on your Every AI organization.
+
+### Adding Team Members
+
+1. Navigate to **Settings** → **Team**
+2. Click **Invite Team Member**
+3. Enter their email address
+4. They receive an invitation to join your organization
+
+**What Team Members Can Do:**
+- View and create clients
+- Create and send invoices
+- Track payments and expenses
+- Access all organization data
+- Use Every Agent
+
+<Note>
+  All team members have full access to organization data. Every AI currently doesn't support role-based permissions.
+</Note>
+
+## Organization Dependencies
+
+Understanding what depends on proper organization setup:
+
+```
+Organization Settings (Foundation)
+├── Invoice Creation
+│   ├── Uses business profile for headers
+│   ├── Applies default currency
+│   ├── Calculates due date from default due days
+│   └── Includes default notes
+│
+├── Branding
+│   ├── Logo on all invoices
+│   ├── Brand color in templates
+│   └── Consistent professional appearance
+│
+├── Payment Processing
+│   ├── Stripe integration for online payments
+│   └── Payment status tracking
+│
+├── Tax Calculations
+│   ├── Default tax rate application
+│   └── Automatic tax calculations
+│
+└── Public Pages
+    ├── Branded invoice viewing
+    └── Professional client experience
+```
+
+## Best Practices
+
+<Tip>
+  **Complete setup before creating invoices** - Taking 10 minutes to configure everything properly saves hours later.
+</Tip>
+
+<Tip>
+  **Use high-quality logo** - Your logo appears on all client-facing documents, so use a professional image.
+</Tip>
+
+<Tip>
+  **Set realistic due days** - Net 30 is standard. Shorter terms may strain client relationships.
+</Tip>
+
+<Tip>
+  **Connect Stripe early** - Clients pay significantly faster when they can pay online immediately.
+</Tip>
+
+<Tip>
+  **Keep business information updated** - If you move or change contact info, update it in organization settings.
+</Tip>
+
+## Troubleshooting
+
+### Logo Not Appearing
+- Check file size (under 5MB)
+- Verify file format (PNG, JPG, SVG)
+- Try re-uploading
+- Clear browser cache
+
+### Stripe Connection Issues
+- Complete all onboarding steps
+- Verify bank account
+- Check account status in Settings → Payments
+- Contact Stripe support for account-specific issues
+
+### Tax Not Calculating
+- Verify sales tax default is set
+- Check line item tax settings on invoice
+- Ensure tax rate is entered as percentage (e.g., 13, not 0.13)
+
+### Default Notes Not Appearing
+- Save organization settings after adding notes
+- Refresh invoice creation page
+- Check that you're creating new invoices (existing drafts keep old settings)
+
+## Next Steps
+
+Once your organization is configured:
+
+<CardGroup cols={2}>
+  <Card
+    title="Add Clients"
+    icon="users"
+    href="/features/clients"
+  >
+    Create your first client and start building relationships
+  </Card>
+
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Send your first professional invoice
+  </Card>
+
+  <Card
+    title="Set Up Offerings"
+    icon="list"
+    href="/features/offerings"
+  >
+    Create service/product templates for faster invoicing
+  </Card>
+
+  <Card
+    title="Connect Integrations"
+    icon="plug"
+    href="/integrations/stripe"
+  >
+    Integrate Stripe, Google Workspace, or HubSpot
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

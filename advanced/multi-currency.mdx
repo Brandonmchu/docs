@@ -1,0 +1,377 @@
+---
+title: "Multi-Currency Support"
+description: "Work with both USD and CAD, set organization defaults, override per invoice, and use exchange rate helpers for reporting"
+---
+
+## Overview
+
+Every AI supports USD (United States Dollar) and CAD (Canadian Dollar), allowing you to invoice clients in their preferred currency while maintaining your books in your primary currency.
+
+## Supported Currencies
+
+**Currently Supported:**
+- **USD**: United States Dollar ($)
+- **CAD**: Canadian Dollar ($)
+
+**Currency Features:**
+- Set organization default currency
+- Override currency per invoice
+- Automatic currency formatting
+- Exchange rate helpers for reporting
+- Consistent currency symbols
+
+<Note>
+  Both USD and CAD use the $ symbol, but the system tracks which currency is which.
+</Note>
+
+## Setting Default Currency
+
+### Organization Default
+
+Set your primary currency in organization settings:
+
+**To Set Default:**
+1. Navigate to **Settings** → **Organization**
+2. Find **Default Currency**
+3. Select **USD** or **CAD**
+4. Save settings
+
+**What This Means:**
+- All new invoices default to this currency
+- Financial reports show in this currency
+- Dashboard totals in this currency
+- Can still override per invoice
+
+**Choosing Your Default:**
+- **US Business**: Usually USD
+- **Canadian Business**: Usually CAD
+- **Cross-Border**: Choose based on majority of clients
+
+<Tip>
+  Choose the currency you'll use most often. You can always override on specific invoices.
+</Tip>
+
+## Per-Invoice Currency
+
+### Overriding Currency
+
+Change currency for specific invoices:
+
+**When Creating Invoice:**
+1. Create new invoice
+2. Select client
+3. Find **Currency** dropdown
+4. Select **USD** or **CAD**
+5. Add line items (amounts in selected currency)
+6. Save/send invoice
+
+**When to Override:**
+- US business invoicing Canadian client
+- Canadian business invoicing US client
+- Client request for specific currency
+- Contract specifies currency
+
+**Example Use Case:**
+```
+Organization Default: USD
+Most clients: US-based, pay in USD
+
+Special Case: Canadian client prefers CAD invoices
+Action: Create invoice, select CAD currency
+Result: Invoice displays prices in CAD
+```
+
+### Currency Lock
+
+**Important:** Once invoice is issued, currency cannot be changed.
+
+**Reasons:**
+- Preserve invoice integrity
+- Prevent exchange rate manipulation
+- Maintain payment records accuracy
+- Legal document consistency
+
+<Warning>
+  Double-check currency before sending invoice! You cannot change it after issuing.
+</Warning>
+
+## Currency Formatting
+
+### Automatic Formatting
+
+Every AI handles currency formatting automatically:
+
+**USD Formatting:**
+```
+$1,000.00
+$500.50
+$1,234,567.89
+```
+
+**CAD Formatting:**
+```
+$1,000.00
+$500.50
+$1,234,567.89
+```
+
+**Features:**
+- Dollar sign ($) prefix
+- Comma thousands separators
+- Two decimal places
+- Proper rounding
+
+### Display in UI
+
+**Invoice View:**
+- Currency shown on invoice
+- All amounts in invoice currency
+- Total clearly marked with currency
+
+**List Views:**
+- Currency indicator on each invoice
+- Filter by currency
+- Sort includes currency context
+
+**Reports:**
+- Default to organization currency
+- Option to view per-currency breakdowns
+- Exchange rate applied if viewing cross-currency
+
+## Exchange Rates
+
+### Rate Helpers
+
+Every AI provides exchange rate helpers for reporting:
+
+**Use Cases:**
+- Viewing total revenue across currencies
+- Tax reporting in one currency
+- Financial analysis
+- Profit/loss calculations
+
+**How It Works:**
+- System uses current exchange rates
+- Converts foreign currency to organization default
+- Shows both original and converted amounts
+- Updates rates regularly
+
+**Example:**
+```
+Organization Default: USD
+
+Invoices:
+- Invoice #1: $5,000 USD
+- Invoice #2: $3,000 CAD = ~$2,250 USD (at 1.33 rate)
+
+Total Revenue Report:
+- USD: $5,000
+- CAD: $3,000 (≈ $2,250 USD)
+- Combined: $7,250 USD
+```
+
+### Manual Conversions
+
+For precise accounting:
+
+**When Needed:**
+- Tax filing
+- Financial statements
+- Annual reports
+- Specific-date exchange rates
+
+**Best Practice:**
+- Use official exchange rate from payment date
+- Document rate used
+- Keep records for taxes
+- Consult accountant for tax filing
+
+<Tip>
+  For tax purposes, use the exchange rate from the date payment was received, not invoice date.
+</Tip>
+
+## Multi-Currency Best Practices
+
+<Tip>
+  **Match client's currency** - Invoice clients in their local currency when possible for faster payment.
+</Tip>
+
+<Tip>
+  **Be consistent per client** - Once you invoice a client in a currency, stick with it.
+</Tip>
+
+<Tip>
+  **Specify currency in contracts** - Avoid disputes by documenting currency in agreements.
+</Tip>
+
+<Tip>
+  **Track exchange rates** - Keep records of rates used for tax and accounting purposes.
+</Tip>
+
+<Tip>
+  **Consider payment processing fees** - Stripe fees may vary by currency.
+</Tip>
+
+<Tip>
+  **Review currency before sending** - Double-check invoice currency matches agreement.
+</Tip>
+
+## Common Scenarios
+
+### US Business with Canadian Clients
+
+**Setup:**
+- Organization default: USD
+- Most clients: US-based
+
+**Canadian Client Workflow:**
+1. Create invoice
+2. Select client (Canadian)
+3. Change currency to CAD
+4. Add line items with CAD amounts
+5. Send invoice in CAD
+6. Client pays in CAD
+7. Revenue reports convert to USD for analysis
+
+### Canadian Business with US Clients
+
+**Setup:**
+- Organization default: CAD
+- Some clients: US-based
+
+**US Client Workflow:**
+1. Create invoice
+2. Select client (US-based)
+3. Change currency to USD
+4. Add line items with USD amounts
+5. Send invoice in USD
+6. Client pays in USD
+7. Revenue reports show in CAD (converted)
+
+### Mixed Client Base
+
+**Setup:**
+- Clients in both US and Canada
+- Choose one currency as default (majority)
+
+**Workflow:**
+- Default currency for most clients
+- Override for minority currency
+- Track revenue in both currencies
+- Use exchange rate helpers for reporting
+
+## Reporting Across Currencies
+
+### Dashboard View
+
+**Default View:**
+- Totals in organization currency
+- Conversions applied automatically
+- Clear currency indicators
+
+**Filter Options:**
+- View USD-only invoices
+- View CAD-only invoices
+- View all with conversions
+
+### Financial Reports
+
+**Revenue Reports:**
+- Breakdown by currency
+- Converted totals
+- Exchange rate noted
+
+**Tax Reports:**
+- Convert all to organization currency
+- Document rates used
+- Export for accountant
+
+**Client Reports:**
+- Show client's invoice currency
+- Optional conversion to default
+- Payment history in original currency
+
+## Limitations & Future Plans
+
+**Current Limitations:**
+- Only USD and CAD supported
+- Cannot change currency after issuing invoice
+- Exchange rates are approximate (use bank rates for taxes)
+
+**Future Enhancements:**
+- Additional currencies (EUR, GBP, etc.)
+- Real-time exchange rate API
+- Currency conversion at payment time
+- Multi-currency financial reports
+
+## Troubleshooting
+
+### Wrong Currency on Invoice
+
+**Problem:** Created invoice in wrong currency
+
+**Solution:**
+- If draft: Edit invoice, change currency
+- If issued: Void invoice, create new one in correct currency
+
+### Client Confused About Currency
+
+**Prevention:**
+- Clearly mark currency on invoice
+- Discuss currency in initial agreement
+- Send sample invoice before work begins
+
+**Solution:**
+- Resend invoice with clear currency marking
+- Explain exchange if needed
+- Offer to re-invoice in different currency (as new invoice)
+
+### Accounting Software Integration
+
+**Challenge:** Accountant needs everything in one currency
+
+**Solution:**
+- Export reports with conversions applied
+- Use organization default currency for reports
+- Provide exchange rate documentation
+- Consider accounting software integration
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Organization Setup"
+    icon="building"
+    href="/getting-started/organization-setup"
+  >
+    Set your default currency
+  </Card>
+
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Invoice in different currencies
+  </Card>
+
+  <Card
+    title="View Reports"
+    icon="chart-line"
+    href="/advanced/reporting"
+  >
+    Analyze revenue across currencies
+  </Card>
+
+  <Card
+    title="Stripe Setup"
+    icon="stripe"
+    href="/integrations/stripe"
+  >
+    Accept payments in multiple currencies
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

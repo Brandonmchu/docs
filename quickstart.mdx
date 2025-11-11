@@ -1,80 +1,287 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Quickstart Guide"
+description: "Get up and running with Every AI in 15 minutes - from account setup to your first invoice"
 ---
 
-## Get started in three steps
+## Get Started in Four Steps
 
-Get your documentation site running locally and make your first customization.
+This guide will walk you through setting up your Every AI account and sending your first professional invoice. You'll be ready to start billing clients in about 15 minutes.
 
-### Step 1: Set up your local environment
+### Step 1: Set Up Your Organization
+
+Your organization is the foundation of your Every AI account. It stores your business information, branding, and default settings.
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+  <Accordion icon="building" title="Create your organization profile">
+    1. Sign up at [app.every.ai](https://app.every.ai) and create your account
+    2. Create or join an organization (your business)
+    3. Navigate to **Settings** → **Organization**
+    4. Fill in your business details:
+       - Business name (required)
+       - Email and phone
+       - Business address
+       - Website
+
+    <Tip>This information appears on all your invoices, so make sure it's accurate!</Tip>
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+
+  <Accordion icon="palette" title="Customize your branding">
+    In **Settings** → **Organization**, customize your brand:
+
+    1. **Upload your logo** - Appears on invoices and public pages
+    2. **Set brand color** - Used in templates and invoice pages
+    3. **Choose invoice template** - Select from professional designs
+    4. **Add default notes** - Standard terms that appear on all invoices
+
+    <Note>Your branding is applied automatically to all invoices and proposals.</Note>
+  </Accordion>
+
+  <Accordion icon="gear" title="Configure financial defaults">
+    Set your default financial settings in **Settings** → **Organization**:
+
+    - **Default currency**: USD or CAD (can be overridden per invoice)
+    - **Default due days**: How many days until payment is due (1-365)
+    - **Sales tax default**: Your standard tax rate
+    - **Invoice numbering**: Automatic sequential numbering
+
+    These defaults save time when creating invoices.
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+### Step 2: Add Your First Client
+
+Clients are the customers you invoice. Every AI makes it easy to create and manage client relationships.
 
 <AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+  <Accordion icon="user-plus" title="Create a client">
+    1. Navigate to **Clients** in the main menu
+    2. Click **Add Client** or the **+** button
+    3. Fill in client information:
+       - **Name** (required)
+       - Email address
+       - Phone number
+       - Company address
+       - Website (optional)
+    4. Add **CC email addresses** (up to 2) to send invoice copies to additional recipients
+    5. Click **Save**
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+    <Tip>Enable **Client Enrichment** to let AI automatically find company details, logo, and address information!</Tip>
+  </Accordion>
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
+  <Accordion icon="google" title="Import from Google Contacts (optional)">
+    If you use Google Workspace, you can import existing contacts:
+
+    1. Go to **Settings** → **Integrations**
+    2. Connect your Google account
+    3. Navigate to **Clients**
+    4. Click **Import from Google Contacts**
+    5. Select contacts to import
+
+    This saves time if you already have clients in Google Contacts.
   </Accordion>
 </AccordionGroup>
 
-### Step 3: Go live
+### Step 3: Create Your First Invoice
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+Now you're ready to create and send your first professional invoice.
 
-## Next steps
+<AccordionGroup>
+  <Accordion icon="file-invoice" title="Build your invoice">
+    1. Navigate to **Invoices** in the main menu
+    2. Click **Create Invoice** or the **+** button
+    3. **Select a client** from your client list
+    4. **Add line items** - the services or products you're billing:
+       - Click **Add Line Item**
+       - Enter description, quantity, and rate
+       - Add tax if applicable
+       - Repeat for additional items
+    5. **Set payment terms**:
+       - Issue date (today by default)
+       - Due date (uses your default due days)
+       - Add reference/PO number if needed
+    6. **Add notes** (optional) - Payment instructions or terms
+    7. **Attach files** (optional) - Contracts, receipts, or documents
 
-Now that you have your docs running, explore these key features:
+    <Tip>The invoice total is calculated automatically as you add line items!</Tip>
+  </Accordion>
+
+  <Accordion icon="list-check" title="Use offerings for faster invoicing (optional)">
+    **Offerings** are templates for your services or products with pre-set pricing.
+
+    To create an offering:
+    1. Navigate to **Offerings**
+    2. Click **Add Offering**
+    3. Enter name, description, standard rate
+    4. Save
+
+    Now when creating invoices, you can quickly add offerings instead of typing everything manually.
+  </Accordion>
+
+  <Accordion icon="paper-plane" title="Send your invoice">
+    Once your invoice is ready:
+
+    1. Review the invoice preview on the right
+    2. Click **Save as Draft** to save without sending, or
+    3. Click **Send Invoice** to email it immediately
+
+    When you send an invoice:
+    - Client receives a professional email with invoice attached
+    - CC recipients (if added) receive a copy
+    - You can track when they open the email
+    - Client gets a secure link to view and pay the invoice
+
+    <Note>Invoices are saved as **Draft** until you explicitly send them. You can always edit draft invoices before sending.</Note>
+  </Accordion>
+</AccordionGroup>
+
+### Step 4: Set Up Payment Processing (Optional but Recommended)
+
+Enable online credit card payments so clients can pay invoices instantly.
+
+<AccordionGroup>
+  <Accordion icon="stripe" title="Connect Stripe">
+    1. Navigate to **Settings** → **Payments**
+    2. Click **Connect Stripe Account**
+    3. Follow the Stripe onboarding process:
+       - Provide business information
+       - Add bank account for payouts
+       - Verify your identity
+    4. Complete the setup
+
+    Once connected, your invoices will include a **Pay Now** button for credit card payments.
+
+    <Tip>Clients with online payment options pay significantly faster!</Tip>
+  </Accordion>
+
+  <Accordion icon="credit-card" title="How online payments work">
+    When Stripe is connected:
+
+    - Each invoice has a secure payment page
+    - Clients can pay with credit/debit cards
+    - Payments are processed automatically
+    - Invoice status updates to **Paid** when payment is received
+    - You receive email notifications of payments
+    - Funds are deposited to your bank account per Stripe's schedule
+
+    **Processing fees**: Standard Stripe rates apply (typically 2.9% + $0.30 per transaction)
+  </Accordion>
+
+  <Accordion icon="hand-holding-dollar" title="Manual payments">
+    You can also record payments received outside the platform:
+
+    1. Open an invoice
+    2. Click **Record Payment**
+    3. Enter:
+       - Amount received
+       - Payment date
+       - Payment method (cash, check, bank transfer, etc.)
+       - Optional notes
+    4. Save
+
+    The invoice status updates automatically based on payment received.
+  </Accordion>
+</AccordionGroup>
+
+## What's Next?
+
+You're now ready to use Every AI! Here are some features to explore:
 
 <CardGroup cols={2}>
+  <Card
+    title="Track Time"
+    icon="clock"
+    href="/features/time-tracking"
+  >
+    Use the timer widget to track billable hours and convert them to invoice line items.
+  </Card>
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
+  <Card
+    title="Manage Expenses"
+    icon="receipt"
+    href="/features/expenses"
+  >
+    Track business expenses, scan receipts with AI, and bill them back to clients.
+  </Card>
 
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
+  <Card
+    title="Create Proposals"
+    icon="handshake"
+    href="/features/proposals"
+  >
+    Send professional proposals and convert approved proposals into invoices.
+  </Card>
 
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
+  <Card
+    title="Automate Recurring Invoices"
+    icon="rotate"
+    href="/features/automations"
+  >
+    Set up recurring invoices for clients you bill regularly (monthly, quarterly, etc.).
+  </Card>
 
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
+  <Card
+    title="Use Every Agent"
+    icon="robot"
+    href="/ai/every-agent"
+  >
+    Chat with AI to create invoices, import data, analyze finances, and get business insights.
+  </Card>
 
+  <Card
+    title="Connect Integrations"
+    icon="plug"
+    href="/integrations/google-workspace"
+  >
+    Sync with Google Workspace (Gmail, Calendar, Contacts) and HubSpot CRM.
+  </Card>
 </CardGroup>
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+## Tips for Success
+
+<Tip>
+  **Complete your organization setup first** - Proper organization configuration makes everything else easier.
+</Tip>
+
+<Tip>
+  **Use client enrichment** - Let AI automatically fill in company details to save time.
+</Tip>
+
+<Tip>
+  **Set up offerings early** - Create templates for your common services to speed up invoicing.
+</Tip>
+
+<Tip>
+  **Enable online payments** - Clients pay significantly faster when they can pay by credit card.
+</Tip>
+
+<Tip>
+  **Test automations before activating** - Use test mode to verify recurring invoices work correctly.
+</Tip>
+
+## Need Help?
+
+<Card
+  title="Contact Support"
+  icon="life-ring"
+  href="mailto:hello@every.ai"
+>
+  Have questions? Our support team is here to help at hello@every.ai
+</Card>
+
+<CardGroup cols={2}>
+  <Card
+    title="Common Workflows"
+    icon="route"
+    href="/workflows/common-workflows"
+  >
+    Learn how different businesses use Every AI
+  </Card>
+
+  <Card
+    title="Troubleshooting"
+    icon="wrench"
+    href="/troubleshooting"
+  >
+    Solutions to common issues and problems
+  </Card>
+</CardGroup>

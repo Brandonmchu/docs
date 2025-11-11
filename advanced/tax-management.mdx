@@ -1,0 +1,410 @@
+---
+title: "Tax Management"
+description: "Configure regional tax rates, apply automatic tax calculations, and generate tax reports for compliance"
+---
+
+## Overview
+
+Every AI's tax management helps you collect sales tax, track tax-deductible expenses, and generate reports for tax compliance. Configure rates once, apply automatically, and simplify year-end tax preparation.
+
+## Sales Tax Configuration
+
+### Setting Default Tax Rate
+
+Set your standard sales tax rate:
+
+**To Configure:**
+1. Navigate to **Settings** → **Organization**
+2. Find **Sales Tax Default**
+3. Enter percentage (e.g., 13 for 13%)
+4. Save settings
+
+**Common Rates:**
+- **5%**: Canadian GST
+- **13%**: Ontario HST, Prince Edward Island HST
+- **15%**: Nova Scotia, New Brunswick, Newfoundland HST
+- **0%**: If you don't charge sales tax
+
+**Where Applied:**
+- New offerings default to this rate
+- Quick invoice creation
+- Automation templates
+
+<Tip>
+  Set your most common tax rate as default to save time on invoice creation.
+</Tip>
+
+### Per-Offering Tax Rates
+
+Different tax rates for different offerings:
+
+**Why This Matters:**
+- Some products/services taxable, others not
+- Different rates for different categories
+- Exempt services (medical, educational, etc.)
+
+**To Set:**
+1. Create/edit offering
+2. Set **Tax Rate** field
+3. This rate applies when offering added to invoice
+4. Save offering
+
+**Example:**
+```
+Consulting Services: 13% (standard)
+Software Development: 13% (standard)
+Educational Workshops: 0% (exempt)
+Medical Services: 0% (exempt)
+```
+
+### Per-Invoice Tax Control
+
+Override tax for specific invoices:
+
+**Line Item Tax:**
+- Set tax rate per line item
+- Mix taxable and non-taxable on same invoice
+- Full flexibility
+
+**Invoice-Level Tax:**
+- Apply single rate to entire invoice
+- Simpler for all-taxable or all-exempt invoices
+
+**Tax-Inclusive vs Tax-Exclusive:**
+- **Tax-Exclusive** (Default): Line amount + tax = total
+- **Tax-Inclusive**: Line amount includes tax
+
+## Tax Calculations
+
+### Automatic Calculation
+
+Every AI calculates tax automatically:
+
+**How It Works:**
+1. Add line item to invoice
+2. Tax rate applied (from offering or manual)
+3. Tax amount calculated: `Line Total × Tax Rate`
+4. Tax added to invoice
+5. Grand total updated
+
+**Example:**
+```
+Line Item: Consulting Services
+Amount: $1,000.00
+Tax Rate: 13%
+Tax Amount: $130.00
+Line Total: $1,130.00
+```
+
+### Multiple Tax Rates
+
+Different line items can have different rates:
+
+**Example Invoice:**
+```
+Line 1: Consulting (13% tax)
+  Subtotal: $1,000.00
+  Tax: $130.00
+  Total: $1,130.00
+
+Line 2: Educational Workshop (0% tax)
+  Subtotal: $500.00
+  Tax: $0.00
+  Total: $500.00
+
+Invoice Total:
+  Subtotal: $1,500.00
+  Total Tax: $130.00
+  Grand Total: $1,630.00
+```
+
+### Tax on Discounts
+
+Tax calculated after discounts:
+
+**Calculation Order:**
+```
+1. Line Item Subtotal
+2. Apply Discount
+3. Calculate Tax on discounted amount
+4. Total = Discounted Subtotal + Tax
+```
+
+**Example:**
+```
+Original: $1,000
+Discount 10%: -$100
+Subtotal: $900
+Tax 13%: $117
+Total: $1,017
+```
+
+## Regional Tax Rates
+
+### Canadian Tax System
+
+**GST (Federal):**
+- 5% across Canada
+- Applied in addition to provincial tax in some provinces
+
+**HST (Harmonized):**
+- Combined federal and provincial
+- **13%**: Ontario, Prince Edward Island
+- **15%**: Nova Scotia, New Brunswick, Newfoundland
+- Replaces separate GST/PST
+
+**PST (Provincial):**
+- **7%**: British Columbia
+- **6%**: Saskatchewan
+- **7%**: Manitoba
+- **9.975%**: Quebec (QST)
+- Applied with GST (5% + PST)
+
+**No Provincial Tax:**
+- Alberta, Northwest Territories, Nunavut, Yukon
+- Only 5% GST applies
+
+<Note>
+  Every AI doesn't auto-select regional rates. Set your applicable rate in organization settings.
+</Note>
+
+### US Sales Tax
+
+**State Sales Tax:**
+- Varies by state (0% to over 10%)
+- Local taxes may apply
+- Nexus rules determine where you collect
+- Some states have no sales tax
+
+**Complexity:**
+- Different rates per state/county/city
+- Product-specific exemptions
+- Service tax rules vary
+- Remote seller laws
+
+<Tip>
+  Consult a tax professional for US sales tax compliance. Rules are complex and vary by jurisdiction.
+</Tip>
+
+## Expense Tax Tracking
+
+### Tracking Deductible Expenses
+
+All expenses tracked in Every AI support tax deductions:
+
+**What's Tracked:**
+- Expense amount
+- Category (tax-friendly categories)
+- Receipt (required for deductions)
+- Date
+- Description
+
+**Tax-Deductible Categories:**
+- Advertising & Marketing
+- Business Meals (usually 50% deductible)
+- Software & Subscriptions
+- Travel
+- Office Supplies
+- Professional Services
+- Insurance
+- Rent & Utilities
+- Equipment
+- Education & Training
+
+### Generating Expense Reports for Taxes
+
+**Year-End Process:**
+1. Navigate to **Expenses**
+2. Filter date range (e.g., Jan 1 - Dec 31, 2025)
+3. Review all expenses
+4. Export to CSV
+5. Provide to accountant
+
+**What Accountant Needs:**
+- Total per category
+- Receipt documentation
+- Business vs personal split (if applicable)
+- Mileage logs (if claiming auto)
+
+<Tip>
+  Keep all expense receipts! The IRS/CRA requires receipts for expenses over certain thresholds.
+</Tip>
+
+## Tax Reporting
+
+### Sales Tax Reports
+
+Track tax collected:
+
+**Report Includes:**
+- Total sales
+- Total tax collected
+- Tax broken down by rate
+- Date range
+- Client-level detail
+
+**Use Cases:**
+- Quarterly tax remittance
+- Annual tax filing
+- Audit preparation
+- Reconciliation
+
+**Access:**
+1. Navigate to **Reports** → **Tax Report**
+2. Select date range
+3. View tax collected summary
+4. Export for filing
+
+### Tax Liability Tracking
+
+Know how much you owe:
+
+**Tracking:**
+- Tax collected from clients
+- Tax remittance due dates
+- Amount to remit
+- Payment status
+
+**Remittance Schedule:**
+- **Monthly**: High-volume businesses
+- **Quarterly**: Most small businesses
+- **Annually**: Very small businesses
+
+<Warning>
+  Track tax remittance separately. Tax collected is not your revenue - it must be remitted to tax authorities!
+</Warning>
+
+## Compliance & Best Practices
+
+<Tip>
+  **Consult a tax professional** - Tax laws are complex. Get professional advice for your situation.
+</Tip>
+
+<Tip>
+  **Keep all receipts** - Required for expense deductions and audit protection.
+</Tip>
+
+<Tip>
+  **Separate business and personal** - Maintain separate accounts and track only business expenses.
+</Tip>
+
+<Tip>
+  **Remit tax on time** - Late remittance = penalties and interest. Set reminders.
+</Tip>
+
+<Tip>
+  **Update rates as laws change** - Tax rates and rules change. Stay informed.
+</Tip>
+
+<Tip>
+  **Document exempt sales** - If you don't charge tax, document why (exempt customer, exempt product, etc.).
+</Tip>
+
+<Tip>
+  **Review quarterly** - Don't wait until year-end. Review tax reports quarterly.
+</Tip>
+
+## Common Tax Scenarios
+
+### HST-Registered Canadian Business
+
+**Setup:**
+- Sales Tax Default: 13% (Ontario HST example)
+- Collect HST on most services
+
+**Process:**
+1. Create invoices with 13% tax
+2. Collect tax from clients
+3. Track in separate bank account
+4. File HST return quarterly
+5. Remit collected tax minus input tax credits
+
+### US Business in Sales Tax State
+
+**Setup:**
+- Determine nexus (where you collect tax)
+- Set appropriate state tax rate
+- Register for sales tax permit
+
+**Process:**
+1. Collect sales tax on in-state sales
+2. Track collected tax
+3. File returns (monthly/quarterly)
+4. Remit collected tax
+
+### Tax-Exempt Services
+
+**If Services Not Taxable:**
+- Sales Tax Default: 0%
+- No tax collected on invoices
+- Still track expenses (those may be deductible)
+
+## Troubleshooting
+
+### Wrong Tax Rate Applied
+
+**Problem:** Invoice has incorrect tax rate
+
+**Solution:**
+- If draft: Edit invoice, update tax rate per line item
+- If issued: Void and create new invoice, or
+- Issue credit note (future feature) to adjust
+
+### Tax Not Calculating
+
+**Check:**
+- Tax rate set on line item
+- Tax rate entered as percentage (13, not 0.13)
+- Organization settings saved
+- Browser cache cleared
+
+### Multiple Taxes (GST + PST)
+
+**Current Limitation:** Every AI supports single tax rate per line item
+
+**Workaround:**
+- Calculate combined rate (GST 5% + PST 7% = 12%)
+- Apply as single rate
+- Note in invoice: "Includes GST and PST"
+
+**Future:** Support for multiple simultaneous tax rates
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Organization Setup"
+    icon="building"
+    href="/getting-started/organization-setup"
+  >
+    Configure your tax rates
+  </Card>
+
+  <Card
+    title="Track Expenses"
+    icon="receipt"
+    href="/features/expenses"
+  >
+    Log tax-deductible expenses
+  </Card>
+
+  <Card
+    title="View Reports"
+    icon="chart-line"
+    href="/advanced/reporting"
+  >
+    Generate tax reports
+  </Card>
+
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Apply tax to invoices
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

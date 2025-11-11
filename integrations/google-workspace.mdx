@@ -1,0 +1,499 @@
+---
+title: "Google Workspace Integration"
+description: "Sync with Gmail, Google Calendar, Google Drive, and Google Contacts for seamless workflow integration"
+---
+
+## Overview
+
+Google Workspace integration connects Every AI with your Gmail, Calendar, Drive, and Contacts. Import contacts, attach Drive files, schedule meetings, and let the AI Agent send emails on your behalf.
+
+**What You Can Do:**
+- Import contacts from Google Contacts
+- Send emails through Gmail (via Agent)
+- Create calendar events for meetings/reminders
+- Attach Google Drive files to records
+- Search and link Drive documents
+
+## Connecting Google Workspace
+
+### Initial Setup
+
+**Prerequisites:**
+- Google Workspace or personal Google account
+- Gmail, Calendar, Drive, and/or Contacts enabled
+
+**Connection Process:**
+
+1. Navigate to **Settings** → **Integrations**
+2. Find **Google Workspace** section
+3. Click **Connect Google Account**
+4. Google OAuth login page opens
+5. Select your Google account
+6. Review permissions requested
+7. Click **Allow** to grant access
+8. Return to Every AI
+9. Connection confirmed!
+
+**Permissions Requested:**
+- **Gmail**: Send emails, read messages
+- **Calendar**: Read and write events
+- **Drive**: View and search files
+- **Contacts**: Read contact information
+
+<Note>
+  You can grant partial permissions (e.g., only Contacts) if you don't want full access.
+</Note>
+
+### Scope Management
+
+**What are Scopes?**
+- Scopes define what Every AI can access
+- You control which Google services to connect
+- Can add/remove scopes anytime
+
+**If Missing Scopes:**
+- Feature unavailable until scope granted
+- App prompts to reconnect with additional scopes
+- No data loss - just need to reauthorize
+
+**To Update Scopes:**
+1. Settings → Integrations
+2. Click **Reconnect Google**
+3. Grant additional permissions
+4. Connection updated
+
+<Tip>
+  Start with basic scopes. Add more as you need specific features.
+</Tip>
+
+## Gmail Integration
+
+### Sending Emails (via Agent)
+
+The Every Agent can send emails through your Gmail:
+
+**How It Works:**
+1. Chat with Agent: "Send an email to ACME Corp thanking them for payment"
+2. Agent drafts email
+3. You review draft
+4. Approve sending
+5. Email sent from your Gmail
+6. Sent item appears in your Gmail Sent folder
+
+**Use Cases:**
+- Invoice reminders
+- Payment thank you messages
+- Follow-ups with clients
+- Project updates
+- Meeting confirmations
+
+**Agent Capabilities:**
+- Draft professional emails
+- Reference invoice/client data
+- Include attachments
+- CC/BCC recipients
+- Custom subject lines
+
+### Suggested Email Responses
+
+Agent generates suggested email responses:
+
+**API Endpoint:** `/api/generate-suggested-messages`
+
+**Use Cases:**
+- Quick reply to client inquiries
+- Professional response templates
+- Context-aware suggestions based on conversation
+
+**How It Works:**
+1. View client email/message
+2. Click "Generate Suggested Response"
+3. Agent analyzes context
+4. Provides 2-3 response options
+5. Select and customize
+6. Send via Gmail integration
+
+### Gmail Requirements
+
+**Required Scopes:**
+- `gmail.send` - Send emails
+- `gmail.readonly` - Read emails for context
+- `gmail.modify` - Manage sent items
+
+**If Scope Missing:**
+- App prompts to reconnect
+- Reauthorize with Gmail scopes
+- Feature becomes available
+
+## Google Calendar Integration
+
+### Creating Calendar Events
+
+**Via Agent:**
+"Create a calendar event for my meeting with ACME Corp next Tuesday at 2 PM"
+
+**Manually:**
+1. Use calendar integration hook
+2. Create event with details
+3. Event syncs to Google Calendar
+
+**Event Features:**
+- Meeting title and description
+- Date and time
+- Location (physical or video link)
+- Attendees (with invitations)
+- Reminders
+
+**Use Cases:**
+- Client meeting scheduling
+- Invoice due date reminders
+- Project milestone reminders
+- Follow-up task scheduling
+
+### Viewing Calendar
+
+**Calendar Hook:** `useGoogleCalendar`
+
+**Features:**
+- Fetch upcoming events
+- View event details
+- Create new events
+- Update existing events
+
+**Integration Benefits:**
+- All meetings in one place
+- Automatic reminders
+- Client meeting history
+- Integrated workflow
+
+<Tip>
+  Add invoice due dates to your calendar so you remember to follow up!
+</Tip>
+
+## Google Drive Integration
+
+### Searching Drive Files
+
+**Drive Hook:** `useGoogleDrive`
+
+**Search Capabilities:**
+- Search by filename
+- Filter by file type
+- Recent files
+- Starred files
+- Specific folders
+
+**Use Cases:**
+- Find contracts to attach to invoices
+- Locate project files
+- Reference documentation
+- Attach specifications to proposals
+
+### Attaching Drive Files
+
+**To Attach:**
+1. Create/edit invoice or proposal
+2. Click "Attach from Drive"
+3. Search or browse Drive files
+4. Select file
+5. Link added to record
+6. Client can access (if file permissions allow)
+
+**File Types:**
+- Documents (Docs, PDFs)
+- Spreadsheets (Sheets, Excel)
+- Presentations (Slides, PowerPoint)
+- Images
+- Any file type in Drive
+
+**Permissions:**
+- File permissions managed in Google Drive
+- Client sees "View in Drive" link
+- Access depends on Drive sharing settings
+- Consider making files public or sharing with client email
+
+### Drive Requirements
+
+**Required Scope:**
+- `drive.readonly` - View and search files
+- `drive.file` - Access specific files (optional)
+
+**Insufficient Scope:**
+- App prompts to reconnect
+- Grant Drive access
+- Feature unlocks
+
+## Google Contacts Integration
+
+### Importing Contacts
+
+**To Import:**
+1. Navigate to **Clients**
+2. Click **Import from Google Contacts**
+3. See list of Google Contacts
+4. Select contacts to import
+5. Click **Import Selected**
+6. Contacts become clients in Every AI
+
+**What's Imported:**
+- Contact name
+- Email addresses
+- Phone numbers
+- Company/organization name
+- Addresses
+- Notes
+
+**Duplicate Prevention:**
+- System checks for existing clients by email
+- Won't create duplicates
+- Shows which contacts already exist
+
+**One-Way Sync:**
+- Import is one-time, not continuous
+- Changes in Google Contacts don't auto-update Every AI
+- Re-import to refresh
+- Changes in Every AI don't sync back to Google
+
+<Tip>
+  Import contacts when starting with Every AI to save manual entry time!
+</Tip>
+
+### Client Enrichment with Google Data
+
+**Auto-Enrichment:**
+- Google Contacts data used for enrichment
+- Company names matched
+- Addresses filled in
+- Professional details added
+
+**Manual Sync:**
+- Search Google Contacts from client form
+- Select matching contact
+- Data pulls into client record
+
+## Agent Integration
+
+### Every Agent + Google Workspace
+
+The Agent leverages Google integrations:
+
+**Agent Checks Availability:**
+- `check_google_services_status` tool
+- Verifies connections before using features
+- Prompts reconnection if needed
+
+**Agent Capabilities:**
+- Send Gmail emails
+- Create calendar events
+- Search Drive files
+- Reference contact data
+- Schedule follow-ups
+- Manage reminders
+
+**Example Agent Interactions:**
+```
+User: "Send invoice reminder to ACME Corp"
+Agent: ✓ Checks Gmail connection
+       ✓ Drafts professional reminder
+       ✓ Sends via your Gmail
+       ✓ Logs activity
+
+User: "Schedule follow-up meeting with client"
+Agent: ✓ Checks Calendar connection
+       ✓ Creates calendar event
+       ✓ Sends invitation
+       ✓ Adds to client timeline
+```
+
+## Managing Connection
+
+### Connection Status
+
+**View Status:**
+1. Settings → Integrations
+2. See Google Workspace section
+3. Status indicators:
+   - ✅ Connected
+   - ⚠️ Needs reconnection
+   - ❌ Not connected
+
+**Connection Health:**
+- Last successful sync
+- Active scopes
+- Token expiration
+- Error messages (if any)
+
+### Reconnecting
+
+**When to Reconnect:**
+- Adding new scopes
+- Token expired
+- Connection error
+- Permission changes
+
+**To Reconnect:**
+1. Settings → Integrations
+2. Click **Reconnect Google**
+3. Log in again
+4. Grant permissions
+5. Connection refreshed
+
+### Disconnecting
+
+**To Disconnect:**
+1. Settings → Integrations
+2. Find Google Workspace
+3. Click **Disconnect**
+4. Confirm disconnection
+
+**What Happens:**
+- Stored tokens removed
+- Features become unavailable
+- Historical data preserved
+- Can reconnect anytime
+
+**Data Retention:**
+- Imported clients remain
+- Past Drive links preserved (but may break if permissions changed)
+- Email/calendar history maintained
+
+<Warning>
+  Disconnecting removes integration features but doesn't delete imported data.
+</Warning>
+
+## Troubleshooting
+
+### Can't Connect Google Account
+
+**Common Issues:**
+- Wrong Google account selected
+- Pop-up blocked by browser
+- Third-party cookies disabled
+- Organization security policy
+
+**Solutions:**
+- Allow pop-ups for app.every.ai
+- Enable third-party cookies
+- Try different browser
+- Check organization GSuite settings
+- Contact IT if corporate account
+
+### Features Not Working
+
+**Check:**
+- Connection status (Settings → Integrations)
+- Required scopes granted
+- Token not expired
+- Internet connection stable
+
+**Solution:**
+- Reconnect Google account
+- Grant missing scopes
+- Refresh page
+- Contact support if persists
+
+### Gmail Not Sending
+
+**Verify:**
+- Gmail scope granted (`gmail.send`)
+- Email draft approved
+- Internet connection
+- Gmail account active
+
+**Solution:**
+- Check sent items in Gmail
+- Reconnect with Gmail scope
+- Try sending test email
+
+### Calendar Events Not Creating
+
+**Verify:**
+- Calendar scope granted
+- Correct calendar selected
+- Date/time valid
+- No conflicting events
+
+**Solution:**
+- Reconnect with Calendar scope
+- Check Google Calendar directly
+- Verify timezone settings
+
+### Drive Files Not Found
+
+**Check:**
+- Drive scope granted
+- Files exist in your Drive
+- Search terms accurate
+- File permissions
+
+**Solution:**
+- Reconnect with Drive scope
+- Check file name in Drive
+- Verify file not deleted
+- Check sharing permissions
+
+## Best Practices
+
+<Tip>
+  **Import contacts early** - Start by importing your Google Contacts to save manual data entry.
+</Tip>
+
+<Tip>
+  **Use Agent for emails** - Let Agent draft professional emails based on your data.
+</Tip>
+
+<Tip>
+  **Link Drive files** - Attach contracts and documents from Drive instead of uploading duplicates.
+</Tip>
+
+<Tip>
+  **Schedule reminders** - Add invoice due dates and follow-ups to your calendar.
+</Tip>
+
+<Tip>
+  **Grant all scopes** - Full integration provides best experience and most features.
+</Tip>
+
+<Tip>
+  **Reconnect if prompted** - Don't ignore reconnection prompts - features won't work until you do.
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Connect Google"
+    icon="google"
+    href="https://app.every.ai/settings/integrations"
+  >
+    Set up Google Workspace integration
+  </Card>
+
+  <Card
+    title="Import Contacts"
+    icon="users"
+    href="/features/clients"
+  >
+    Import Google Contacts as clients
+  </Card>
+
+  <Card
+    title="Use Every Agent"
+    icon="robot"
+    href="/ai/every-agent"
+  >
+    Let Agent send emails and create events
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="address-book"
+    href="/features/clients"
+  >
+    Enrich clients with Google data
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

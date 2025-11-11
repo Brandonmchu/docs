@@ -1,0 +1,577 @@
+---
+title: "Invoice Automations"
+description: "Set up automated recurring invoices with flexible scheduling, testing capabilities, and execution history tracking"
+---
+
+## Overview
+
+Invoice Automations (Recurring Invoices) automatically generate and send invoices on a schedule. Perfect for clients you bill regularly - monthly retainers, quarterly services, annual subscriptions, or any recurring billing need.
+
+<Note>
+  **Save Time:** Set up once, automate forever. Ideal for recurring clients and predictable billing cycles.
+</Note>
+
+## What Are Invoice Automations?
+
+Automations generate invoices automatically based on your schedule:
+
+**Key Features:**
+- **Flexible Schedules**: Daily, weekly, monthly, quarterly, yearly
+- **Customizable Line Items**: Services, products, standard pricing
+- **Action Options**: Create as draft or send immediately
+- **Testing System**: Safe test mode before going live
+- **Execution History**: Complete audit trail of all generated invoices
+- **Template Inheritance**: Uses your organization branding
+
+**Common Use Cases:**
+- Monthly retainer clients
+- Quarterly maintenance contracts
+- Annual subscription renewals
+- Weekly service billing
+- Recurring project work
+
+## Creating Automations
+
+### Basic Automation Setup
+
+1. Navigate to **Automations** (or **Invoices** → **Automations**)
+2. Click **Create Automation** or **+** button
+3. Fill in automation details
+
+**Required Fields:**
+
+**Client:**
+- Select client to invoice
+- Must be existing active client
+
+**Schedule Type:**
+- Daily
+- Weekly
+- Monthly
+- Quarterly (every 3 months)
+- Yearly
+
+**Start Date:**
+- When automation begins
+- First invoice generated on or after this date
+
+**Line Items:**
+- Add services/products to invoice
+- Same process as manual invoices
+- Can use offerings for consistency
+
+**Action on Generation:**
+- **Create as Draft**: Requires manual review and send
+- **Send Immediately**: Automatically emails client
+
+**Optional Fields:**
+
+**End Date:**
+- When automation stops (optional)
+- Leave blank for ongoing
+- Useful for fixed-term contracts
+
+**Invoice Notes:**
+- Custom notes for these recurring invoices
+- Overrides organization default
+
+**Payment Terms:**
+- Due days (uses organization default if not specified)
+- Online payment settings
+
+4. Click **Save Automation**
+
+<Tip>
+  Start with "Create as Draft" until you're confident the automation is correct!
+</Tip>
+
+### Schedule Types Explained
+
+#### Daily
+- Generates invoice every day
+- Rare use case
+- Example: Daily equipment rental
+
+**Configuration:**
+- Start date: When to begin
+- Runs every calendar day
+
+#### Weekly
+- Generates invoice once per week
+- Specify day of week
+
+**Configuration:**
+- Start date determines first occurrence
+- Repeats every 7 days
+- Example: Every Monday
+
+#### Monthly
+- Generates invoice once per month
+- Most common schedule
+
+**Configuration:**
+- Day of month (e.g., 1st, 15th, last day)
+- Start date determines first billing
+- Example: 1st of every month
+
+<Tip>
+  **Monthly on the 1st** is most common for retainer clients.
+</Tip>
+
+#### Quarterly
+- Generates invoice every 3 months
+- Common for consulting retainers
+
+**Configuration:**
+- Start date sets first quarter
+- Repeats every 3 months
+- Example: Jan 1, Apr 1, Jul 1, Oct 1
+
+#### Yearly
+- Generates invoice once per year
+- Annual subscriptions, memberships
+
+**Configuration:**
+- Anniversary date from start date
+- Repeats annually
+- Example: January 1 every year
+
+### Adding Line Items to Automations
+
+Line items work the same as regular invoices:
+
+**From Offerings:**
+1. Click **Add Line Item**
+2. Select offering
+3. Set quantity
+4. Automatic rate and tax
+
+**Manual Entry:**
+1. Click **Add Line Item**
+2. Enter description
+3. Set quantity and rate
+4. Apply tax if needed
+
+**Best Practice:**
+Use offerings for consistency across all generated invoices!
+
+### Action on Generation
+
+**Create as Draft:**
+- Invoice generated but not sent
+- Appears in your drafts
+- You review before sending
+- Can edit amounts or notes
+- Send manually when ready
+
+**Use when:**
+- Want to review before sending
+- Amounts may vary slightly
+- Need to add notes per invoice
+- Testing new automation
+
+**Send Immediately:**
+- Invoice generated and emailed automatically
+- No manual intervention
+- Client receives invoice right away
+- Status: Issued
+
+**Use when:**
+- Same amount every time
+- Trust automation completely
+- Want fully hands-off billing
+- Established automation
+
+<Warning>
+  Only use "Send Immediately" for well-tested automations with established clients!
+</Warning>
+
+## Testing Automations
+
+Before activating an automation for real, test it!
+
+### Test Mode
+
+**How Test Mode Works:**
+
+1. Edit automation
+2. Enable **Test Mode**
+3. Automation generates test invoices:
+   - Prefixed with "TEST-"
+   - Sent to your email (not client)
+   - Doesn't affect production data
+   - Uses actual automation code
+4. Review test invoice
+5. Verify:
+   - Correct amounts
+   - Correct line items
+   - Correct formatting
+   - Correct branding
+6. Disable test mode when ready
+7. Activate automation for real
+
+**Test Invoice Characteristics:**
+- Invoice number: TEST-001, TEST-002, etc.
+- Email recipient: Your email (organization owner)
+- Not visible to client
+- Can be deleted without constraints
+- Full automation logic tested
+
+<Tip>
+  Always test automations before going live, especially "Send Immediately" automations!
+</Tip>
+
+### Safe Testing
+
+**Test mode is safe because:**
+- No emails to clients
+- Test invoices clearly marked
+- Easy cleanup (just delete test invoices)
+- Tests real code paths
+- Verifies entire workflow
+
+**Testing Checklist:**
+- [ ] Line items correct?
+- [ ] Amounts accurate?
+- [ ] Tax calculated correctly?
+- [ ] Invoice formatting good?
+- [ ] Branding applied?
+- [ ] Email would go to right client (if not test)?
+- [ ] Schedule correct?
+
+Once checklist complete, disable test mode and activate!
+
+## Managing Automations
+
+### Activating Automations
+
+**To Activate:**
+1. Create automation (or edit existing)
+2. Set status to **Active**
+3. Save automation
+
+**Active automation:**
+- Runs on schedule
+- Generates invoices automatically
+- Next run date calculated
+- Execution history tracked
+
+### Deactivating Automations
+
+**To Deactivate:**
+1. Edit automation
+2. Set status to **Inactive**
+3. Save automation
+
+**Inactive automation:**
+- Does not run
+- Schedule paused
+- No invoices generated
+- Can be reactivated anytime
+- Historical data preserved
+
+**When to Deactivate:**
+- Client contract ended
+- Temporary billing pause
+- Need to update automation
+- Testing changes
+
+### Next Run Date
+
+System automatically calculates when automation runs next:
+
+**Calculation:**
+- Based on schedule type
+- From last execution (or start date if never run)
+- Shown on automation detail page
+- Updates after each run
+
+**Example:**
+```
+Schedule: Monthly (1st of month)
+Last Run: March 1, 2025
+Next Run: April 1, 2025
+```
+
+### Execution History
+
+Complete record of every invoice generated:
+
+**History Includes:**
+- Execution date and time
+- Invoice generated (link)
+- Success or failure
+- Error messages (if failed)
+- Who it was sent to
+- Action taken (draft or sent)
+
+**Access History:**
+1. Open automation
+2. View **Execution History** section
+3. Click execution for details
+
+**Benefits:**
+- Audit trail of all automated invoices
+- Troubleshoot failures
+- Verify correct operation
+- Track automation performance
+
+## Automation Features
+
+### Date Range Control
+
+**Start Date:**
+- First invoice generated on/after start date
+- Required field
+
+**End Date (Optional):**
+- Automation stops after this date
+- Useful for fixed-term contracts
+- Leave blank for ongoing
+
+**Example:**
+```
+Start Date: January 1, 2025
+End Date: December 31, 2025
+Result: 12 monthly invoices generated in 2025,
+       then automation stops
+```
+
+### Error Handling
+
+If automation fails, system:
+
+**Graceful Failure:**
+- Logs error in execution history
+- Sends notification to organization owner
+- Does NOT generate invoice (prevents bad invoices)
+- Automation stays active
+- Will retry on next scheduled run
+
+**Common Errors:**
+- Client no longer exists (archived/deleted)
+- Organization settings incomplete
+- Email service temporarily down
+- System maintenance
+
+**Resolution:**
+- Check error message in execution history
+- Fix underlying issue (restore client, complete settings, etc.)
+- Automation will run successfully next time
+
+<Note>
+  Automations fail safely - no incorrect invoices are ever generated or sent.
+</Note>
+
+### Template and Branding
+
+Automated invoices use:
+- Organization logo
+- Brand colors
+- Selected invoice template
+- Default currency
+- Default due days
+- Organization address
+
+Everything from organization settings applied automatically!
+
+## Best Practices
+
+<Tip>
+  **Test before activating** - Always run test mode to verify automation works correctly.
+</Tip>
+
+<Tip>
+  **Use offerings** - Reference offerings in line items for consistency across generated invoices.
+</Tip>
+
+<Tip>
+  **Start with drafts** - Use "Create as Draft" until you're confident, then switch to "Send Immediately".
+</Tip>
+
+<Tip>
+  **Set end dates for fixed contracts** - Prevents billing after contract ends.
+</Tip>
+
+<Tip>
+  **Review execution history regularly** - Catch any issues early.
+</Tip>
+
+<Tip>
+  **Deactivate when not needed** - Pause automations for seasonal clients or temporary stops.
+</Tip>
+
+<Tip>
+  **Clear naming** - Name automations clearly: "ACME Corp - Monthly Retainer" not just "ACME Corp".
+</Tip>
+
+## Common Workflows
+
+### Setting Up Monthly Retainer
+
+1. Create automation
+2. Select retainer client
+3. Set schedule: Monthly (1st of month)
+4. Add line item: "Monthly Retainer - Consulting Services"
+5. Set amount: $5,000
+6. Action: Create as Draft (initially)
+7. Enable test mode
+8. Trigger test
+9. Review test invoice
+10. Disable test mode
+11. Activate automation
+12. After first successful month, switch to "Send Immediately"
+
+### Quarterly Contract Billing
+
+1. Create automation
+2. Select client
+3. Set schedule: Quarterly
+4. Start date: Quarter start (Jan 1, Apr 1, Jul 1, or Oct 1)
+5. End date: End of contract (if fixed term)
+6. Add line items for quarterly services
+7. Set amount
+8. Action: Create as Draft
+9. Test automation
+10. Activate
+
+### Annual Subscription Renewal
+
+1. Create automation
+2. Select subscriber client
+3. Set schedule: Yearly
+4. Start date: Subscription anniversary
+5. Add line item: "Annual Subscription"
+6. Set amount
+7. Action: Send Immediately (after testing!)
+8. Test automation
+9. Activate
+10. Will generate invoice once per year automatically
+
+## Troubleshooting
+
+### Automation Not Running
+
+**Check:**
+- Automation status is Active (not Inactive)
+- Next run date hasn't passed yet
+- Start date is in past
+- End date hasn't passed (if set)
+- Client still exists and is active
+
+**Solution:**
+- Activate automation if inactive
+- Check next run date
+- Verify client status
+- Review execution history for errors
+
+### Test Invoice Not Generated
+
+**Check:**
+- Test mode enabled
+- Automation saved after enabling test mode
+- Manually trigger test (if button available)
+- Organization email configured
+
+**Solution:**
+- Re-enable test mode
+- Save automation
+- Wait a moment and check drafts
+- Check spam folder for test email
+
+### Wrong Amount on Generated Invoice
+
+**Check:**
+- Line item amounts in automation
+- Tax settings
+- Discount applied
+- Offerings referenced have correct rates
+
+**Solution:**
+- Edit automation
+- Update line item amounts
+- Verify offerings
+- Test again before next run
+
+### Invoice Sent to Wrong Client
+
+**Not possible** - Each automation tied to specific client. Cannot send to wrong client.
+
+**If seeing this:**
+- Multiple automations running
+- Check which automation generated which invoice
+- Review automation configurations
+
+## Advanced Tips
+
+### Multiple Automations Per Client
+
+You can have multiple automations for the same client:
+
+**Example:**
+- Monthly retainer (1st of month)
+- Quarterly audit (every 3 months on 15th)
+
+Both run independently, both for same client.
+
+### Combining with Manual Invoices
+
+Automations don't prevent manual invoices:
+
+- Automation generates recurring invoices
+- You can still create one-off invoices manually
+- Both appear in client's invoice history
+- No conflicts
+
+### Seasonal Automations
+
+For seasonal businesses:
+
+**Option 1: Use End Date**
+- Set start and end for season
+- Create new automation next season
+
+**Option 2: Deactivate/Reactivate**
+- Deactivate at season end
+- Reactivate at season start
+- Preserves configuration
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Learn about manual invoice creation
+  </Card>
+
+  <Card
+    title="Use Offerings"
+    icon="list"
+    href="/features/offerings"
+  >
+    Set up service templates for automation line items
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="users"
+    href="/features/clients"
+  >
+    Add clients for recurring billing
+  </Card>
+
+  <Card
+    title="Track Execution"
+    icon="history"
+    href="/advanced/reporting"
+  >
+    Monitor automation performance
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

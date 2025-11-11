@@ -1,0 +1,537 @@
+---
+title: "Expenses"
+description: "Track business expenses, scan receipts with AI, categorize for tax purposes, and bill expenses back to clients"
+---
+
+## Overview
+
+Every AI's expense management helps you track business expenses for tax purposes and bill them back to clients. Upload receipts, let AI extract details, categorize expenses, and seamlessly add billable expenses to client invoices.
+
+**Key Features:**
+- Receipt scanning with AI extraction
+- Expense categorization for tax reporting
+- Client billback capabilities
+- Receipt attachment and storage
+- Integration with invoices
+- Expense reporting and analytics
+
+## What Are Expenses?
+
+Expenses are business costs you incur:
+
+**Types:**
+- **Billable to Clients**: Expenses you'll invoice to clients (travel, materials, etc.)
+- **Business Operating Expenses**: General business costs (software, equipment, etc.)
+- **Tax-Deductible**: Expenses you'll claim on taxes
+
+**Common Expenses:**
+- Office supplies
+- Software subscriptions
+- Travel and meals
+- Client materials
+- Equipment purchases
+- Professional services
+- Advertising and marketing
+
+## Creating Expenses
+
+### Basic Expense Entry
+
+1. Navigate to **Expenses**
+2. Click **Add Expense** or **+** button
+3. Fill in expense details
+
+**Required Fields:**
+- **Merchant**: Who you paid
+- **Amount**: How much you spent
+- **Date**: When expense occurred
+
+**Optional Fields:**
+- **Category**: Type of expense
+- **Description**: Additional details
+- **Receipt**: Upload receipt image/PDF
+- **Client**: If billing back to client
+- **Invoice**: Link to invoice (for billable expenses)
+- **Payment Method**: How you paid
+- **Notes**: Additional information
+
+4. Click **Save**
+
+<Tip>
+  Upload receipts for all expenses! They're required for tax deductions and audit protection.
+</Tip>
+
+### Receipt Scanning with AI
+
+Upload receipts and let AI extract details automatically:
+
+**How Receipt Scanning Works:**
+
+1. Click **Add Expense**
+2. Click **Upload Receipt** or drag & drop image
+3. AI analyzes receipt and extracts:
+   - **Merchant name**
+   - **Amount** (total)
+   - **Date** of transaction
+   - **Category** (best guess)
+   - **Payment method** (if visible)
+4. Review extracted data
+5. Adjust if needed
+6. Save expense
+
+**Supported Receipt Formats:**
+- Images: JPG, PNG, HEIC
+- Documents: PDF
+- Maximum size: 5MB per file
+
+**AI Accuracy:**
+- Merchant: 95%+ accurate
+- Amount: 90%+ accurate
+- Date: 90%+ accurate
+- Category: 70%+ accurate (requires review)
+
+<Note>
+  Always review AI-extracted data before saving. The AI is very good but not perfect!
+</Note>
+
+## Expense Categories
+
+Organize expenses by type for tax reporting:
+
+**Common Categories:**
+- **Advertising & Marketing**: Ads, marketing materials
+- **Business Meals**: Client lunches, team dinners
+- **Software & Subscriptions**: SaaS, tools, platforms
+- **Travel**: Flights, hotels, transportation
+- **Office Supplies**: Stationery, equipment
+- **Professional Services**: Lawyers, accountants, consultants
+- **Insurance**: Business insurance premiums
+- **Rent & Utilities**: Office space, internet, phone
+- **Equipment**: Computers, furniture, tools
+- **Education & Training**: Courses, conferences, books
+- **Other**: Miscellaneous expenses
+
+**Tax-Friendly Categorization:**
+- Categories align with common tax deduction types
+- Makes year-end tax preparation easier
+- Helps accountants categorize properly
+- Supports expense reporting
+
+<Tip>
+  Consistent categorization makes tax time much easier. Choose categories carefully and use them consistently.
+</Tip>
+
+## Billable Expenses
+
+Bill expenses back to clients:
+
+### Marking Expenses as Billable
+
+**When Creating Expense:**
+1. Add expense details
+2. Check **Billable to Client**
+3. Select **Client** from dropdown
+4. Save expense
+
+**Existing Expense:**
+1. Edit expense
+2. Check **Billable to Client**
+3. Select client
+4. Save changes
+
+**Billable Expense Indicators:**
+- Marked as "Billable" in expense list
+- Client name shown
+- Shows "Unbilled" until added to invoice
+- Can be filtered by billable status
+
+### Adding Expenses to Invoices
+
+Convert billable expenses to invoice line items:
+
+**To Bill Expenses:**
+
+1. Create invoice for client
+2. Click **Add from Expenses**
+3. See list of unbilled expenses for this client
+4. Select expenses to include
+5. Click **Add Selected**
+6. Expenses become invoice line items:
+   - Description: Expense description
+   - Amount: Expense amount
+   - Marked as "Billed"
+
+**Example:**
+```
+Expense: Client meeting travel
+Amount: $145.50
+Category: Travel
+
+Becomes Invoice Line Item:
+Description: Client meeting travel
+Amount: $145.50
+Quantity: 1
+```
+
+**Markup Options:**
+- Add percentage markup (e.g., add 10% to expenses)
+- Round to nearest $5 or $10
+- Add flat handling fee
+
+<Tip>
+  Clearly communicate your expense policy with clients upfront. Some clients expect expenses at cost, others accept markup.
+</Tip>
+
+## Managing Expenses
+
+### Expense List View
+
+**Features:**
+- All expenses displayed
+- Summary cards (total expenses, billable, billed)
+- Filter by date range
+- Filter by category
+- Filter by client
+- Filter by billable status
+- Search by merchant or description
+- Sort by date, amount, category
+
+**Summary Metrics:**
+- Total expenses (this period)
+- Total billable expenses
+- Total unbilled expenses value
+- Expenses by category
+
+### Editing Expenses
+
+**To Edit:**
+1. Open expense
+2. Click **Edit**
+3. Change any field
+4. Save changes
+
+**Editable Fields:**
+- All fields can be edited anytime
+- Exception: Billed expenses linked to issued invoices (limited editing)
+
+### Deleting Expenses
+
+**To Delete:**
+1. Open expense
+2. Click **Delete**
+3. Confirm deletion
+
+**Restrictions:**
+- Can delete unbilled expenses anytime
+- Cannot delete billed expenses linked to issued invoices
+- Remove from invoice first if needed
+
+<Warning>
+  Keep expense records for tax purposes. Only delete expenses recorded in error.
+</Warning>
+
+### Attaching Receipts
+
+Receipts are crucial for tax deductions:
+
+**Uploading Receipts:**
+1. Create or edit expense
+2. Click **Upload Receipt**
+3. Select image or PDF
+4. Receipt attached to expense
+5. Visible in expense details
+
+**Receipt Storage:**
+- Securely stored in cloud
+- Accessible anytime
+- Downloadable
+- Signed URLs for security
+- Backed up automatically
+
+**Multiple Receipts:**
+- Some expenses have multiple receipts
+- Upload all relevant documentation
+- All stored with expense
+
+**Missing Receipts:**
+- Add expense without receipt if needed
+- Upload receipt later when found
+- Note in description if receipt lost
+
+## Expense Reporting
+
+### Expense Analytics
+
+Track spending patterns:
+
+**Metrics:**
+- Total expenses by period
+- Expenses by category
+- Billable vs non-billable breakdown
+- Unbilled expense value
+- Billed expense tracking
+- Average expense amount
+
+**Date Range Reports:**
+- Daily expense logs
+- Weekly summaries
+- Monthly totals
+- Quarterly analysis
+- Yearly overview (for taxes)
+
+### Category Breakdown
+
+See spending by category:
+
+**Reports Show:**
+- Total per category
+- Percentage of total expenses
+- Trend over time
+- Top categories
+- Tax-deductible totals
+
+**Use Cases:**
+- Identify cost-cutting opportunities
+- Tax preparation
+- Budget planning
+- Client expense analysis
+
+### Client Expense Reports
+
+Track expenses per client:
+
+**View:**
+- Total expenses per client
+- Billable vs billed amounts
+- Unbilled expenses
+- Expense types per client
+- Client profitability (revenue minus expenses)
+
+**Benefits:**
+- Ensure all client expenses are billed
+- Track project costs
+- Identify high-expense clients
+- Support budget discussions
+
+## Integration with Other Features
+
+### Expenses + Invoices
+
+Seamless billback:
+
+**Workflow:**
+1. Incur expense for client work
+2. Log expense, mark as billable
+3. Create invoice at billing cycle
+4. Add unbilled expenses to invoice
+5. Expense marked as billed
+6. Client pays invoice including expenses
+
+### Expenses + Projects (Future)
+
+Track expenses per project:
+
+- Link expenses to specific projects
+- Project cost tracking
+- Budget vs actual comparison
+- Profitability per project
+
+### Expenses + Tax Reporting
+
+Organize for taxes:
+
+- Categorize all expenses
+- Generate year-end tax reports
+- Export for accountant
+- Track deductible expenses
+- Receipt documentation
+
+## Best Practices
+
+<Tip>
+  **Always upload receipts** - Required for tax deductions and protects in audits.
+</Tip>
+
+<Tip>
+  **Log expenses immediately** - Don't wait until month-end. Log as they occur while details are fresh.
+</Tip>
+
+<Tip>
+  **Use consistent categories** - Makes tax preparation and reporting much easier.
+</Tip>
+
+<Tip>
+  **Mark billable expenses immediately** - Don't forget to bill clients back for their expenses.
+</Tip>
+
+<Tip>
+  **Review unbilled expenses regularly** - Check weekly or monthly to ensure you're not missing billbacks.
+</Tip>
+
+<Tip>
+  **Separate personal and business** - Only log business expenses. Keep personal expenses separate.
+</Tip>
+
+<Tip>
+  **Add descriptions** - Future you will appreciate detailed notes about what the expense was for.
+</Tip>
+
+## Common Workflows
+
+### Daily Expense Logging
+
+**Morning:**
+- Coffee meeting with client ($12)
+- Log expense via mobile app (future)
+- Upload receipt photo
+- Mark billable to client
+- Category: Business Meals
+
+**Afternoon:**
+- Purchase project materials ($87)
+- Log expense
+- Upload receipt
+- Mark billable to client
+- Category: Office Supplies
+
+**End of Day:**
+- Review day's expenses
+- Verify all receipts uploaded
+- Check categorization
+
+### Monthly Expense Billback
+
+**Throughout Month:**
+- Log all client expenses
+- Mark as billable
+- Upload receipts
+
+**End of Month:**
+1. Filter expenses by client
+2. Review unbilled expenses
+3. Create invoice for client
+4. Add all unbilled expenses
+5. Add regular service line items
+6. Send invoice
+7. All expenses now marked as billed
+
+### Year-End Tax Preparation
+
+**Throughout Year:**
+- Log all business expenses
+- Categorize correctly
+- Upload all receipts
+
+**Year-End:**
+1. Generate expense report (full year)
+2. Review all categories
+3. Export expense data
+4. Provide to accountant
+5. All receipts available if needed
+
+### Project Cost Tracking
+
+**Project Start:**
+- Note project budget
+
+**During Project:**
+- Log all project expenses
+- Mark as billable to client
+- Track total against budget
+
+**Project End:**
+1. Review all project expenses
+2. Add to final invoice
+3. Calculate project profitability:
+   - Revenue (time + fixed fees)
+   - Minus expenses
+   - Equals profit
+4. Analyze for future pricing
+
+## Troubleshooting
+
+### Receipt Upload Failed
+
+**Check:**
+- File size under 5MB
+- Supported format (JPG, PNG, PDF)
+- Internet connection stable
+- Browser allows file uploads
+
+**Solution:**
+- Compress large images
+- Convert to supported format
+- Try different browser
+- Contact support if persists
+
+### AI Extracted Wrong Amount
+
+**Common Issue:** AI reads tax or subtotal instead of total
+
+**Solution:**
+- Always review AI-extracted data
+- Correct amount before saving
+- Look for "Total" or "Amount Due" on receipt
+- Report incorrect extraction to improve AI
+
+### Can't Edit Billed Expense
+
+**Reason:** Expense linked to issued invoice
+
+**Solution:**
+- Edit limited to prevent invoice inconsistency
+- Remove from invoice first (if invoice is draft)
+- Or accept current values to maintain invoice accuracy
+
+### Expense Not Appearing in "Add to Invoice"
+
+**Check:**
+- Expense marked as billable
+- Expense assigned to correct client
+- Expense not already billed
+- Expense exists (not deleted)
+
+**Solution:**
+- Verify expense is billable
+- Check client assignment matches invoice
+- Look in billed expenses filter
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Add expenses to client invoices
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="users"
+    href="/features/clients"
+  >
+    Track expenses per client
+  </Card>
+
+  <Card
+    title="View Reports"
+    icon="chart-line"
+    href="/advanced/reporting"
+  >
+    Analyze expense patterns and trends
+  </Card>
+
+  <Card
+    title="Tax Management"
+    icon="calculator"
+    href="/advanced/tax-management"
+  >
+    Organize expenses for tax reporting
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

@@ -1,0 +1,499 @@
+---
+title: "HubSpot CRM Integration"
+description: "Sync contacts and deals from HubSpot CRM, maintain HubSpot as source of truth, and view pipeline in Every AI"
+---
+
+## Overview
+
+HubSpot integration syncs your CRM contacts and deals into Every AI. Keep HubSpot as your source of truth while enabling seamless invoicing for HubSpot-managed clients.
+
+**Key Features:**
+- One-way sync (HubSpot → Every AI)
+- Import contacts and deals
+- View deal pipeline in Every AI
+- HubSpot as source of truth
+- Duplicate resolution before import
+- Connection status monitoring
+
+## How HubSpot Integration Works
+
+### One-Way Sync
+
+**Important:** Sync is HubSpot → Every AI only
+
+**What This Means:**
+- Changes in HubSpot sync to Every AI
+- Changes in Every AI do NOT sync back to HubSpot
+- HubSpot remains authoritative source
+- Every AI is read-only for HubSpot data
+
+**Why One-Way:**
+- Prevents data conflicts
+- Maintains HubSpot as CRM system
+- Every AI focuses on invoicing
+- Clear data ownership
+
+<Note>
+  HubSpot is your CRM. Every AI is your invoicing platform. Integration brings them together!
+</Note>
+
+### Source Attribution
+
+**Records from HubSpot:**
+- Marked with `source = hubspot`
+- Badge shows HubSpot origin
+- Links to HubSpot record
+- While connected, fields are read-only
+
+**When Disconnected:**
+- HubSpot records unlock for editing
+- Can modify in Every AI
+- No longer synced with HubSpot
+- Become native Every AI records
+
+## Connecting HubSpot
+
+### OAuth Connection Flow
+
+**To Connect:**
+
+1. Navigate to **Settings** → **Integrations**
+2. Find **HubSpot** section
+3. Click **Connect HubSpot**
+4. Redirected to HubSpot
+5. Log in to HubSpot account
+6. Select HubSpot account (if multiple)
+7. Review permissions
+8. Click **Grant Access**
+9. Return to Every AI
+10. Connection established!
+
+**Permissions Requested:**
+- Read contacts
+- Read deals
+- View pipeline stages
+- Access company data
+
+**OAuth API Endpoint:** `/api/hubspot/auth/url`
+
+### Connection Status
+
+**View Status:**
+1. Settings → Integrations
+2. HubSpot section shows:
+   - ✅ Connected
+   - ⚠️ Needs reconnection
+   - ❌ Not connected
+   - Last sync time
+   - Sync status (healthy/error)
+
+**Status Indicators:**
+- **Healthy**: All systems operational
+- **Needs Reconnection**: Token expired or permissions changed
+- **Sync Error**: Issue with last sync (check details)
+- **Not Connected**: No HubSpot integration
+
+<Tip>
+  Check integration status weekly to ensure sync is working properly!
+</Tip>
+
+## Syncing Data
+
+### Initial Sync
+
+**First Sync:**
+1. Connect HubSpot account
+2. Navigate to **HubSpot Sync** dialog
+3. Review contacts to import
+4. Resolve duplicates (see below)
+5. Select contacts to sync
+6. Click **Import Selected**
+7. Wait for sync to complete
+8. Contacts appear in Every AI
+
+**What Syncs:**
+- Contact names
+- Email addresses
+- Phone numbers
+- Company names
+- Addresses
+- Deal information
+- Pipeline stages
+
+### Ongoing Sync
+
+**Automatic Sync:**
+- Runs periodically (schedule configurable)
+- Syncs new contacts
+- Updates existing contacts
+- Imports new deals
+- Updates deal stages
+
+**Manual Sync:**
+1. Settings → Integrations → HubSpot
+2. Click **Sync Now**
+3. Sync runs immediately
+4. View progress indicators
+5. Completion notification
+
+**Last Sync Time:**
+- Shown in HubSpot section
+- Indicates data freshness
+- Helps identify sync issues
+
+<Tip>
+  Set up automatic daily sync to keep data fresh without manual intervention!
+</Tip>
+
+### Duplicate Resolution
+
+**Before Import:**
+- System checks for existing clients
+- Matches by email address
+- Shows potential duplicates
+
+**Duplicate Dialog:**
+- Lists each duplicate found
+- Shows HubSpot record vs Every AI record
+- Options:
+  - **Replace**: Update existing Every AI record with HubSpot data
+  - **Skip**: Keep Every AI record, don't import this HubSpot contact
+  - **Create New**: Import as separate client (not recommended)
+
+**Best Practice:**
+- Review each duplicate carefully
+- Choose "Replace" if HubSpot data is more current
+- Choose "Skip" if Every AI has important data not in HubSpot
+
+<Warning>
+  "Replace" overwrites Every AI data with HubSpot data. Choose carefully!
+</Warning>
+
+## HubSpot Contacts in Every AI
+
+### Contact Display
+
+**HubSpot Badge:**
+- Contacts from HubSpot show badge
+- Links to HubSpot record
+- Indicates external source
+
+**Read-Only While Connected:**
+- Cannot edit HubSpot-sourced fields
+- Prevents conflicts with HubSpot
+- Edit in HubSpot, syncs to Every AI
+
+**Editable Fields:**
+- Every AI-specific data (invoices, payments, notes)
+- Not synced back to HubSpot
+
+### Using HubSpot Contacts
+
+**Full Integration:**
+- Invoice HubSpot contacts
+- Track payments
+- Send proposals
+- View activity history
+- All Every AI features available
+
+**Data Flow:**
+```
+HubSpot Contact Info → Every AI Client
+    ↓
+Create Invoice in Every AI
+    ↓
+Send to Client
+    ↓
+Track Payment
+    ↓
+(Payment data stays in Every AI)
+```
+
+## HubSpot Deals & Pipeline
+
+### Deal Sync
+
+**Deals Import:**
+- HubSpot deals sync to Every AI
+- Associated with contacts
+- Include deal stage, amount, close date
+- Pipeline status visible
+
+**Deal Information:**
+- Deal name
+- Amount
+- Stage (Qualified Lead, Proposal Sent, Negotiation, Won, Lost)
+- Expected close date
+- Associated contact
+- Deal owner
+
+### Client Pipeline View
+
+**View Pipeline:**
+1. Navigate to **Clients** → **Pipeline View**
+2. See all clients with active deals
+3. View deal stages
+4. HubSpot badge on HubSpot deals
+5. Deal status and amounts
+
+**Pipeline Features:**
+- Visual deal stages
+- Deal amounts
+- Stage progression tracking
+- Quick invoice creation from deal
+
+**Example Pipeline:**
+```
+Prospecting: 5 deals, $50,000
+Proposal Sent: 3 deals, $35,000
+Negotiation: 2 deals, $25,000
+Won: 1 deal, $15,000
+```
+
+<Tip>
+  Use pipeline view to identify which deals need proposals or invoices!
+</Tip>
+
+## Managing HubSpot Integration
+
+### Monitoring Sync Status
+
+**Status Page:** `/api/hubspot/status`
+
+**Sync Health:**
+- Connection status
+- Last successful sync
+- Sync frequency
+- Error messages (if any)
+- Records synced count
+
+**Live Progress Indicators:**
+- Sync in progress indicator
+- Progress percentage
+- Records processed
+- ETA to completion
+
+**Sync History:**
+- View past syncs
+- Success/failure status
+- Records synced per run
+- Error logs
+
+### Troubleshooting Sync
+
+**Common Issues:**
+- Token expired (reconnect)
+- Permission changes (reauthorize)
+- Network errors (retry)
+- Duplicate conflicts (resolve)
+- Rate limits (wait and retry)
+
+**Error Messages:**
+- Clear description of issue
+- Suggested resolution
+- Link to reconnect if needed
+- Contact support option
+
+### Disconnecting HubSpot
+
+**To Disconnect:**
+1. Settings → Integrations
+2. HubSpot section
+3. Click **Disconnect HubSpot**
+4. Confirm disconnection
+
+**What Happens:**
+- OAuth tokens removed
+- Sync stops
+- HubSpot-sourced records unlocked
+- Can edit all fields in Every AI
+- No data deleted
+- Badge removed from contacts
+
+**Data Retention:**
+- All imported contacts remain
+- Deals data preserved
+- Can still invoice clients
+- Simply lose sync capability
+
+<Warning>
+  Disconnecting doesn't delete data, but you lose automatic updates from HubSpot!
+</Warning>
+
+## HubSpot Sync Dialog
+
+### Sync Interface
+
+**Business Context Workspace Integration:**
+- HubSpot sync accessible from global chat dialog
+- Mirrors in-app functionality
+- Monitor sync status
+- Review progress indicators
+- Access from anywhere
+
+**Features:**
+- View sync status
+- Manually trigger sync
+- See last sync time
+- Monitor progress in real-time
+- Resolve duplicates
+- Review imported records
+
+### Sync Configuration
+
+**Settings:**
+- Sync frequency (hourly, daily, weekly)
+- Auto-resolve duplicates (replace or skip)
+- Selective sync (specific HubSpot lists)
+- Field mapping customization
+
+## Best Practices
+
+<Tip>
+  **Keep HubSpot data clean** - Garbage in, garbage out. Clean CRM data syncs clean to Every AI.
+</Tip>
+
+<Tip>
+  **Resolve duplicates carefully** - Review each duplicate before choosing replace or skip.
+</Tip>
+
+<Tip>
+  **Monitor sync status** - Check weekly to ensure sync is working correctly.
+</Tip>
+
+<Tip>
+  **Use for pipeline visibility** - Leverage deal sync to see which clients need invoices.
+</Tip>
+
+<Tip>
+  **Edit in HubSpot** - Make contact changes in HubSpot so they sync properly.
+</Tip>
+
+<Tip>
+  **Set up automatic sync** - Daily sync keeps data fresh without manual work.
+</Tip>
+
+<Tip>
+  **Document sync strategy** - Note which fields you're syncing and how you handle duplicates.
+</Tip>
+
+## Common Workflows
+
+### Initial Setup for Sales Team
+
+**Day 1: Connect and Import**
+1. Connect HubSpot integration
+2. Review all contacts in sync dialog
+3. Resolve duplicates (choose strategy)
+4. Import all active contacts
+5. Verify import successful
+
+**Ongoing: Invoice HubSpot Leads**
+1. Deal closes in HubSpot (moves to "Won")
+2. Sync brings contact and deal to Every AI
+3. Create invoice for new client
+4. Send invoice
+5. Track payment
+6. Payment doesn't sync back to HubSpot (manual update)
+
+### Managing Sales Pipeline
+
+**Weekly Review:**
+1. Check HubSpot sync status
+2. View pipeline in Every AI
+3. Identify "Won" deals needing invoices
+4. Create invoices for new wins
+5. Monitor proposal-stage deals
+6. Follow up as needed
+
+## Troubleshooting
+
+### Sync Not Running
+
+**Check:**
+- Connection status (needs reconnection?)
+- Internet connectivity
+- HubSpot service status
+- Last sync time
+
+**Solution:**
+- Reconnect HubSpot
+- Manually trigger sync
+- Wait for automatic sync
+- Contact support if persists
+
+### Contacts Not Appearing
+
+**Verify:**
+- Contacts exist in HubSpot
+- Not filtered out (active vs inactive)
+- Sync completed successfully
+- No duplicate skip
+
+**Solution:**
+- Check HubSpot for contact
+- Review sync log
+- Re-run sync
+- Check duplicate resolution choices
+
+### Can't Edit HubSpot Contact
+
+**Reason:** HubSpot is source of truth while connected
+
+**Solution:**
+- Edit in HubSpot (will sync to Every AI)
+- Or disconnect HubSpot (unlocks for editing)
+- Every AI-specific data (invoices) always editable
+
+### Sync Errors
+
+**Common Errors:**
+- Rate limit exceeded (wait and retry)
+- Permission denied (reconnect)
+- Network timeout (retry)
+- Invalid data (check HubSpot records)
+
+**Resolution:**
+- Follow error message instructions
+- Reconnect if prompted
+- Contact support with error details
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Connect HubSpot"
+    icon="hubspot"
+    href="https://app.every.ai/settings/integrations"
+  >
+    Set up HubSpot CRM integration
+  </Card>
+
+  <Card
+    title="View Pipeline"
+    icon="chart-line"
+    href="/features/clients"
+  >
+    Monitor deals and pipeline stages
+  </Card>
+
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Invoice HubSpot clients
+  </Card>
+
+  <Card
+    title="Business Context"
+    icon="briefcase"
+    href="/ai/business-context"
+  >
+    Monitor sync from global chat
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

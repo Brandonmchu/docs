@@ -1,0 +1,497 @@
+---
+title: "Every Agent"
+description: "Conversational AI assistant that helps create invoices, import data, analyze finances, and automate your workflow"
+---
+
+## Overview
+
+Every Agent is your AI-powered business assistant. Chat naturally to create invoices, import data, analyze finances, send reminders, and get business insights - all through simple conversation.
+
+**What Every Agent Can Do:**
+- Create and manage invoices
+- Import and analyze CSV data
+- Generate business insights
+- Send email reminders
+- Track expenses and receipts
+- Answer questions about your business
+- Automate repetitive tasks
+- Provide onboarding guidance
+
+## How to Use Every Agent
+
+### Accessing the Agent
+
+**Global Chat Dialog:**
+- Click chat icon (bottom right)
+- Available on all pages
+- Persistent conversation history
+- Context-aware responses
+
+**Chat Interface:**
+- Type your request naturally
+- Agent responds in real-time
+- See actions being performed
+- Review and approve actions
+
+<Tip>
+  Just describe what you want in plain English. The Agent understands natural language!
+</Tip>
+
+### Conversational Interface
+
+**No Special Commands:**
+- No need to memorize syntax
+- Talk like you're texting a colleague
+- Agent understands context
+- Ask follow-up questions naturally
+
+**Examples:**
+```
+You: "Create an invoice for ACME Corp for $5,000"
+Agent: Creates invoice, shows preview, confirms
+
+You: "Actually, make it $5,500"
+Agent: Updates amount, shows new total
+
+You: "Send it"
+Agent: Sends invoice, provides tracking link
+```
+
+## Agent Capabilities
+
+### Invoice Creation & Management
+
+**Create Invoices:**
+```
+"Create an invoice for ACME Corp for consulting services, $5,000"
+"Invoice XYZ Company for last month's retainer"
+"Make an invoice for the website project we discussed"
+```
+
+**Agent Will:**
+- Select or create client
+- Add line items
+- Calculate totals
+- Apply tax if needed
+- Show preview
+- Send when approved
+
+**Modify Invoices:**
+```
+"Change the amount to $5,500"
+"Add a 10% discount"
+"Set due date to end of month"
+"Add a thank you note"
+```
+
+### Data Import & CSV Analysis
+
+**Import Historical Data:**
+```
+"Import this CSV of my old invoices"
+"Load client data from this spreadsheet"
+"Import last year's expenses"
+```
+
+**Agent Capabilities:**
+- Analyzes CSV structure
+- Maps columns to fields
+- Handles batching for large files (>100 rows)
+- Proposes import strategy
+- Creates background jobs
+- Reports progress
+
+**CSV Batching:**
+- Files >100 rows automatically batched
+- Agent proposes batch size
+- You approve strategy
+- Background job processes
+- Progress updates
+- Completion notification
+
+<Tip>
+  Agent can import years of historical data in minutes. Just upload the CSV and let it work!
+</Tip>
+
+### Financial Analysis
+
+**Ask About Your Business:**
+```
+"How much revenue did I make last month?"
+"Which clients owe me money?"
+"What are my overdue invoices?"
+"Show me my top 5 clients by revenue"
+"What's my average invoice amount?"
+```
+
+**Agent Provides:**
+- Real-time data analysis
+- Financial summaries
+- Client insights
+- Payment patterns
+- Revenue trends
+
+### Email & Communication
+
+**Send Reminders:**
+```
+"Send a payment reminder to ACME Corp"
+"Follow up on overdue invoices"
+"Thank XYZ Company for their payment"
+```
+
+**Agent Can:**
+- Draft professional emails
+- Send via Gmail integration
+- Track email delivery
+- Log activity
+- Schedule follow-ups
+
+### Expense Management
+
+**Log Expenses:**
+```
+"Add an expense for $150 for client lunch"
+"Log this receipt" [with image attachment]
+"Record my software subscription, $49/month"
+```
+
+**Receipt Analysis:**
+- Upload receipt image
+- AI extracts merchant, amount, date
+- Categorizes expense
+- Suggests client if billable
+- Saves with receipt attached
+
+### Business Insights
+
+**Get Recommendations:**
+```
+"What should I focus on this week?"
+"Which invoices need attention?"
+"How can I improve cash flow?"
+"Are there any issues I should know about?"
+```
+
+**Agent Analyzes:**
+- Overdue invoices
+- Draft invoices not sent
+- Unbilled time/expenses
+- Slow-paying clients
+- Revenue trends
+- Action items
+
+## Tool Orchestration
+
+### How Agent Works
+
+**Under the Hood:**
+1. You make request
+2. Agent analyzes intent
+3. Selects appropriate tools
+4. Executes actions
+5. Reports results
+6. Awaits confirmation or next request
+
+**Available Tools:**
+- CRUD operations (create, read, update, delete)
+- CSV import and analysis
+- Email sending
+- Data querying
+- File processing
+- Calendar management
+- Integration with all Every AI features
+
+**Server-Sent Events:**
+- Real-time updates via SSE
+- See agent thinking
+- Watch progress
+- Immediate feedback
+
+<Note>
+  Agent uses the same secure APIs you use through the UI. It's just faster!
+</Note>
+
+### Activity Tracking
+
+**Everything is Logged:**
+- All agent actions written to `events` table
+- Timeline stays in sync
+- Full audit trail
+- Undo buffer support
+
+**Event Types:**
+- Invoice created/updated
+- Email sent
+- Data imported
+- Expense logged
+- Analysis performed
+
+**Benefits:**
+- Full transparency
+- Historical record
+- Undo capability
+- Accountability
+
+## Agent Turn Undo
+
+### Undo Last Action
+
+**If Agent Made Mistake:**
+```
+"Undo that"
+"Reverse the last action"
+"That was wrong, undo it"
+```
+
+**Agent Will:**
+- Identify last action set
+- Reverse changes
+- Restore previous state
+- Confirm undo complete
+
+**What Can Be Undone:**
+- Invoice creation
+- Client creation
+- Expense logging
+- Data imports (partial)
+- Email sends (can't unsend, but logs corrected)
+
+**Limitations:**
+- Can't undo sent emails (already delivered)
+- Can't undo completed payments
+- One level of undo (not multi-level)
+
+<Warning>
+  Undo works for most actions, but sent emails and processed payments cannot be reversed!
+</Warning>
+
+## Attachments & File Handling
+
+### File Upload Support
+
+**Supported Files:**
+- **CSVs**: Data import
+- **Receipts**: Expense logging (images, PDFs)
+- **Documents**: Invoice attachments
+- Maximum 5MB per file
+
+**Upload Methods:**
+- Drag and drop into chat
+- Click attachment icon
+- Paste images directly
+
+**Agent Processing:**
+- Analyzes file type
+- Extracts relevant data
+- Proposes action
+- Executes with approval
+
+### Receipt Scanning
+
+**Upload Receipt:**
+1. Take photo or scan receipt
+2. Upload to chat: "Log this expense"
+3. Agent extracts:
+   - Merchant name
+   - Amount
+   - Date
+   - Category
+4. Review extracted data
+5. Approve or adjust
+6. Expense logged with receipt
+
+**Accuracy:**
+- Merchant: 95%+ accurate
+- Amount: 90%+ accurate
+- Date: 90%+ accurate
+- Category: 70%+ (verify recommended)
+
+## Context Awareness
+
+### Agent Understands Your Business
+
+**Business Context:**
+- Accesses organization profile
+- Knows your clients
+- Understands your services
+- References your settings
+- Uses your templates
+
+**Conversation Context:**
+- Remembers earlier in conversation
+- Understands pronouns ("it", "that invoice")
+- Follows thread of conversation
+- Maintains topic focus
+
+**Data Context:**
+- Knows current state of invoices
+- Understands client relationships
+- References recent activity
+- Analyzes patterns
+
+<Tip>
+  Agent gets smarter over time as it learns your business patterns and preferences!
+</Tip>
+
+## Common Agent Use Cases
+
+### Monthly Billing Routine
+
+**You:** "Process end-of-month billing"
+
+**Agent:**
+1. Identifies clients needing invoices
+2. Gathers unbilled time and expenses
+3. Creates invoices for each client
+4. Shows summary for review
+5. Sends all invoices on approval
+
+### Onboarding New Client
+
+**You:** "Add new client ACME Corp and create first invoice"
+
+**Agent:**
+1. Creates client record
+2. Asks for missing details
+3. Enriches with AI if applicable
+4. Creates invoice
+5. Prompts for line items
+6. Finalizes and sends
+
+### Data Migration
+
+**You:** "Import my old invoices" [uploads CSV]
+
+**Agent:**
+1. Analyzes CSV structure
+2. Proposes field mapping
+3. Identifies batch strategy
+4. Creates background job
+5. Reports progress
+6. Confirms completion
+
+### Financial Review
+
+**You:** "Give me a business health check"
+
+**Agent:**
+1. Analyzes revenue trends
+2. Identifies overdue invoices
+3. Calculates DSO (days sales outstanding)
+4. Lists top clients
+5. Flags issues
+6. Provides recommendations
+
+## Best Practices
+
+<Tip>
+  **Be specific** - "Create invoice for ACME Corp, consulting, $5,000" is better than "Make an invoice"
+</Tip>
+
+<Tip>
+  **Review before approving** - Agent shows previews. Always review before confirming actions.
+</Tip>
+
+<Tip>
+  **Use natural language** - Don't try to speak like a robot. Just talk normally.
+</Tip>
+
+<Tip>
+  **Ask follow-up questions** - Agent remembers context. "What about..." works great.
+</Tip>
+
+<Tip>
+  **Upload files directly** - Drag receipts or CSVs right into the chat for instant processing.
+</Tip>
+
+<Tip>
+  **Use for repetitive tasks** - Let Agent handle monthly billing, reminders, and data entry.
+</Tip>
+
+<Tip>
+  **Leverage insights** - Ask "What should I focus on?" regularly for business guidance.
+</Tip>
+
+## Troubleshooting
+
+### Agent Not Understanding Request
+
+**Make it More Specific:**
+- Include client name
+- Specify amounts
+- Mention invoice numbers
+- Add context
+
+**Example:**
+- Vague: "Make an invoice"
+- Better: "Create invoice for ACME Corp for $5,000"
+
+### Agent Made Mistake
+
+**Undo and Clarify:**
+```
+"Undo that"
+[Agent undoes]
+"Create invoice for ACME Corp (not XYZ Corp) for $5,000"
+```
+
+### Action Needs Approval
+
+**Agent Awaits Confirmation:**
+- Review proposed action
+- Type "yes" or "approve" to proceed
+- Or provide corrections
+- Agent adjusts and re-proposes
+
+### Tool or Integration Unavailable
+
+**Agent Will Report:**
+- "Gmail integration not connected"
+- "Need to connect Stripe first"
+- "Client doesn't exist, should I create it?"
+
+**Solution:**
+- Set up required integration
+- Create missing prerequisites
+- Agent guides you through setup
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Start Chatting"
+    icon="robot"
+    href="https://app.every.ai"
+  >
+    Open chat dialog and try the Agent
+  </Card>
+
+  <Card
+    title="Business Context"
+    icon="briefcase"
+    href="/ai/business-context"
+  >
+    Customize Agent's knowledge of your business
+  </Card>
+
+  <Card
+    title="Connect Integrations"
+    icon="plug"
+    href="/integrations/google-workspace"
+  >
+    Enable Gmail and calendar features
+  </Card>
+
+  <Card
+    title="Import Data"
+    icon="file-csv"
+    href="/features/invoices"
+  >
+    Upload CSV and let Agent import it
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
