@@ -5,11 +5,7 @@
   "colors": {
     "primary": "#0A0A0A",
     "light": "#6B6A68",
-    "dark": "#000000",
-    "background": {
-      "light": "#FAFAFA",
-      "dark": "#0A0A0A"
-    }
+    "dark": "#000000"
   },
   "font": {
     "family": "Inter",
@@ -19,12 +15,20 @@
       "weight": 600
     }
   },
+  "background": {
+    "color": {
+      "light": "#FAFAFA",
+      "dark": "#0A0A0A"
+    }
+  },
   "appearance": {
     "default": "light"
   },
   "styling": {
     "eyebrows": "breadcrumbs",
-    "codeblocks": "github-light"
+    "codeblocks": {
+      "theme": "system"
+    }
   },
   "icons": {
     "library": "lucide"
