@@ -19,6 +19,31 @@
   --line-height-base: 1.5;
 }
 
+/* Force beige background - Mintlify's theme overrides the JSON config */
+body,
+html,
+#__next,
+main,
+[data-theme],
+.main,
+.content,
+.prose {
+  background-color: #FAFAFA !important;
+}
+
+/* Sidebar should also be beige */
+nav,
+aside,
+.sidebar {
+  background-color: #FAFAFA !important;
+}
+
+/* Cards and sections */
+.card,
+.section {
+  background-color: #FAFAFA !important;
+}
+
 /* Typography Hierarchy - matching STYLES.md */
 h1 {
   font-size: 30px !important;
