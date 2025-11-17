@@ -4,9 +4,9 @@
   "name": "Every AI",
   "css": "custom.css",
   "colors": {
-    "primary": "#0A0A0A",
+    "primary": "#edece8",
     "light": "#6B6A68",
-    "dark": "#000000"
+    "dark": "#0A0A0A"
   },
   "font": {
     "family": "Inter",
@@ -18,7 +18,7 @@
   },
   "background": {
     "color": {
-      "light": "#FAFAFA",
+      "light": "#edece8",
       "dark": "#0A0A0A"
     }
   },
@@ -128,14 +128,14 @@
         {
           "anchor": "Contact Support",
           "href": "mailto:hello@every.ai",
-          "icon": "envelope"
+          "icon": "mail"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/every_logo2.png",
+    "dark": "/logo/every_logo2.png"
   },
   "navbar": {
     "links": [

@@ -3,7 +3,7 @@
 
 :root {
   /* Core Design Tokens - matching theme.css exactly */
-  --background: 0 0% 98%;          /* #FAFAFA */
+  --background: 60 5% 92%;         /* #edece8 - beige */
   --foreground: 0 0% 4%;           /* #0A0A0A */
   --primary: 0 0% 4%;              /* #0A0A0A */
   --muted: 60 5% 42%;              /* #6B6A68 */
@@ -28,20 +28,23 @@ main,
 .main,
 .content,
 .prose {
-  background-color: #FAFAFA !important;
+  background-color: #edece8 !important;
+  background-image: none !important;
 }
 
 /* Sidebar should also be beige */
 nav,
 aside,
 .sidebar {
-  background-color: #FAFAFA !important;
+  background-color: #edece8 !important;
+  background-image: none !important;
 }
 
 /* Cards and sections */
 .card,
 .section {
-  background-color: #FAFAFA !important;
+  background-color: #edece8 !important;
+  background-image: none !important;
 }
 
 /* Typography Hierarchy - matching STYLES.md */
