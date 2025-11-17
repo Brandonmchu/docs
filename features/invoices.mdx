@@ -121,14 +121,92 @@ Choose from Modern, Classic, Professional, or Creative templates. Organization l
 
 ### Scheduled Sends
 
-Queue invoices to send automatically on a future date/time. Create invoice → Choose Schedule Send → Select date/time → System sends automatically. Editable until send time.
+Queue invoices to send automatically on a future date/time instead of sending immediately. Perfect for timing invoices to align with project milestones, client billing cycles, or month-end cadences.
 
-**Use Cases:** Month-end invoicing, project completion dates, client billing cycles
+#### How to Schedule an Invoice
+
+**Option 1: When Creating Invoice**
+1. Complete invoice details
+2. Instead of "Send Invoice", click "Schedule Send"
+3. Choose date and time (your local timezone)
+4. Click "Schedule"
+5. Invoice saves as Draft with send scheduled
+
+**Option 2: Schedule Existing Draft**
+1. Open draft invoice
+2. Click "Schedule Send"
+3. Select future date/time
+4. Confirm
+
+**Option 3: Ask Every Agent**
+```
+"Schedule invoice INV-123 to send on January 1st at 9:00 AM"
+"Send the ACME Corp invoice next Monday morning"
+"Schedule this invoice for the first of next month"
+```
+
+#### Managing Scheduled Sends
+
+**View All Scheduled:**
+- Go to Invoices → Filter by "Scheduled"
+- Or ask Every Agent: "Show me all scheduled invoices"
+
+Each scheduled invoice displays:
+- Client name
+- Invoice amount
+- Scheduled send date/time
+- Status: "Scheduled for [date]"
+
+**Edit Scheduled Time:**
+1. Open invoice with scheduled send
+2. Click "Update Schedule"
+3. Choose new date/time
+4. Save changes
+
+**Cancel Scheduled Send:**
+1. Open invoice
+2. Click "Cancel Schedule"
+3. Invoice remains as Draft
+4. You can send immediately or schedule for different time
 
 <Tip>
-  **Ask Every Agent:** Schedule invoice sends:
-  - "Schedule this invoice to send next Monday at 9am"
-  - "Send the ACME Corp invoice on the 1st of next month"
+  **Ask Every Agent:** Manage scheduled sends:
+  - "Cancel the scheduled send for invoice INV-123"
+  - "Reschedule the ACME Corp invoice for next Friday"
+  - "Show me all invoices scheduled to send this week"
+  - "What invoices are scheduled to go out today?"
+</Tip>
+
+#### What Happens at Send Time
+
+When the scheduled time arrives:
+1. System automatically sends invoice
+2. Email delivered to client (and CC recipients)
+3. Status changes to "Issued"
+4. Public invoice page created
+5. Email tracking begins
+6. You receive confirmation notification
+
+**If client details changed:** Updated information is used at send time (not when scheduled)
+
+#### Best Practices
+
+**Use Cases:**
+- **Monthly billing cycles:** Schedule all invoices for 1st of month
+- **Project milestones:** Send when work completes
+- **Time-sensitive billing:** Align with contract start dates
+- **Batch processing:** Create all invoices now, schedule for optimal send times
+
+<Tip>
+  **Optimal send times** - Tuesday-Thursday mornings (9-11am client timezone) tend to have highest engagement
+</Tip>
+
+<Warning>
+  Invoices scheduled for past dates will send immediately when the schedule is created.
+</Warning>
+
+<Tip>
+  **Check before scheduled time** - Review draft one more time before scheduled send in case client details changed
 </Tip>
 
 ## Sending Invoices

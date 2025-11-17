@@ -45,23 +45,121 @@ Go to Expenses → Add Expense → Fill required fields (merchant, amount, date)
   - "Create expense for $250 at Delta Airlines for travel"
 </Tip>
 
-### Receipt Scanning with Every Agent
+### Receipt Scanning with Every Agent AI
 
-Upload receipts and let Every Agent extract details automatically.
+Every's AI-powered receipt scanner automatically extracts expense details from photos and PDFs, eliminating manual data entry.
 
-**How it works:** Add Expense → Upload receipt (JPG, PNG, HEIC, PDF) → Every Agent extracts merchant, amount, date, category, payment method → Review and adjust → Save
+#### How Receipt OCR Works
 
-**Accuracy:** Merchant 95%+, Amount 90%+, Date 90%+, Category 70%+ (review recommended)
+**Step-by-step:**
+1. Take a photo of your receipt or have a PDF ready
+2. Go to **Expenses** → **Add Expense** OR ask Every Agent "Log this receipt"
+3. Upload the image/PDF (drag & drop or click to browse)
+4. Every Agent's AI analyzes the receipt and extracts:
+   - **Merchant name** (business name)
+   - **Total amount** (final charged amount)
+   - **Date** (transaction date)
+   - **Category** (expense type based on merchant)
+   - **Payment method** (if visible: card, cash, check)
+5. Review the extracted data in the form
+6. Correct any inaccuracies
+7. Add optional details (client for billback, notes)
+8. Save expense
+
+**Supported formats:** JPG, PNG, HEIC (iPhone photos), PDF
+**File size limit:** Up to 10MB per receipt
+**Processing time:** Typically 2-5 seconds
+
+#### What AI Can Extract
+
+**High accuracy (95%+):**
+- Merchant/business name
+- Final total amount
+- Transaction date
+- Business address
+
+**Good accuracy (85-90%):**
+- Itemized line items
+- Subtotal vs total
+- Tax amount
+- Payment method
+
+**Moderate accuracy (70-80%):**
+- Category classification
+- Tip amounts
+- Multiple currency symbols
+
+**Tips for best results:**
+- Use clear, well-lit photos
+- Capture entire receipt (top to bottom)
+- Avoid shadows and glare
+- Ensure text is readable
+- Flatten crumpled receipts before photographing
 
 <Note>
-  Always review Every Agent-extracted data before saving. Every Agent is very good but not perfect!
+  Always review Every Agent-extracted data before saving. The AI is highly accurate but not perfect, especially for handwritten receipts or faded text.
 </Note>
 
+#### Batch Receipt Processing
+
+Process multiple receipts at once by asking Every Agent:
+
 <Tip>
-  **Ask Every Agent:** Scan receipts:
-  - "Log this receipt as a business expense"
-  - "Extract expense details from this receipt image"
+  **Ask Every Agent:** Batch process receipts:
+  - "Process these 5 receipts and create expenses" (upload multiple files)
+  - "I have several receipts from my business trip - extract all the expenses"
+  - "Log all these receipts as billable expenses for ACME Corp"
 </Tip>
+
+**How batch processing works:**
+1. Upload multiple receipt images in one message
+2. Every Agent processes each receipt in parallel
+3. Creates individual expense records for each
+4. Returns summary with all created expenses
+5. You can review and edit any that need adjustments
+
+**Best for:** Conference expenses, business trips, monthly receipt catch-up
+
+#### Common OCR Issues & Fixes
+
+**Issue: Wrong amount extracted**
+- **Cause:** AI read subtotal or tax line instead of total
+- **Fix:** Always verify total is correct, adjust manually if needed
+
+**Issue: Date is incorrect**
+- **Cause:** Receipt has multiple dates (printed date vs transaction date)
+- **Fix:** Check transaction date on credit card statement if unclear
+
+**Issue: Category is wrong**
+- **Cause:** Merchant doesn't clearly indicate business type
+- **Fix:** Manually select correct category (AI learns from corrections)
+
+**Issue: Merchant name truncated**
+- **Cause:** Receipt shows abbreviated name
+- **Fix:** Edit to full business name for better record-keeping
+
+**Issue: Receipt unreadable**
+- **Cause:** Poor photo quality, faded thermal receipt, crumpled paper
+- **Fix:** Re-photograph in better lighting, or enter data manually
+
+<Tip>
+  **Ask Every Agent:** Troubleshoot extraction:
+  - "This receipt extracted the wrong amount - the total should be $87.50"
+  - "Fix the merchant name to be 'Office Depot' instead of 'OFDP'"
+  - "Change this expense category to Travel"
+</Tip>
+
+#### Mobile Receipt Scanning
+
+**Best practice workflow:**
+1. Get receipt at point of purchase
+2. Immediately take photo with phone camera
+3. Open Every in browser or text/email photo to yourself
+4. Upload to Every Agent: "Log this receipt"
+5. Receipt processed and expense created in seconds
+6. Delete photo from phone (receipt stored in Every)
+
+**Pro tip:** Create a "Receipts" folder in your photo library for temporary storage, then batch upload weekly.
 
 ## Expense Categories
 

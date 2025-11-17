@@ -99,13 +99,127 @@ View complete activity timeline per client:
 - Payment records
 - Email tracking (sends, opens, clicks)
 
-### Client Pipeline
+### Client Pipeline (CRM View)
 
-Track deals and opportunities:
-- Drag-and-drop pipeline stages (configure statuses in **Clients → Pipeline Settings**)
-- Proposal badges on each card show stage and amount
-- Quick actions for invoices, proposals, automations, time, and expenses
-- HubSpot-sourced clients show HubSpot deal badges on the client detail page so you know which CRM owns the record
+Every includes a visual pipeline for tracking client relationships, deals, and opportunities - like a lightweight CRM built directly into your invoicing platform.
+
+**To access:** Clients page → Toggle from Table view to **Pipeline view**
+
+#### Pipeline Views
+
+**Table View (Default):**
+- Spreadsheet-style list of all clients
+- Sort and filter by name, revenue, status
+- Quick search
+- Bulk actions
+
+**Pipeline View:**
+- Visual kanban board with client cards
+- Drag clients between status columns
+- See deal values and proposal status at a glance
+- Quick actions on each card
+
+#### Status Columns
+
+Organize clients by where they are in your sales/relationship funnel:
+
+**Default statuses:**
+- **Lead:** Potential client, early conversation
+- **Qualified:** Interested, budget confirmed
+- **Proposal Sent:** Waiting for proposal approval
+- **Active Client:** Work in progress
+- **Closed - Won:** Successful engagement
+- **Closed - Lost:** Opportunity didn't convert
+
+**Customize statuses:** Create your own pipeline stages in **Clients → Pipeline Settings**
+
+#### Using the Pipeline
+
+**Drag & Drop:**
+1. Grab a client card
+2. Drag to new status column
+3. Drop to update status
+4. Status change saves automatically
+5. Full history tracked
+
+**Client Cards Show:**
+- Client name and logo (if enriched)
+- Current status
+- Total revenue (all invoices)
+- Outstanding balance
+- Proposal count and status
+- HubSpot badge (if synced from HubSpot)
+- Last activity date
+
+**Quick Actions (Click card):**
+- Create invoice
+- Create proposal
+- Log time entry
+- Add expense
+- Set up automation
+- View full client details
+
+#### Pipeline Workflows
+
+**Lead Qualification:**
+1. Create client as "Lead"
+2. Initial conversation → Move to "Qualified"
+3. Send proposal → Move to "Proposal Sent"
+4. Proposal approved → Move to "Active Client"
+5. Complete work → Move to "Closed - Won"
+
+**Ongoing Client Management:**
+- Active clients stay in "Active Client" column
+- Filter by status to focus on specific segments
+- Track revenue per status
+- Identify stuck deals (long time in one status)
+
+**Sales Pipeline Tracking:**
+```
+Lead (10 clients, $50K potential)
+  ↓ (qualify)
+Qualified (5 clients, $30K potential)
+  ↓ (send proposal)
+Proposal Sent (3 clients, $20K potential)
+  ↓ (approved)
+Active Client (15 clients, $100K in progress)
+```
+
+#### Integration with HubSpot
+
+If you sync clients from HubSpot:
+- HubSpot deal badge appears on client cards
+- Shows HubSpot deal stage
+- Indicates CRM is source of truth
+- Updates flow from HubSpot to Every
+
+**Use case:** Track deals in HubSpot, invoice and manage payments in Every
+
+<Tip>
+  **Ask Every Agent:** Manage pipeline:
+  - "Move ACME Corp to Active Client status"
+  - "Show me all clients in the Proposal Sent stage"
+  - "Update the status for TechStart Inc to Qualified"
+  - "List all leads from this month"
+</Tip>
+
+#### Pipeline Best Practices
+
+<Tip>
+  **Keep status current** - Update as relationships progress so pipeline reflects reality
+</Tip>
+
+<Tip>
+  **Review weekly** - Check pipeline for stuck deals and follow-up opportunities
+</Tip>
+
+<Tip>
+  **Track conversion rates** - Monitor how many leads become active clients
+</Tip>
+
+<Tip>
+  **Use for prioritization** - Focus on high-value proposals and qualified leads
+</Tip>
 
 ### Search & Filtering
 
