@@ -1,34 +1,34 @@
 ---
 title: "HubSpot CRM Integration"
-description: "Sync contacts and deals from HubSpot CRM, maintain HubSpot as source of truth, and view pipeline in Every AI"
+description: "Sync contacts and deals from HubSpot CRM, maintain HubSpot as source of truth, and view pipeline in Every"
 ---
 
 ## Overview
 
-HubSpot integration syncs your CRM contacts and deals into Every AI. Keep HubSpot as your source of truth while enabling seamless invoicing for HubSpot-managed clients.
+HubSpot integration syncs your CRM contacts and deals into Every. Keep HubSpot as your source of truth while enabling seamless invoicing for HubSpot-managed clients.
 
 **Key Features:**
-- One-way sync (HubSpot → Every AI)
+- One-way sync (HubSpot → Every)
 - Import contacts and deals with pipeline data
-- HubSpot as source of truth (read-only in Every AI)
+- HubSpot as source of truth (read-only in Every)
 - Duplicate resolution before import
-- View deal pipeline in Every AI
+- View deal pipeline in Every
 
 ## How HubSpot Integration Works
 
 ### One-Way Sync
 
-**Important:** Sync is HubSpot → Every AI only
+**Important:** Sync is HubSpot → Every only
 
-Changes in HubSpot sync to Every AI, but changes in Every AI do NOT sync back. HubSpot remains the authoritative CRM system, while Every AI focuses on invoicing.
+Changes in HubSpot sync to Every, but changes in Every do NOT sync back. HubSpot remains the authoritative CRM system, while Every focuses on invoicing.
 
 **Why One-Way:**
 - Prevents data conflicts
 - Maintains clear system ownership
-- HubSpot for CRM, Every AI for invoicing
+- HubSpot for CRM, Every for invoicing
 
 <Note>
-  HubSpot is your CRM. Every AI is your invoicing platform. Integration brings them together!
+  HubSpot is your CRM. Every is your invoicing platform. Integration brings them together!
 </Note>
 
 ### Source Attribution
@@ -37,13 +37,13 @@ Changes in HubSpot sync to Every AI, but changes in Every AI do NOT sync back. H
 - Marked with `source = hubspot` badge
 - Links to HubSpot record
 - Fields are read-only while connected
-- When disconnected, records unlock for editing in Every AI
+- When disconnected, records unlock for editing in Every
 
 ## Connecting HubSpot
 
 ### OAuth Connection
 
-Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to HubSpot → Select account (if multiple) → Review permissions → Grant Access → Return to Every AI.
+Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to HubSpot → Select account (if multiple) → Review permissions → Grant Access → Return to Every.
 
 **Permissions Requested:**
 - Read contacts and companies
@@ -56,7 +56,7 @@ Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to Hu
   **Ask Every Agent:** Connect HubSpot:
   - "Connect my HubSpot account"
   - "Set up HubSpot integration"
-  - "Link my HubSpot CRM to Every AI"
+  - "Link my HubSpot CRM to Every"
 </Tip>
 
 ### Connection Status
@@ -84,7 +84,7 @@ Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to Hu
 
 ### Initial Sync
 
-**First Connection:** Navigate to HubSpot Sync dialog → Review contacts to import → Resolve duplicates → Select contacts → Click Import Selected → Wait for completion → Contacts appear in Every AI
+**First Connection:** Navigate to HubSpot Sync dialog → Review contacts to import → Resolve duplicates → Select contacts → Click Import Selected → Wait for completion → Contacts appear in Every
 
 **What Syncs:**
 - Contact names, emails, phones
@@ -116,11 +116,11 @@ Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to Hu
 **Before Import:** System checks for existing clients by email and shows potential duplicates
 
 **Duplicate Options:**
-- **Replace:** Update existing Every AI record with HubSpot data
-- **Skip:** Keep Every AI record, don't import this HubSpot contact
+- **Replace:** Update existing Every record with HubSpot data
+- **Skip:** Keep Every record, don't import this HubSpot contact
 - **Create New:** Import as separate client (not recommended)
 
-**Best Practice:** Choose "Replace" if HubSpot data is more current, "Skip" if Every AI has important data not in HubSpot
+**Best Practice:** Choose "Replace" if HubSpot data is more current, "Skip" if Every has important data not in HubSpot
 
 <Tip>
   **Ask Every Agent:** Handle duplicates:
@@ -130,34 +130,34 @@ Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to Hu
 </Tip>
 
 <Warning>
-  "Replace" overwrites Every AI data with HubSpot data. Choose carefully!
+  "Replace" overwrites Every data with HubSpot data. Choose carefully!
 </Warning>
 
-## HubSpot Contacts in Every AI
+## HubSpot Contacts in Every
 
 ### Contact Display
 
 **HubSpot Badge:** Contacts from HubSpot show badge linking to HubSpot record
 
-**Read-Only While Connected:** Cannot edit HubSpot-sourced fields to prevent conflicts. Edit in HubSpot and sync to Every AI.
+**Read-Only While Connected:** Cannot edit HubSpot-sourced fields to prevent conflicts. Edit in HubSpot and sync to Every.
 
-**Editable Fields:** Every AI-specific data (invoices, payments, notes) is always editable and not synced back
+**Editable Fields:** Every-specific data (invoices, payments, notes) is always editable and not synced back
 
 ### Using HubSpot Contacts
 
-**Full Integration:** Invoice HubSpot contacts, track payments, send proposals, view activity history - all Every AI features available
+**Full Integration:** Invoice HubSpot contacts, track payments, send proposals, view activity history - all Every features available
 
 **Data Flow:**
 ```
-HubSpot Contact Info → Every AI Client
+HubSpot Contact Info → Every Client
     ↓
-Create Invoice in Every AI
+Create Invoice in Every
     ↓
 Send to Client
     ↓
 Track Payment
     ↓
-(Payment data stays in Every AI)
+(Payment data stays in Every)
 ```
 
 ## HubSpot Deals & Pipeline
@@ -266,11 +266,11 @@ Won: 1 deal, $15,000
 
 **Day 1:** Connect HubSpot → Review contacts in sync dialog → Resolve duplicates → Import all active contacts → Verify import successful
 
-**Ongoing:** Deal closes in HubSpot ("Won") → Sync brings contact and deal to Every AI → Create invoice for new client → Send invoice → Track payment (stays in Every AI)
+**Ongoing:** Deal closes in HubSpot ("Won") → Sync brings contact and deal to Every → Create invoice for new client → Send invoice → Track payment (stays in Every)
 
 ### Weekly Pipeline Review
 
-Check HubSpot sync status → View pipeline in Every AI → Identify "Won" deals needing invoices → Create invoices for new wins → Monitor proposal-stage deals → Follow up as needed
+Check HubSpot sync status → View pipeline in Every → Identify "Won" deals needing invoices → Create invoices for new wins → Monitor proposal-stage deals → Follow up as needed
 
 ## Troubleshooting
 
@@ -290,12 +290,12 @@ Check HubSpot sync status → View pipeline in Every AI → Identify "Won" deals
 
 **Reason:** HubSpot is source of truth while connected
 
-**Solution:** Edit in HubSpot (will sync to Every AI), or disconnect HubSpot (unlocks for editing). Every AI-specific data (invoices) is always editable.
+**Solution:** Edit in HubSpot (will sync to Every), or disconnect HubSpot (unlocks for editing). Every-specific data (invoices) is always editable.
 
 ## Best Practices
 
 <Tip>
-  **Keep HubSpot data clean** - Clean CRM data syncs clean to Every AI.
+  **Keep HubSpot data clean** - Clean CRM data syncs clean to Every.
 </Tip>
 
 <Tip>
