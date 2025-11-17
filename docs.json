@@ -75,6 +75,7 @@
             "group": "AI Features",
             "pages": [
               "ai/every-agent",
+              "ai/agent-scheduled-tasks",
               "ai/business-context"
             ]
           },

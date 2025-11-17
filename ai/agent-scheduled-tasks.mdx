@@ -1,0 +1,121 @@
+---
+title: "Agent Scheduled Tasks"
+description: "Automate Every Agent workflows with recurring schedules, custom prompts, manual runs, and real-time monitoring"
+---
+
+[2025-11-17]
+
+## Overview
+
+Agent Scheduled Tasks let Every Agent run high-value workflows—like inbox summaries, client discovery, and custom research—on a cadence you define. Each run executes with full agent context, posts results to its own thread (with undo history), and shows up in the Activity Timeline so you always see what's coming next.
+
+**Highlights:**
+- Recurring cadences: Daily, weekly, monthly, or custom intervals with timezone-aware start times
+- Built-in routines plus a no-code builder for fully custom prompt-driven tasks
+- Per-user custom instructions layered on top of pre-made routines
+- Manual **Run Now** button for safe testing without impacting the future schedule
+- Status-aware Activity Timeline with future run previews, success/error badges, and links to threads
+- Optional result emails so key recaps hit your inbox automatically
+
+<Tip>
+  The system enforces "one agent task at a time" per org to prevent overlapping automations. If you trigger a manual run while another is running, wait for it to complete (or resolve the error) before trying again.
+</Tip>
+
+## Where to Manage Scheduled Tasks
+
+1. Go to **Settings → Every Agent → Scheduled Tasks** to configure routines, add custom prompts, or pause/resume anything in flight.
+2. Visit **Home → Activity Timeline** to monitor upcoming runs. Future entries appear with lighter styling and dashed connectors; completed runs show success or failure badges plus quick links back to the originating thread.
+3. Open **Every Agent** to review the dedicated thread each run creates, undo changes if something unexpected happened, or follow up directly with the agent.
+
+## Built-in Routines
+
+| Routine | What It Delivers | Key Settings |
+|---------|------------------|--------------|
+| **Daily Inbox Summary** | Digest of the last day’s Gmail and calendar activity with top priorities, follow-ups, and unanswered threads. | Time of day, lookback window, whether to email results. |
+| **Check for New Clients** | Scans inbox + calendar signals to identify potential clients/leads you should pursue. | Lookback range, confidence threshold, auto-create new clients toggle, sector-specific custom instructions. |
+| **Find Missing Calendar Events** | Detects commitments mentioned over email that never made it onto your calendar and proposes adds. | Lookback window, automatic vs confirmation mode, optional email summary. |
+| **Custom Prompt Tasks** | You provide the full prompt—great for weekly reporting, newsletter ideation, pipeline reviews, or any workflow the pre-made routines don’t cover yet. | Task name, cadence, prompt text, email toggle, enable/disable. |
+
+<Note>
+  Each scheduled run gets its own agent thread. You’ll never lose historical context, and undo snapshots are saved so you can revert any automated changes directly from the thread.
+</Note>
+
+## Custom Instructions for Pre-made Tasks
+
+- Select any built-in routine and choose **Add custom instructions**.
+- Instructions are scoped per user: teammates can keep their own preferences (industries to watch, tone, exclusions, etc.) without overwriting yours.
+- When the task runs, your instruction block is prepended to the standard prompt with "highest priority" language, so conflicts always resolve in favor of your guidance.
+- Edit or remove instructions anytime; changes apply starting with the next scheduled run (or the next manual test).
+
+<Tip>
+  For research-heavy routines like Check for New Clients, call out target industries, deal sizes, or trigger phrases. For Inbox Summary, specify which clients should be highlighted or which label to ignore.
+</Tip>
+
+## Custom Prompt Tasks
+
+Need something entirely bespoke? Create a **Custom Prompt Task**:
+
+1. Click **Create Custom Task**.
+2. Give it a descriptive name (e.g., "Weekly CFO Brief").
+3. Pick a cadence (Daily, Weekly, Monthly, or Custom every _N_ days), time of day, and—if relevant—the exact weekday or date.
+4. Enter the full prompt, including formatting or checklist instructions.
+5. Optional: enable **Email me the results** to receive the summary in Gmail.
+6. Save and immediately **Run Now** to test.
+
+Custom tasks support inline editing, pausing, deleting, and manual retries exactly like the built-in routines. Under the hood they use the same executor stack, so they appear in the Activity Timeline, spawn agent threads, and capture undo history automatically.
+
+## Scheduling Controls & Statuses
+
+- **Cadence Types:** Daily, Weekly (choose day of week), Monthly (choose day of month), or interval (run every _N_ days). All schedules store a local run time so agents fire at the right moment for your timezone.
+- **Lookback Windows:** Routines that analyze history (Inbox Summary, Client Discovery, Missing Events) keep lookback in sync with cadence. Example: Weekly run = review the last 7 days.
+- **Statuses:**  
+  - `Active` – Task will run at the next scheduled time.  
+  - `Paused` – Retains configuration but skips scheduling until re-enabled.  
+  - `Disabled` – Removed from rotation (useful for retired experiments).
+- **Email Results:** Toggle per task to receive a copy via Gmail; Each run replies in the same Gmail thread so you can search easily.
+- **Safety Checks:** The backend verifies ownership and existing runs before scheduling. If a collision is detected, you’ll see a warning and the run won’t start until the previous job finishes.
+
+## Manual “Run Now” / “Test Now”
+
+Use **Run Now** to validate a new setup or pull an on-demand update:
+
+1. Configure or edit the task.
+2. Click **Run Now**—the backend queues a manual run with status `pending`.
+3. Within a few seconds the run switches to `processing` (shown as “Running” in the UI).
+4. Open the Activity Timeline or the newly created agent thread to watch progress.
+5. Once it completes, you’ll see `Completed` (or `Failed` if the agent hit an error). The regular schedule, `next_run_at`, and history stay untouched.
+
+Manual runs write to the same run history table but mark `job_id = null`, so you can easily filter “manual” tests if you audit results later. They’re perfect for quick smoke tests after editing custom prompts or toggling email delivery.
+
+<Warning>
+  Manual runs still obey the “one task at a time” guardrail. If you see “Another agent task is already running,” check Activity Timeline for an in-progress job or open the latest agent thread to resolve any errors before re-triggering.
+</Warning>
+
+## Monitoring, Results & Undo
+
+- **Activity Timeline (Home):** Upcoming runs render with lighter styling and ETA, completed runs show badges (Pending → Running → Completed/Failed) plus shortcuts to the generated thread or undo action.
+- **Agent Threads:** Every run posts summaries, links, and attachments inside a dedicated conversation. Use undo directly from the thread if a change needs to be reverted.
+- **Run History:** Open the Scheduled Task detail to review execution timestamps, summaries, and any captured error logs. Manual runs are labeled so you know they were ad-hoc.
+- **Email Receipts:** When `Email results` is on, Gmail threads capture each run’s summary. Replies or follow-ups continue in the same conversation for easy auditing.
+
+<Tip>
+  Spot-check timelines once a week. If you don’t see future entries for an active task, edit & save it again to regenerate `next_run_at`, then verify the new run reappears.
+</Tip>
+
+## Best Practices
+
+1. **Start with Manual Tests:** After enabling or editing any task, run it manually once to confirm the prompt, output, and optional emails look right.
+2. **Keep Instructions Current:** Update custom instructions when priorities change. You can maintain different guidance per teammate without conflicts.
+3. **Match Lookback to Cadence:** Weekly routines should review the prior 7 days; daily routines should scan the last 24 hours. This avoids duplicate or missing coverage.
+4. **Use Email Results for High-Stakes Tasks:** For executive summaries or client digests, emailing the recap ensures stakeholders see it even if they don’t check the Activity Timeline every day.
+5. **Pause During Major Changes:** If you’re revamping a workflow, pause the task, edit the prompt/config, test manually, then re-activate.
+
+## Troubleshooting
+
+- **Manual run stuck in “Running”:** Open the associated agent thread to view errors. If the agent hit a blocker, fix the underlying issue (e.g., reconnect Gmail) and try Run Now again.
+- **Future run missing from Activity Timeline:** Make sure the task is `Active`, has a timezone + run time set, and save the form so `next_run_at` repopulates.
+- **Custom instructions ignored:** Confirm you edited the instruction under your own user profile (each teammate has independent instructions) and that the task was re-saved after editing.
+- **“Another task is already running” warning:** Only one agent job runs per org; either wait for the current job to finish or locate it via Activity Timeline → open thread → mark complete/resolve issue.
+- **Need to revert an automated change:** Jump into the thread where the run posted, click **Undo**, and the agent will roll back the affected records using the saved undo snapshot.
+
+Still stuck? Reach out via **Support → hello@every.ai** and include the task name, approximate run time, and a link to the agent thread so we can investigate quickly.
