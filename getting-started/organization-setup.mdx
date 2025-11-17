@@ -36,43 +36,34 @@ Make your invoices match your brand identity.
 
 ### Logo Upload
 
-**Settings** → **Organization** → **Upload Logo** (PNG, JPG, or SVG)
+Go to **Invoices** → **Customize** → **Upload Logo** (PNG, JPG, or SVG)
 
 - Recommended: 200x200px to 400x400px with transparent background
 - Appears on all invoices and public pages
 
-<Tip>
-  **Ask Every Agent:** "Upload my company logo" or "Update my logo to the file at /path/to/new-logo.png"
-</Tip>
-
 ### Brand Color
 
-Select your primary brand color in **Settings** → **Organization**. Applied to invoice templates, public pages, and buttons.
+Select your primary brand color in **Settings** → **Organization**. Applied to invoices, public pages, and buttons.
 
 <Tip>
   **Ask Every Agent:** "Change my brand color to #0066CC" or "Set my brand color to navy blue"
 </Tip>
 
-### Invoice Templates
+### Invoice Note Templates
 
-Choose from Modern, Classic, Professional, or Creative templates in **Settings** → **Organization**.
+Create reusable note templates in **Invoices** → **Customize** for common invoice notes like payment terms, thank you messages, and instructions.
 
-<Note>
-  You can change templates anytime. Existing invoices keep their original template.
-</Note>
+**To create a template:**
+1. Go to **Invoices** → **Customize**
+2. Click **Add Note Template**
+3. Name your template (e.g., "Net 30 Terms")
+4. Enter the note text
+5. Optionally set as default for all new invoices
 
-<Tip>
-  **Ask Every Agent:** "Change my invoice template to Modern" or "What invoice template am I currently using?"
-</Tip>
-
-### Default Invoice Notes
-
-Set standard terms in **Settings** → **Organization** → **Default Invoice Note**. Automatically appears on all new invoices.
-
-**Common uses:** Payment instructions, thank you messages, late payment policies, bank transfer details
+**Common templates:** Payment instructions, thank you messages, late payment policies, bank transfer details
 
 <Tip>
-  **Ask Every Agent:** "Set my default invoice note to 'Payment due within 30 days. Thank you for your business!'"
+  **Ask Every Agent:** "Create a note template for Net 30 payment terms" or "Set my default invoice note to thank clients for their business"
 </Tip>
 
 ## Financial Configuration
@@ -147,30 +138,14 @@ Without Stripe, you can still track offline payments (cash, check, bank transfer
 
 Set **Sales Tax Default** percentage in **Settings** → **Organization**. Applied to new offerings and invoices with automatic calculations.
 
-<Tip>
-  **Ask Every Agent:** "What tax rate am I currently using?" or "Update my organization tax settings"
-</Tip>
-
-### Tax-Inclusive vs. Tax-Exclusive
-
-**Tax-Exclusive (Default):** Line item + tax = total (e.g., $100 + $13 tax = $113)
-
-**Tax-Inclusive:** Line item includes tax (e.g., $113 includes $13 tax)
-
-Configure per line item when creating invoices.
-
-## Team Management
-
-**Settings** → **Team** → **Invite Team Member** → Enter email → They receive invitation
-
-**Team members can:** View/create clients, create/send invoices, track payments/expenses, access all organization data, use Every Agent
+All tax calculations are **tax-exclusive** (line item amount + tax = total). For example, a $100 line item with 13% tax = $113 total.
 
 <Note>
-  All team members have full access. Role-based permissions are not currently supported.
+  Tax rates can be set per-offering and overridden per line item on each invoice.
 </Note>
 
 <Tip>
-  **Ask Every Agent:** "Invite sarah@example.com to my organization" or "Who are the members of my team?"
+  **Ask Every Agent:** "What tax rate am I currently using?" or "Update my organization tax settings"
 </Tip>
 
 ## How Organization Settings are Used

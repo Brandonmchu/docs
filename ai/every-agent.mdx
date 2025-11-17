@@ -63,15 +63,16 @@ Every Agent accesses reference materials you upload:
 Every Agent connects directly to your integrations:
 
 **Google Workspace:** Gmail, Calendar, Drive, Contacts
-**HubSpot CRM:** Contacts, deals, pipeline data
-**Stripe Payments:** Payment status, refunds, transaction history
-**Your Business Data:** All clients, invoices, time entries, expenses, offerings
+**Stripe Payments:** Payment status via database records
+**Your Business Data:** All clients, invoices, time entries, expenses, offerings (including synced data from HubSpot and other integrations)
 
 This means Every Agent can say: *"I see ACME Corp paid their invoice yesterday"* or *"You have 3 overdue invoices totaling $12,500"* without you providing context.
 
+<Note>HubSpot data is synced to your database and accessible via client records, but the agent doesn't have direct HubSpot API access.</Note>
+
 ### Business Intelligence
 
-Every Agent runs periodic **business intelligence analysis** that synthesizes patterns:
+Every Agent can run **business intelligence analysis** on demand to synthesize patterns across your data:
 
 **What Gets Analyzed:** Email patterns, calendar rhythms, financial trends, payment behavior, document patterns
 
@@ -84,45 +85,49 @@ Every Agent runs periodic **business intelligence analysis** that synthesizes pa
 "Average days to payment: 45 days with Net 30 terms"
 ```
 
-Every Agent references these when you ask: "How's my business doing?" or "What should I focus on this quarter?"
+**To Run Analysis:** Click the "Run Analysis" button in the Business Context settings panel or ask Every Agent to "analyze my business performance"
 
-## Operational Modes
+Every Agent references these insights when you ask: "How's my business doing?" or "What should I focus on this quarter?"
 
-### Regular Mode
+## How Every Agent Works
 
-**Best For:** Simple, straightforward requests
+Every Agent operates in **Plan Mode** by default, which provides structured execution with guardrails, tracking, and error recovery.
 
-**Behavior:** Single-turn execution → Immediate action → Fast response
+### Plan-Based Execution
 
-**Examples:**
-```
-"Create an invoice for ACME Corp for $5,000"
-"Send a payment reminder to XYZ Company"
-"Show me my revenue this month"
-"Log 3 hours of consulting for Client ABC"
-```
+For most requests (except trivial chatter like greetings), Every Agent creates a structured plan to ensure:
+- Step-by-step execution with progress tracking
+- Error handling and recovery
+- Ability to pause and resume complex operations
+- Clear audit trail of what was done
 
-### Plan Mode
+**When Plans Are Created:**
+- CSV imports and bulk operations
+- Multi-step workflows requiring coordination
+- Data migrations
+- Complex setup tasks
+- Any request that requires multiple operations
 
-**Best For:** Complex, multi-step workflows
+**When Plans Are Skipped:**
+- Simple greetings and acknowledgments
+- Quick single-action requests (like viewing data)
 
-**How It Works:**
-1. **Planning Phase:** Analyzes complexity, creates detailed plan, shows steps for approval
-2. **Execution Phase:** Executes each step, shows progress, handles errors, can pause/resume
-3. **Completion:** Summarizes results, highlights issues, saves plan for reference
-
-**Examples:**
+**Examples of Plan-Based Workflows:**
 ```
 "Import this CSV of 500 old invoices from my previous system"
+→ Creates plan: validate CSV → batch into groups of 100 → import each batch → verify results
+
 "Set up monthly billing for all my retainer clients"
-"Analyze my Q4 financials and create a revenue report"
+→ Creates plan: identify retainer clients → create automation for each → configure schedules → test
+
 "Clean up duplicate clients and merge their invoices"
+→ Creates plan: find duplicates → review matches → merge records → update invoices
 ```
 
 **Plan Persistence:** Plans save to your database - close browser mid-execution and resume later exactly where you left off.
 
 <Tip>
-  **When to use Plan Mode:** CSV imports, bulk operations, multi-step workflows, data migrations, complex setup tasks
+  Plans provide safety and transparency for complex operations. You can see exactly what Every Agent will do before it happens.
 </Tip>
 
 ## Core Capabilities
