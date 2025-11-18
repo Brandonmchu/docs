@@ -189,23 +189,24 @@ tbody tr:hover {
   border-left-color: hsl(var(--primary));
 }
 
-.callout-tip {
+/* Target Mintlify's actual Tip callout structure */
+.callout[data-callout-type="tip"] {
   background-color: rgb(220 252 231) !important; /* green-100 - light green */
   border-left-color: rgb(22 163 74) !important; /* green-600 */
 }
 
 /* Ensure all nested elements in Tip boxes maintain green background */
-.callout-tip *,
-.callout-tip ul,
-.callout-tip li,
-.callout-tip p,
-.callout-tip code,
-.callout-tip pre {
+.callout[data-callout-type="tip"] *,
+.callout[data-callout-type="tip"] ul,
+.callout[data-callout-type="tip"] li,
+.callout[data-callout-type="tip"] p,
+.callout[data-callout-type="tip"] code,
+.callout[data-callout-type="tip"] pre {
   background-color: transparent !important;
 }
 
 /* Code blocks inside Tip should not have beige background */
-.callout-tip code {
+.callout[data-callout-type="tip"] code {
   background-color: rgb(187 247 208) !important; /* green-200 - slightly darker green for code */
   color: rgb(21 128 61) !important; /* green-700 - darker green text */
 }
