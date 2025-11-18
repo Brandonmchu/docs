@@ -190,8 +190,24 @@ tbody tr:hover {
 }
 
 .callout-tip {
-  background-color: hsl(var(--accent));
-  border-left-color: hsl(var(--primary));
+  background-color: rgb(220 252 231) !important; /* green-100 - light green */
+  border-left-color: rgb(22 163 74) !important; /* green-600 */
+}
+
+/* Ensure all nested elements in Tip boxes maintain green background */
+.callout-tip *,
+.callout-tip ul,
+.callout-tip li,
+.callout-tip p,
+.callout-tip code,
+.callout-tip pre {
+  background-color: transparent !important;
+}
+
+/* Code blocks inside Tip should not have beige background */
+.callout-tip code {
+  background-color: rgb(187 247 208) !important; /* green-200 - slightly darker green for code */
+  color: rgb(21 128 61) !important; /* green-700 - darker green text */
 }
 
 .callout-warning {
