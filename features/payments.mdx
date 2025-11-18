@@ -76,6 +76,15 @@ Payments collect in Stripe balance → Automatic payout to bank account (usually
 
 ### Recording Manual Payments
 
+<Note>
+  **Required to Record/Accept Payments:**
+  - **Invoice must be Issued** (not draft - payments require issued invoice)
+  - **For Online Payments:** Stripe account must be connected and enabled on the invoice
+  - **For Manual Payments:** Amount, date, and payment method
+
+  Payments automatically update invoice status (Paid, Partially Paid, or Unpaid).
+</Note>
+
 Open invoice (must be issued) → Click Record Payment → Enter amount (full or partial), payment date (defaults to today, can backdate), payment method (Cash, Check, Bank Transfer, Credit Card, Other), reference/notes (check #, transaction ID, etc.) → Save Payment
 
 **Result:** Payment record created, invoice status updated (Paid/Partial/Unpaid), outstanding balance recalculated, activity timeline updated
