@@ -1,296 +1,217 @@
-/* Every AI Documentation Custom Styles */
-/* Matches the Every React design system from @every-react/ui/styles */
+/* Every AI Documentation - Minimal Custom Styles */
+/* Based on Mintlify default theme with Every AI branding */
 
 :root {
-  /* Core Design Tokens - matching theme.css exactly */
-  --background: 60 5% 92%;         /* #edece8 - beige */
-  --foreground: 0 0% 4%;           /* #0A0A0A */
-  --primary: 0 0% 4%;              /* #0A0A0A */
-  --muted: 60 5% 42%;              /* #6B6A68 */
-  --muted-foreground: 60 5% 42%;   /* #6B6A68 */
-  --accent: 60 5% 95%;             /* #f5f4f2 - hover states (FIXED) */
-  --border: 60 5% 80%;             /* Borders and dividers */
-  --contrast-background: 60 5% 92%; /* #edece8 */
-
-  /* Border radius system - matching Every AI */
-  --radius: 0.5rem; /* 8px base */
-
-  /* Line height */
-  --line-height-base: 1.5;
+  /* Minimal overrides to match Every AI design system */
+  --radius: 0.5rem; /* 8px border radius */
 }
 
-/* Force beige background - Mintlify's theme overrides the JSON config */
+/* ===== EVERY AI BRANDING ===== */
+
+/* Logo sizing - make it more proportionate */
+img[src*="every-logo"],
+img[src*="/logo/"],
+[data-logo] img,
+header img,
+aside img,
+nav img {
+  max-height: 20px !important;
+  height: 20px !important;
+  width: auto !important;
+  max-width: 100px !important;
+  object-fit: contain !important;
+}
+
+/* Font: Inter (matching Every AI) */
 body,
-html,
-#__next,
-main,
-[data-theme],
-.main,
-.content,
-.prose {
-  background-color: #edece8 !important;
-  background-image: none !important;
+#content-area,
+.mdx-content {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Sidebar should also be beige */
-nav,
-aside,
-.sidebar {
-  background-color: #edece8 !important;
-  background-image: none !important;
-}
-
-/* Cards and sections */
+/* Border radius: 8px (matching Every AI) */
 .card,
-.section {
-  background-color: #edece8 !important;
-  background-image: none !important;
-}
-
-/* Typography Hierarchy - matching STYLES.md */
-h1 {
-  font-size: 30px !important;
-  font-weight: 700 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 1rem !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-h2 {
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 0.75rem !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-h3 {
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 0.5rem !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-h4 {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 0.5rem !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-h5 {
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 0.5rem !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-h6 {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  margin-bottom: 0.5rem !important;
-  color: hsl(var(--foreground)) !important;
-}
-
-/* Body text - matching Every AI */
-p, li, td {
-  font-size: 16px;
-  line-height: var(--line-height-base);
-  color: hsl(var(--foreground));
-}
-
-/* Secondary text */
-.text-muted {
-  color: hsl(var(--muted-foreground));
-}
-
-/* Links - subtle, matches app */
-a {
-  color: hsl(var(--foreground));
-  text-decoration: underline;
-  text-decoration-color: hsl(var(--muted));
-  text-underline-offset: 2px;
-  transition: all 0.2s ease;
-}
-
-a:hover {
-  color: hsl(var(--foreground));
-  text-decoration-color: hsl(var(--foreground));
-}
-
-/* Code blocks - matching app's code styling */
+button,
+input,
+pre,
 code {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--foreground));
-  padding: 0.125rem 0.375rem;
-  border-radius: calc(var(--radius) - 4px); /* rounded-md */
-  font-size: 14px;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  border-radius: 0.5rem;
 }
 
-pre code {
-  background-color: transparent;
-  padding: 0;
+/* Sidebar background - bg-contrast color */
+#sidebar,
+#sidebar-content,
+nav[aria-label="Sidebar navigation"],
+.sidebar-nav,
+aside[data-sidebar] {
+  background-color: #edece8 !important;
 }
 
-pre {
-  background-color: hsl(var(--contrast-background));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius); /* rounded-lg */
-  padding: 1rem;
-  overflow-x: auto;
-  font-size: 14px;
-  line-height: 1.5;
+/* Fix sidebar horizontal scroll */
+#sidebar,
+#sidebar-content,
+nav[aria-label="Sidebar navigation"],
+.sidebar-nav {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
 }
 
-/* Tables - matching app's table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 16px;
+/* Ensure navigation items don't overflow */
+#sidebar a,
+#sidebar button,
+.sidebar-nav a,
+.sidebar-nav button {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
 }
 
-thead {
-  background-color: hsl(var(--contrast-background));
+/* Callout boxes - dark background like hero section */
+.callout,
+[data-callout],
+.note,
+.tip,
+.info,
+.warning,
+div[class*="callout"],
+div[role="note"],
+aside[class*="callout"] {
+  background-color: #0A0A0A !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem 1.25rem !important;
 }
 
-th {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  font-weight: 600;
-  color: hsl(var(--foreground));
-  border-bottom: 1px solid hsl(var(--border));
+/* Force all child elements to be white */
+.callout *,
+[data-callout] *,
+.note *,
+.tip *,
+.info *,
+.warning *,
+div[class*="callout"] *,
+div[role="note"] *,
+aside[class*="callout"] * {
+  color: #FFFFFF !important;
 }
 
-td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid hsl(var(--border));
+/* Callout icons - light color */
+.callout svg,
+[data-callout] svg,
+.note svg,
+.tip svg,
+.info svg,
+.warning svg,
+div[class*="callout"] svg,
+div[role="note"] svg,
+aside[class*="callout"] svg {
+  color: #FFFFFF !important;
+  opacity: 0.9 !important;
 }
 
-tbody tr:hover {
-  background-color: hsl(var(--accent));
+/* Callout headings and text */
+.callout h1,
+.callout h2,
+.callout h3,
+.callout h4,
+.callout h5,
+.callout h6,
+.callout p,
+.callout li,
+[data-callout] h1,
+[data-callout] h2,
+[data-callout] h3,
+[data-callout] h4,
+[data-callout] h5,
+[data-callout] h6,
+[data-callout] p,
+[data-callout] li {
+  color: #FFFFFF !important;
 }
 
-/* Callout boxes (Note, Tip, Warning) - matching app */
-.callout {
-  border-radius: var(--radius);
-  padding: 1rem;
-  margin: 1rem 0;
-  border-left: 4px solid;
+/* Callout links */
+.callout a,
+[data-callout] a {
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
 }
 
-/* Target Mintlify's Info/Note callout structure */
-.callout[data-callout-type="info"],
-.callout[data-callout-type="note"] {
-  background-color: rgb(239 246 255) !important; /* blue-50 - very light blue */
-  border-left-color: rgb(59 130 246) !important; /* blue-500 */
+.callout a:hover,
+[data-callout] a:hover {
+  opacity: 0.8 !important;
 }
 
-/* Ensure all nested elements in Info/Note boxes maintain blue background */
-.callout[data-callout-type="info"] *,
-.callout[data-callout-type="info"] ul,
-.callout[data-callout-type="info"] li,
-.callout[data-callout-type="info"] p,
-.callout[data-callout-type="info"] code,
-.callout[data-callout-type="info"] pre,
-.callout[data-callout-type="note"] *,
-.callout[data-callout-type="note"] ul,
-.callout[data-callout-type="note"] li,
-.callout[data-callout-type="note"] p,
-.callout[data-callout-type="note"] code,
-.callout[data-callout-type="note"] pre {
-  background-color: transparent !important;
+/* ===== HIDE DARK MODE TOGGLE ===== */
+
+/* Hide the theme/appearance toggle completely */
+button[aria-label*="theme" i],
+button[aria-label*="appearance" i],
+button[aria-label*="dark" i],
+button[aria-label*="light" i],
+[data-theme-toggle],
+.theme-toggle,
+[class*="ThemeToggle"],
+[class*="theme-toggle"] {
+  display: none !important;
 }
 
-/* Code blocks inside Info/Note should not have beige background */
-.callout[data-callout-type="info"] code,
-.callout[data-callout-type="note"] code {
-  background-color: rgb(219 234 254) !important; /* blue-100 - slightly darker blue for code */
-  color: rgb(30 64 175) !important; /* blue-800 - darker blue text */
+/* ===== BREADCRUMB/SECTION LINKS ===== */
+
+/* Bold section links above page title */
+/* Target the "Getting Started" link and similar breadcrumb navigation */
+main a[href*="/getting-started"],
+main a[href*="/features"],
+main a[href*="/workflows"],
+main a[href*="/integrations"],
+main a[href*="/advanced"],
+main a[href*="/ai"],
+#content-area > a,
+.mdx-content > a:first-of-type,
+h1 + a,
+a + h1,
+header a:not([aria-label]):not([role="button"]) {
+  font-weight: 600 !important;
 }
 
-/* Target Mintlify's actual Tip callout structure */
-.callout[data-callout-type="tip"] {
-  background-color: rgb(240 253 244) !important; /* green-50 - very light green */
-  border-left-color: rgb(34 197 94) !important; /* green-500 */
+/* More general breadcrumb selectors */
+[class*="breadcrumb"] a,
+[class*="Breadcrumb"] a {
+  font-weight: 600 !important;
 }
 
-/* Ensure all nested elements in Tip boxes maintain green background */
-.callout[data-callout-type="tip"] *,
-.callout[data-callout-type="tip"] ul,
-.callout[data-callout-type="tip"] li,
-.callout[data-callout-type="tip"] p,
-.callout[data-callout-type="tip"] code,
-.callout[data-callout-type="tip"] pre {
-  background-color: transparent !important;
+/* ===== BUTTON GROUP FIXES ===== */
+
+/* Fix button groups (like Copy page + dropdown) to connect seamlessly */
+/* Remove right border radius from left button in group */
+button:has(+ button),
+button:has(+ [role="button"]),
+[role="button"]:has(+ button),
+[role="button"]:has(+ [role="button"]) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
-/* Code blocks inside Tip should not have beige background */
-.callout[data-callout-type="tip"] code {
-  background-color: rgb(220 252 231) !important; /* green-100 - slightly darker green for code */
-  color: rgb(22 101 52) !important; /* green-800 - darker green text */
+/* Remove left border radius from right button in group */
+button:not(:first-child),
+[role="button"]:not(:first-child) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
-.callout[data-callout-type="warning"] {
-  background-color: rgb(254 252 232) !important; /* yellow-50 */
-  border-left-color: rgb(202 138 4) !important; /* yellow-600 */
+/* Ensure first button in group keeps left radius */
+button:first-child,
+[role="button"]:first-child {
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
 }
 
-/* Ensure all nested elements in Warning boxes maintain yellow background */
-.callout[data-callout-type="warning"] *,
-.callout[data-callout-type="warning"] ul,
-.callout[data-callout-type="warning"] li,
-.callout[data-callout-type="warning"] p,
-.callout[data-callout-type="warning"] code,
-.callout[data-callout-type="warning"] pre {
-  background-color: transparent !important;
+/* Ensure last button in group keeps right radius */
+button:last-child,
+[role="button"]:last-child {
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
 }
 
-/* Code blocks inside Warning should not have beige background */
-.callout[data-callout-type="warning"] code {
-  background-color: rgb(254 249 195) !important; /* yellow-100 - slightly darker yellow for code */
-  color: rgb(133 77 14) !important; /* yellow-800 - darker yellow text */
-}
-
-/* Responsive typography - mobile-first like app */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 24px !important;
-  }
-
-  h2 {
-    font-size: 20px !important;
-  }
-
-  h3 {
-    font-size: 18px !important;
-  }
-
-  p, li, td {
-    font-size: 16px;
-  }
-}
-
-/* Scrollbar styling - matches app's subtle scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: hsl(var(--background));
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--border));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(var(--muted));
-}
+/* Let Mintlify handle all default styling - we only override what's needed */

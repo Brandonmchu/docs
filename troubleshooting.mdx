@@ -1,574 +1,606 @@
 ---
 title: "Troubleshooting Guide"
 description: "Solutions to common issues and problems in Every"
+icon: "wrench"
 ---
 
-## Organization & Setup Issues
-
-### Organization Not Configured Properly
-
-**Problem:** Invoices missing information or look unprofessional
-
-**Check:**
-- Business name, address set
-- Logo uploaded
-- Default currency selected
-- Tax rate configured
-
-**Solution:**
-1. Go to Settings → Organization
-2. Complete all required fields
-3. Upload logo
-4. Set financial defaults
-5. Save changes
-
-### Logo Not Appearing on Invoices
-
-**Possible Causes:**
-- File size too large (>5MB)
-- Unsupported format
-- Upload failed
-- Browser cache
-
-**Solutions:**
-- Compress logo image
-- Use PNG, JPG, or SVG format
-- Re-upload logo
-- Clear browser cache (Ctrl+Shift+R / Cmd+Shift+R)
-- View invoice in incognito mode to test
-
-## Client Issues
-
-### Client Enrichment Not Finding Data
-
-**Why It Happens:**
-- Company too small/new
-- No web presence
-- Name misspelled
-- Not in public databases
-
-**Solutions:**
-- Try different name variations
-- Add company website first to help search
-- Manually enter information
-- Skip enrichment for individuals
-
-### Can't Delete Client
-
-**Reason:** Client has issued invoices
-
-**Solutions:**
-- Archive client instead (preserves data)
-- Void all client invoices first
-- Keep client for historical records
-
-### Google Contact Scan Not Working
-
-**Check:**
-- Google Workspace connected (Contacts + Gmail/Calendar scopes)
-- **Home → Import Data → Scan Contacts** shows the button
-- Contact actually exists in Google with an email address
-
-**Solutions:**
-- Reconnect Google integration and re-run **Scan Contacts**
-- Ask Every Agent to "scan my Google contacts" to restart the analysis
-- Use the inline email field suggestions if you just need a single contact
-- Confirm the contact exists in Google Contacts and has the correct email
-
-## Invoice Issues
-
-### Invoice Not Sending
-
-**Check:**
-- Client has valid email address
-- Invoice is not in draft status
-- Internet connection active
-- Email address has no typos
-
-**Solutions:**
-1. Verify client email in client profile
-2. Check invoice status (must click "Send")
-3. Try resending invoice
-4. Check email delivery status
-5. Send public invoice link directly to client
-
-### Client Says They Didn't Receive Invoice
-
-**Investigation Steps:**
-1. Check email delivery status in invoice
-2. Verify correct email address
-3. Ask client to check spam folder
-4. Check CC emails (maybe went to wrong person)
-
-**Solutions:**
-- Resend invoice
-- Send public invoice link via text/Slack
-- Try CC email addresses
-- Verify email not blocked by client's IT
-
-### Can't Edit Issued Invoice
-
-**Reason:** Protecting invoice integrity after sending
-
-**Solutions:**
-- Void invoice and create new one with changes
-- If minor change, add note to invoice
-- Contact client to explain correction
-- For major changes, issue credit note (future feature)
-
-### Wrong Total Calculation
-
-**Check:**
-- Tax applied correctly per line item
-- Discount applied correctly
-- All line items included
-- No duplicate line items
-- Currency correct
-
-**Debugging:**
-1. Review each line item individually
-2. Manually calculate expected total
-3. Check tax settings
-4. Verify discount percentage vs fixed amount
-5. Contact support if calculation still appears wrong
-
-### Invoice Attachments Not Uploading
-
-**Check:**
-- File size under 5MB
-- Supported format (PDF, JPG, PNG, DOC, XLS)
-- Internet connection stable
-- Storage quota not exceeded
-
-**Solutions:**
-- Compress large files
-- Split large PDFs
-- Try different file format
-- Use Google Drive link instead
-
-## Payment Issues
-
-### Client Can't Pay Online
-
-**Check:**
-- Stripe connected and active
-- Online payments enabled on invoice
-- Invoice is issued (not draft)
-- Client using valid payment method
-
-**Solutions:**
-1. Verify Stripe connection (Settings → Payments)
-2. Check invoice has "Enable Online Payments" toggled on
-3. Ensure invoice status is "Issued"
-4. Ask client to try different card
-5. Check Stripe Dashboard for declined payment details
-6. Offer alternative payment method
-
-### Payment Not Showing in Bank Account
-
-**For Stripe Payments:**
-- Standard processing: 2-7 business days
-- Check payout schedule in Stripe Dashboard
-- Verify bank account connected correctly
-- Check for Stripe holds or reviews
-- Contact Stripe support if significantly delayed
-
-**For Manual Payments:**
-- Verify payment actually received in bank
-- Record payment in Every manually
-- Invoice will update to "Paid"
-
-### Can't Delete Payment
-
-**Reason:** Payment cannot be deleted to maintain financial integrity
-
-**Solutions:**
-- Only delete payments recorded in error
-- For refunds, process through Stripe Dashboard
-- For adjustments, create new payment with negative amount
-- Contact support for complex scenarios
-
-## Automation Issues
-
-### Automation Not Running
-
-**Check:**
-- Automation status is Active (not Inactive)
-- Next run date in future, not past
-- Start date is in the past
-- End date hasn't passed (if set)
-- Client still exists and is active
-
-**Solutions:**
-1. Verify automation is Active
-2. Check next run date
-3. Manually trigger test run
-4. Review execution history for errors
-5. Verify client hasn't been archived/deleted
-
-### Test Invoice Not Generated
-
-**Check:**
-- Test mode enabled
-- Automation saved after enabling test mode
-- Organization email configured
-- Test invoice button clicked
-
-**Solutions:**
-1. Re-enable test mode
-2. Save automation
-3. Wait a moment for processing
-4. Check draft invoices
-5. Check spam folder for test email
-
-### Wrong Amount on Automated Invoice
-
-**Check:**
-- Line item amounts in automation
-- Tax settings correct
-- Discount not accidentally applied
-- Offerings referenced have correct rates
-
-**Solutions:**
-1. Edit automation
-2. Review and update line item amounts
-3. Verify offering rates
-4. Test again before activating
-5. If already sent wrong invoice, void and resend correct one
-
-## Integration Issues
-
-### Stripe Connection Lost
-
-**Symptoms:**
-- "Needs Reconnection" message
-- Online payments not working
-- Connection status shows error
-
-**Solutions:**
-1. Settings → Payments
-2. Click "Reconnect Stripe"
-3. Log in to Stripe
-4. Reauthorize Every
-5. Connection restored
-
-### Google Workspace Features Not Working
-
-**Check:**
-- Connection status (Settings → Integrations)
-- Required scopes granted
-- Token not expired
-- Feature requires specific scope
-
-**Solutions:**
-1. Go to Settings → Integrations
-2. Click "Reconnect Google"
-3. Grant all requested permissions
-4. Verify scope matches feature needs
-5. Refresh page after reconnecting
-
-### HubSpot Sync Not Running
-
-**Check:**
-- Connection status healthy
-- Last sync time (should be recent)
-- Internet connection
-- HubSpot service status
-
-**Solutions:**
-1. Check connection in Settings → Integrations
-2. Manually trigger sync
-3. Wait for automatic sync cycle
-4. Reconnect if status shows error
-5. Check HubSpot for data integrity
-
-### HubSpot Contacts Not Appearing
-
-**Verify:**
-- Contacts exist in HubSpot
-- Sync completed successfully
-- Not filtered out as inactive
-- Duplicates not skipped
-
-**Solutions:**
-1. Check HubSpot for contact
-2. Review sync log for errors
-3. Re-run manual sync
-4. Check duplicate resolution choices
-5. Verify filters in Every
-
-## Time Tracking Issues
-
-### Timer Not Starting
-
-**Check:**
-- Client selected in timer widget
-- No other timer already running
-- Browser permissions (if needed)
-- Internet connection stable
-
-**Solutions:**
-1. Select client from dropdown
-2. Stop any other active timers
-3. Refresh page
-4. Try in different browser
-5. Check browser console for errors
-
-### Time Entry Missing
-
-**Check:**
-- Date filter on time list
-- Client filter applied
-- Billable/non-billable filter
-- Search function
-
-**Solutions:**
-1. Clear all filters
-2. Search by client name or description
-3. Check if accidentally deleted
-4. Verify date range includes entry date
-
-### Can't Edit Billed Time
-
-**Reason:** Time linked to invoice, editing would create invoice mismatch
-
-**Solutions:**
-- If invoice is draft: Remove time from invoice, edit, re-add
-- If invoice is issued: Leave as-is for integrity
-- Future time uses correct rate
-- Contact support for complex corrections
-
-### Time Not Appearing in Invoice
-
-**Check:**
-- Time marked as billable (not non-billable)
-- Time assigned to correct client
-- Time not already billed to different invoice
-- Time entry saved successfully
-
-**Solutions:**
-1. Verify time record is billable
-2. Check client assignment
-3. Filter unbilled time only
-4. Ensure time wasn't added to another invoice
-
-## Expense Issues
-
-### Receipt Upload Failed
-
-**Check:**
-- File size under 5MB
-- Supported format (JPG, PNG, PDF)
-- Internet connection stable
-- Storage not full
-
-**Solutions:**
-1. Compress image if large
-2. Convert to JPEG or PDF
-3. Check internet connection
-4. Try uploading from different device
-5. Contact support if persists
-
-### AI Extracted Wrong Information
-
-**Common:** AI reads subtotal instead of total, or gets date wrong
-
-**Solution:**
-- Always review AI-extracted data
-- Correct before saving
-- Look for "Total" or "Amount Due" on receipt
-- Report grossly incorrect extractions to improve AI
-
-### Can't Edit Billed Expense
-
-**Reason:** Expense linked to issued invoice
-
-**Solutions:**
-- Edit if invoice still draft
-- Remove from invoice, edit expense, re-add
-- If invoice issued, leave as-is for accuracy
-- Contact client if significant error
-
-## Agent Issues
-
-### Agent Not Understanding Request
-
-**Make More Specific:**
-- Include client name
-- Specify amounts and dates
-- Mention invoice/client numbers
-- Add relevant context
-
-**Example:**
-- Vague: "Make an invoice"
-- Better: "Create invoice #INV-123 for ACME Corp for consulting services, $5,000, due in 30 days"
-
-### Agent Made Mistake
-
-**Immediate Action:**
-```
-"Undo that"
-[Wait for undo confirmation]
-"Create invoice for ACME Corp (not XYZ), $5,000"
-```
-
-**Prevention:**
-- Review agent proposals before approving
-- Be specific in requests
-- Correct immediately if wrong
-
-### Agent Tool Not Working
-
-**Agent Will Report:**
-- Integration not connected
-- Permission required
-- Missing prerequisite
-
-**Solution:**
-- Follow agent's guidance to connect integration
-- Grant required permission
-- Create missing prerequisites (client, offering, etc.)
+## Common Issues by Category
+
+<CardGroup cols={2}>
+  <Card title="Organization & Setup" icon="building-2">
+    Logo, branding, and configuration issues
+  </Card>
+  <Card title="Clients" icon="users">
+    Client management and enrichment problems
+  </Card>
+  <Card title="Invoices" icon="file-text">
+    Creating, sending, and editing invoices
+  </Card>
+  <Card title="Payments" icon="credit-card">
+    Online payments and Stripe integration
+  </Card>
+  <Card title="Automations" icon="repeat">
+    Recurring invoice automation issues
+  </Card>
+  <Card title="Integrations" icon="plug">
+    Stripe, Google, and HubSpot connections
+  </Card>
+  <Card title="Time & Expenses" icon="clock">
+    Tracking time and managing expenses
+  </Card>
+  <Card title="Every Agent" icon="sparkles">
+    AI assistant troubleshooting
+  </Card>
+</CardGroup>
+
+## Organization & Setup
+
+<AccordionGroup>
+  <Accordion icon="building-2" title="Organization Not Configured Properly">
+    **Problem:** Invoices missing information or look unprofessional
+
+    **Check these settings:**
+    - Business name and address
+    - Logo uploaded
+    - Default currency selected
+    - Tax rate configured
+
+    **Solution:**
+    1. Go to **Settings → Organization**
+    2. Complete all required fields
+    3. Upload your logo
+    4. Set financial defaults
+    5. Save changes
+
+    <Tip>Complete organization setup ensures all invoices look professional and include necessary business information.</Tip>
+  </Accordion>
+
+  <Accordion icon="image" title="Logo Not Appearing on Invoices">
+    **Possible Causes:**
+    - File size too large (>5MB)
+    - Unsupported format
+    - Upload failed
+    - Browser cache issue
+
+    **Solutions:**
+    1. Compress logo image to under 5MB
+    2. Use PNG, JPG, or SVG format
+    3. Re-upload logo in **Settings → Organization**
+    4. Clear browser cache (Ctrl+Shift+R / Cmd+Shift+R)
+    5. View invoice in incognito mode to test
+
+    <Warning>If logo still doesn't appear after trying these steps, contact support with your logo file.</Warning>
+  </Accordion>
+</AccordionGroup>
+
+## Clients
+
+<AccordionGroup>
+  <Accordion icon="search" title="Client Enrichment Not Finding Data">
+    **Why It Happens:**
+    - Company too small or newly established
+    - Limited web presence
+    - Name misspelled or incorrect
+    - Not in public databases
+
+    **Solutions:**
+    1. Try different name variations
+    2. Add company website first to help search
+    3. Manually enter information
+    4. Skip enrichment for individual clients
+
+    <Tip>AI enrichment works best for established companies with public information. For individuals or small businesses, manual entry is often faster.</Tip>
+  </Accordion>
+
+  <Accordion icon="trash-2" title="Can't Delete Client">
+    **Reason:** Client has issued invoices and must be preserved for financial records
+
+    **Solutions:**
+    - **Archive client** instead (preserves all data)
+    - Void all client invoices first, then delete
+    - Keep client for historical records (recommended)
+
+    <Warning>Deleting clients with invoices can break financial reporting. Use archive instead.</Warning>
+  </Accordion>
+
+  <Accordion icon="mail" title="Google Contact Scan Not Working">
+    **Check:**
+    - Google Workspace connected with Contacts + Gmail/Calendar scopes
+    - **Home → Import Data → Scan Contacts** button appears
+    - Contact exists in Google with an email address
+
+    **Solutions:**
+    1. Reconnect Google integration in **Settings → Integrations**
+    2. Re-run **Scan Contacts** from Home dashboard
+    3. Ask Every Agent: "scan my Google contacts"
+    4. Use inline email field suggestions for single contacts
+    5. Confirm contact exists in Google Contacts with correct email
+
+    <Tip>**Ask Every Agent:** "Scan my Google contacts and add any that look like clients"</Tip>
+  </Accordion>
+</AccordionGroup>
+
+## Invoices
+
+<AccordionGroup>
+  <Accordion icon="send" title="Invoice Not Sending">
+    **Check:**
+    - Client has valid email address
+    - Invoice is not in draft status
+    - Internet connection active
+    - Email address has no typos
+
+    **Solutions:**
+    1. Verify client email in client profile
+    2. Check invoice status (must click "Send")
+    3. Try resending invoice
+    4. Check email delivery status
+    5. Send public invoice link directly to client
+
+    <Tip>Use the public invoice link as a backup delivery method if email fails.</Tip>
+  </Accordion>
+
+  <Accordion icon="mail-x" title="Client Says They Didn't Receive Invoice">
+    **Investigation Steps:**
+    1. Check email delivery status in invoice
+    2. Verify correct email address
+    3. Ask client to check spam folder
+    4. Check CC emails (maybe went to wrong person)
+
+    **Solutions:**
+    - Resend invoice
+    - Send public invoice link via text/Slack
+    - Try CC email addresses
+    - Verify email not blocked by client's IT
+
+    <Warning>Always check the email delivery status before resending to avoid duplicate emails.</Warning>
+  </Accordion>
+
+  <Accordion icon="lock" title="Can't Edit Issued Invoice">
+    **Reason:** Protecting invoice integrity after sending
+
+    **Solutions:**
+    - Void invoice and create new one with changes
+    - If minor change, add note to invoice
+    - Contact client to explain correction
+    - For major changes, issue credit note (future feature)
+
+    <Note>This protection ensures financial records remain accurate and auditable.</Note>
+  </Accordion>
+
+  <Accordion icon="calculator" title="Wrong Total Calculation">
+    **Check:**
+    - Tax applied correctly per line item
+    - Discount applied correctly
+    - All line items included
+    - No duplicate line items
+    - Currency correct
+
+    **Debugging:**
+    1. Review each line item individually
+    2. Manually calculate expected total
+    3. Check tax settings
+    4. Verify discount percentage vs fixed amount
+    5. Contact support if calculation still appears wrong
+  </Accordion>
+
+  <Accordion icon="paperclip" title="Invoice Attachments Not Uploading">
+    **Check:**
+    - File size under 5MB
+    - Supported format (PDF, JPG, PNG, DOC, XLS)
+    - Internet connection stable
+    - Storage quota not exceeded
+
+    **Solutions:**
+    - Compress large files
+    - Split large PDFs
+    - Try different file format
+    - Use Google Drive link instead
+  </Accordion>
+</AccordionGroup>
+
+## Payments
+
+<AccordionGroup>
+  <Accordion icon="credit-card" title="Client Can't Pay Online">
+    **Check:**
+    - Stripe connected and active
+    - Online payments enabled on invoice
+    - Invoice is issued (not draft)
+    - Client using valid payment method
+
+    **Solutions:**
+    1. Verify Stripe connection (**Settings → Payments**)
+    2. Check invoice has "Enable Online Payments" toggled on
+    3. Ensure invoice status is "Issued"
+    4. Ask client to try different card
+    5. Check Stripe Dashboard for declined payment details
+    6. Offer alternative payment method
+
+    <Tip>Check the Stripe Dashboard for detailed error messages about declined payments.</Tip>
+  </Accordion>
+
+  <Accordion icon="banknote" title="Payment Not Showing in Bank Account">
+    **For Stripe Payments:**
+    - Standard processing: 2-7 business days
+    - Check payout schedule in Stripe Dashboard
+    - Verify bank account connected correctly
+    - Check for Stripe holds or reviews
+    - Contact Stripe support if significantly delayed
+
+    **For Manual Payments:**
+    - Verify payment actually received in bank
+    - Record payment in Every manually
+    - Invoice will update to "Paid"
+
+    <Note>Stripe payouts follow their standard schedule. Check your Stripe Dashboard for exact timing.</Note>
+  </Accordion>
+
+  <Accordion icon="trash-2" title="Can't Delete Payment">
+    **Reason:** Payment cannot be deleted to maintain financial integrity
+
+    **Solutions:**
+    - Only delete payments recorded in error
+    - For refunds, process through Stripe Dashboard
+    - For adjustments, create new payment with negative amount
+    - Contact support for complex scenarios
+  </Accordion>
+</AccordionGroup>
+
+## Automations
+
+<AccordionGroup>
+  <Accordion icon="repeat" title="Automation Not Running">
+    **Check:**
+    - Automation status is Active (not Inactive)
+    - Next run date in future, not past
+    - Start date is in the past
+    - End date hasn't passed (if set)
+    - Client still exists and is active
+
+    **Solutions:**
+    1. Verify automation is Active
+    2. Check next run date
+    3. Manually trigger test run
+    4. Review execution history for errors
+    5. Verify client hasn't been archived/deleted
+
+    <Tip>Use test mode to verify automation works before activating for real.</Tip>
+  </Accordion>
+
+  <Accordion icon="flask" title="Test Invoice Not Generated">
+    **Check:**
+    - Test mode enabled
+    - Automation saved after enabling test mode
+    - Organization email configured
+    - Test invoice button clicked
+
+    **Solutions:**
+    1. Re-enable test mode
+    2. Save automation
+    3. Wait a moment for processing
+    4. Check draft invoices
+    5. Check spam folder for test email
+  </Accordion>
+
+  <Accordion icon="dollar-sign" title="Wrong Amount on Automated Invoice">
+    **Check:**
+    - Line item amounts in automation
+    - Tax settings correct
+    - Discount not accidentally applied
+    - Offerings referenced have correct rates
+
+    **Solutions:**
+    1. Edit automation
+    2. Review and update line item amounts
+    3. Verify offering rates
+    4. Test again before activating
+    5. If already sent wrong invoice, void and resend correct one
+  </Accordion>
+</AccordionGroup>
+
+## Integrations
+
+<AccordionGroup>
+  <Accordion icon="credit-card" title="Stripe Connection Lost">
+    **Symptoms:**
+    - "Needs Reconnection" message
+    - Online payments not working
+    - Connection status shows error
+
+    **Solutions:**
+    1. Go to **Settings → Payments**
+    2. Click "Reconnect Stripe"
+    3. Log in to Stripe
+    4. Reauthorize Every
+    5. Connection restored
+
+    <Warning>Reconnect Stripe immediately to avoid payment processing interruptions.</Warning>
+  </Accordion>
+
+  <Accordion icon="mail" title="Google Workspace Features Not Working">
+    **Check:**
+    - Connection status (**Settings → Integrations**)
+    - Required scopes granted
+    - Token not expired
+    - Feature requires specific scope
+
+    **Solutions:**
+    1. Go to **Settings → Integrations**
+    2. Click "Reconnect Google"
+    3. Grant all requested permissions
+    4. Verify scope matches feature needs
+    5. Refresh page after reconnecting
+  </Accordion>
+
+  <Accordion icon="database" title="HubSpot Sync Not Running">
+    **Check:**
+    - Connection status healthy
+    - Last sync time (should be recent)
+    - Internet connection
+    - HubSpot service status
+
+    **Solutions:**
+    1. Check connection in **Settings → Integrations**
+    2. Manually trigger sync
+    3. Wait for automatic sync cycle
+    4. Reconnect if status shows error
+    5. Check HubSpot for data integrity
+  </Accordion>
+
+  <Accordion icon="users" title="HubSpot Contacts Not Appearing">
+    **Verify:**
+    - Contacts exist in HubSpot
+    - Sync completed successfully
+    - Not filtered out as inactive
+    - Duplicates not skipped
+
+    **Solutions:**
+    1. Check HubSpot for contact
+    2. Review sync log for errors
+    3. Re-run manual sync
+    4. Check duplicate resolution choices
+    5. Verify filters in Every
+  </Accordion>
+</AccordionGroup>
+
+## Time & Expenses
+
+<AccordionGroup>
+  <Accordion icon="clock" title="Timer Not Starting">
+    **Check:**
+    - Client selected in timer widget
+    - No other timer already running
+    - Browser permissions (if needed)
+    - Internet connection stable
+
+    **Solutions:**
+    1. Select client from dropdown
+    2. Stop any other active timers
+    3. Refresh page
+    4. Try in different browser
+    5. Check browser console for errors
+  </Accordion>
+
+  <Accordion icon="search-x" title="Time Entry Missing">
+    **Check:**
+    - Date filter on time list
+    - Client filter applied
+    - Billable/non-billable filter
+    - Search function
+
+    **Solutions:**
+    1. Clear all filters
+    2. Search by client name or description
+    3. Check if accidentally deleted
+    4. Verify date range includes entry date
+  </Accordion>
+
+  <Accordion icon="lock" title="Can't Edit Billed Time">
+    **Reason:** Time linked to invoice, editing would create invoice mismatch
+
+    **Solutions:**
+    - If invoice is draft: Remove time from invoice, edit, re-add
+    - If invoice is issued: Leave as-is for integrity
+    - Future time uses correct rate
+    - Contact support for complex corrections
+  </Accordion>
+
+  <Accordion icon="receipt" title="Receipt Upload Failed">
+    **Check:**
+    - File size under 5MB
+    - Supported format (JPG, PNG, PDF)
+    - Internet connection stable
+    - Storage not full
+
+    **Solutions:**
+    1. Compress image if large
+    2. Convert to JPEG or PDF
+    3. Check internet connection
+    4. Try uploading from different device
+    5. Contact support if persists
+  </Accordion>
+
+  <Accordion icon="scan" title="AI Extracted Wrong Information">
+    **Common:** AI reads subtotal instead of total, or gets date wrong
+
+    **Solution:**
+    - Always review AI-extracted data
+    - Correct before saving
+    - Look for "Total" or "Amount Due" on receipt
+    - Report grossly incorrect extractions to improve AI
+
+    <Tip>AI extraction is a starting point - always verify the amounts before saving.</Tip>
+  </Accordion>
+</AccordionGroup>
+
+## Every Agent
+
+<AccordionGroup>
+  <Accordion icon="message-square-x" title="Agent Not Understanding Request">
+    **Make More Specific:**
+    - Include client name
+    - Specify amounts and dates
+    - Mention invoice/client numbers
+    - Add relevant context
+
+    **Example:**
+    - ❌ Vague: "Make an invoice"
+    - ✅ Better: "Create invoice for ACME Corp for consulting services, $5,000, due in 30 days"
+
+    <Tip>**Ask Every Agent:** "Create an invoice for [Client Name] for [Service], $[Amount], due in [Days] days"</Tip>
+  </Accordion>
+
+  <Accordion icon="undo-2" title="Agent Made Mistake">
+    **Immediate Action:**
+    ```
+    "Undo that"
+    [Wait for undo confirmation]
+    "Create invoice for ACME Corp (not XYZ), $5,000"
+    ```
+
+    **Prevention:**
+    - Review agent proposals before approving
+    - Be specific in requests
+    - Correct immediately if wrong
+
+    <Warning>Always review what the agent proposes before confirming actions.</Warning>
+  </Accordion>
+
+  <Accordion icon="wrench" title="Agent Tool Not Working">
+    **Agent Will Report:**
+    - Integration not connected
+    - Permission required
+    - Missing prerequisite
+
+    **Solution:**
+    - Follow agent's guidance to connect integration
+    - Grant required permission
+    - Create missing prerequisites (client, offering, etc.)
+  </Accordion>
+</AccordionGroup>
 
 ## Performance Issues
 
-### Slow Loading
+<AccordionGroup>
+  <Accordion icon="zap" title="Slow Loading">
+    **Check:**
+    - Internet connection speed
+    - Browser extensions interfering
+    - Too many open tabs
+    - Outdated browser
 
-**Check:**
-- Internet connection speed
-- Browser extensions interfering
-- Too many open tabs
-- Outdated browser
+    **Solutions:**
+    1. Check internet speed
+    2. Disable ad blockers temporarily
+    3. Close unnecessary tabs
+    4. Update browser to latest version
+    5. Clear browser cache
+    6. Try incognito mode
+  </Accordion>
 
-**Solutions:**
-1. Check internet speed
-2. Disable ad blockers temporarily
-3. Close unnecessary tabs
-4. Update browser to latest version
-5. Clear browser cache
-6. Try incognito mode
+  <Accordion icon="refresh-cw" title="Page Not Responsive">
+    **Solutions:**
+    1. Refresh page (F5 or Cmd+R)
+    2. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
+    3. Clear cache and refresh
+    4. Try different browser
+    5. Check browser console for errors
 
-### Page Not Responsive
-
-**Solutions:**
-1. Refresh page (F5 or Cmd+R)
-2. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
-3. Clear cache and refresh
-4. Try different browser
-5. Check browser console for errors
+    <Tip>Hard refresh (Ctrl+Shift+R) clears cached files and often fixes display issues.</Tip>
+  </Accordion>
+</AccordionGroup>
 
 ## Account & Access Issues
 
-### Can't Log In
+<AccordionGroup>
+  <Accordion icon="log-in" title="Can't Log In">
+    **Check:**
+    - Correct email address
+    - Password correct (check caps lock)
+    - Account exists
+    - Not blocked
 
-**Check:**
-- Correct email address
-- Password correct (check caps lock)
-- Account exists
-- Not blocked
+    **Solutions:**
+    1. Use "Forgot Password" to reset
+    2. Verify email address spelling
+    3. Check spam for verification email
+    4. Try different browser
+    5. Contact support if account issues
+  </Accordion>
 
-**Solutions:**
-1. Use "Forgot Password" to reset
-2. Verify email address spelling
-3. Check spam for verification email
-4. Try different browser
-5. Contact support if account issues
+  <Accordion icon="user-x" title="Team Member Can't Access">
+    **Check:**
+    - Invitation sent and accepted
+    - Team member has Clerk account
+    - Organization membership active
+    - Permissions granted
 
-### Team Member Can't Access
-
-**Check:**
-- Invitation sent and accepted
-- Team member has Clerk account
-- Organization membership active
-- Permissions granted
-
-**Solutions:**
-1. Resend invitation
-2. Verify team member accepted invite
-3. Check team member list in settings
-4. Remove and re-add if needed
+    **Solutions:**
+    1. Resend invitation
+    2. Verify team member accepted invite
+    3. Check team member list in settings
+    4. Remove and re-add if needed
+  </Accordion>
+</AccordionGroup>
 
 ## Getting More Help
 
-### Contact Support
+<CardGroup cols={2}>
+  <Card title="Contact Support" icon="help-circle" href="mailto:hello@every.ai">
+    Email us at hello@every.ai with your issue details
+  </Card>
+  <Card title="Common Workflows" icon="workflow" href="/workflows/common-workflows">
+    Learn best practices and proven workflows
+  </Card>
+</CardGroup>
 
-**Email:** hello@every.ai
+### What to Include When Contacting Support
 
-**Include When Contacting:**
-- Description of issue
-- Steps you've tried
+<Note>
+**Include these details:**
+- Description of the issue
+- Steps you've already tried
 - Screenshots if applicable
-- Browser and device info
-- Account email address
+- Browser and device information
+- Your account email address
 
-**Response Time:**
-- Usually within 24 hours
-- Faster for urgent issues
+**Response Time:** Usually within 24 hours, faster for urgent issues
+</Note>
 
-### Check Status Page
+## Quick Diagnostic Checklist
 
-**System Status:** status.every.ai (if available)
+**For Any Issue, Try These First:**
 
-**Outages:**
-- Check if system-wide issue
-- View incident reports
-- Get updates on resolution
-
-### Community & Resources
-
-**Community:** community.every.ai (if available)
-
-**Resources:**
-- Documentation (you're reading it!)
-- Video tutorials (coming soon)
-- Webinars (check website)
+1. **Refresh the page** - Many issues resolve with a simple refresh (F5 or Cmd+R)
+2. **Check your internet** - Ensure you have a stable connection
+3. **Try incognito mode** - Rules out browser extension conflicts
+4. **Try a different browser** - Identifies browser-specific problems
+5. **Clear your cache** - Resolves stale data issues (Ctrl+Shift+R)
+6. **Contact support** - When all else fails, we're here to help!
 
 ## Prevention Tips
 
 <Tip>
-  **Save work frequently** - Save drafts regularly to prevent data loss
+**Save work frequently** - Save drafts regularly to prevent data loss
 </Tip>
 
 <Tip>
-  **Test in safe environment** - Use test mode for automations, create test clients for experiments
+**Test in safe environment** - Use test mode for automations, create test clients for experiments
 </Tip>
 
 <Tip>
-  **Keep integrations current** - Reconnect when prompted to avoid feature breakage
+**Keep integrations current** - Reconnect when prompted to avoid feature breakage
 </Tip>
 
 <Tip>
-  **Back up critical data** - Export important data periodically
+**Monitor email delivery** - Check invoice delivery status to catch issues early
 </Tip>
 
 <Tip>
-  **Monitor email delivery** - Check invoice delivery status to catch issues early
+**Update browser** - Keep browser up-to-date for best performance and security
 </Tip>
-
-<Tip>
-  **Review weekly** - Catch issues early with regular dashboard reviews
-</Tip>
-
-<Tip>
-  **Update browser** - Keep browser up-to-date for best performance and security
-</Tip>
-
-## Quick Diagnostic Steps
-
-**For Any Issue:**
-
-1. **Refresh** - Many issues resolve with simple refresh
-2. **Check Internet** - Ensure stable connection
-3. **Try Incognito** - Rules out browser extension issues
-4. **Different Browser** - Identifies browser-specific problems
-5. **Clear Cache** - Resolves stale data issues
-6. **Contact Support** - When all else fails
-
-**Before Contacting Support:**
-- Document the issue (screenshots help!)
-- Note what you've tried
-- Check if others experiencing same issue
-- Prepare account details
 
 <Note>
-  **Remember:** Most issues have simple solutions. Start with the basics (refresh, check settings) before assuming major problem!
+**Remember:** Most issues have simple solutions. Start with the basics (refresh, check settings) before assuming a major problem!
 </Note>

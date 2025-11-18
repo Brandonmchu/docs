@@ -1,11 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Every",
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Every AI",
+  "theme": "willow",
   "css": "custom.css",
   "colors": {
-    "primary": "#edece8",
-    "light": "#6B6A68",
+    "primary": "#0A0A0A",
+    "light": "#0A0A0A",
     "dark": "#0A0A0A"
   },
   "font": {
@@ -18,13 +18,11 @@
   },
   "background": {
     "color": {
-      "light": "#edece8",
+      "light": "#FAFAFA",
       "dark": "#0A0A0A"
     }
   },
-  "appearance": {
-    "default": "light"
-  },
+  "appearance": "light",
   "styling": {
     "eyebrows": "breadcrumbs",
     "codeblocks": "system"
@@ -32,123 +30,94 @@
   "icons": {
     "library": "lucide"
   },
-  "primaryTab": {
-    "name": "Product Guide"
+  "favicon": "/favicon.png",
+  "seo": {
+    "indexing": "all",
+    "metatags": {
+      "og:type": "website",
+      "og:site_name": "Every AI Documentation",
+      "og:image": "https://every.ai/og-image.png",
+      "twitter:card": "summary_large_image",
+      "twitter:site": "@everyai"
+    }
   },
-  "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Product Guide",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "index",
-              "quickstart",
-              "getting-started/organization-setup"
-            ]
-          },
-          {
-            "group": "Core Features",
-            "pages": [
-              "features/clients",
-              "features/offerings",
-              "features/invoices",
-              "features/payments",
-              "features/automations",
-              "features/proposals",
-              "features/time-tracking",
-              "features/expenses"
-            ]
-          },
-          {
-            "group": "Advanced Features",
-            "pages": [
-              "advanced/note-templates",
-              "advanced/multi-currency",
-              "advanced/tax-management",
-              "advanced/reporting"
-            ]
-          },
-          {
-            "group": "AI Features",
-            "pages": [
-              "ai/every-agent",
-              "ai/agent-scheduled-tasks",
-              "ai/business-context"
-            ]
-          },
-          {
-            "group": "Workflows & Best Practices",
-            "pages": [
-              "workflows/common-workflows",
-              "workflows/tips-for-success"
-            ]
-          }
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "quickstart",
+          "getting-started/organization-setup"
         ]
       },
       {
-        "tab": "Integrations",
-        "groups": [
-          {
-            "group": "Payment Processing",
-            "pages": [
-              "integrations/stripe"
-            ]
-          },
-          {
-            "group": "Business Tools",
-            "pages": [
-              "integrations/google-workspace",
-              "integrations/hubspot"
-            ]
-          }
+        "group": "Core Features",
+        "pages": [
+          "features/clients",
+          "features/offerings",
+          "features/invoices",
+          "features/payments",
+          "features/automations",
+          "features/proposals",
+          "features/time-tracking",
+          "features/expenses"
         ]
       },
       {
-        "tab": "Support",
-        "groups": [
-          {
-            "group": "Help & Resources",
-            "pages": [
-              "troubleshooting"
-            ]
-          }
+        "group": "Advanced Features",
+        "pages": [
+          "advanced/note-templates",
+          "advanced/multi-currency",
+          "advanced/tax-management",
+          "advanced/reporting"
+        ]
+      },
+      {
+        "group": "AI Features",
+        "pages": [
+          "ai/every-agent",
+          "ai/agent-scheduled-tasks",
+          "ai/business-context"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/stripe",
+          "integrations/google-workspace",
+          "integrations/hubspot"
+        ]
+      },
+      {
+        "group": "Workflows & Best Practices",
+        "pages": [
+          "workflows/common-workflows",
+          "workflows/tips-for-success"
+        ]
+      },
+      {
+        "group": "Support",
+        "pages": [
+          "troubleshooting"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Launch App",
-          "href": "https://every.ai",
-          "icon": "rocket"
-        },
-        {
-          "anchor": "Contact Support",
-          "href": "mailto:hello@every.ai",
-          "icon": "mail"
-        }
-      ]
-    }
+    ]
   },
+  "topbarLinks": [
+    {
+      "name": "Launch App",
+      "url": "https://every.ai"
+    },
+    {
+      "name": "Contact Support",
+      "url": "mailto:hello@every.ai"
+    }
+  ],
   "logo": {
-    "light": "/logo/every_logo2.png",
-    "dark": "/logo/every_logo2.png"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hello@every.ai"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Login",
-      "href": "https://every.ai"
-    }
+    "light": "/logo/every-logo-full.png",
+    "dark": "/logo/every-logo-full.png",
+    "href": "https://every.ai"
   },
   "contextual": {
     "options": [
