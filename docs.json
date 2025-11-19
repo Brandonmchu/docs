@@ -22,7 +22,9 @@
       "dark": "#0A0A0A"
     }
   },
-  "appearance": "light",
+  "appearance": {
+    "mode": "light"
+  },
   "styling": {
     "eyebrows": "breadcrumbs",
     "codeblocks": "system"
