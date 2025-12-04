@@ -10,11 +10,13 @@ Clients are the customers you invoice for services. Manage contact information, 
 
 **Key capabilities:**
 - Store contact info (email, phone, address)
-- Add CC email recipients for invoice copies
-- AI-powered company enrichment
+- Add multiple contacts per client with email routing roles
+- AI-powered company and contact enrichment
 - Pull contacts from Google Workspace (inline suggestions + Scan Contacts workflow)
+- Sync contacts with Google Contacts for easy lookup
 - Track payment history and invoices
 - View complete activity timeline
+- Manage social links (LinkedIn, website, etc.)
 
 ## Creating Clients
 
@@ -31,26 +33,82 @@ Go to **Clients** → **Add Client** → Fill name and email → **Save**
   - "Create a client called Sarah Johnson with email sarah@consulting.com and address 123 Main St, New York, NY 10001"
 </Tip>
 
-### CC Email Addresses
+### Client Contacts
 
-Add up to 2 additional recipients per client. All CC recipients receive invoice copies automatically.
+Every supports multiple contacts per client with role-based email routing - send invoices to billing while proposals go to the CEO.
 
-**Common uses:** Accounting departments, project managers, decision-makers
+**Contact Fields:**
+- Name, email, phone, job title
+- Invoice role (Primary recipient, CC, or excluded)
+- Proposal role (Primary recipient, CC, or excluded)
+- Notes for context
+
+**How Roles Work:**
+- **Primary (TO):** One contact receives the main email - required for each document type
+- **CC:** Additional contacts copied on emails - can have multiple
+- **Excluded (None):** Contact stored but not included in emails
+
+**Example Setup:**
+```
+ACME Corp Contacts:
+├── John Smith (CEO)
+│   └── Invoices: CC | Proposals: Primary
+├── Sarah Johnson (CFO)
+│   └── Invoices: Primary | Proposals: CC
+└── Accounts Team
+    └── Invoices: CC | Proposals: None
+```
+
+**To Add Contacts:**
+1. Open client → Edit → Add Contact
+2. Enter contact details
+3. Set invoice and proposal roles
+4. First contact defaults to Primary for both
+
+<Note>
+  You must have exactly one Primary contact per document type. Cannot have CC recipients without a Primary.
+</Note>
 
 <Tip>
-  **Ask Every Agent:** Set up CC emails for your clients:
-  - "Add accounting@acmecorp.com as a CC email for ACME Corp"
-  - "Update the client XYZ Company to CC sarah@xyz.com and john@xyz.com on invoices"
-  - "Add billing@techstart.com as an additional recipient for TechStart Inc"
+  **Ask Every Agent:** Manage client contacts:
+  - "Add a contact John Smith to ACME Corp with email john@acme.com"
+  - "Set Sarah as the primary invoice recipient for ACME Corp"
+  - "Add accounts@acme.com as a CC on invoices for ACME Corp"
+  - "Show me all contacts for ACME Corp"
+</Tip>
+
+### Social & Web Links
+
+Add LinkedIn profiles, websites, and other social links to clients and contacts for quick reference.
+
+**Supported Links:** Website, LinkedIn, Twitter, Facebook, Instagram, YouTube, GitHub
+
+**To Add:** Open client → Links section → Add Link → Select type → Enter URL
+
+<Tip>
+  Social links are often populated automatically during enrichment.
 </Tip>
 
 ## Client Enrichment
 
-AI-powered enrichment automatically finds and fills company information.
+AI-powered enrichment automatically finds and fills company and contact information from multiple sources.
 
-**How it works:** Open a client record → Click the **Actions** menu (⋯) → **Enrich Client**. Every Agent queries Gmail, Calendar, and public data via `/api/enrich-company`, then updates the client once you approve the toast.
+**How it works:** Open a client record → Click **Enrich Client** button → Choose enrichment mode → Every Agent queries Gmail, Calendar, web data, and Google Contacts to populate details.
 
-**What gets enriched:** Company name, logo, website, address, industry info
+**What gets enriched:**
+- **Company Data:** Name, logo, website, address, industry, description
+- **Contacts:** Discovers additional contacts at the company domain from Gmail headers and Google Contacts
+- **Social Links:** LinkedIn, Twitter, and other social profiles
+
+**Enrichment Modes:**
+- **Fill Empty (default):** Only adds data to blank fields, preserves your existing entries
+- **Overwrite:** Updates all fields with enriched data, replacing existing values
+
+**Contact Discovery:**
+When enriching a business client, Every Agent can discover additional contacts:
+1. Scans your Gmail for emails from the company domain (last 180 days)
+2. Searches your Google Contacts for matching domain
+3. Creates new contacts with appropriate roles
 
 <Tip>
   Works best for established businesses with web presence. May not find data for small businesses or individuals.
@@ -61,19 +119,37 @@ AI-powered enrichment automatically finds and fills company information.
   - "Create and enrich a client for Microsoft Corporation"
   - "Add XYZ Consulting as a client and pull their latest company information"
   - "Enrich the existing client Tesla Inc with updated company details"
+  - "Find additional contacts for ACME Corp from my emails"
 </Tip>
 
 ## Google Contacts Integration
 
-Bring Google Workspace context directly into client creation.
+Bring Google Workspace context directly into client creation and keep contacts synced.
 
 **Setup:** Settings → Integrations → Connect Google Account (grant Contacts plus Gmail/Calendar for best results)
 
-**Two ways to use it:**
-- **Inline suggestions:** When you type in the Email field on the client form, the Google Contacts search component appears and auto-fills the rest of the contact details you select.
-- **Scan Contacts workflow:** On the **Home** dashboard, open the **Get Started** card → **Scan Contacts**. Google Contacts Analysis reviews recent Gmail, Calendar, and Contacts activity so you can select which suggested contacts to add as clients.
+### Adding Contacts from Google
 
-**What gets imported:** Name, email, phone, organization, notes (plus any extra context surfaced by the analysis)
+**Three ways to use it:**
+- **Email Autocomplete:** When typing in the Email field on a contact form, suggestions from your Google Contacts appear. Select one to auto-fill name, phone, and other details.
+- **Scan Contacts:** On the **Home** dashboard → **Import Data** → **Scan Contacts**. Analyzes recent Gmail, Calendar, and Contacts activity to suggest contacts that look like business clients.
+- **During Enrichment:** When enriching a client, Every Agent searches your Google Contacts for additional contacts at the same company domain.
+
+**What gets imported:** Name, email, phone, organization, notes
+
+### Google Contacts Sync
+
+Every tracks which of your contacts already exist in your team's Google Contacts.
+
+**How it works:**
+- When a contact is created with an email, Every checks if that email exists in any team member's Google Contacts
+- A sync indicator shows on contacts that match
+- Daily background sync keeps the status current
+
+**Benefits:**
+- See at a glance which contacts are already in your Google ecosystem
+- Avoid duplicating contacts you already have
+- Know when colleagues have worked with a contact before
 
 <Note>
   Scans are on-demand, not continuous sync. Re-run **Scan Contacts** or ask Every Agent again when you want a fresh batch of suggestions. Duplicate clients are prevented via email matching.
@@ -324,7 +400,7 @@ Clients (Required For:)
 ## Best Practices
 
 <Tip>
-  **Add complete info** for professional invoices • **Use enrichment** to save time • **Set CC emails** for team visibility • **Archive** instead of deleting
+  **Add complete info** for professional invoices • **Use enrichment** to save time • **Set up contact roles** for proper email routing • **Archive** instead of deleting
 </Tip>
 
 ## Troubleshooting
@@ -332,7 +408,8 @@ Clients (Required For:)
 **Enrichment not finding data:** Try name variations, add website, or enter manually
 **Can't delete client:** Archive instead (client has issued invoices)
 **Duplicate imports:** System checks by email, merge manually if needed
-**CC emails not working:** Verify addresses, check spam, ensure invoice was sent
+**Contact emails not receiving:** Verify contact has correct role (Primary or CC), check spam, ensure document was sent
+**Can't remove Primary contact:** Set another contact as Primary first, or the system will prevent orphan CC recipients
 
 ## Next Steps
 
