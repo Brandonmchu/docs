@@ -50,6 +50,7 @@
         "pages": [
           "index",
           "quickstart",
+          "changelog",
           "getting-started/organization-setup"
         ]
       },
