@@ -68,6 +68,13 @@
         ]
       },
       {
+        "group": "Data Management",
+        "pages": [
+          "data/csv-import",
+          "data/export"
+        ]
+      },
+      {
         "group": "Advanced Features",
         "pages": [
           "advanced/note-templates",

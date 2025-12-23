@@ -210,236 +210,27 @@ Agent: [Sends and provides tracking link]
 
 ### CSV Data Import
 
-Every Agent includes a powerful CSV import wizard that can import hundreds or thousands of records from spreadsheets - perfect for migrating from another system or bulk-loading data.
+Every Agent includes a powerful CSV import wizard for migrating data from other systems or bulk-loading records.
 
-#### What You Can Import
+**What you can import:** Clients, invoices, payments, expenses, offerings, and time entries
 
-**Supported entities:**
-- Clients (companies and contacts)
-- Invoices (historical invoices with line items)
-- Payments (payment records)
-- Expenses (expense records with receipts)
-- Offerings (service/product templates)
-- Time entries (logged hours)
-
-**Best for:**
-- Migrating from another invoicing system
-- Importing historical data for analytics
-- Bulk client onboarding
-- Loading past invoices for payment tracking
-
-#### How CSV Import Works
-
-**Step 1: Upload CSV**
-```
-You: "Import this CSV of historical invoices"
-[Attach CSV file to chat]
-```
-
-**Step 2: Analysis**
-Agent analyzes your CSV:
-- Detects entity type (invoices, clients, etc.)
-- Counts rows (e.g., 500 invoices found)
-- Identifies columns (Client Name, Amount, Date, etc.)
-- Checks for required fields
-- Proposes batch size (typically 50-100 rows per batch for reliability)
-
-**Step 3: Column Mapping**
-Agent shows proposed mapping:
-```
-CSV Column          →  Every Field
-─────────────────────────────────────
-Client Name         →  client.name
-Invoice Number      →  invoice_number
-Invoice Date        →  issue_date
-Amount              →  total
-Due Date            →  due_date
-Description         →  notes
-```
-
-You can correct mappings:
-```
-You: "Map 'Customer' column to client.name instead"
-Agent: [Updates mapping]
-```
-
-**Step 4: Preview & Validation**
-Agent shows preview of first 3-5 rows:
-```
-Preview Row 1:
-  Client: ACME Corp
-  Amount: $5,000.00
-  Date: 2024-01-15
-  Due: 2024-02-14
-
-Preview Row 2:
-  Client: TechStart Inc
-  Amount: $12,500.00
-  Date: 2024-01-20
-  Due: 2024-02-19
-
-✓ All required fields present
-✓ Dates in valid format
-⚠ 3 clients don't exist yet (will be created)
-```
-
-**Step 5: Execution**
-```
-You: "Looks good, proceed"
-
-Agent: Starting import...
-Batch 1/5: Processing rows 1-100... ✓ Complete (2.3s)
-Batch 2/5: Processing rows 101-200... ✓ Complete (2.1s)
-Batch 3/5: Processing rows 201-300... ✓ Complete (2.4s)
-Batch 4/5: Processing rows 301-400... ✓ Complete (2.2s)
-Batch 5/5: Processing rows 401-500... ✓ Complete (2.0s)
-
-Import complete!
-  ✓ 500 invoices created
-  ✓ 47 new clients created
-  ⚠ 3 rows skipped (invalid data)
-
-[View import log for details]
-```
-
-#### CSV Format Requirements
-
-**General requirements:**
-- First row must contain column headers
-- Each row represents one record
-- UTF-8 encoding (for special characters)
-- Common separators: comma (,) semicolon (;) tab
-
-**Date formats supported:**
-- YYYY-MM-DD (recommended): 2024-01-15
-- MM/DD/YYYY: 01/15/2024
-- DD/MM/YYYY: 15/01/2024
-- Automatically detected
-
-**Amount formats:**
-- With currency symbol: $5,000.00
-- Without currency: 5000.00 or 5,000.00
-- Commas and periods handled automatically
-
-**Required fields by entity type:**
-
-**Clients:**
-- Name (required)
-- Email (highly recommended)
-- Phone, address, website (optional)
-
-**Invoices:**
-- Client name or email (to match/create client)
-- Amount OR line items
-- Issue date
-- Invoice number (optional, will generate if missing)
-
-**Expenses:**
-- Merchant name
-- Amount
-- Date
-- Category (optional, will auto-categorize)
-
-#### Example CSV Formats
-
-**Clients CSV:**
-```csv
-Name,Email,Phone,Website,Address
-ACME Corp,contact@acme.com,555-0100,acme.com,"123 Main St, NYC"
-TechStart Inc,hello@techstart.com,555-0200,techstart.io,"456 Oak Ave, SF"
-Beta Solutions,info@beta.com,555-0300,beta.solutions,"789 Elm Dr, LA"
-```
-
-**Invoices CSV (Simple):**
-```csv
-Client,Amount,Date,Due Date,Description
-ACME Corp,5000.00,2024-01-15,2024-02-14,Consulting Services Q1
-TechStart Inc,12500.00,2024-01-20,2024-02-19,Website Development
-Beta Solutions,8000.00,2024-01-25,2024-02-24,Branding Package
-```
-
-**Invoices CSV (With Line Items):**
-```csv
-Client,Invoice Number,Date,Item Description,Quantity,Rate,Tax Rate
-ACME Corp,INV-001,2024-01-15,Consulting Services,40,125.00,0
-ACME Corp,INV-001,2024-01-15,Travel Expenses,1,500.00,0
-TechStart Inc,INV-002,2024-01-20,Web Design,1,8000.00,13
-TechStart Inc,INV-002,2024-01-20,Development,80,150.00,13
-```
-
-#### Handling Import Errors
-
-**Common issues:**
-
-**Missing client:**
-- **Problem:** Invoice references client that doesn't exist
-- **Solution:** Agent creates new client automatically using name from CSV
-
-**Invalid date:**
-- **Problem:** Date in unrecognized format
-- **Solution:** Fix in CSV or tell agent: "Use MM/DD/YYYY format for dates"
-
-**Duplicate invoices:**
-- **Problem:** Invoice number already exists
-- **Solution:** Agent skips duplicates or you can specify: "Append -IMPORT to duplicate invoice numbers"
-
-**Missing required fields:**
-- **Problem:** Row missing required data
-- **Solution:** Agent skips row, reports in summary
-
-<Tip>
-  **Ask Every Agent:** Handle import errors:
-  - "Skip rows with missing client names and show me which ones"
-  - "For duplicate invoice numbers, add '-OLD' suffix"
-  - "Create new clients for any client names not found"
-</Tip>
-
-#### Import Best Practices
-
-<Tip>
-  **Start small** - Test with 10-20 rows first to verify mapping before importing thousands
-</Tip>
-
-<Tip>
-  **Clean data first** - Remove empty rows, fix formatting inconsistencies in Excel before uploading
-</Tip>
-
-<Tip>
-  **Backup first** - If importing to production, export existing data as backup
-</Tip>
-
-<Tip>
-  **Use consistent dates** - Stick to one date format (YYYY-MM-DD recommended) throughout CSV
-</Tip>
-
-<Tip>
-  **Check preview carefully** - Review sample rows to catch mapping errors before full import
-</Tip>
-
-#### Advanced Import Features
-
-**Reusable import scripts:**
-If you import similar CSVs regularly (like monthly expense reports), Every Agent can reuse the mapping:
+**How it works:**
+1. Upload CSV to chat: "Import this CSV of historical invoices"
+2. Agent analyzes and proposes column mapping
+3. Preview sample rows and validation results
+4. Confirm to execute (batched for large files)
+5. Review import summary
 
 ```
-You: "Import this month's expense report using last month's import script"
-Agent: "Detected same structure, reusing mapping from January import..."
+You: "Import this CSV of 500 old invoices"
+Agent: "I found 500 invoices. Here's my proposed mapping... Should I proceed?"
+You: "Yes"
+Agent: "Import complete! ✓ 500 invoices created, ✓ 47 new clients created"
 ```
 
-**Conditional imports:**
-```
-"Import invoices but only for clients with @acme.com email domain"
-"Import expenses and mark all as billable to ACME Corp"
-"Import clients but skip any already in the system"
-```
-
-**Progress tracking:**
-For large imports, you can close the browser and come back later:
-```
-Agent: "Import in progress (Batch 8/20)... You can close this window."
-[Later, you return]
-Agent: "Your import finished 10 minutes ago. 1,000 records imported."
-```
+<Card title="Full CSV Import Guide" icon="file-import" href="/data/csv-import">
+  Complete documentation: CSV formats, column mapping, error handling, best practices, and example files
+</Card>
 
 ### Batch Updates
 
