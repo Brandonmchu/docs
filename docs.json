@@ -68,7 +68,7 @@
         ]
       },
       {
-        "group": "Data Management",
+        "group": "Importing/Exporting Data",
         "pages": [
           "data/csv-import",
           "data/export"
