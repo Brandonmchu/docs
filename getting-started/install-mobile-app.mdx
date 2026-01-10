@@ -1,0 +1,270 @@
+---
+title: "Install Mobile App (PWA)"
+description: "Install Every as a native app on your phone or tablet"
+icon: "mobile"
+---
+
+## Overview
+
+Every works as a full **Progressive Web App (PWA)** - you can install it on your phone or tablet for a native app experience, complete with offline access, faster loading, and a dedicated home screen icon.
+
+## Benefits of Installing
+
+**Faster Performance:**
+- Instant startup with cached resources
+- Reduced data usage with smart caching
+- Pre-loaded fonts and assets
+
+**Native App Experience:**
+- No browser chrome (address bar, tabs)
+- Full-screen interface
+- Dedicated app icon on home screen
+- Swipe gestures work naturally
+
+**Offline Capability:**
+- View previously loaded invoices and clients
+- Access cached data without internet
+- Queue actions to sync when back online
+
+**Better Mobile UX:**
+- Optimized touch targets
+- Native scrolling behavior
+- Platform-specific animations
+- System integration (share sheets, etc.)
+
+## Android Installation
+
+### Automatic Install Prompt (Recommended)
+
+Chrome on Android automatically shows an install banner after you've used Every a few times:
+
+1. Visit Every in Chrome on your Android device
+2. Use Every normally (browse 2+ pages, spend 5+ minutes)
+3. Chrome shows "Install Every" banner at the bottom
+4. Tap **Install** to add to home screen
+5. App appears on home screen and app drawer
+
+<Note>
+  The automatic prompt appears after you've engaged with Every meaningfully - Chrome wants to ensure you actually use the app before prompting to install.
+</Note>
+
+### Manual Install
+
+If you don't see the automatic prompt:
+
+1. Open Every in Chrome on Android
+2. Tap the menu icon (⋮) in the top-right corner
+3. Tap **"Install app"** or **"Add to Home Screen"**
+4. Confirm the app name and icon
+5. Tap **"Install"** or **"Add"**
+6. App appears on your home screen
+
+<Tip>
+  Make sure you're using Chrome - other Android browsers may not support PWA installation.
+</Tip>
+
+## iOS Installation (iPhone/iPad)
+
+iOS requires manual installation via Safari:
+
+1. Open Every in **Safari** on your iPhone or iPad
+2. Tap the **Share** button (square with arrow pointing up)
+3. Scroll down and tap **"Add to Home Screen"**
+4. Customize the app name if desired (default is "Every")
+5. Tap **"Add"** in the top-right corner
+6. App appears on your home screen
+
+<Note>
+  **Important:** You must use Safari on iOS. Chrome and other browsers on iOS do not support PWA installation.
+</Note>
+
+### iOS Screenshots
+
+[Screenshot 1: Safari Share button]
+[Screenshot 2: Add to Home Screen option]
+[Screenshot 3: Customize name screen]
+[Screenshot 4: Installed app icon]
+
+## What Gets Cached (Offline Access)
+
+When installed, Every caches:
+
+**Pages You've Visited:**
+- Invoice list and individual invoices
+- Client list and client details
+- Expense and time tracking pages
+- Settings pages
+
+**Data Loaded:**
+- Previously fetched invoices (up to the last 50)
+- Client records you've viewed
+- Recent activity timeline
+
+**Assets:**
+- Fonts (for consistent branding)
+- Icons and UI elements
+- Stylesheets and layouts
+- JavaScript application code
+
+<Warning>
+  Offline access is **read-only**. Creating new invoices or modifying data requires an internet connection to sync with the server.
+</Warning>
+
+## Updating the App
+
+Every automatically updates when we deploy new features:
+
+1. You'll see a notification: "New version available"
+2. Tap **"Reload"** to update instantly
+3. Or close and reopen the app to update next launch
+
+**Automatic update detection** happens when:
+- App launches after being closed
+- You've been idle for several hours
+- We deploy a critical bug fix
+
+<Tip>
+  You don't need to manually check for updates or reinstall the app. Every handles updates automatically.
+</Tip>
+
+## Cache Versioning & Error Recovery
+
+Every uses versioned caching to prevent issues:
+
+- **Cache names include version numbers** (e.g., `api-cache-v2`)
+- **Old caches are automatically cleaned up** when versions change
+- **Error recovery is automatic** - if the app detects stale code, it refreshes automatically
+
+**If you see "Load failed" errors:**
+
+The app includes automatic recovery:
+1. Every detects the error
+2. Shows: "Updating app to fix connection issue..."
+3. Reloads automatically with fresh code
+
+If the error persists:
+1. Close the app completely
+2. Reopen it to trigger a fresh load
+3. If still failing, uninstall and reinstall
+
+## Uninstalling the App
+
+### Android
+
+1. Long-press the Every app icon on your home screen
+2. Tap **"App info"** or drag to **"Uninstall"**
+3. Confirm uninstall
+
+Or:
+
+1. Go to Settings → Apps → Every
+2. Tap "Uninstall"
+
+### iOS
+
+1. Long-press the Every app icon on your home screen
+2. Tap **"Remove App"**
+3. Tap **"Delete App"** (not "Remove from Home Screen")
+4. Confirm deletion
+
+<Note>
+  Uninstalling the PWA does not delete your data on the server. You can reinstall anytime and all your invoices, clients, and settings will still be there.
+</Note>
+
+## Differences Between Web & Installed App
+
+| Feature | Web (Browser) | Installed (PWA) |
+|---------|---------------|-----------------|
+| **Startup Speed** | Varies with connection | Instant (cached) |
+| **Offline Access** | None | Read-only cached data |
+| **Address Bar** | Visible | Hidden (full screen) |
+| **Browser Tabs** | Shared with other sites | Dedicated app window |
+| **Home Screen Icon** | None (bookmark optional) | Dedicated icon |
+| **Push Notifications** | Limited support | Full support (coming soon) |
+| **Updates** | Automatic | Automatic with prompt |
+
+## Technical Details
+
+**Requirements:**
+- **Android**: Chrome 67+ on Android 5.0+
+- **iOS**: Safari on iOS 11.3+
+- **HTTPS**: Every runs on HTTPS (required for PWA)
+
+**Installation Eligibility (Android automatic prompt):**
+- User has visited Every on at least 2 occasions
+- At least 5 minutes have elapsed between visits
+- Site is served over HTTPS
+- Includes a web app manifest
+- Has a registered service worker
+
+**Analytics:**
+- We track PWA installation for product insights:
+  - `pwa_install_prompt_available` (banner shown)
+  - `pwa_install_completed` (user installed)
+  - `pwa_app_launched` (opened from home screen)
+- All analytics are aggregated and anonymous
+
+## Troubleshooting
+
+**Android: "Install" option not showing**
+- Ensure you're using Chrome (not Firefox, Edge, etc.)
+- Visit at least 2 different pages in Every
+- Spend at least 5 minutes total on site
+- Check that you're on HTTPS (should show lock icon)
+- Try the manual install via Chrome menu (⋮) → "Install app"
+
+**iOS: "Add to Home Screen" missing**
+- Must use Safari (Chrome on iOS does not support PWAs)
+- Check that you're tapping the Share button (not the Tabs button)
+- Scroll down in the share sheet to find "Add to Home Screen"
+
+**App shows outdated content**
+- Close app completely (swipe up from recent apps)
+- Reopen to trigger cache refresh
+- If persists, uninstall and reinstall
+
+**"Load failed" error after update**
+- Every should auto-recover (shows "Updating app..." message)
+- If not, force-close and reopen
+- Last resort: uninstall and reinstall (data is safe on server)
+
+**App takes up too much storage**
+- PWA caches can grow over time (typically 10-50MB)
+- Uninstall and reinstall to clear cache
+- Or clear Safari/Chrome app data for Every
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Quickstart Guide"
+    icon="rocket"
+    href="/quickstart"
+  >
+    Get started with invoicing
+  </Card>
+
+  <Card
+    title="Organization Setup"
+    icon="building"
+    href="/getting-started/organization-setup"
+  >
+    Configure your business profile
+  </Card>
+
+  <Card
+    title="Troubleshooting"
+    icon="life-ring"
+    href="/troubleshooting"
+  >
+    Common issues and solutions
+  </Card>
+
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    Learn about the AI assistant
+  </Card>
+</CardGroup>

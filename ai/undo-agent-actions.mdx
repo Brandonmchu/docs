@@ -1,0 +1,242 @@
+---
+title: "Undo Agent Actions"
+description: "Safely reverse agent actions with one-click undo"
+icon: "rotate-left"
+---
+
+## Overview
+
+Every Agent includes a sophisticated undo system that lets you safely reverse agent actions. When the agent creates or modifies data, an undo button appears that can restore everything to its previous state.
+
+This gives you confidence to experiment - if the agent misunderstood your request or you changed your mind, you can simply click undo.
+
+## How Undo Works
+
+When Every Agent performs actions that modify your data, a yellow **Undo** button appears below the agent's message showing what was changed.
+
+**What you'll see:**
+- **Inline undo button** below agent messages
+- **Count of actions** that will be reversed (e.g., "Undo (3 actions)")
+- **Hover preview** highlighting which items will be affected
+- **Activity Timeline integration** where you can undo from the timeline view
+
+**Undo granularity:**
+- Undo reverses the **entire last agent turn** (all actions the agent took in response to your message)
+- Cannot undo individual steps within a turn - it's all or nothing
+- This prevents partial states where data becomes inconsistent
+
+## What Can Be Undone
+
+Every Agent can undo most data operations:
+
+**Invoices & Proposals:**
+- Invoice creation, updates, and status changes
+- Proposal creation and modifications
+- Line item additions/changes
+
+**Payments & Time Tracking:**
+- Payment record creation
+- Time entry logging
+- Expense records
+
+**Clients & Contacts:**
+- New client creation
+- Client contact additions
+- Client information updates
+
+**Complex Operations:**
+- Multi-step workflows (e.g., "create invoice and payment")
+- Bulk operations (e.g., "mark all overdue invoices as sent")
+- Import results from CSV/data imports
+
+## What Cannot Be Undone
+
+Some actions cannot be reversed:
+
+**External Communications:**
+- **Emails already sent** to clients cannot be unsent
+- **Payment notifications** already delivered
+
+**Third-Party Integrations:**
+- **Stripe payments** already processed
+- **Google Calendar events** already created
+- **HubSpot syncs** already executed
+
+**Manual Changes:**
+- If you manually edited the data after the agent action, undo is blocked
+- System detects conflicts and prevents undo to protect data integrity
+
+## Using Undo
+
+### From Agent Messages
+
+1. Look for the yellow **Undo** button below the agent's message
+2. Hover over the button to preview which items will be affected (items highlight in yellow)
+3. Click **Undo** to confirm
+4. System reverses all actions from that agent turn
+
+### From Activity Timeline
+
+1. Go to your **Home** dashboard to view the Activity Timeline
+2. Find the agent action you want to reverse
+3. Hover over the event - an undo overlay appears
+4. Related items in the timeline highlight in yellow
+5. Click **Undo** to reverse the action
+
+<Tip>
+  The Activity Timeline makes it easy to see the full context of what the agent did and what will be reversed when you undo.
+</Tip>
+
+## Limitations & Conflicts
+
+**Only the most recent action:**
+- You can only undo the most recent agent action
+- Once the agent performs a new action, the previous undo buffer is replaced
+- Cannot undo multiple turns in sequence
+
+**Conflict detection:**
+- If data has been manually changed since the agent action, undo is blocked
+- System shows: "Cannot undo - data has been modified"
+- This protects you from accidentally overwriting your manual changes
+
+**One undo per turn:**
+- After undoing, you cannot "redo" the action
+- The undo is permanent - you'd need to ask the agent again
+
+## Examples
+
+<AccordionGroup>
+  <Accordion icon="file-invoice" title="Undo invoice creation">
+    **Scenario:** Agent created an invoice with wrong amount
+
+    **You:** "Create a $5,000 invoice for ACME Corp for consulting services"
+
+    **Agent:** "I've created invoice INV-001 for $5,000..."
+
+    **You:** (see undo button) *Oops, should be $6,000*
+
+    **You:** Click **Undo** button
+
+    **Result:** Invoice INV-001 is deleted, all line items removed
+
+    **You:** "Create a $6,000 invoice for ACME Corp for consulting services"
+  </Accordion>
+
+  <Accordion icon="user-plus" title="Undo client creation">
+    **Scenario:** Agent created a client with wrong information
+
+    **You:** "Create a new client named Acme Corporation"
+
+    **Agent:** "I've created client Acme Corporation with ID..."
+
+    **You:** (realize you misspelled company name) *Should be ACME Corp*
+
+    **You:** Click **Undo** button
+
+    **Result:** Client record is deleted
+
+    **You:** "Create a new client named ACME Corp"
+  </Accordion>
+
+  <Accordion icon="money-bill-wave" title="Undo payment and invoice update">
+    **Scenario:** Agent recorded payment and updated invoice to paid
+
+    **You:** "Record a $5,000 check payment for invoice INV-001"
+
+    **Agent:** "I've recorded the payment and marked invoice INV-001 as paid"
+
+    **You:** (realize wrong amount) *Should be $5,500*
+
+    **You:** Click **Undo** button
+
+    **Result:** Payment record deleted AND invoice status reverted to "Issued"
+
+    **You:** "Record a $5,500 check payment for invoice INV-001"
+  </Accordion>
+
+  <Accordion icon="table" title="Undo bulk operation">
+    **Scenario:** Agent archived multiple invoices
+
+    **You:** "Archive all paid invoices from 2023"
+
+    **Agent:** "I've archived 47 invoices from 2023"
+
+    **You:** (realize you meant 2022) *Wait, wrong year!*
+
+    **You:** Click **Undo** button (shows "Undo (47 actions)")
+
+    **Result:** All 47 invoices are unarchived
+
+    **You:** "Archive all paid invoices from 2022"
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<Tip>
+  **Review before confirming** - Check the agent's response carefully. It's easier to undo immediately than to undo after more actions.
+</Tip>
+
+<Tip>
+  **Undo immediately** - If you notice an error, undo right away before the agent performs more actions.
+</Tip>
+
+<Tip>
+  **Use hover preview** - Hover over the undo button to see exactly what will be reversed before clicking.
+</Tip>
+
+<Warning>
+  **Cannot undo emails** - Once an invoice email is sent to a client, it cannot be unsent. Always double-check invoice details before asking the agent to send.
+</Warning>
+
+## Troubleshooting
+
+**Undo button missing:**
+- Agent may not have modified any data (query-only operations don't need undo)
+- Action was too simple to require undo (like answering a question)
+
+**Undo button disabled/grayed out:**
+- Data has been manually modified since agent action
+- A conflict was detected that prevents safe undo
+- Another agent action has replaced the undo buffer
+
+**"Cannot undo" error:**
+- Related records have been manually edited
+- External systems have processed the data (e.g., Stripe charge)
+- Data integrity would be compromised by undo
+
+## Related Features
+
+<CardGroup cols={2}>
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    Learn about Every Agent's capabilities
+  </Card>
+
+  <Card
+    title="Activity Timeline"
+    icon="timeline"
+    href="/ai/business-context"
+  >
+    View and manage agent actions from timeline
+  </Card>
+
+  <Card
+    title="Import Data"
+    icon="file-import"
+    href="/data/csv-import"
+  >
+    Undo CSV imports and bulk operations
+  </Card>
+
+  <Card
+    title="Troubleshooting"
+    icon="life-ring"
+    href="/troubleshooting"
+  >
+    Get help with undo issues
+  </Card>
+</CardGroup>
