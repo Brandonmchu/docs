@@ -1,0 +1,252 @@
+---
+title: "Every MCP"
+description: "Connect AI coding assistants like Claude Code to your Every business data using the Model Context Protocol"
+icon: "robot"
+---
+
+## Overview
+
+Every MCP (Model Context Protocol) lets you connect AI coding assistants directly to your Every business data. Query invoices, clients, expenses, and more from within your development environment using natural language.
+
+**Why Use Every MCP:**
+- Access business data without leaving your IDE
+- Natural language queries for invoices, clients, expenses
+- Create invoices and record expenses through AI assistants
+- Secure OAuth authentication via your Every account
+
+## Supported AI Assistants
+
+Every MCP works with any AI assistant that supports the Model Context Protocol:
+
+- **Claude Code** (Anthropic's CLI tool)
+- **ChatGPT** (via MCP plugin)
+- **Cursor** (AI-powered code editor)
+- **Other MCP-compatible clients**
+
+## Setting Up Claude Code
+
+### Quick Setup
+
+Run this single command to add Every MCP to Claude Code:
+
+```bash
+claude mcp add every-mcp --transport http --url https://every-mcp-server-production.up.railway.app/mcp
+```
+
+### First-Time Authentication
+
+When you first use an Every tool, Claude Code will prompt you to authenticate:
+
+1. A browser window opens to Every's login page
+2. Sign in with your Every account
+3. Authorize Claude Code to access your data
+4. Return to your terminal - you're connected!
+
+<Note>
+  Authentication uses secure OAuth. Your credentials are never stored by Claude Code - only a secure token that can be revoked anytime.
+</Note>
+
+### Verify Connection
+
+After setup, verify the connection by asking Claude:
+
+```
+"List my recent invoices"
+```
+
+If connected successfully, Claude will query your Every data and show results.
+
+## What You Can Do
+
+Every MCP provides 18 tools covering all major Every features:
+
+### Invoices
+
+| Tool | Description |
+|------|-------------|
+| `list_invoices` | Search and filter invoices by status, client, date range |
+| `view_invoice` | Get full details of a specific invoice |
+| `create_invoice` | Create new invoices with line items |
+| `update_invoice` | Modify existing invoices |
+| `send_invoice` | Send invoice to client via email |
+| `delete_invoice` | Remove an invoice |
+
+**Example queries:**
+- "Show my unpaid invoices"
+- "List invoices for ACME Corp from last month"
+- "Create an invoice for 10 hours of consulting at $150/hour"
+
+### Clients
+
+| Tool | Description |
+|------|-------------|
+| `list_clients` | Search and browse your client list |
+| `view_client` | Get full client details and history |
+| `create_client` | Add new clients |
+| `update_client` | Update client information |
+
+**Example queries:**
+- "Show all my clients"
+- "Find clients I haven't invoiced in 6 months"
+- "Add a new client called TechCo with email contact@techco.com"
+
+### Payments
+
+| Tool | Description |
+|------|-------------|
+| `list_payments` | View payment history |
+| `record_payment` | Record manual payments |
+
+**Example queries:**
+- "Show payments received this month"
+- "Record a $5,000 check payment for invoice INV-001"
+
+### Expenses
+
+| Tool | Description |
+|------|-------------|
+| `list_expenses` | Browse and search expenses |
+| `create_expense` | Record new expenses |
+
+**Example queries:**
+- "Show my travel expenses from Q4"
+- "Record a $50 expense for office supplies"
+
+### Proposals
+
+| Tool | Description |
+|------|-------------|
+| `list_proposals` | View proposals and quotes |
+| `create_proposal` | Create new proposals |
+
+**Example queries:**
+- "Show pending proposals"
+- "Create a proposal for a website redesign project"
+
+### General
+
+| Tool | Description |
+|------|-------------|
+| `business_settings` | View your business profile |
+| `send_message` | Send complex requests to Every Agent |
+
+<Tip>
+  For complex multi-step tasks, use `send_message` to leverage Every Agent's full capabilities within your AI assistant.
+</Tip>
+
+## Natural Language Queries
+
+Every MCP understands natural language. You don't need to learn specific commands:
+
+```
+"What invoices are overdue?"
+"How much did ACME Corp pay me last year?"
+"Show expenses I can bill back to clients"
+"Create an invoice for last week's consulting work"
+```
+
+The AI assistant translates your request into the appropriate tool calls automatically.
+
+## Security
+
+### Authentication
+
+- **OAuth 2.0:** Industry-standard secure authentication
+- **Token-based:** No passwords stored locally
+- **Revocable:** Disconnect anytime from Every settings
+
+### Data Access
+
+- **Read/Write:** Full access to your Every data based on your permissions
+- **Organization-scoped:** Only access data from organizations you belong to
+- **Audit trail:** All actions logged in Every's activity history
+
+### Revoking Access
+
+To disconnect an AI assistant:
+
+1. Go to **Every** → **Settings** → **Connected Apps**
+2. Find the AI assistant connection
+3. Click **Revoke Access**
+
+<Warning>
+  Revoking access immediately invalidates the connection. You'll need to re-authenticate to use Every MCP again.
+</Warning>
+
+## Troubleshooting
+
+### Connection Issues
+
+**"Authentication failed":** Your token may have expired. Remove and re-add the MCP connection:
+
+```bash
+claude mcp remove every-mcp
+claude mcp add every-mcp --transport http --url https://every-mcp-server-production.up.railway.app/mcp
+```
+
+**"Tool not found":** Ensure you're using the correct MCP URL. The production URL is:
+```
+https://every-mcp-server-production.up.railway.app/mcp
+```
+
+**"Permission denied":** Check that your Every account has access to the organization's data you're querying.
+
+### Data Not Showing
+
+**No results returned:** Verify the data exists in Every. Try the same query in the Every web app.
+
+**Wrong organization:** If you belong to multiple organizations, specify which one in your query: "Show invoices for [Organization Name]"
+
+## Best Practices
+
+<Tip>
+  **Be specific with queries** - "Show unpaid invoices over $1,000 from the last 30 days" returns better results than "show invoices"
+</Tip>
+
+<Tip>
+  **Use filters** - Take advantage of status, date range, and client filters to narrow results
+</Tip>
+
+<Tip>
+  **Verify before sending** - Always review invoices and emails before asking the AI to send them to clients
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Install Claude Code"
+    icon="terminal"
+    href="https://docs.anthropic.com/en/docs/claude-code"
+  >
+    Get started with Anthropic's CLI tool
+  </Card>
+
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    Learn about Every's AI capabilities
+  </Card>
+
+  <Card
+    title="Invoices"
+    icon="file-invoice"
+    href="/features/invoices"
+  >
+    Invoice management features
+  </Card>
+
+  <Card
+    title="Contact Support"
+    icon="headset"
+    href="mailto:hello@every.ai"
+  >
+    Get help with setup
+  </Card>
+</CardGroup>
+
+<Note>
+  **Questions?** Contact support at [hello@every.ai](mailto:hello@every.ai) for help with Every MCP setup or troubleshooting.
+</Note>

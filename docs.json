@@ -99,7 +99,8 @@
           "integrations/stripe",
           "integrations/google-workspace",
           "integrations/xero",
-          "integrations/hubspot"
+          "integrations/hubspot",
+          "integrations/every-mcp"
         ]
       },
       {
