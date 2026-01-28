@@ -29,15 +29,29 @@ Every MCP works with any AI assistant that supports the Model Context Protocol:
 
 ### Claude Code
 
-Run this single command:
+**Step 1: Add the MCP server**
 
 ```bash
-claude mcp add every-mcp --transport http --url https://every-mcp-server-production.up.railway.app/mcp
+claude mcp add --transport http every-mcp https://every-mcp-server-production.up.railway.app/mcp
 ```
 
-When you first use an Every tool, Claude Code prompts you to authenticate via OAuth. Browser opens → sign in to Every → authorize → return to terminal.
+**Step 2: Authenticate**
 
-**Verify:** Ask Claude "List my recent invoices"
+After adding, the server shows as "failed" until you authenticate:
+
+1. Type `/mcp` in Claude Code to open the MCP manager
+2. Select **every-mcp** from the list
+3. Click **Authenticate** - your browser opens to Every's sign-in page
+4. Sign in to your Every account and authorize access
+5. Return to Claude Code - the server should now show as connected
+
+<Tip>
+  If authentication doesn't start automatically, try asking Claude to use an Every tool (e.g., "list my invoices") - this triggers the OAuth flow.
+</Tip>
+
+**Step 3: Verify**
+
+Ask Claude: "List my recent invoices"
 
 ### Cursor
 
@@ -190,6 +204,8 @@ Go to **Every** → **Settings** → **Connected Apps** → Find the AI assistan
 ## Troubleshooting
 
 ### Connection Issues
+
+**Server shows "failed" in `/mcp`:** This is normal before authentication. Select the server and click **Authenticate** to sign in via OAuth.
 
 **"Authentication failed":** Token may have expired. Re-authenticate:
 - **Claude Code:** `claude mcp remove every-mcp` then re-add
