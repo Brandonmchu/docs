@@ -1,41 +1,136 @@
 ---
-title: "Import Data (CSV)"
-description: "Import clients, invoices, expenses, and more from CSV files using Every Agent's intelligent import wizard"
+title: "Import Data (CSV, Excel, Word)"
+description: "Import data from spreadsheets and documents using Every Agent - supports CSV, Excel (XLS, XLSX), and Word (DOCX) files"
 icon: "file-import"
 ---
 
 <Warning>
-  **Coming Soon:** The CSV import wizard described in this documentation is currently in development and not yet available in the production version of Every. Currently, Every Agent can read and extract text from CSV files, but structured import with column mapping is not yet implemented. Check back soon for updates!
+  **Import Wizard Coming Soon:** The structured CSV import wizard with column mapping is currently in development. However, Every Agent can already **read and extract data** from CSV, Excel, and Word files - perfect for processing receipts, invoices, reports, and other documents.
 </Warning>
 
 ## Overview
 
-Every Agent will include a powerful CSV import wizard that can import hundreds or thousands of records from spreadsheets - perfect for migrating from another system or bulk-loading data.
+Every Agent can process multiple file formats to extract and analyze your business data. Upload spreadsheets, documents, and data files directly to the agent chat.
 
-**Key capabilities:**
-- Intelligent column mapping with auto-detection
-- Support for clients, invoices, expenses, offerings, and time entries
-- Batch processing for large files
-- Validation and error handling
-- Progress tracking for long imports
+**Supported File Formats:**
+- **CSV** - Comma-separated values, universal spreadsheet format
+- **Excel (XLSX)** - Modern Excel workbooks (Excel 2007+)
+- **Excel (XLS)** - Legacy Excel 97-2003 format
+- **Word (DOCX)** - Microsoft Word documents
+- **PDF** - Portable Document Format
+- **Images** - JPG, PNG, GIF, WEBP (for receipts and scanned documents)
+
+**Current capabilities:**
+- Upload and extract data from all supported file types
+- Process multi-sheet Excel workbooks
+- Extract tables, headings, and structured content from Word docs
+- Smart sampling for large files (prevents overwhelming the system)
+- Batch process multiple files at once
+
+**Coming soon:**
+- Intelligent column mapping for structured imports
+- Batch import hundreds of records
+- Progress tracking for large imports
 
 <Note>
-  CSV imports are handled conversationally through Every Agent. Simply upload your file and chat with the agent to configure and execute your import.
+  All file processing is handled conversationally through Every Agent. Upload your file and describe what you need - the agent extracts and processes the data.
 </Note>
 
 ## Quick Start
 
-**Basic import:** Open Every Agent chat → Upload CSV → Agent analyzes and proposes mapping → Review preview → Confirm → Import executes
+**Upload and extract:** Open Every Agent chat → Upload file (CSV, Excel, or Word) → Agent reads and extracts content → Ask questions or request actions based on the data
 
-**Example conversation:**
+**Example conversations:**
+
 ```
-You: "Import this CSV of historical invoices"
-[Attach CSV file]
+You: "Extract the data from this Excel file"
+[Attach XLSX file]
 
-Agent: "I found 500 invoices in your CSV. Here's my proposed mapping..."
+Agent: "I found 3 sheets in your Excel workbook:
+       - Sheet 1: Client List (150 rows) - names, emails, phone numbers
+       - Sheet 2: Invoice History (500 rows) - dates, amounts, statuses
+       - Sheet 3: Expenses (200 rows) - categories, merchants, amounts
+
+       What would you like me to do with this data?"
 ```
 
-## What You Can Import
+```
+You: "Read this Word document and summarize the key points"
+[Attach DOCX file]
+
+Agent: "This is a consulting agreement with the following key terms:
+       - Client: Acme Corp
+       - Rate: $175/hour
+       - Scope: Website redesign and development
+       - Duration: 6 months
+       - Payment terms: Net 30..."
+```
+
+## File Format Details
+
+### Excel Files (XLSX, XLS)
+
+Every Agent intelligently processes Excel workbooks:
+
+**Multi-sheet handling:**
+- Single sheet: Extracts up to 500 rows
+- 2-5 sheets: Extracts 50 rows per sheet with summaries
+- 6+ sheets: Processes first 3 sheets (50 rows each) plus summary of remaining
+
+**Features:**
+- Preserves column headers
+- Handles formulas (shows calculated values)
+- Limits to 20 columns to prevent data overload
+- Detects and reports password-protected files
+
+**Example prompts:**
+```
+"Extract the client list from Sheet 2 of this Excel file"
+"Summarize all sheets in this workbook"
+"Find all invoices over $5,000 in this spreadsheet"
+```
+
+### Word Documents (DOCX)
+
+Every Agent extracts structured content from Word documents:
+
+**What gets extracted:**
+- Headings preserved as Markdown headers
+- Paragraphs and body text
+- Tables formatted for readability
+- Document structure maintained
+
+**Best for:**
+- Contracts and agreements (extract terms, dates, amounts)
+- Proposals (summarize scope and pricing)
+- Reports (find key data points)
+- Any text-heavy business document
+
+**Example prompts:**
+```
+"Read this contract and list the payment terms"
+"Extract the pricing table from this proposal"
+"Summarize the key deliverables in this SOW"
+```
+
+### CSV Files
+
+Universal spreadsheet format, supported by all spreadsheet applications:
+
+**Intelligent processing:**
+- Auto-detects delimiters (comma, semicolon, tab)
+- Small files (≤100 rows): Full extraction
+- Large files (>100 rows): First 50 rows + metadata summary
+- Handles various date and number formats
+
+**Example prompts:**
+```
+"Analyze this CSV and tell me what data it contains"
+"Find all rows where the amount is over $1,000"
+"Calculate the total revenue from this CSV"
+```
+
+## What You Can Import (Coming Soon)
 
 ### Supported Entity Types
 

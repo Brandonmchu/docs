@@ -1,323 +1,231 @@
 ---
 title: "HubSpot CRM Integration"
-description: "Sync contacts and deals from HubSpot CRM, maintain HubSpot as source of truth, and view pipeline in Every"
-icon: "database"
+description: "Access HubSpot CRM data through Every Agent to manage contacts, companies, and deals conversationally"
+icon: "hubspot"
 ---
 
 ## Overview
 
-HubSpot integration syncs your CRM contacts and deals into Every. Keep HubSpot as your source of truth while enabling seamless invoicing for HubSpot-managed clients.
+HubSpot integration connects Every Agent to your HubSpot CRM, enabling conversational access to your contacts, companies, and deals. Instead of switching between apps, ask Every Agent to look up CRM data, search contacts, and view deal pipeline information.
 
 **Key Features:**
-- One-way sync (HubSpot → Every)
-- Import contacts and deals with pipeline data
-- HubSpot as source of truth (read-only in Every)
-- Duplicate resolution before import
-- View deal pipeline in Every
+- Search and view HubSpot contacts and companies
+- Access deal information and pipeline stages
+- Manage CRM objects through natural conversation
+- Secure OAuth connection with fine-grained permissions
+
+<Note>
+  HubSpot integration is **agent-powered** - you interact with HubSpot data conversationally through Every Agent, not through direct UI sync. This gives you flexible, on-demand access to your CRM data.
+</Note>
 
 ## How HubSpot Integration Works
 
-### One-Way Sync
+### Agent-Powered Access
 
-**Important:** Sync is HubSpot → Every only
+Every Agent connects directly to HubSpot's API, giving you conversational access to your CRM:
 
-Changes in HubSpot sync to Every, but changes in Every do NOT sync back. HubSpot remains the authoritative CRM system, while Every focuses on invoicing.
+```
+You: "Find my contact at Acme Corp"
+Agent: "I found John Smith at Acme Corp. Email: john@acme.com, Phone: 555-0100.
+       They have an open deal 'Website Redesign' worth $25,000 in the Proposal stage."
 
-**Why One-Way:**
-- Prevents data conflicts
-- Maintains clear system ownership
-- HubSpot for CRM, Every for invoicing
+You: "What deals do I have closing this month?"
+Agent: "You have 3 deals closing in January:
+       - Acme Corp Website Redesign: $25,000 (Proposal)
+       - TechStart Consulting: $15,000 (Negotiation)
+       - Beta Inc Support Contract: $8,500 (Closing)"
+```
 
-<Note>
-  HubSpot is your CRM. Every is your invoicing platform. Integration brings them together!
-</Note>
+### What You Can Access
 
-### Source Attribution
+**Contacts:**
+- Search by name, email, or company
+- View contact details and properties
+- See associated companies and deals
 
-**Records from HubSpot:**
-- Marked with `source = hubspot` badge
-- Links to HubSpot record
-- Fields are read-only while connected
-- When disconnected, records unlock for editing in Every
+**Companies:**
+- Look up company information
+- View company properties and contacts
+- Check related deals and activities
+
+**Deals:**
+- Search deals by name or stage
+- View deal amounts and close dates
+- See pipeline progression
+- Check associated contacts
 
 ## Connecting HubSpot
 
 ### OAuth Connection
 
-Go to **Settings** → **Integrations** → **Connect HubSpot** → Log in to HubSpot → Select account (if multiple) → Review permissions → Grant Access → Return to Every.
+1. Go to **Settings** → **Integrations**
+2. Find HubSpot in the list of available integrations
+3. Click **Connect**
+4. Log in to your HubSpot account
+5. Review and approve the requested permissions
+6. You'll be redirected back to Every with connection confirmed
 
 **Permissions Requested:**
-- Read contacts and companies
-- Read deals and pipeline stages
-- View pipeline data
-
-**OAuth API Endpoint:** `/api/hubspot/auth/url`
+- Read contacts and contact properties
+- Write contacts (for updates via agent)
+- Read companies and company properties
+- Write companies
+- Read deals and deal properties
+- Read deal schemas (pipeline stages)
 
 <Tip>
-  **Ask Every Agent:** Connect HubSpot:
-  - "Connect my HubSpot account"
-  - "Set up HubSpot integration"
-  - "Link my HubSpot CRM to Every"
+  **Ask Every Agent:** After connecting, verify access:
+  - "Search for a contact in HubSpot"
+  - "Show me my HubSpot deals"
+  - "Look up [company name] in HubSpot"
 </Tip>
 
 ### Connection Status
 
-**View Status:** Settings → Integrations → HubSpot section
+**View Status:** Settings → Integrations → HubSpot
 
 **Status Indicators:**
-- ✅ Connected (healthy, operational)
-- ⚠️ Needs reconnection (token expired or permissions changed)
-- ❌ Not connected
-- Last sync time and sync health
+- ✅ Connected - Integration active and working
+- ⚠️ Needs reconnection - Token expired, click to reconnect
+- ❌ Not connected - Integration not set up
 
-<Tip>
-  **Ask Every Agent:** Check HubSpot status:
-  - "Check my HubSpot connection status"
-  - "When was the last HubSpot sync?"
-  - "Show me HubSpot sync status"
-</Tip>
+## Using HubSpot with Every Agent
 
-<Tip>
-  Check integration status weekly to ensure sync is working properly!
-</Tip>
+### Search Contacts
 
-## Syncing Data
-
-### Initial Sync
-
-**First Connection:** Navigate to HubSpot Sync dialog → Review contacts to import → Resolve duplicates → Select contacts → Click Import Selected → Wait for completion → Contacts appear in Every
-
-**What Syncs:**
-- Contact names, emails, phones
-- Company names and addresses
-- Deal information and pipeline stages
-- Deal amounts and close dates
-
-### Ongoing Sync
-
-**Automatic:** Runs periodically (configurable schedule), syncing new contacts, updating existing contacts, and importing new deals
-
-**Manual:** Settings → Integrations → HubSpot → Sync Now
-
-**Last Sync Time:** Shown in HubSpot section to indicate data freshness
-
-<Tip>
-  **Ask Every Agent:** Sync HubSpot:
-  - "Sync my HubSpot contacts"
-  - "Import contacts from HubSpot"
-  - "Run a HubSpot sync now"
-</Tip>
-
-<Tip>
-  Set up automatic daily sync to keep data fresh without manual intervention!
-</Tip>
-
-### Duplicate Resolution
-
-**Before Import:** System checks for existing clients by email and shows potential duplicates
-
-**Duplicate Options:**
-- **Replace:** Update existing Every record with HubSpot data
-- **Skip:** Keep Every record, don't import this HubSpot contact
-- **Create New:** Import as separate client (not recommended)
-
-**Best Practice:** Choose "Replace" if HubSpot data is more current, "Skip" if Every has important data not in HubSpot
-
-<Tip>
-  **Ask Every Agent:** Handle duplicates:
-  - "Show me HubSpot duplicate contacts"
-  - "Help me resolve HubSpot duplicates"
-  - "Check for duplicate contacts before importing"
-</Tip>
-
-<Warning>
-  "Replace" overwrites Every data with HubSpot data. Choose carefully!
-</Warning>
-
-## HubSpot Contacts in Every
-
-### Contact Display
-
-**HubSpot Badge:** Contacts from HubSpot show badge linking to HubSpot record
-
-**Read-Only While Connected:** Cannot edit HubSpot-sourced fields to prevent conflicts. Edit in HubSpot and sync to Every.
-
-**Editable Fields:** Every-specific data (invoices, payments, notes) is always editable and not synced back
-
-### Using HubSpot Contacts
-
-**Full Integration:** Invoice HubSpot contacts, track payments, send proposals, view activity history - all Every features available
-
-**Data Flow:**
 ```
-HubSpot Contact Info → Every Client
-    ↓
-Create Invoice in Every
-    ↓
-Send to Client
-    ↓
-Track Payment
-    ↓
-(Payment data stays in Every)
+"Find contacts at Acme Corp"
+"Search for john@example.com in HubSpot"
+"Look up Sarah Johnson in my CRM"
 ```
 
-## HubSpot Deals & Pipeline
+### View Deals
 
-### Deal Sync
-
-**Deals Import:** HubSpot deals sync with associated contacts, including deal stage, amount, close date, and pipeline status
-
-**Deal Information:**
-- Deal name and amount
-- Stage (Qualified Lead, Proposal Sent, Negotiation, Won, Lost)
-- Expected close date
-- Associated contact and deal owner
-
-<Tip>
-  **Ask Every Agent:** View HubSpot deals:
-  - "Show me my HubSpot deals"
-  - "What deals are in the pipeline?"
-  - "Which HubSpot deals need invoices?"
-  - "List all won deals from HubSpot"
-</Tip>
-
-### Client Pipeline View
-
-**Access:** Navigate to **Clients** → **Pipeline View** to see all clients with active deals, stages, and amounts
-
-**Pipeline Features:**
-- Visual deal stages and progression
-- Deal amounts and status
-- HubSpot badge on synced deals
-- Quick invoice creation from deal
-
-**Example:**
 ```
-Prospecting: 5 deals, $50,000
-Proposal Sent: 3 deals, $35,000
-Negotiation: 2 deals, $25,000
-Won: 1 deal, $15,000
+"Show me all deals in the Proposal stage"
+"What deals are closing this quarter?"
+"Find deals worth over $10,000"
 ```
 
+### Check Companies
+
+```
+"Look up TechStart Inc in HubSpot"
+"What contacts do I have at Beta Corp?"
+"Show me company details for Acme"
+```
+
+### Pipeline Overview
+
+```
+"What's my deal pipeline look like?"
+"How much revenue is in negotiation stage?"
+"Which deals need follow-up?"
+```
+
+## Managing the Integration
+
+### Refreshing Connection
+
+If your HubSpot connection expires:
+
+1. Go to Settings → Integrations
+2. Click **Reconnect** on HubSpot
+3. Log in to HubSpot again
+4. Approve permissions
+5. Connection restored
+
 <Tip>
-  Use pipeline view to identify which deals need proposals or invoices!
+  HubSpot tokens refresh automatically. You typically only need to reconnect if you change HubSpot permissions or revoke app access.
 </Tip>
-
-## Managing HubSpot Integration
-
-### Monitoring Sync Status
-
-**Status Page:** `/api/hubspot/status`
-
-**Sync Health:** Connection status, last successful sync, sync frequency, error messages, records synced count
-
-**Live Progress:** Sync in progress indicator, progress percentage, records processed, ETA to completion
-
-**Sync History:** View past syncs with success/failure status, records synced per run, and error logs
-
-<Tip>
-  **Ask Every Agent:** Monitor sync:
-  - "Show me HubSpot sync history"
-  - "Are there any HubSpot sync errors?"
-  - "How many contacts were synced from HubSpot?"
-</Tip>
-
-### Troubleshooting Sync
-
-**Common Issues:** Token expired (reconnect), permission changes (reauthorize), network errors (retry), duplicate conflicts (resolve), or rate limits (wait and retry)
-
-**Solutions:** Follow error message instructions, reconnect if prompted, or contact support with error details
 
 ### Disconnecting HubSpot
 
-**To Disconnect:** Settings → Integrations → HubSpot → Disconnect → Confirm
+1. Go to Settings → Integrations
+2. Find HubSpot → Click **Disconnect**
+3. Confirm disconnection
 
-**What Happens:**
-- OAuth tokens removed, sync stops
-- HubSpot-sourced records unlocked for editing
-- No data deleted (all imported contacts and deals remain)
-- Badge removed from contacts
-- Can still invoice clients
-
-<Warning>
-  Disconnecting doesn't delete data, but you lose automatic updates from HubSpot!
-</Warning>
-
-## HubSpot Sync Dialog
-
-**Business Context Workspace Integration:** HubSpot sync accessible from global chat dialog with full functionality
-
-**Features:**
-- View sync status and manually trigger sync
-- Monitor real-time progress
-- Resolve duplicates
-- Review imported records
-
-### Sync Configuration
-
-**Configurable Settings:**
-- Sync frequency (hourly, daily, weekly)
-- Auto-resolve duplicates (replace or skip)
-- Selective sync (specific HubSpot lists)
-- Field mapping customization
+**What happens:**
+- Every Agent loses HubSpot access
+- No data is deleted from either system
+- You can reconnect anytime
 
 ## Common Workflows
 
-### Initial Setup
+### Client Lookup Before Invoice
 
-**Day 1:** Connect HubSpot → Review contacts in sync dialog → Resolve duplicates → Import all active contacts → Verify import successful
+```
+You: "I need to invoice Acme Corp. Can you find their details in HubSpot?"
 
-**Ongoing:** Deal closes in HubSpot ("Won") → Sync brings contact and deal to Every → Create invoice for new client → Send invoice → Track payment (stays in Every)
+Agent: "I found Acme Corp in HubSpot:
+       - Primary Contact: John Smith (john@acme.com)
+       - Deal: Website Redesign ($25,000) - marked as Won
 
-### Weekly Pipeline Review
+       Would you like me to create an invoice for this project?"
+```
 
-Check HubSpot sync status → View pipeline in Every → Identify "Won" deals needing invoices → Create invoices for new wins → Monitor proposal-stage deals → Follow up as needed
+### Deal Pipeline Review
 
-## Troubleshooting
+```
+You: "Give me a summary of my sales pipeline"
 
-### Sync Not Running
+Agent: "Your HubSpot pipeline summary:
+       - Prospecting: 5 deals ($45,000)
+       - Proposal: 3 deals ($35,000)
+       - Negotiation: 2 deals ($28,000)
+       - Closing: 1 deal ($12,000)
 
-**Check:** Connection status (needs reconnection?), internet connectivity, HubSpot service status, last sync time
+       Total pipeline value: $120,000"
+```
 
-**Solution:** Reconnect HubSpot, manually trigger sync, wait for automatic sync, or contact support
+### Contact Research
 
-### Contacts Not Appearing
+```
+You: "I'm meeting with TechStart tomorrow. What do I know about them?"
 
-**Verify:** Contacts exist in HubSpot, not filtered out (active vs inactive), sync completed successfully, no duplicate skip
-
-**Solution:** Check HubSpot for contact, review sync log, re-run sync, or check duplicate resolution choices
-
-### Can't Edit HubSpot Contact
-
-**Reason:** HubSpot is source of truth while connected
-
-**Solution:** Edit in HubSpot (will sync to Every), or disconnect HubSpot (unlocks for editing). Every-specific data (invoices) is always editable.
+Agent: "TechStart Inc from HubSpot:
+       - Industry: Software
+       - Contacts: Sarah Chen (CEO), Mike Park (CTO)
+       - Active Deal: Platform Integration ($18,000) in Proposal stage
+       - Last Activity: Email sent 3 days ago"
+```
 
 ## Best Practices
 
 <Tip>
-  **Keep HubSpot data clean** - Clean CRM data syncs clean to Every.
+  **Keep HubSpot data clean** - Every Agent retrieves what's in HubSpot, so accurate CRM data means accurate agent responses.
 </Tip>
 
 <Tip>
-  **Resolve duplicates carefully** - Review each duplicate before choosing replace or skip.
+  **Use for context, not sync** - HubSpot integration is for lookups and queries, not automatic data sync. Invoice in Every, manage CRM in HubSpot.
 </Tip>
 
 <Tip>
-  **Monitor sync status** - Check weekly to ensure sync is working correctly.
+  **Be specific in queries** - "Find John at Acme" works better than "find my contact" when you have many contacts.
 </Tip>
 
-<Tip>
-  **Use for pipeline visibility** - Leverage deal sync to see which clients need invoices.
-</Tip>
+## Troubleshooting
 
-<Tip>
-  **Edit in HubSpot** - Make contact changes in HubSpot so they sync properly.
-</Tip>
+### "HubSpot not connected" error
 
-<Tip>
-  **Set up automatic sync** - Daily sync keeps data fresh without manual work.
-</Tip>
+**Solution:** Go to Settings → Integrations → Reconnect HubSpot
+
+### "Contact not found"
+
+**Possible causes:**
+- Contact doesn't exist in HubSpot
+- Different spelling or email
+- HubSpot permissions don't include this contact
+
+**Solution:** Verify contact exists in HubSpot directly, check spelling
+
+### "Permission denied"
+
+**Solution:** Reconnect HubSpot and ensure you approve all requested permissions during OAuth
+
+### Agent can't access deals
+
+**Check:** Your HubSpot user account has deals access and deal permissions were approved during connection
 
 ## Next Steps
 
@@ -327,31 +235,31 @@ Check HubSpot sync status → View pipeline in Every → Identify "Won" deals ne
     icon="hubspot"
     href="https://every.ai/settings/integrations"
   >
-    Set up HubSpot CRM integration
+    Set up HubSpot integration now
   </Card>
 
   <Card
-    title="View Pipeline"
-    icon="chart-line"
+    title="Xero Integration"
+    icon="building"
+    href="/integrations/xero"
+  >
+    Connect your accounting software
+  </Card>
+
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    Learn more about agent capabilities
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="users"
     href="/features/clients"
   >
-    Monitor deals and pipeline stages
-  </Card>
-
-  <Card
-    title="Create Invoices"
-    icon="file-invoice"
-    href="/features/invoices"
-  >
-    Invoice HubSpot clients
-  </Card>
-
-  <Card
-    title="Business Context"
-    icon="briefcase"
-    href="/ai/business-context"
-  >
-    Monitor sync from global chat
+    Work with clients in Every
   </Card>
 </CardGroup>
 

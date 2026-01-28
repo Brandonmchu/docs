@@ -98,6 +98,7 @@
         "pages": [
           "integrations/stripe",
           "integrations/google-workspace",
+          "integrations/xero",
           "integrations/hubspot"
         ]
       },

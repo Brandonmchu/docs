@@ -52,12 +52,19 @@ include next month's strategy preview in notes.
 
 Every Agent accesses reference materials you upload:
 
-**Supported References:**
-- **Uploaded Files**: PDFs, Word docs, spreadsheets (agreements, rate cards, guidelines)
+**Supported File Formats:**
+- **PDF** - Contracts, proposals, reports (with OCR for scanned documents)
+- **Excel (XLSX, XLS)** - Spreadsheets, financial reports, data exports
+- **Word (DOCX)** - Contracts, proposals, agreements
+- **CSV** - Data exports, client lists, transaction records
+- **Images (JPG, PNG, GIF, WEBP)** - Receipts, screenshots, photos
+- **Text (TXT)** - Plain text files
+
+**Other References:**
 - **Google Drive Links**: Live documents (proposals, templates, policies)
 - **Web URLs**: Your website pages (services, pricing, about us)
 
-**How Agent Uses References:** Searches content for proposals/invoices, cites standard terms, uses pricing from rate cards, maintains brand consistency
+**How Agent Uses Files:** Extracts data from spreadsheets, reads contracts for terms, processes receipts for expenses, analyzes reports, and references documents when creating invoices or proposals
 
 ### Integration Access
 
@@ -65,11 +72,13 @@ Every Agent connects directly to your integrations:
 
 **Google Workspace:** Gmail, Calendar, Drive, Contacts
 **Stripe Payments:** Payment status via database records
-**Your Business Data:** All clients, invoices, time entries, expenses, offerings (including synced data from HubSpot and other integrations)
+**Xero Accounting:** Full access to invoices, contacts, payments, and financial reports
+**HubSpot CRM:** Search contacts, companies, and deals conversationally
+**Your Business Data:** All clients, invoices, time entries, expenses, offerings
 
-This means Every Agent can say: *"I see ACME Corp paid their invoice yesterday"* or *"You have 3 overdue invoices totaling $12,500"* without you providing context.
+This means Every Agent can say: *"I see ACME Corp paid their invoice yesterday"*, *"You have 3 overdue invoices totaling $12,500"*, or *"Your Xero balance sheet shows $50,000 in receivables"* without you providing context.
 
-<Note>HubSpot data is synced to your database and accessible via client records, but the agent doesn't have direct HubSpot API access.</Note>
+<Note>Xero and HubSpot integrations provide agent-powered access - ask Every Agent to look up or manage data in these systems. Connect them in Settings → Integrations.</Note>
 
 ### Business Intelligence
 
@@ -138,7 +147,7 @@ Every Agent performs actions across all major features:
 
 **Data Analysis** - Revenue reporting, client analysis, cash flow projections, pattern recognition
 
-**CSV & Data Import** - Analyze structure, map columns, handle large files with batching, track progress
+**File Processing** - Read Excel (XLS/XLSX), Word (DOCX), CSV, PDF files; extract data from spreadsheets; process receipts from images
 
 ## Interaction Best Practices
 
@@ -197,28 +206,33 @@ Agent: [Sends and provides tracking link]
 
 ## Advanced Workflows
 
-### CSV Data Import
+### File Processing
 
-Every Agent includes a powerful CSV import wizard for migrating data from other systems or bulk-loading records.
+Every Agent can read and extract data from multiple file formats:
 
-**What you can import:** Clients, invoices, payments, expenses, offerings, and time entries
+**Supported formats:** Excel (XLSX, XLS), Word (DOCX), CSV, PDF, and images (JPG, PNG, GIF, WEBP)
 
-**How it works:**
-1. Upload CSV to chat: "Import this CSV of historical invoices"
-2. Agent analyzes and proposes column mapping
-3. Preview sample rows and validation results
-4. Confirm to execute (batched for large files)
-5. Review import summary
+**What you can do:**
+- Extract data from Excel spreadsheets (multi-sheet support)
+- Read contracts and proposals from Word documents
+- Process CSV data files and exports
+- Scan receipts from images with OCR
+- Analyze PDF reports and statements
 
 ```
-You: "Import this CSV of 500 old invoices"
-Agent: "I found 500 invoices. Here's my proposed mapping... Should I proceed?"
-You: "Yes"
-Agent: "Import complete! ✓ 500 invoices created, ✓ 47 new clients created"
+You: "Extract the client list from this Excel file"
+[Upload XLSX]
+Agent: "I found 150 clients in Sheet 1. Here are the columns:
+       Name, Email, Phone, Company, Last Invoice Date..."
+
+You: "Read this contract and tell me the payment terms"
+[Upload DOCX]
+Agent: "This consulting agreement specifies Net 30 payment terms,
+       with a 1.5% late fee after 60 days..."
 ```
 
-<Card title="Full CSV Import Guide" icon="file-import" href="/data/csv-import">
-  Complete documentation: CSV formats, column mapping, error handling, best practices, and example files
+<Card title="Full File Processing Guide" icon="file-import" href="/data/csv-import">
+  Complete documentation: Supported formats, Excel multi-sheet handling, Word document extraction, and best practices
 </Card>
 
 ### Batch Updates
@@ -266,8 +280,8 @@ Plan Mode breaks this into steps, shows complete plan, executes systematically, 
 ### Customize Your Context
 
 1. **Set Organization Prompt** - Describe business, services, preferences
-2. **Upload Reference Files** - Agreements, rate cards, brand guidelines
-3. **Connect Integrations** - Google Workspace, Stripe, HubSpot
+2. **Upload Reference Files** - Agreements, rate cards, brand guidelines (PDF, Word, Excel supported)
+3. **Connect Integrations** - Google Workspace, Stripe, Xero, HubSpot
 4. **Test:** "Create an invoice for my standard consulting service" - verify Agent uses your rates and terms
 
 ## Next Steps
