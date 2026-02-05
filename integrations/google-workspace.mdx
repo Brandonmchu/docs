@@ -131,18 +131,37 @@ Create/edit invoice or proposal → Click "Attach from Drive" → Search or brow
 
 ### Importing Contacts
 
-**How to capture Google contacts:**
-- **Inline suggestions:** Once Google is connected, the Email field in the client form uses the Google Contacts search component. Pick a result to auto-fill the client name, contact person, and phone instantly.
-- **Scan Contacts workflow:** Open the **Home** dashboard → **Get Started** card → **Scan Contacts**. Google Contacts Analysis reviews Gmail, Calendar, and Contacts history, then lets you select which suggested contacts to add as clients.
+Every provides multiple ways to import contacts from Google:
 
-**What's imported:** Name, email, phone, company/organization info, plus any notes returned by the analysis.
+**1. Direct Import (Bulk):**
+Go to **Contacts** page → Click **Import** dropdown → Select **Google Contacts**
 
-**Duplicate Prevention:** Suggestions are filtered by email so existing clients are skipped automatically.
+- Fetches all your Google contacts at once
+- Automatically filters out non-person contacts (organizations, bots)
+- Deduplicates against existing contacts by email
+- Captures social links (LinkedIn, Twitter, GitHub, etc.)
+- One-click import of new contacts
 
-**Refresh cadence:** Scans are on-demand. Re-run **Scan Contacts** (or re-ask the agent) whenever you want fresh suggestions.
+**What's imported:** Name, email, phone, organization (stored in notes), social URLs
+
+**2. Inline Autocomplete:**
+Once Google is connected, the Email field in client and contact forms uses Google Contacts search. Pick a result to auto-fill name, phone, and other details instantly.
+
+**3. Scan Contacts (AI-Powered):**
+Open the **Home** dashboard → **Get Started** card → **Scan Contacts**
+
+This AI-powered workflow reviews your Gmail, Calendar, and Contacts history to identify which contacts look like potential business clients, rather than importing all contacts.
+
+**Duplicate Prevention:** All import methods filter by email so existing contacts are skipped automatically.
+
+**Refresh cadence:** Both Direct Import and Scan Contacts are on-demand. Re-run whenever you want fresh suggestions.
 
 <Tip>
-  **Ask Every Agent:** Start the analysis from chat:
+  Use **Direct Import** when you want to bring in your full address book. Use **Scan Contacts** when you want AI to identify likely business clients from your recent activity.
+</Tip>
+
+<Tip>
+  **Ask Every Agent:** Start the AI analysis from chat:
   - "Scan my Google contacts and add likely clients"
   - "Review Google contacts marked as clients and add them to Every"
   - "Show me Google contacts we haven't imported yet"

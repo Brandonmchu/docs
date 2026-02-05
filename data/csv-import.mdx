@@ -1,6 +1,6 @@
 ---
-title: "Import Data (CSV, Excel, Word)"
-description: "Import data from spreadsheets and documents using Every Agent - supports CSV, Excel (XLS, XLSX), and Word (DOCX) files"
+title: "Import Data"
+description: "Import data from spreadsheets and documents using Every Agent - supports CSV, Excel (XLS, XLSX), and Word (DOCX) files, plus direct imports from Google and LinkedIn"
 icon: "file-import"
 ---
 
@@ -9,6 +9,112 @@ icon: "file-import"
 </Warning>
 
 ## Overview
+
+Every provides multiple ways to import your business data:
+
+**Direct Imports:**
+- **Google Contacts** - Import all your Google contacts with one click
+- **LinkedIn Connections** - Import your LinkedIn network from CSV export (with optional AI relationship summaries)
+
+**File Processing (via Every Agent):**
+- **CSV, Excel, Word** - Upload files to the agent chat for data extraction and analysis
+
+<Tip>
+  For importing existing contacts from other platforms, use the direct import options on the **Contacts** page. For processing data files or migrating from other invoicing systems, use Every Agent's file processing capabilities.
+</Tip>
+
+---
+
+## LinkedIn Contacts Import
+
+Import your LinkedIn connections directly into Every's Contacts system, complete with optional AI-powered relationship summaries from your message history.
+
+### How to Export from LinkedIn
+
+1. Go to [LinkedIn Data Privacy settings](https://www.linkedin.com/mypreferences/d/categories/privacy)
+2. Click **"Get a copy of your data"**
+3. Select **"Connections"** (and optionally **"Messages"** for AI summaries) and click **"Request archive"**
+4. Wait for the email - LinkedIn often sends two exports over 24-48 hours. The second, larger one is the one you want
+5. Download the ZIP and extract it
+6. Find **Connections.csv** (and optionally **Messages.csv**) among the CSV files
+
+### Importing LinkedIn Connections
+
+Go to **Contacts** page → Click **Import** dropdown → Select **LinkedIn** → Follow the wizard:
+
+1. **Instructions** - Review the LinkedIn export steps
+2. **Upload** - Drag and drop or browse for your `Connections.csv` file
+3. **Preview** - See how many contacts will be imported (duplicates are automatically filtered)
+4. **Import** - Click to import new contacts
+
+**What gets imported:**
+- Name (First + Last)
+- Email address (if available on LinkedIn)
+- Job title/Position
+- Company (stored in notes for agent context)
+- LinkedIn profile URL (stored as a social link)
+
+<Note>
+  Many LinkedIn connections don't share their email address. These contacts are still imported by name and can be enriched later to find contact details.
+</Note>
+
+### AI Relationship Summaries (Optional)
+
+After importing contacts, you can upload your LinkedIn `Messages.csv` to generate AI-powered relationship timelines for each contact.
+
+**How it works:**
+1. After contact import completes, click **"Upload Messages.csv"**
+2. Every matches your message history to imported contacts via LinkedIn profile URLs
+3. AI analyzes your conversation history and generates concise summaries
+4. Summaries appear in each contact's notes section
+
+**Example AI summary:**
+```
+## LinkedIn Message History
+2024 - Connected and discussed potential collaboration
+2024 - Caught up at industry conference
+2025 - Discussed hiring for board company
+```
+
+<Tip>
+  Relationship summaries help Every Agent understand your history with each contact, enabling better personalized communication suggestions.
+</Tip>
+
+---
+
+## Google Contacts Import
+
+Import your entire Google Contacts library into Every with automatic deduplication and social link capture.
+
+### Quick Import
+
+Go to **Contacts** page → Click **Import** dropdown → Select **Google Contacts**
+
+**First time setup:**
+1. Click **"Authorize Google Contacts"** if not already connected
+2. Grant contacts read permission
+3. Every fetches and analyzes your Google contacts
+
+**Preview and Import:**
+- See total contacts from Google
+- View how many are new vs. already in Every
+- Non-person contacts (organizations, bots) are automatically filtered
+- Click **Import** to add new contacts
+
+**What gets imported:**
+- Name
+- Email address
+- Phone number
+- Organization (stored in notes)
+- Social URLs (LinkedIn, Twitter, GitHub, etc.)
+
+<Note>
+  Google Contacts import is separate from the "Scan Contacts" workflow on the Home page. **Import** brings in all your Google contacts, while **Scan Contacts** uses AI to identify which contacts look like potential business clients.
+</Note>
+
+---
+
+## File Processing with Every Agent
 
 Every Agent can process multiple file formats to extract and analyze your business data. Upload spreadsheets, documents, and data files directly to the agent chat.
 
