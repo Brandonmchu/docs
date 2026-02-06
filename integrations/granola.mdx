@@ -1,0 +1,297 @@
+---
+title: "Granola Meeting Notes Integration"
+description: "Connect Granola to Every Agent to search meeting notes, pull transcripts, and use meeting context in your workflows"
+icon: "microphone"
+---
+
+## Overview
+
+Granola integration connects Every Agent to your Granola meeting notes, enabling conversational access to meeting transcripts, notes, and insights. Instead of manually searching through past meetings, ask Every Agent to find what was discussed, pull action items, or reference meeting context.
+
+**Key Features:**
+- Search and browse your Granola meeting notes
+- Retrieve meeting content including notes, summaries, and attendees
+- Pull full meeting transcripts (paid Granola tiers)
+- Chat with Granola to ask questions about your meetings
+- Use meeting context to inform follow-ups, invoices, and proposals
+
+<Note>
+  Granola integration is **agent-powered** - you interact with meeting data conversationally through Every Agent. This gives you flexible, on-demand access to everything discussed in your calls.
+</Note>
+
+## How Granola Integration Works
+
+### Agent-Powered Meeting Access
+
+Every Agent connects directly to Granola, giving you conversational access to your meeting notes:
+
+```
+You: "What meetings did I have with Sam last week?"
+Agent: "I found 3 meetings with Sam last week:
+       - Monday: Project Kickoff (Sam, Lisa, Mike)
+       - Wednesday: Design Review (Sam, You)
+       - Friday: Sprint Planning (Sam, Team)"
+
+You: "What were the action items from the Design Review?"
+Agent: "From your Design Review with Sam on Wednesday:
+       - Sam: Finalize mockups by Friday
+       - You: Send updated brand guidelines
+       - Both: Review competitor analysis before next meeting"
+```
+
+### Available Tools
+
+| Tool | What It Does | Example Prompt |
+|------|-------------|----------------|
+| **Chat with Granola** | Ask questions about your meetings | "What did we decide about pricing in yesterday's call?" |
+| **List Meetings** | Browse meetings by date, title, or attendees | "What meetings did I have with Sam last week?" |
+| **Search Meeting Content** | Search through notes, summaries, and attendee lists | "What are the remaining action items for each person on this project?" |
+| **Get Transcript** | Pull the raw meeting transcript (paid Granola tiers) | "Give specific quotes of how the team described the issue" |
+
+### What You Can Access
+
+**Meeting List:**
+- Meeting titles and dates
+- Attendee lists
+- Meeting IDs for detailed lookup
+
+**Meeting Content:**
+- AI-enhanced meeting notes
+- Private notes you took during the call
+- Attendee information
+- Action items and key decisions
+
+**Transcripts (Paid Tiers):**
+- Full raw transcript of the meeting
+- Exact quotes and dialogue
+- Speaker identification
+
+## Connecting Granola
+
+### OAuth Connection
+
+1. Go to **Settings** > **Integrations**
+2. Find Granola in the list of available integrations
+3. Click **Connect**
+4. Log in to your Granola account
+5. Authorize Every AI to access your meeting notes
+6. You'll be redirected back to Every with connection confirmed
+
+<Tip>
+  **Ask Every Agent:** After connecting, verify access:
+  - "List my recent Granola meetings"
+  - "What meetings did I have this week?"
+  - "Summarize my last meeting"
+</Tip>
+
+### Connection Status
+
+**View Status:** Settings > Integrations > Granola
+
+**Status Indicators:**
+- Connected - Integration active and working
+- Needs reconnection - Token expired, click to reconnect
+- Not connected - Integration not set up
+
+## Using Granola with Every Agent
+
+### Browse Your Meetings
+
+```
+"What meetings did I have this week?"
+"Show me meetings with the engineering team"
+"List my meetings from last Monday"
+"Who was in the product planning meeting?"
+```
+
+### Search Meeting Content
+
+```
+"What are the remaining action items for each person on this project?"
+"Find meetings where we discussed the Q2 budget"
+"What decisions did we make about the new feature rollout?"
+"Summarize what was discussed about client onboarding"
+```
+
+### Chat About Your Meetings
+
+```
+"What did we decide about pricing in yesterday's call?"
+"What feedback did the client give on the proposal?"
+"Were there any concerns raised about the timeline?"
+"What did Sarah say about the marketing strategy?"
+```
+
+### Pull Transcripts (Paid Granola Tiers)
+
+```
+"Give specific quotes of how the team described the issue"
+"Get the full transcript from my meeting with the CEO"
+"What exactly did the client say about our pricing?"
+"Pull the transcript from the design review on Tuesday"
+```
+
+<Note>
+  Full transcript access requires a paid Granola subscription. Meeting notes and summaries are available on all Granola plans.
+</Note>
+
+## Common Workflows
+
+### Meeting Follow-Up
+
+```
+You: "Summarize my meeting with Acme Corp from this morning and draft a follow-up email"
+
+Agent: "From your meeting with Acme Corp (John Smith, Sarah Lee):
+       - Discussed Q2 consulting engagement
+       - Budget approved at $15,000/month
+       - Start date: March 1st
+       - Action items: You send SOW by Friday
+
+       Here's a draft follow-up email:
+
+       Subject: Great Meeting - Next Steps for Q2 Engagement
+       Hi John and Sarah, thank you for meeting today..."
+```
+
+### Invoice from Meeting Context
+
+```
+You: "Check my meeting notes with TechStart from last week and create an invoice for the work discussed"
+
+Agent: "From your meeting with TechStart on Thursday:
+       - Approved: 40 hours of development at $150/hr
+       - Plus: $2,000 infrastructure setup fee
+
+       I'll create an invoice:
+       - TechStart Inc
+       - Development Services: 40 hrs @ $150/hr = $6,000
+       - Infrastructure Setup: $2,000
+       - Total: $8,000
+
+       Should I create this invoice?"
+```
+
+### Prep for Recurring Meetings
+
+```
+You: "What did we cover in last week's standup with the design team?"
+
+Agent: "Last week's design standup covered:
+       - Homepage redesign: mockups approved, moving to development
+       - Mobile nav: still blocked on icon library decision
+       - Client feedback: positive on color palette, wants font changes
+
+       Open items for this week:
+       - Finalize icon library choice
+       - Implement font changes from client feedback"
+```
+
+## Managing the Integration
+
+### Refreshing Connection
+
+If your Granola connection expires:
+
+1. Go to Settings > Integrations
+2. Click **Reconnect** on Granola
+3. Log in to Granola again
+4. Authorize access
+5. Connection restored
+
+<Tip>
+  Granola tokens refresh automatically. You typically only need to reconnect if you revoke app access in your Granola account settings.
+</Tip>
+
+### Disconnecting Granola
+
+1. Go to Settings > Integrations
+2. Find Granola > Click **Disconnect**
+3. Confirm disconnection
+
+**What happens:** Every Agent loses access to Granola meeting notes. No data is deleted from either system. You can reconnect anytime.
+
+## Best Practices
+
+<Tip>
+  **Use for meeting follow-ups** - Ask Every Agent to summarize meetings and draft follow-up emails or action item lists right after your calls.
+</Tip>
+
+<Tip>
+  **Reference meetings in invoices** - When creating invoices, ask Every Agent to pull meeting context for accurate line items and descriptions.
+</Tip>
+
+<Tip>
+  **Be specific with dates and names** - "What did Sam say in Tuesday's meeting?" works better than "What was discussed recently?" when you have many meetings.
+</Tip>
+
+<Tip>
+  **Combine with other integrations** - Use Granola meeting context alongside HubSpot CRM data or Xero accounting for comprehensive client management.
+</Tip>
+
+## Troubleshooting
+
+### "Granola not connected" error
+
+**Solution:** Go to Settings > Integrations > Reconnect Granola
+
+### "Meeting not found"
+
+**Possible causes:**
+- Meeting was not recorded in Granola
+- Different search terms than the meeting title
+- Meeting is in a different Granola workspace
+
+**Solution:** Try searching by date or attendee name instead of meeting title
+
+### "Transcript not available"
+
+**Possible causes:**
+- Your Granola plan doesn't include transcript access
+- The meeting was not transcribed
+
+**Solution:** Upgrade your Granola plan for transcript access, or use meeting notes and summaries which are available on all plans
+
+### Agent can't find recent meetings
+
+**Check:** Verify your Granola connection is active in Settings > Integrations. If status shows expired, click Reconnect.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Connect Granola"
+    icon="microphone"
+    href="https://every.ai/agent/settings/integrations"
+  >
+    Set up Granola integration now
+  </Card>
+
+  <Card
+    title="HubSpot Integration"
+    icon="hubspot"
+    href="/integrations/hubspot"
+  >
+    Connect your CRM alongside meetings
+  </Card>
+
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    Learn more about agent capabilities
+  </Card>
+
+  <Card
+    title="Xero Integration"
+    icon="building"
+    href="/integrations/xero"
+  >
+    Connect your accounting software
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
