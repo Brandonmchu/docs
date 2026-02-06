@@ -1,100 +1,65 @@
 ---
 title: "Clients"
-description: "Manage your customer relationships with AI-powered enrichment, contact sync, and comprehensive client tracking"
-icon: "users"
+description: "Manage your client companies with AI-powered enrichment, CRM pipeline tracking, and comprehensive billing history"
+icon: "building-2"
 ---
 
 ## Overview
 
-Clients are the customers you invoice for services. Manage contact information, track payment history, and organize customer relationships.
+Clients are the **companies and businesses** you work with and invoice. They represent the organizations in your billing relationships - each client can have multiple [contacts](/features/contacts) (people) linked to them.
 
 **Key capabilities:**
-- Store contact info (email, phone, address)
-- Add multiple contacts per client with email routing roles
-- AI-powered company and contact enrichment
-- Import contacts from Google Contacts and LinkedIn
-- Pull contacts from Google Workspace (inline suggestions + Scan Contacts workflow)
-- Sync contacts with Google Contacts for easy lookup
-- Track payment history and invoices
-- View complete activity timeline
-- Manage social links (LinkedIn, website, etc.)
+- Track client companies with full business details
+- AI-powered company enrichment from web, Gmail, and Google Contacts
+- Visual CRM pipeline for sales tracking
+- Complete billing history (invoices, proposals, payments)
+- Link multiple [contacts](/features/contacts) with role-based email routing
+
+<Card title="Open Clients" icon="building-2" href="https://every.ai/clients" horizontal>
+  View and manage all your clients in Every
+</Card>
 
 ## Creating Clients
 
-Go to **Clients** → **Add Client** → Fill name and email → **Save**
+Go to [**Clients**](https://every.ai/clients) → **Add Client** → Fill name and details → **Save**
 
 **Required:** Client name
-**Recommended:** Email address (needed for invoicing)
-**Optional:** Phone, website, address
+**Recommended:** At least one [contact](/features/contacts) with email (needed for invoicing)
+**Optional:** Phone, website, address, internal notes
 
 <Tip>
-  **Ask Every Agent:** Create new clients instantly with natural language:
-  - "Create a client named ACME Corp with email contact@acme.com"
-  - "Add a new client for TechStart Inc, email is john@techstart.com, phone is 555-0123"
-  - "Create a client called Sarah Johnson with email sarah@consulting.com and address 123 Main St, New York, NY 10001"
+  **Ask Every Agent:** Create new clients instantly:
+  - "Create a client named ACME Corp with contact email contact@acme.com"
+  - "Add a new client for TechStart Inc, phone 555-0123, website techstart.io"
+  - "Create a client called Global Consulting with address 123 Main St, New York, NY 10001"
 </Tip>
 
-### Client Contacts
+### Adding Contacts to Clients
 
-Every supports multiple contacts per client with role-based email routing - send invoices to billing while proposals go to the CEO.
+Every client needs at least one [contact](/features/contacts) to receive invoices and proposals. Contacts are people - they exist independently and can be linked to multiple clients.
 
-**Contact Fields:**
-- Name, email, phone, job title
-- Invoice role (Primary recipient, CC, or excluded)
-- Proposal role (Primary recipient, CC, or excluded)
-- Notes for context
-
-**How Roles Work:**
-- **Primary (TO):** One contact receives the main email - required for each document type
-- **CC:** Additional contacts copied on emails - can have multiple
-- **Excluded (None):** Contact stored but not included in emails
-
-**Example Setup:**
-```
-ACME Corp Contacts:
-├── John Smith (CEO)
-│   └── Invoices: CC | Proposals: Primary
-├── Sarah Johnson (CFO)
-│   └── Invoices: Primary | Proposals: CC
-└── Accounts Team
-    └── Invoices: CC | Proposals: None
-```
-
-**To Add Contacts:**
-1. Open client → Edit → Add Contact
-2. Enter contact details
-3. Set invoice and proposal roles
+**To add contacts:**
+1. Open client → **Edit** → **Add Contact**
+2. Search for an existing contact or create a new one
+3. Set invoice and proposal roles (Primary, CC, or None)
 4. First contact defaults to Primary for both
-
-<Note>
-  You must have exactly one Primary contact per document type. Cannot have CC recipients without a Primary.
-</Note>
 
 <Tip>
   **Ask Every Agent:** Manage client contacts:
-  - "Add a contact John Smith to ACME Corp with email john@acme.com"
-  - "Set Sarah as the primary invoice recipient for ACME Corp"
-  - "Add accounts@acme.com as a CC on invoices for ACME Corp"
+  - "Add John Smith as the primary invoice contact for ACME Corp"
+  - "Set Sarah as CC on proposals for ACME Corp"
   - "Show me all contacts for ACME Corp"
 </Tip>
 
-### Social & Web Links
-
-Add LinkedIn profiles, websites, and other social links to clients and contacts for quick reference.
-
-**Supported Links:** Website, LinkedIn, Twitter, Facebook, Instagram, YouTube, GitHub
-
-**To Add:** Open client → Links section → Add Link → Select type → Enter URL
-
-<Tip>
-  Social links are often populated automatically during enrichment.
-</Tip>
+<Note>
+  For full details on contacts, importing, roles, and linking, see the [Contacts](/features/contacts) documentation.
+</Note>
 
 ## Client Enrichment
 
 AI-powered enrichment automatically finds and fills company and contact information from multiple sources.
 
-**How it works:** Open a client record → Click **Enrich Client** button → Choose enrichment mode → Every Agent queries Gmail, Calendar, web data, and Google Contacts to populate details.
+**How it works:** Open a client record → Click **Enrich Client** → Choose enrichment mode → Every Agent queries Gmail, Calendar, web data, and Google Contacts to populate details.
 
 **What gets enriched:**
 - **Company Data:** Name, logo, website, address, industry, description
@@ -105,116 +70,55 @@ AI-powered enrichment automatically finds and fills company and contact informat
 - **Fill Empty (default):** Only adds data to blank fields, preserves your existing entries
 - **Overwrite:** Updates all fields with enriched data, replacing existing values
 
-**Contact Discovery:**
-When enriching a business client, Every Agent can discover additional contacts:
-1. Scans your Gmail for emails from the company domain (last 180 days)
-2. Searches your Google Contacts for matching domain
-3. Creates new contacts with appropriate roles
+<Tip>
+  **Ask Every Agent:** Trigger enrichment from chat:
+  - "Create and enrich a client for Microsoft Corporation"
+  - "Enrich the existing client Tesla Inc with updated company details"
+  - "Find additional contacts for ACME Corp from my emails"
+</Tip>
 
 <Tip>
   Works best for established businesses with web presence. May not find data for small businesses or individuals.
 </Tip>
 
-<Tip>
-  **Ask Every Agent:** Trigger enrichment from chat:
-  - "Create and enrich a client for Microsoft Corporation"
-  - "Add XYZ Consulting as a client and pull their latest company information"
-  - "Enrich the existing client Tesla Inc with updated company details"
-  - "Find additional contacts for ACME Corp from my emails"
-</Tip>
+## Client Pipeline (CRM View)
 
-## Google Contacts Integration
+Every includes a visual pipeline for tracking client relationships - like a lightweight CRM built into your invoicing platform.
 
-Bring Google Workspace context directly into client creation and keep contacts synced.
+**To access:** [**Clients**](https://every.ai/clients) page → Toggle from Table view to **Pipeline view**
 
-**Setup:** Settings → Integrations → Connect Google Account (grant Contacts plus Gmail/Calendar for best results)
-
-### Adding Contacts from Google
-
-**Three ways to use it:**
-- **Email Autocomplete:** When typing in the Email field on a contact form, suggestions from your Google Contacts appear. Select one to auto-fill name, phone, and other details.
-- **Scan Contacts:** On the **Home** dashboard → **Import Data** → **Scan Contacts**. Analyzes recent Gmail, Calendar, and Contacts activity to suggest contacts that look like business clients.
-- **During Enrichment:** When enriching a client, Every Agent searches your Google Contacts for additional contacts at the same company domain.
-
-**What gets imported:** Name, email, phone, organization, notes
-
-### Google Contacts Sync
-
-Every tracks which of your contacts already exist in your team's Google Contacts.
-
-**How it works:**
-- When a contact is created with an email, Every checks if that email exists in any team member's Google Contacts
-- A sync indicator shows on contacts that match
-- Daily background sync keeps the status current
-
-**Benefits:**
-- See at a glance which contacts are already in your Google ecosystem
-- Avoid duplicating contacts you already have
-- Know when colleagues have worked with a contact before
-
-<Note>
-  Scans are on-demand, not continuous sync. Re-run **Scan Contacts** or ask Every Agent again when you want a fresh batch of suggestions. Duplicate clients are prevented via email matching.
-</Note>
-
-<Tip>
-  **Ask Every Agent:** Run the scan from chat:
-  - "Scan my Google contacts and add likely clients"
-  - "Review Google contacts tagged as clients and add them to Every"
-  - "Show me Google contacts we haven't added yet"
-</Tip>
-
-## Client Features
-
-### Client History
-
-View complete activity timeline per client:
-- Invoice history and status
-- Proposal history and approvals
-- Payment records
-- Email tracking (sends, opens, clicks)
-
-### Client Pipeline (CRM View)
-
-Every includes a visual pipeline for tracking client relationships, deals, and opportunities - like a lightweight CRM built directly into your invoicing platform.
-
-**To access:** Clients page → Toggle from Table view to **Pipeline view**
-
-#### Pipeline Views
+### Pipeline Views
 
 **Table View (Default):**
 - Spreadsheet-style list of all clients
 - Sort and filter by name, revenue, status
-- Quick search
-- Bulk actions
+- Quick search and bulk actions
 
 **Pipeline View:**
 - Visual kanban board with client cards
 - Drag clients between status columns
 - See deal values and proposal status at a glance
-- Quick actions on each card
 
-#### Status Columns
+### Status Columns
 
 Organize clients by where they are in your sales/relationship funnel:
 
 **Default statuses:**
-- **Lead:** Potential client, early conversation
-- **Qualified:** Interested, budget confirmed
-- **Proposal Sent:** Waiting for proposal approval
-- **Active Client:** Work in progress
-- **Closed - Won:** Successful engagement
-- **Closed - Lost:** Opportunity didn't convert
+- **Lead** - Potential client, early conversation
+- **Qualified** - Interested, budget confirmed
+- **Proposal Sent** - Waiting for proposal approval
+- **Active Client** - Work in progress
+- **Closed - Won** - Successful engagement
+- **Closed - Lost** - Opportunity didn't convert
 
 **Customize statuses:** Create your own pipeline stages in **Clients → Pipeline Settings**
 
-#### Using the Pipeline
+### Using the Pipeline
 
 **Drag & Drop:**
 1. Grab a client card
 2. Drag to new status column
-3. Drop to update status
-4. Status change saves automatically
-5. Full history tracked
+3. Status change saves automatically
 
 **Client Cards Show:**
 - Client name and logo (if enriched)
@@ -222,7 +126,6 @@ Organize clients by where they are in your sales/relationship funnel:
 - Total revenue (all invoices)
 - Outstanding balance
 - Proposal count and status
-- HubSpot badge (if synced from HubSpot)
 - Last activity date
 
 **Quick Actions (Click card):**
@@ -233,7 +136,15 @@ Organize clients by where they are in your sales/relationship funnel:
 - Set up automation
 - View full client details
 
-#### Pipeline Workflows
+<Tip>
+  **Ask Every Agent:** Manage pipeline:
+  - "Move ACME Corp to Active Client status"
+  - "Show me all clients in the Proposal Sent stage"
+  - "Update the status for TechStart Inc to Qualified"
+  - "List all leads from this month"
+</Tip>
+
+### Pipeline Workflows
 
 **Lead Qualification:**
 1. Create client as "Lead"
@@ -241,12 +152,6 @@ Organize clients by where they are in your sales/relationship funnel:
 3. Send proposal → Move to "Proposal Sent"
 4. Proposal approved → Move to "Active Client"
 5. Complete work → Move to "Closed - Won"
-
-**Ongoing Client Management:**
-- Active clients stay in "Active Client" column
-- Filter by status to focus on specific segments
-- Track revenue per status
-- Identify stuck deals (long time in one status)
 
 **Sales Pipeline Tracking:**
 ```
@@ -259,25 +164,7 @@ Proposal Sent (3 clients, $20K potential)
 Active Client (15 clients, $100K in progress)
 ```
 
-#### Integration with HubSpot
-
-If you sync clients from HubSpot:
-- HubSpot deal badge appears on client cards
-- Shows HubSpot deal stage
-- Indicates CRM is source of truth
-- Updates flow from HubSpot to Every
-
-**Use case:** Track deals in HubSpot, invoice and manage payments in Every
-
-<Tip>
-  **Ask Every Agent:** Manage pipeline:
-  - "Move ACME Corp to Active Client status"
-  - "Show me all clients in the Proposal Sent stage"
-  - "Update the status for TechStart Inc to Qualified"
-  - "List all leads from this month"
-</Tip>
-
-#### Pipeline Best Practices
+### Pipeline Best Practices
 
 <Tip>
   **Keep status current** - Update as relationships progress so pipeline reflects reality
@@ -287,88 +174,65 @@ If you sync clients from HubSpot:
   **Review weekly** - Check pipeline for stuck deals and follow-up opportunities
 </Tip>
 
-<Tip>
-  **Track conversion rates** - Monitor how many leads become active clients
-</Tip>
+## Client History
 
-<Tip>
-  **Use for prioritization** - Focus on high-value proposals and qualified leads
-</Tip>
+View complete activity timeline per client:
+- Invoice history and status
+- Proposal history and approvals
+- Payment records
+- Email tracking (sends, opens, clicks)
+- Expense and time tracking records
 
-### Search & Filtering
+## Search & Filtering
 
 **Search by:** Name, email, company, phone
-**Filter by:** Active/archived, outstanding/overdue invoices, revenue
+**Filter by:** Active/archived, pipeline status, outstanding/overdue invoices, revenue
 **Sort by:** Alphabetical, recent, revenue, invoice count
 
 <Tip>
-  **Ask Every Agent:** Find and filter clients easily:
+  **Ask Every Agent:** Find and filter clients:
   - "Show me all clients with overdue invoices"
   - "Find clients with outstanding balances"
   - "List all archived clients"
-  - "Show me clients I added this month"
   - "Find the client ACME Corp"
 </Tip>
 
 ## Managing Clients
 
-### Editing Client Information
+### Editing
 
-Open client → **Edit Client** → Update fields → **Save Changes**
+Open client → [**Edit Client**](https://every.ai/clients) → Update fields → **Save Changes**
 
 <Note>
   Changes don't affect existing invoices, only new ones.
 </Note>
 
 <Tip>
-  **Ask Every Agent:** Update client details quickly:
-  - "Update ACME Corp's email to newemail@acme.com"
-  - "Change the phone number for TechStart Inc to 555-9999"
-  - "Update the address for client XYZ Company to 456 Oak Ave, San Francisco, CA 94102"
+  **Ask Every Agent:** Update client details:
+  - "Update ACME Corp's phone to 555-9999"
+  - "Change the address for XYZ Company to 456 Oak Ave, San Francisco, CA 94102"
   - "Add website www.newsite.com to the client Beta Solutions"
 </Tip>
 
-### Archiving Clients
+### Archiving
 
-Archive inactive clients to hide them while preserving data.
+Archive inactive clients to hide them while preserving all data and history.
 
 **To archive:** Open client → **Archive Client** → Confirm
-
-**Benefits:** Preserves history, maintains invoice integrity, can restore anytime
-
-<Tip>
-  **Ask Every Agent:** Archive inactive clients:
-  - "Archive the client ABC Inc"
-  - "Mark TechStart Inc as archived"
-  - "Archive all clients with no invoices in the last 12 months"
-  - "Hide the client Old Company from my active list"
-</Tip>
-
 **To restore:** Filter archived → Open client → **Restore Client**
 
 <Tip>
-  **Ask Every Agent:** Restore previously archived clients:
-  - "Restore the archived client ABC Inc"
-  - "Unarchive TechStart Inc"
-  - "Reactivate the client Old Company"
+  **Ask Every Agent:** Archive or restore:
+  - "Archive the client ABC Inc"
+  - "Restore the archived client Old Company"
+  - "Archive all clients with no invoices in the last 12 months"
 </Tip>
 
-### Deleting Clients
+### Deleting
 
 <Warning>
-  Deleting permanently removes client. Only possible if no issued invoices exist.
+  Deleting permanently removes client. Only possible if no issued invoices exist. Archive instead to preserve history.
 </Warning>
-
-**Requirements:** No issued invoices or outstanding payments
-
-**Recommendation:** Archive instead to preserve history
-
-<Tip>
-  **Ask Every Agent:** Delete clients (use with caution):
-  - "Delete the draft client Test Company"
-  - "Remove the client XYZ Corp that has no invoices"
-  - "Permanently delete the client Sample Inc"
-</Tip>
 
 ## Client Dependencies
 
@@ -379,11 +243,15 @@ Clients (Required For:)
 ├── Invoices
 │   ├── All invoices must have a client
 │   ├── Client info appears on invoice
-│   └── Invoice sent to client email
+│   └── Invoice sent to client contacts
 │
 ├── Proposals
-│   ├── Proposals sent to clients
-│   └── Approved proposals convert to client invoices
+│   ├── Proposals sent to client contacts
+│   └── Approved proposals convert to invoices
+│
+├── Contacts (linked)
+│   ├── Contacts linked with invoice/proposal roles
+│   └── Role-based email routing per client
 │
 ├── Time Tracking
 │   ├── Track time per client
@@ -401,34 +269,48 @@ Clients (Required For:)
 ## Best Practices
 
 <Tip>
-  **Add complete info** for professional invoices • **Use enrichment** to save time • **Set up contact roles** for proper email routing • **Archive** instead of deleting
+  **Add complete info** for professional invoices - name, address, and at least one contact with email
+</Tip>
+
+<Tip>
+  **Use enrichment** to save time filling in company details
+</Tip>
+
+<Tip>
+  **Link contacts with roles** for proper invoice and proposal email routing
+</Tip>
+
+<Tip>
+  **Archive** instead of deleting to preserve billing history
 </Tip>
 
 ## Troubleshooting
 
-**Enrichment not finding data:** Try name variations, add website, or enter manually
-**Can't delete client:** Archive instead (client has issued invoices)
-**Duplicate imports:** System checks by email, merge manually if needed
-**Contact emails not receiving:** Verify contact has correct role (Primary or CC), check spam, ensure document was sent
-**Can't remove Primary contact:** Set another contact as Primary first, or the system will prevent orphan CC recipients
+**Enrichment not finding data:** Try name variations, add website URL, or enter details manually. Works best for established businesses with web presence.
+
+**Can't delete client:** Archive instead - the client has issued invoices that preserve billing history.
+
+**Invoices not sending to right people:** Check contact roles on the client - ensure one contact has Primary (TO) for invoices. See [Contacts](/features/contacts) for details.
+
+**Duplicate clients:** Search before creating. If duplicates exist, archive one and move contacts/invoices to the other.
 
 ## Next Steps
 
 <CardGroup cols={2}>
   <Card
-    title="Create Invoices"
-    icon="file-invoice"
-    href="/features/invoices"
+    title="Manage Contacts"
+    icon="user-round"
+    href="/features/contacts"
   >
-    Start billing your clients with professional invoices
+    Add and manage people linked to your clients
   </Card>
 
   <Card
-    title="Set Up Offerings"
-    icon="list"
-    href="/features/offerings"
+    title="Create Invoices"
+    icon="file-text"
+    href="/features/invoices"
   >
-    Create service templates for faster invoicing
+    Start billing your clients with professional invoices
   </Card>
 
   <Card
@@ -441,7 +323,7 @@ Clients (Required For:)
 
   <Card
     title="Create Proposals"
-    icon="handshake"
+    icon="file-check"
     href="/features/proposals"
   >
     Send proposals before invoicing

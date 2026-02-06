@@ -59,6 +59,7 @@
         "group": "Core Features",
         "pages": [
           "features/clients",
+          "features/contacts",
           "features/offerings",
           "features/invoices",
           "features/payments",

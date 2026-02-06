@@ -1,0 +1,295 @@
+---
+title: "Contacts"
+description: "Manage all the people in your business network - clients contacts, leads, and everyone you know - with importing, enrichment, and role-based linking"
+icon: "user-round"
+---
+
+## Overview
+
+Contacts are the **people** in your business world - everyone from active client contacts to potential leads you met at a conference. Unlike [Clients](/features/clients) (which represent companies or businesses), Contacts represent individuals.
+
+**Key capabilities:**
+- Store contact details (name, email, phone, job title)
+- Import from [LinkedIn](https://every.ai/contacts) and [Google Contacts](https://every.ai/contacts)
+- Link contacts to one or more [clients](/features/clients) with role-based email routing
+- AI-powered enrichment and relationship summaries
+- Google Contacts sync for duplicate detection
+
+<Card title="Open Contacts" icon="user-round" href="https://every.ai/contacts" horizontal>
+  View and manage all your contacts in Every
+</Card>
+
+## Creating Contacts
+
+Go to [**Contacts**](https://every.ai/contacts) → **Add Contact** → Fill details → **Save**
+
+**Required:** Name
+**Recommended:** Email address (needed for invoicing and proposals)
+**Optional:** Phone, job title, notes
+
+<Tip>
+  **Ask Every Agent:** Create contacts quickly:
+  - "Create a contact named John Smith with email john@acme.com"
+  - "Add a contact Sarah Johnson, CFO at TechStart, email sarah@techstart.com"
+  - "Create a contact for the person I met at the conference - Mike Chen, mike@startup.io"
+</Tip>
+
+## Importing Contacts
+
+Every supports multiple ways to bulk-import contacts into your network.
+
+### LinkedIn Import
+
+Import your LinkedIn connections directly from a CSV export, with optional AI relationship summaries from your message history.
+
+**How to import:**
+1. Go to [**Contacts**](https://every.ai/contacts) → **Import** dropdown → **LinkedIn**
+2. Upload your `Connections.csv` file (exported from LinkedIn)
+3. Preview new contacts (duplicates are auto-filtered)
+4. Click **Import**
+
+**What gets imported:** Name, email (if available), job title, company (in notes), LinkedIn profile URL
+
+<Tip>
+  **Optional:** After importing, upload your LinkedIn `Messages.csv` to generate AI-powered relationship timelines showing your history with each contact.
+</Tip>
+
+<Note>
+  See [Import Data](/data/csv-import) for full LinkedIn export instructions and details on AI relationship summaries.
+</Note>
+
+### Google Contacts Import
+
+Import your entire Google Contacts library with one click.
+
+**How to import:**
+1. Go to [**Contacts**](https://every.ai/contacts) → **Import** dropdown → **Google Contacts**
+2. Authorize Google Contacts access if not already connected
+3. Preview new vs. existing contacts
+4. Click **Import**
+
+**What gets imported:** Name, email, phone, organization, social URLs (LinkedIn, Twitter, etc.)
+
+<Note>
+  Google Contacts **Import** brings in all your contacts. The **Scan Contacts** workflow on the Home dashboard is different - it uses AI to identify which contacts look like potential business clients.
+</Note>
+
+### Scan Contacts (AI-Powered)
+
+Let Every Agent analyze your Gmail, Calendar, and Google Contacts to suggest contacts that look like business leads.
+
+**How it works:**
+1. On the [**Home**](https://every.ai) dashboard → **Import Data** card → **Scan Contacts**
+2. Every Agent scans recent email, calendar, and contact activity
+3. Review suggested contacts and select ones to add
+4. Contacts are created with context from your interactions
+
+<Tip>
+  **Ask Every Agent:** "Scan my Google contacts and add any that look like potential clients"
+</Tip>
+
+## Linking Contacts to Clients
+
+Contacts exist independently but can be **linked to one or more [clients](/features/clients)** with role-based email routing. This means the same contact can be associated with multiple client companies.
+
+### How Linking Works
+
+When you link a contact to a client, you assign roles that control email routing:
+
+**Invoice Role:**
+- **Primary (TO):** Receives the main invoice email - exactly one required per client
+- **CC:** Copied on invoice emails - can have multiple
+- **None:** Not included in invoice emails
+
+**Proposal Role:**
+- **Primary (TO):** Receives the main proposal email
+- **CC:** Copied on proposal emails
+- **None:** Not included
+
+**Example Setup:**
+```
+ACME Corp (Client) Contacts:
+├── John Smith (CEO)
+│   └── Invoices: CC | Proposals: Primary
+├── Sarah Johnson (CFO)
+│   └── Invoices: Primary | Proposals: CC
+└── Accounts Team
+    └── Invoices: CC | Proposals: None
+```
+
+### Linking from Client Page
+
+1. Open a [client](https://every.ai/clients) → **Edit** → **Add Contact**
+2. Search for an existing contact or create a new one
+3. Set invoice and proposal roles
+4. First contact defaults to Primary for both
+
+### Linking via Agent
+
+<Tip>
+  **Ask Every Agent:** Manage contact-client links:
+  - "Link John Smith to ACME Corp as the primary invoice contact"
+  - "Add Sarah as a CC on proposals for TechStart Inc"
+  - "Show me all contacts linked to ACME Corp"
+  - "Set the billing team contact as CC on invoices for all enterprise clients"
+</Tip>
+
+<Note>
+  You must have exactly one Primary (TO) contact per document type on each client. You cannot have CC recipients without a Primary.
+</Note>
+
+## Contact Enrichment
+
+AI-powered enrichment helps fill in contact details automatically.
+
+**During client enrichment:** When you [enrich a client](/features/clients#client-enrichment), Every Agent can discover additional contacts at the company by scanning Gmail headers and Google Contacts for matching email domains.
+
+**Google Contacts sync:** Every tracks which of your contacts exist in team members' Google Contacts. A sync indicator shows on matching contacts.
+
+## Managing Contacts
+
+### Viewing & Filtering
+
+Go to [**Contacts**](https://every.ai/contacts) to see all contacts with:
+- Search by name, email, company, phone
+- Filter by linked clients
+- Sort by name, date added, or recent activity
+
+<Tip>
+  **Ask Every Agent:** Find contacts:
+  - "Find the contact John Smith"
+  - "Show me all contacts at acme.com"
+  - "List contacts I added this month"
+  - "Who are the contacts linked to ACME Corp?"
+</Tip>
+
+### Editing Contacts
+
+Open contact → **Edit** → Update fields → **Save**
+
+<Tip>
+  **Ask Every Agent:** Update contact details:
+  - "Update John Smith's email to john.smith@newcompany.com"
+  - "Change Sarah's job title to VP of Finance"
+  - "Add phone number 555-1234 to the contact Mike Chen"
+</Tip>
+
+### Archiving & Deleting
+
+**Archive:** Hides contact from active list while preserving data and links. Can be restored anytime.
+
+**Delete:** Permanently removes the contact. Only possible if not linked as a Primary recipient on any client.
+
+<Tip>
+  **Ask Every Agent:** Archive or delete:
+  - "Archive the contact Old Contact Name"
+  - "Delete the test contact I just created"
+</Tip>
+
+### Social & Web Links
+
+Add LinkedIn profiles, websites, and other social links to contacts for quick reference.
+
+**Supported Links:** Website, LinkedIn, Twitter, Facebook, Instagram, YouTube, GitHub
+
+<Tip>
+  Social links are often populated automatically during import (LinkedIn URLs) or enrichment.
+</Tip>
+
+## Contacts vs. Clients
+
+Understanding the distinction:
+
+| | Contacts | Clients |
+|---|---|---|
+| **Represents** | People (individuals) | Companies/businesses |
+| **Examples** | John Smith, Sarah Johnson | ACME Corp, TechStart Inc |
+| **Relationship** | Can be linked to multiple clients | Has multiple contacts linked |
+| **Primary use** | Email routing, relationship tracking | Invoicing, proposals, billing |
+| **Import from** | LinkedIn, Google Contacts | Manual, Google scan, enrichment |
+
+```
+Contact (Person)                    Client (Company)
+├── John Smith ──────────────────── ACME Corp
+│   ├── email: john@acme.com        ├── Invoices
+│   ├── title: CEO                   ├── Proposals
+│   └── roles:                       ├── Time Tracking
+│       ├── ACME: Invoice CC         ├── Expenses
+│       └── ACME: Proposal Primary   └── Automations
+│
+├── Sarah Johnson ───────────────── ACME Corp
+│   └── roles:                       (same client, different roles)
+│       └── ACME: Invoice Primary
+│
+└── Mike Chen ───────────────────── TechStart Inc
+    └── roles:                       (different client entirely)
+        └── TechStart: Invoice Primary
+```
+
+## Best Practices
+
+<Tip>
+  **Import early** - Bring in your LinkedIn and Google contacts to build your network in Every from day one.
+</Tip>
+
+<Tip>
+  **Set roles carefully** - Ensure each client has exactly one Primary invoice contact for reliable email delivery.
+</Tip>
+
+<Tip>
+  **Keep contacts updated** - When people change roles or companies, update their contact info and client links.
+</Tip>
+
+<Tip>
+  **Use AI summaries** - Upload LinkedIn Messages.csv after import for valuable relationship context.
+</Tip>
+
+## Troubleshooting
+
+**Contact not receiving invoices:** Verify the contact is linked to the client with a Primary or CC invoice role. Check email address is correct.
+
+**Duplicate contacts after import:** System checks by email for duplicates. If imported from multiple sources (LinkedIn + Google), merge manually or ask Every Agent.
+
+**Can't delete contact:** Contact may be set as Primary recipient on a client. Set another contact as Primary first.
+
+**LinkedIn import missing emails:** Many LinkedIn users don't share email addresses. Contacts are still imported by name - enrich later to find contact details.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Manage Clients"
+    icon="building-2"
+    href="/features/clients"
+  >
+    Link contacts to client companies
+  </Card>
+
+  <Card
+    title="Import Data"
+    icon="file-import"
+    href="/data/csv-import"
+  >
+    Bulk import from LinkedIn and Google
+  </Card>
+
+  <Card
+    title="Create Invoices"
+    icon="file-text"
+    href="/features/invoices"
+  >
+    Send invoices to your contacts
+  </Card>
+
+  <Card
+    title="Create Proposals"
+    icon="file-check"
+    href="/features/proposals"
+  >
+    Send proposals to contacts at client companies
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
