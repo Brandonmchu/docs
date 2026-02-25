@@ -89,6 +89,7 @@
         "group": "AI Features",
         "pages": [
           "ai/every-agent",
+          "ai/tokens-and-usage",
           "ai/undo-agent-actions",
           "ai/agent-scheduled-tasks",
           "ai/business-context"
