@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Every AI",
+  "name": "Every",
   "theme": "willow",
   "css": "custom.css",
   "colors": {
@@ -37,7 +37,7 @@
     "indexing": "all",
     "metatags": {
       "og:type": "website",
-      "og:site_name": "Every AI Documentation",
+      "og:site_name": "Every Documentation",
       "og:image": "https://every.ai/og-image.png",
       "twitter:card": "summary_large_image",
       "twitter:site": "@everyai"
@@ -63,6 +63,7 @@
           "features/offerings",
           "features/invoices",
           "features/payments",
+          "features/bookings",
           "features/automations",
           "features/proposals",
           "features/time-tracking",
