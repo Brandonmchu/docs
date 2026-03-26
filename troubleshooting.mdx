@@ -288,12 +288,12 @@ icon: "wrench"
     - Line item amounts in automation
     - Tax settings correct
     - Discount not accidentally applied
-    - Offerings referenced have correct rates
+    - Saved services/products referenced have correct pricing
 
     **Solutions:**
     1. Edit automation
     2. Review and update line item amounts
-    3. Verify offering rates
+    3. Verify saved service or product pricing
     4. Test again before activating
     5. If already sent wrong invoice, void and resend correct one
   </Accordion>
@@ -333,34 +333,34 @@ icon: "wrench"
     5. Refresh page after reconnecting
   </Accordion>
 
-  <Accordion icon="database" title="HubSpot Sync Not Running">
+  <Accordion icon="database" title="HubSpot Lookup Not Working">
     **Check:**
-    - Connection status healthy
-    - Last sync time (should be recent)
+    - Connection status in **Agent Settings → Integrations**
+    - HubSpot permissions were approved
     - Internet connection
     - HubSpot service status
 
     **Solutions:**
-    1. Check connection in **Settings → Integrations**
-    2. Manually trigger sync
-    3. Wait for automatic sync cycle
-    4. Reconnect if status shows error
-    5. Check HubSpot for data integrity
+    1. Check connection in [**Agent Settings → Integrations**](https://every.ai/agent/settings/integrations)
+    2. Reconnect if status shows error
+    3. Retry with a more specific company, contact, or deal name
+    4. Check HubSpot directly for data integrity
+    5. Confirm your HubSpot account has access to the records you expect
   </Accordion>
 
-  <Accordion icon="users" title="HubSpot Contacts Not Appearing">
+  <Accordion icon="users" title="HubSpot Results Missing Expected Records">
     **Verify:**
     - Contacts exist in HubSpot
-    - Sync completed successfully
-    - Not filtered out as inactive
-    - Duplicates not skipped
+    - Your HubSpot user can access them
+    - Search terms are specific enough
+    - Records are not archived or permission-restricted
 
     **Solutions:**
     1. Check HubSpot for contact
-    2. Review sync log for errors
-    3. Re-run manual sync
-    4. Check duplicate resolution choices
-    5. Verify filters in Every
+    2. Reconnect HubSpot in [**Agent Settings → Integrations**](https://every.ai/agent/settings/integrations)
+    3. Search by email or full company name
+    4. Check record permissions in HubSpot
+    5. Ask Every Agent with more context, for example: "Find John Smith at Acme Corp in HubSpot"
   </Accordion>
 </AccordionGroup>
 
@@ -476,7 +476,7 @@ icon: "wrench"
     **Solution:**
     - Follow agent's guidance to connect integration
     - Grant required permission
-    - Create missing prerequisites (client, offering, etc.)
+    - Create missing prerequisites (client, service, product, etc.)
   </Accordion>
 </AccordionGroup>
 

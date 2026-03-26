@@ -1,405 +1,262 @@
 ---
 title: "Business Context Workspace"
-description: "Customize Every Agent's understanding of your business with prompts, files, links, and integration monitoring"
+description: "Customize Every Agent's understanding of your business with structured context, files, and links"
 icon: "brain"
 ---
 
 ## Overview
 
-The Business Context Workspace lets you customize how the Every Agent understands your business. Add context through organization prompts, file uploads, Drive links, and URLs so the Agent provides more relevant, accurate assistance.
+Business Context is the workspace where you teach Every Agent how your business works. It combines written context, uploaded files, Google Drive references, and web links so the agent can answer questions and take action with better business-specific judgment.
 
-**What You Can Customize:**
-- Organization prompt (how Agent sees your business)
-- Reference files (documents Agent can access)
-- Drive links (Google Drive documents)
-- URLs (web pages for reference)
-- Trigger business analysis for insights
+<Card title="Open Business Context" icon="brain" href="https://every.ai/agent/settings/context" horizontal>
+  Manage your agent's business context
+</Card>
+
+**Use Business Context for:**
+- Business description and positioning
+- Services, products, and pricing logic
+- Target clients and ideal customer profile
+- Internal operating rules or constraints
+- Supporting files and reference links
 
 ## Accessing Business Context
 
-### Global Chat Dialog
+Go to [**Agent Settings → Context**](https://every.ai/agent/settings/context).
 
-**Location:** Bottom-right chat icon → Click Settings (gear icon) in chat header → Navigate to context, tasks, and sources tabs
-
-**Features:**
-- Edit organization prompt
-- Upload reference files
-- Add Drive/web links
-- Configure scheduled tasks
-- Access business analysis
-
-**Always Accessible:**
-- Available from any page
-- Persists across sessions
-- Syncs with main application
-
-<Tip>
-  Keep business context updated as your business evolves. Fresh context = better Agent responses!
-</Tip>
-
-## Organization Prompt
-
-### What is Organization Prompt?
-
-**Custom Instructions for Agent:**
-- Describes your business
-- Explains your services
-- Sets tone and style
-- Defines priorities
-- Provides context
-
-**How Agent Uses It:**
-- References before every response
-- Shapes recommendations
-- Influences invoice creation
-- Guides email drafting
-- Informs analysis
-
-### Editing Organization Prompt
-
-**To Edit:**
-1. Open chat dialog
-2. Click context/settings icon
-3. Find **Organization Prompt** section
-4. Click **Edit**
-5. Update text
-6. Save changes
-
-**What to Include:**
-- **Business Description**: What you do
-- **Target Clients**: Who you serve
-- **Services Offered**: Main offerings
-- **Business Values**: How you work
-- **Communication Style**: Tone preferences
-- **Special Instructions**: Unique requirements
-
-**Example Prompt:**
-```
-We are a boutique digital marketing agency specializing in
-e-commerce brands. Our clients are typically $1M-$10M revenue
-online retailers looking to scale.
-
-Services:
-- Paid advertising management (Facebook, Google)
-- Email marketing campaigns
-- Conversion rate optimization
-- Monthly retainers ($3K-$10K/month)
-
-Communication style: Professional but friendly, data-driven,
-results-focused. Always emphasize ROI in client communications.
-
-Invoice preferences: Net 30 terms, detailed line items showing
-hours and deliverables, always include next month's strategy
-preview in notes.
-```
+This page is the current home for:
+- Your editable business context
+- Business context generation from workspace data
+- Uploaded reference files
+- Google Drive references
+- Web links
 
 <Note>
-  The more specific your organization prompt, the better the Agent understands your business!
+  Older docs may refer to an "organization prompt." That content now lives inside the broader Business Context workspace.
 </Note>
 
-## File & Link References
+## What Business Context Does
 
-### Uploading Reference Files
+Business Context helps the agent understand:
+- What your business sells
+- How you describe your work
+- Which clients you serve
+- What rules or preferences it should follow
+- Which source documents it should use as references
 
-**Supported Files:**
-- PDFs (contracts, proposals, guidelines)
-- Word documents (templates, policies)
-- Text files (notes, procedures)
-- Spreadsheets (rate cards, pricing)
-- Maximum 5MB per file
+This improves:
+- Invoice and proposal drafting
+- Business Q&A
+- Data analysis
+- Follow-up suggestions
+- Context-aware recommendations
 
-**To Upload:**
-1. Open business context settings
-2. Find **Reference Files** section
-3. Click **Upload File** or drag and drop
-4. File uploaded and indexed
-5. Agent can now reference it
+## Written Business Context
 
-**How Agent Uses Files:**
-- Searches content when relevant
-- References data in responses
-- Cites information from files
-- Stays consistent with policies
+The written context area is where you describe your business directly.
 
-**Use Cases:**
-- Service agreements (standard terms)
-- Rate cards (pricing reference)
-- Brand guidelines (messaging consistency)
-- Project templates (standard deliverables)
-- FAQs (common client questions)
+**Good things to include:**
+- What your company does
+- Main services and products
+- Target industries or client types
+- Pricing philosophy
+- Delivery model and process
+- Important rules the agent should follow
 
-<Tip>
-  Upload your standard service agreement so Agent can reference terms when creating invoices!
-</Tip>
+**Example:**
 
-### Linking Google Drive Documents
+```text
+We are a boutique product strategy firm working with B2B SaaS companies.
+Our work is usually sold as discovery sprints, roadmap workshops, and
+fractional product leadership retainers.
 
-**Drive Integration:**
-- Link Google Drive files
-- Agent accesses with your permissions
-- Always up-to-date (links to live document)
-- No upload size limits
-
-**To Add Drive Link:**
-1. Open business context settings
-2. Click **Add Drive Document**
-3. Search or paste Drive link
-4. Select document
-5. Link added to context
-
-**Benefits Over Upload:**
-- Live documents (always current)
-- Collaborative docs (team updates reflected)
-- Larger files (no size limit)
-- Organized in Drive (single source of truth)
-
-### Adding Web URLs
-
-**Reference Websites:**
-- Link to your website
-- Industry resources
-- Client portals
-- Knowledge bases
-- Pricing pages
-
-**To Add URL:**
-1. Open business context settings
-2. Find **Web References** section
-3. Click **Add URL**
-4. Paste URL
-5. Add description (what it's for)
-6. Save
-
-**Agent Access:**
-- Fetches page content
-- References information
-- Stays current with your site
-- Uses for pricing, services, policies
-
-**Example URLs:**
-- Your services page (for service descriptions)
-- Your pricing page (for rate reference)
-- Industry best practices (for recommendations)
-- Client success stories (for credibility)
-
-<Tip>
-  Add your website's services and pricing pages so Agent knows your current offerings!
-</Tip>
-
-## Business Insights
-
-Every Agent can analyze your business data to provide insights on demand. These insights appear directly in agent chat responses when you ask questions or trigger a comprehensive analysis.
-
-**Agent Analyzes Your Data:**
-- Revenue patterns
-- Client behavior
-- Payment trends
-- Service performance
-- Growth opportunities
-
-**Insight Types:**
-- **Revenue Insights**: Top clients, trending services
-- **Risk Insights**: Slow payers, overdue invoices
-- **Opportunity Insights**: Upsell potential, new services
-- **Operational Insights**: Efficiency improvements
-- **Financial Insights**: Cash flow, profitability
-
-**To Get Insights:**
-
-Ask Every Agent questions like:
-- "How's my business doing?"
-- "What are my revenue trends?"
-- "Which clients should I focus on?"
-- "Run a business analysis for me"
-- "Analyze my business performance"
-
-**Example Insights:**
-```
-"Your top 3 clients generate 60% of revenue. Consider
-diversifying client base to reduce risk."
-
-"Average days to payment: 45 days. Your terms are Net 30.
-Consider sending earlier reminders or offering early payment
-discounts."
-
-"Consulting services have 85% margin vs 40% for implementation.
-Consider shifting focus to higher-margin consulting."
+Typical engagements are $5K-$20K. Keep communication concise, confident,
+and practical. We prefer clear scope, milestone-based invoicing, and
+Net 15 terms for smaller clients.
 ```
 
 <Tip>
-  Insights are generated on-demand based on your current business data. Trigger analysis when you want fresh insights!
+  Write context the way you would brief a new operator joining your company. That level of specificity works well.
 </Tip>
 
-## Customization Tips
+## Build Context From Your Workspace
 
-### Effective Organization Prompts
+Business Context can also be generated from your existing workspace data.
 
-**Be Specific:**
-- ❌ "We're a consulting firm"
-- ✅ "We're a healthcare IT consulting firm specializing in EHR implementations for hospitals"
+This uses your current data to build or refresh a broader business summary from things like:
+- Clients
+- Financial activity
+- Communication patterns
+- Workspace structure
 
-**Include Examples:**
-```
-Our typical project: 3-month EHR implementation,
-$150K-$300K, includes training and go-live support.
-```
+Use **Build Context** when:
+- You are setting things up for the first time
+- Your business has changed materially
+- You want the agent to refresh its broader understanding from recent activity
 
-**Set Tone:**
-```
-Communication: Professional medical environment,
-HIPAA-compliant language, emphasize data security.
-```
+<Warning>
+  Building context can replace the current generated narrative. Review the result after it finishes and edit anything that needs tightening.
+</Warning>
 
-**Define Priorities:**
-```
-Always prioritize: Data security, compliance, thorough
-documentation. Never compromise on security for speed.
-```
+## Files & Link References
 
-### Useful Reference Files
+Business Context is not limited to typed instructions. You can also add files and links the agent should reference.
 
-**Must-Haves:**
-- Standard service agreement
-- Rate card or pricing sheet
-- Scope of work template
-- Brand/messaging guidelines
+### Uploaded Files
 
-**Nice-to-Haves:**
-- Project timeline templates
-- Deliverables checklist
-- Common client FAQs
-- Success stories/case studies
+Upload files directly in Business Context.
 
-### Strategic URL References
+**Common file types:**
+- PDF contracts
+- Word proposals or SOW templates
+- Excel rate cards or planning sheets
+- CSV data exports
+- Images and screenshots
+- Text notes
 
-**Internal:**
-- Services page (offerings)
-- About page (company story)
-- Pricing page (current rates)
-- Blog (thought leadership)
+**Good uploads:**
+- Standard agreements
+- Pricing sheets
+- Brand guidelines
+- Deliverable templates
+- Internal playbooks
 
-**External:**
-- Industry standards
-- Compliance guidelines
-- Best practices
-- Technology documentation
+### Google Drive References
 
-## Benefits of Rich Context
+If you use Google Drive, you can attach live Drive documents so the agent references the current version instead of a static upload.
 
-**Better Responses:**
-- Agent understands your business deeply
-- Recommendations aligned with your goals
-- Consistent with your brand
-- Accurate pricing and terms
+**Good for:**
+- Living docs
+- Shared templates
+- Team-maintained policies
+- Frequently updated reference material
 
-**Time Savings:**
-- Less explaining needed
-- Fewer corrections required
-- Faster invoice creation
-- Better first-draft emails
+### Web Links
 
-**Consistency:**
-- Same messaging across all interactions
-- Standard terms and pricing
-- Brand voice maintained
-- Policy compliance
+You can also add URLs the agent should reference.
 
-**Intelligence:**
-- Context-aware insights
-- Relevant recommendations
-- Industry-appropriate suggestions
-- Competitive positioning
+**Useful examples:**
+- Your marketing site
+- Pricing page
+- Services page
+- Support docs
+- Client onboarding resources
 
 <Tip>
-  Invest 30 minutes in rich context setup. You'll save hours in the long run!
+  Prefer live Drive docs or URLs when the source changes often. Prefer uploads when you want a fixed snapshot.
 </Tip>
+
+## How the Agent Uses Files and Links
+
+The agent can:
+- Search them when relevant
+- Pull details into responses
+- Reuse consistent language
+- Reference terms, pricing, and process details
+
+Examples:
+
+```text
+"Use my service agreement when drafting this proposal"
+"Check the pricing sheet before creating that invoice"
+"Read the onboarding guide and summarize our implementation steps"
+```
+
+## Business Context vs Voice & Tone
+
+These are separate on purpose:
+
+| Setting | What It Controls |
+| - | - |
+| **Business Context** | What the agent knows about your business |
+| **Voice & Tone** | How the agent writes when speaking on your behalf |
+
+Use Business Context for business facts, rules, and operating details.
+
+Use [Voice & Tone](/ai/voice-and-tone) for writing style, tone, and audience-specific communication.
 
 ## Best Practices
 
 <Tip>
-  **Update regularly** - Review and update context quarterly or when business changes.
+  Keep the written context practical. Focus on what the agent should know to make better decisions.
 </Tip>
 
 <Tip>
-  **Be comprehensive** - More context = better Agent performance. Don't hold back!
+  Add source documents for anything you want the agent to reference consistently, such as pricing, terms, or messaging.
 </Tip>
 
 <Tip>
-  **Use live links** - Prefer Drive links and URLs over static uploads when possible.
+  Refresh the context when your positioning, pricing, or client mix changes significantly.
 </Tip>
 
 <Tip>
-  **Include examples** - Show Agent examples of good invoices, emails, proposals.
-</Tip>
-
-<Tip>
-  **Set clear preferences** - Tell Agent your preferred communication style, terms, etc.
-</Tip>
-
-<Tip>
-  **Review insights** - Trigger business analysis regularly for actionable recommendations.
+  Review generated context after a rebuild. Treat it as a draft to refine, not untouchable output.
 </Tip>
 
 ## Troubleshooting
 
-### Agent Not Using Context
+### Agent Not Using My Context
 
 **Check:**
-- Context saved properly
+- Your changes were saved
 - Files uploaded successfully
-- Links accessible
-- Prompt not too vague
+- Links are still accessible
+- The context is specific enough to be actionable
 
-**Solution:**
-- Re-save organization prompt
-- Re-upload files
-- Verify link permissions (Drive)
-- Make prompt more specific
+**Try this:**
+- Tighten vague sections
+- Re-upload important files
+- Fix broken links or permissions
+- Ask the agent a task that clearly depends on the context you added
 
 ### File Upload Failed
 
 **Check:**
-- File size under 5MB
-- Supported format
-- Internet connection
-- Storage quota
+- File format is supported
+- Internet connection is stable
+- The file is not corrupted
 
-**Solution:**
-- Compress large files
-- Convert to PDF
-- Use Drive link instead
-- Contact support
+**Try this:**
+- Compress or convert the file
+- Upload a PDF instead of a more complex format when possible
+- Use a Drive link if the file works better as a live document
 
 ### Drive Link Not Working
 
-**Verify:**
-- File permissions (shared with your account)
-- Link not expired
-- File not deleted
-- Google Drive integration connected
+**Check:**
+- Google Workspace is connected
+- The file still exists
+- The account permissions are correct
 
-**Solution:**
-- Check file sharing settings
-- Reconnect Google Drive
-- Use direct file upload instead
+**Try this:**
+- Reconnect Google
+- Re-add the Drive file
+- Use a direct upload if you need a fixed copy instead
 
 ## Next Steps
 
 <CardGroup cols={2}>
   <Card
-    title="Chat with Agent"
-    icon="robot"
-    href="/ai/every-agent"
+    title="Voice & Tone"
+    icon="message-square"
+    href="/ai/voice-and-tone"
   >
-    Use Agent with your custom context
+    Control how the agent writes, separately from what it knows
   </Card>
 
   <Card
-    title="Connect Drive"
-    icon="google"
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    See how Business Context improves day-to-day agent work
+  </Card>
+
+  <Card
+    title="Google Workspace"
+    icon="mail"
     href="/integrations/google-workspace"
   >
-    Link Google Drive for file references
+    Connect Google so you can add Drive references and workspace context
   </Card>
 
   <Card
@@ -407,7 +264,7 @@ documentation. Never compromise on security for speed.
     icon="building"
     href="/getting-started/organization-setup"
   >
-    Complete your organization profile
+    Complete your company profile and defaults
   </Card>
 </CardGroup>
 

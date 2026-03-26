@@ -1,322 +1,266 @@
 ---
 title: "Every Agent"
-description: "Your AI-powered business assistant with deep context, intelligent planning, and autonomous execution"
+description: "Your AI-powered business assistant with direct execution, business context, and integration access"
 icon: "sparkles"
 ---
 
 ## Overview
 
-Every Agent is Every's conversational assistant that understands your business and manages day-to-day operations. Instead of clicking through menus, describe what you need in natural language - Every Agent handles it.
+Every Agent is Every's conversational assistant. Instead of clicking through menus, you can describe what you need in natural language and the agent can create, update, analyze, and draft across your workspace.
 
-**Core Philosophy:** Every Agent isn't just a chatbot - it's an intelligent system with deep business knowledge, integration access, and autonomous multi-step workflow execution.
+**What makes it useful:**
+- It has access to your business data in Every
+- It can use your saved business context and brand voice
+- It can connect to external systems like Google Workspace, Xero, HubSpot, and Granola
+- It handles multi-step workflows without you mapping every click yourself
 
 ## Agent Context & Intelligence
 
-Every Agent knows your business through multiple layers of context:
+Every Agent understands your business through several layers of context:
 
-### Organization Prompt
+### Business Context
 
-Your **organization prompt** is custom instructions that shape every interaction. Think of it as an always-present briefing document.
+Your [Business Context](/ai/business-context) is the persistent narrative context that explains how your business works.
 
-**What to Include:**
-- Business description and services
-- Target clients and ideal customers
-- Communication style preferences
-- Pricing philosophy and values
-- Special requirements or workflows
+**Use it for:**
+- What your business does
+- Who you serve
+- Your services, products, and pricing logic
+- Common workflows or constraints
+- Policies the agent should follow
 
-**Example:**
-```
-We're a boutique digital marketing agency specializing in e-commerce brands
-generating $1M-$10M annually. We offer paid advertising (Facebook, Google),
-email marketing, and conversion optimization.
+**Where to manage it:** [**Agent Settings → Context**](https://every.ai/agent/settings/context)
 
-Typical retainers: $3K-$10K/month. Communication should be professional but
-friendly, data-driven, results-focused. Always emphasize ROI.
+### Voice & Tone
 
-Default terms: Net 30, detailed line items showing hours and deliverables,
-include next month's strategy preview in notes.
-```
+Your [Voice & Tone](/ai/voice-and-tone) profile is separate from Business Context. It is generated from your email history and helps the agent write in the right style when it is drafting on behalf of your business.
 
-**How Every Agent Uses It:**
-- References your prompt before every response
-- Shapes invoice creation, line items, notes, and tone
-- Guides email drafting and client communication
-- Informs pricing recommendations and maintains brand voice
+**Use it for:**
+- Client-facing writing style
+- Internal casual communication
+- Non-client external communication
 
-<Tip>
-  Update your organization prompt in [**Agent Settings → Context**](https://every.ai/agent/settings/context). The more specific you are, the better Every Agent understands your business!
-</Tip>
+**Where to manage it:** [**Agent Settings → Voice & Tone**](https://every.ai/agent/settings/voice-tone)
+
+<Note>
+  Business Context tells the agent what your business does. Voice & Tone tells it how your business sounds when writing.
+</Note>
 
 ### File & Link References
 
-Every Agent accesses reference materials you upload:
+Every Agent can use reference materials you upload or link in Business Context:
 
-**Supported File Formats:**
-- **PDF** - Contracts, proposals, reports (with OCR for scanned documents)
-- **Excel (XLSX, XLS)** - Spreadsheets, financial reports, data exports
-- **Word (DOCX)** - Contracts, proposals, agreements
-- **CSV** - Data exports, client lists, transaction records
-- **Images (JPG, PNG, GIF, WEBP)** - Receipts, screenshots, photos
-- **Text (TXT)** - Plain text files
+**Supported file types include:**
+- PDF
+- Word documents
+- Excel spreadsheets
+- CSV files
+- Images
+- Plain text files
 
-**Other References:**
-- **Google Drive Links**: Live documents (proposals, templates, policies)
-- **Web URLs**: Your website pages (services, pricing, about us)
-
-**How Agent Uses Files:** Extracts data from spreadsheets, reads contracts for terms, processes receipts for expenses, analyzes reports, and references documents when creating invoices or proposals
+**Common uses:**
+- Contracts and agreements
+- Rate cards
+- Brand guidelines
+- Client lists
+- Policies or process docs
 
 ### Integration Access
 
-Every Agent connects directly to your integrations:
+Every Agent can connect to external systems so it can answer questions and act with more context:
 
 **Google Workspace:** Gmail, Calendar, Drive, Contacts
-**Stripe Payments:** Payment status via database records
-**Xero Accounting:** Full access to invoices, contacts, payments, and financial reports
-**HubSpot CRM:** Search contacts, companies, and deals conversationally
-**Granola Meeting Notes:** Search meetings, pull notes and transcripts, chat about what was discussed
-**Your Business Data:** All clients, invoices, time entries, expenses, offerings
 
-This means Every Agent can say: *"I see ACME Corp paid their invoice yesterday"*, *"You have 3 overdue invoices totaling $12,500"*, *"Your Xero balance sheet shows $50,000 in receivables"*, or *"In your meeting with Sam last week, you agreed on a $15,000 monthly retainer"* without you providing context.
+**Xero:** Invoices, contacts, payments, accounting reports
 
-<Note>Xero, HubSpot, and Granola integrations provide agent-powered access - ask Every Agent to look up or manage data in these systems. Connect them in Settings → Integrations.</Note>
+**HubSpot:** Contacts, companies, deals
 
-### Business Intelligence
+**Granola:** Meeting notes, summaries, transcripts
 
-Every Agent can run **business intelligence analysis** on demand to synthesize patterns across your data:
+**Where to connect integrations:**
+- Google Workspace: [**Settings → Integrations**](https://every.ai/settings/integrations)
+- Xero, HubSpot, Granola: [**Agent Settings → Integrations**](https://every.ai/agent/settings/integrations)
 
-**What Gets Analyzed:** Email patterns, calendar rhythms, financial trends, payment behavior, document patterns
+### Workspace Data
 
-**Example Insights:**
-```
-"Your top 3 clients generate 60% of revenue - consider diversifying"
-
-"Consulting services have 85% margin vs 40% for implementation"
-
-"Average days to payment: 45 days with Net 30 terms"
-```
-
-**To Run Analysis:** Click the "Run Analysis" button in the Business Context settings panel or ask Every Agent to "analyze my business performance"
-
-Every Agent references these insights when you ask: "How's my business doing?" or "What should I focus on this quarter?"
+The agent can work directly with your data in Every, including:
+- Clients and contacts
+- Invoices and payments
+- Proposals
+- Services and products
+- Time entries and expenses
+- Bookings and recurring invoice automations
 
 ## How Every Agent Works
 
-Every Agent operates in **direct execution mode**, handling your requests conversationally and performing actions immediately.
+Every Agent operates in direct execution mode.
 
-### Direct Execution
-
-Every Agent processes your requests in real-time, executing actions as you describe them:
-
-**How It Works:**
-- You describe what you need in natural language
-- Every Agent understands the context and performs the action
-- Results are shown immediately in the conversation
-- Complex multi-step operations are handled autonomously
+**What that means:**
+- You describe the task
+- The agent figures out the steps
+- It shows or confirms the result as needed
+- You continue refining conversationally
 
 **Examples:**
-```
+
+```text
 "Create an invoice for ACME Corp for $5,000 for consulting services"
-→ Agent creates invoice immediately and shows you the result
-
-"Send payment reminders to all overdue invoices"
-→ Agent identifies overdue invoices and sends reminders in real-time
-
-"Show me my top 5 clients by revenue"
-→ Agent queries your data and presents the analysis
+"Show me all overdue invoices and draft reminders"
+"Find the HubSpot deal for Acme and summarize what stage it's in"
+"Pull the action items from my Granola meeting with Sarah last week"
 ```
-
-<Tip>
-  Every Agent handles complex operations behind the scenes, breaking them into steps automatically without requiring explicit planning approval.
-</Tip>
 
 ## Core Capabilities
 
-Every Agent performs actions across all major features:
+### Client & Contact Management
 
-**Client Management** - Create/update/archive [clients](https://every.ai/clients) and [contacts](https://every.ai/contacts), import from Google/LinkedIn/CSV, enrich with company data, manage contact roles
+- Create and update clients
+- Create and link contacts
+- Import contacts from Google, LinkedIn, or CSV
+- Enrich company records with additional context
 
-**Contact Management** - Create/update/link [contacts](https://every.ai/contacts) to clients, import from LinkedIn and Google, set invoice/proposal roles
+### Invoices & Payments
 
-**Invoice Operations** - Create from scratch or templates, add line items, apply taxes/discounts, schedule sends, track delivery
+- Create invoices from scratch
+- Add services, products, time, and expenses
+- Apply tax and discounts
+- Schedule sends
+- Record manual payments
+- Check Stripe-linked payment state
 
-**Payment Tracking** - Record manual payments, claim to invoices, check Stripe status, send reminders
+### Proposals
 
-**Time & Expense Management** - Log entries, parse receipt images, categorize for taxes, mark billable, add to invoices
+- Draft structured proposals
+- Add scope and pricing
+- Track approval status
+- Convert approved proposals into invoices
 
-**Proposals & Estimates** - Create detailed proposals, track approvals, convert to invoices
+### Services, Products, Time & Expenses
 
-**Automations** - Set up recurring schedules, test workflows, activate/deactivate, review history
+- Create or update service records
+- Create or update products and pricing
+- Log time entries
+- Parse receipt uploads into expenses
+- Add unbilled time or expenses to invoices
 
-**Data Analysis** - Revenue reporting, client analysis, cash flow projections, pattern recognition
+### Automations & Bookings
 
-**File Processing** - Read Excel (XLS/XLSX), Word (DOCX), CSV, PDF files; extract data from spreadsheets; process receipts from images
+- Create recurring invoice automations
+- Pause or update automations
+- Review execution history
+- Check upcoming bookings or create booking records
+
+### Reporting & Analysis
+
+- Revenue summaries
+- Overdue and cash-flow reviews
+- Client concentration analysis
+- Service and product usage trends
 
 ## Interaction Best Practices
 
 ### Be Specific
 
 ❌ **Vague:** "Make an invoice"
+
 ✅ **Specific:** "Create an invoice for ACME Corp for consulting services, $5,000, due in 30 days"
 
-### Provide Context
+### Give Enough Context
 
-**Good Context:**
-```
+```text
 "Create an invoice for the website redesign project with ACME Corp.
-Include 40 hours at $150/hour plus $500 hosting setup fee. Net 30 terms."
+Include 40 hours at $150/hour plus a $500 hosting setup fee.
+Use Net 30 terms."
 ```
-
-**Why:** Agent knows exactly what to include, no back-and-forth needed, correct pricing applied
-
-### Review Proposals
-
-Every Agent shows what it's about to do before acting:
-
-```
-Agent: "I'll create an invoice for ACME Corp with:
-- Line item: Website Redesign - 40 hours @ $150/hr = $6,000
-- Line item: Hosting Setup (one-time) = $500
-- Total: $6,500
-- Terms: Net 30 (due [date])
-
-Should I create this invoice?"
-```
-
-**Review carefully:** Amounts, client names, line items, due dates
 
 ### Iterate Naturally
 
-Every Agent remembers context for refinement:
-
-```
+```text
 You: "Create an invoice for ACME Corp for $5,000"
-Agent: [Shows preview]
-You: "Actually make it $5,500 and add a thank you note"
-Agent: [Updates and shows revised version]
+Agent: [Shows draft]
+You: "Actually make it $5,500 and add a thank-you note"
+Agent: [Updates the draft]
 You: "Perfect, send it"
-Agent: [Sends and provides tracking link]
 ```
 
-### Ask Questions
+### Ask Analytical Questions Too
 
-```
+```text
 "Who are my top 5 clients by revenue?"
-"How many overdue invoices do I have?"
-"Which clients haven't been invoiced in 6 months?"
-"Show me expenses I haven't billed back to clients"
+"Which invoices are overdue?"
+"What services generated the most revenue last quarter?"
+"Show me expenses I still need to bill back to clients"
 ```
 
 ## Advanced Workflows
 
 ### File Processing
 
-Every Agent can read and extract data from all the file formats listed above (Excel, Word, CSV, PDF, images).
+Every Agent can read supported uploads and help you work with them:
 
-**What you can do:**
-- Extract data from Excel spreadsheets (multi-sheet support)
-- Read contracts and proposals from Word documents
-- Process CSV data files and exports
-- Scan receipts from images with OCR
-- Analyze PDF reports and statements
-
-```
-You: "Extract the client list from this Excel file"
-[Upload XLSX]
-Agent: "I found 150 clients in Sheet 1. Here are the columns:
-       Name, Email, Phone, Company, Last Invoice Date..."
-
-You: "Read this contract and tell me the payment terms"
-[Upload DOCX]
-Agent: "This consulting agreement specifies Net 30 payment terms,
-       with a 1.5% late fee after 60 days..."
+```text
+"Extract the client list from this spreadsheet"
+"Read this contract and tell me the payment terms"
+"Import this CSV of historical invoices"
+"Log this receipt"
 ```
 
-<Card title="Full File Processing Guide" icon="file-import" href="/data/csv-import">
-  Complete documentation: Supported formats, Excel multi-sheet handling, Word document extraction, and best practices
+<Card title="Import Data Guide" icon="file-import" href="/data/csv-import">
+  See supported import formats, file handling, and batch workflow details
 </Card>
 
 ### Batch Updates
 
-Beyond imports, Every Agent can batch-update existing records:
+Every Agent can also batch-update existing records:
 
-**Examples:**
+```text
+"Update all enterprise clients to Net 45"
+"Archive clients with no invoice activity in the last 2 years"
+"Change tax rate to 13% on all consulting services"
+"Add accounts@company.com as a CC contact for all corporate clients"
 ```
-"Update all clients in 'Enterprise' category to Net 45 payment terms"
-"Add CC email accounts@company.com to all corporate clients"
-"Archive all clients with no invoice activity in the last 2 years"
-"Change tax rate to 13% on all offerings in the 'Consulting' category"
-"Mark all unpaid invoices over 90 days as overdue"
-```
-
-### Complex Analysis
-
-```
-"Analyze my revenue by client for Q4 and create a report showing
-top performers, growth trends, and clients at risk"
-```
-
-Agent will query data, calculate trends, identify issues, generate formatted report, provide insights.
 
 ### Multi-Step Setup
 
-```
-"Set up my business for 2025:
-1. Create new offering for consulting at $175/hour
-2. Update all automations to use new rate
-3. Send rate change notice to retainer clients"
+```text
+"Set up my consulting business for 2026:
+1. Create a new service for strategy work at $175/hour
+2. Update my recurring automations to use the new rate
+3. Draft a rate change note for retainer clients"
 ```
 
-Every Agent breaks this into steps, shows the complete plan, executes systematically, and tracks completion.
+The agent can break that into steps and work through it conversationally.
 
 ## Voice Input
 
-Every Agent supports voice input - speak your requests instead of typing.
+Every Agent supports voice input.
 
-**How it works:** Click the **microphone icon** in the chat input → Speak your request → Audio is transcribed and sent as a message → Every Agent processes your request normally.
+**How it works:** Click the microphone icon in the chat input → speak your request → your speech is transcribed and sent as a normal agent message.
 
-**Use cases:**
-- Quick time entries while working: "Log 2 hours of consulting for ACME Corp"
-- Hands-free expense logging: "Add an expense, $45 at Staples for office supplies"
-- Mobile convenience: Speak requests when typing is inconvenient
-
-<Tip>
-  Voice input works with all agent capabilities - anything you can type, you can say.
-</Tip>
+**Useful for:**
+- Logging time while working
+- Capturing expenses quickly
+- Sending short requests from mobile
 
 ## Learned Preferences
 
-Every Agent remembers your business rules and preferences over time, getting smarter with each interaction.
+Every Agent can remember specific business rules over time.
 
-**How it works:** As you work with Every Agent, it picks up on patterns and explicitly stated preferences, saving them for future use.
-
-**Examples of learned preferences:**
+**Examples:**
 - "ACME Corp always gets Net 15 terms"
 - "Never apply tax to consulting services"
-- "Default due date is 45 days for enterprise clients"
-- "Include project reference numbers on all invoices for TechStart"
+- "Enterprise clients default to 45-day terms"
+- "Always include project reference numbers on TechStart invoices"
 
-**Managing preferences:** View and edit saved preferences in [**Agent Settings → Learned Preferences**](https://every.ai/agent/settings/learned-preferences).
-
-<Tip>
-  **Ask Every Agent:** "Remember that ACME Corp always gets a 10% discount" or "From now on, use Net 45 for all enterprise clients"
-</Tip>
+Manage saved preferences in [**Agent Settings → Learned Preferences**](https://every.ai/agent/settings/learned-preferences).
 
 ## Getting Started
 
-### First Conversation
-
-1. **Simple query:** "Show me my last 5 invoices"
-2. **Create something:** "Create a test invoice for $100"
-3. **Multi-step task:** "Import this CSV of 20 contacts"
-4. **Ask for insights:** "What are my most common services?"
-
-### Customize Your Context
-
-1. **Set Organization Prompt** - Describe business, services, preferences
-2. **Upload Reference Files** - Agreements, rate cards, brand guidelines (PDF, Word, Excel supported)
-3. **Connect Integrations** - Google Workspace, Stripe, Xero, HubSpot, Granola
-4. **Test:** "Create an invoice for my standard consulting service" - verify Agent uses your rates and terms
+1. Ask a simple question like "Show me my last 5 invoices"
+2. Try an action like "Create a draft invoice for $100"
+3. Add [Business Context](/ai/business-context)
+4. Review [Voice & Tone](/ai/voice-and-tone)
+5. Connect Google Workspace and any agent integrations you use
 
 ## Next Steps
 
@@ -326,23 +270,23 @@ Every Agent remembers your business rules and preferences over time, getting sma
     icon="brain"
     href="/ai/business-context"
   >
-    Customize Every Agent's understanding of your business
+    Teach the agent how your business works
+  </Card>
+
+  <Card
+    title="Voice & Tone"
+    icon="message-square"
+    href="/ai/voice-and-tone"
+  >
+    Shape how the agent writes on behalf of your business
   </Card>
 
   <Card
     title="Try Every Agent"
-    icon="message"
+    icon="message-circle"
     href="https://every.ai"
   >
-    Start chatting with Every Agent now
-  </Card>
-
-  <Card
-    title="Core Features"
-    icon="sparkles"
-    href="/features/clients"
-  >
-    Learn what Every Agent can help you manage
+    Start chatting with Every Agent in the app
   </Card>
 
   <Card
@@ -350,10 +294,10 @@ Every Agent remembers your business rules and preferences over time, getting sma
     icon="route"
     href="/workflows/common-workflows"
   >
-    See example workflows and agent interactions
+    See example workflows and prompts
   </Card>
 </CardGroup>
 
 <Note>
-  **Remember:** Every Agent learns from your context. The more you customize your organization prompt and upload references, the better Every Agent understands and serves your business!
+  The better your Business Context, Voice & Tone, and integrations are set up, the more useful Every Agent becomes.
 </Note>

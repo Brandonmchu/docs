@@ -6,9 +6,54 @@ icon: "sparkles"
 
 ## March 2026
 
+### Voice & Tone
+
+Released March 25, 2026.
+
+Every Agent now has a dedicated **Voice & Tone** workspace that helps it write more consistently on behalf of your business.
+
+**What's new:**
+- **Audience-specific voice profiles** — separate guidance for client-facing, internal/casual, and non-client external writing
+- **Generated from email history** — Every can build an initial voice profile from how your business already communicates
+- **Editable tone controls** — refine the description, tags, and example snippets for each audience
+- **Used only when relevant** — the profile is applied to drafting flows without bloating everyday operational chat
+
+**How to use it:**
+[Agent Settings → Voice & Tone](https://every.ai/agent/settings/voice-tone) → Review generated profiles → Edit or refresh as needed
+
+<Tip>
+  **Ask Every Agent:** "Draft this proposal in my normal client-facing tone" or "Write a follow-up note that sounds like us"
+</Tip>
+
+---
+
+### Branded Client Portal & Public URLs
+
+Released March 10, 2026.
+
+Every now supports a branded client-facing surface across your portal, invoices, proposals, and booking flow.
+
+**What's new:**
+- **Branded subdomain** — use `{your-slug}.every.ai` for client-facing links
+- **Client portal** — contacts can log in with a magic link to view their invoices and proposals
+- **Shared public surface** — invoices, proposals, and booking can all live under the same branded domain
+- **Portal shortcuts** — direct links for invoice and proposal sections on the portal
+- **Backward compatibility** — root-domain public links still work, while branded links become the preferred experience
+
+**How to use it:**
+Set your subdomain slug in organization settings, then share branded links like `{your-slug}.every.ai`, `{your-slug}.every.ai/invoice/{public_id}`, `{your-slug}.every.ai/proposal/{public_id}`, and `{your-slug}.every.ai/book`
+
+<Tip>
+  Use the client portal when you want clients to revisit invoices and proposals without digging through old email threads.
+</Tip>
+
+---
+
 ### Client Booking Page
 
-Let clients book appointments directly through your public booking page at `{your-slug}.every.ai`.
+Released March 5, 2026.
+
+Let clients book appointments directly through your public booking page at `{your-slug}.every.ai/book`.
 
 **What's new:**
 - **Public booking page** — clients select a service, pick a date and time, fill in details, and pay if required
@@ -18,11 +63,11 @@ Let clients book appointments directly through your public booking page at `{you
 - **Google Calendar integration** — block busy slots automatically and create calendar events on booking
 - **Automated emails** — confirmation, 24-hour reminder, 1-hour reminder, cancellation, and reschedule notifications
 - **Client self-service** — clients cancel or reschedule via a secure link (no login needed)
-- **Deep data integration** — uses your existing Offerings, auto-creates Contacts and Clients, auto-creates paid Invoices
+- **Deep data integration** — uses your existing Services, auto-creates Contacts and Clients, auto-creates paid Invoices
 - **Booking policy editor** — add cancellation terms and instructions with rich text formatting
 
 **How to use it:**
-[Booking Settings](https://every.ai/clients/booking/config/settings) → Select bookable offerings → Set availability → Share your link
+[Booking Settings](https://every.ai/clients/bookings/settings) → Select bookable services → Set availability → Share your link
 
 <Tip>
   **Ask Every Agent:** "Create a booking for Sarah Chen next Tuesday at 2pm" or "Show me all upcoming bookings this week"

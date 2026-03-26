@@ -55,7 +55,7 @@ Go to [**Automations**](https://every.ai/invoices/automations) → **Create Auto
 1. **Client**: Select who to invoice
 2. **Schedule**: Daily, Weekly, Monthly, Quarterly, or Yearly
 3. **Start Date**: When automation begins
-4. **Line Items**: Add services/products (use offerings for consistency)
+4. **Line Items**: Add services/products (reuse your saved catalog when possible)
 5. **Action**: Create as Draft (review first) or Send Immediately (auto-send)
 6. **End Date** (optional): When automation stops
 7. **Save**
@@ -97,11 +97,11 @@ Go to [**Automations**](https://every.ai/invoices/automations) → **Create Auto
 
 ### Adding Line Items
 
-Line items work like regular invoices - add from **Offerings** (recommended for consistency) or enter manually with description, quantity, rate, and tax.
+Line items work like regular invoices. Add from saved **Services** or **Products** when you want consistency, or enter them manually with description, quantity, rate, and tax.
 
 <Tip>
   **Ask Every Agent:** To add or modify line items in automations:
-  - "Add my 'Marketing Strategy' offering to the ACME Corp automation"
+  - "Add my 'Marketing Strategy' service to the ACME Corp automation"
   - "Update the Tech Co automation to include two line items: design services at $2,000 and consulting at $1,500"
   - "Change the monthly automation for XYZ to bill $3,500 instead of $3,000"
   - "Add a 10% discount to the retainer automation for VIP Client"
@@ -237,7 +237,7 @@ Automated invoices inherit all organization settings: logo, colors, template, cu
 
 **Key practices:**
 - Test before activating (use test mode)
-- Use offerings for consistency
+- Use saved services/products for consistency
 - Start with "Create as Draft" until confident
 - Set end dates for fixed contracts
 - Review execution history regularly
@@ -278,7 +278,7 @@ Create automation → Select client → Yearly schedule → Set anniversary date
 |-------|-------|----------|
 | **Automation not running** | Status is Active, next run date, start/end dates, client exists | Activate if inactive, verify dates and client status, review execution history |
 | **Test invoice not generated** | Test mode enabled, automation saved, organization email configured | Re-enable test mode, save, check drafts and spam folder |
-| **Wrong amount** | Line item amounts, tax settings, discounts, offering rates | Edit automation, update amounts, verify offerings, re-test |
+| **Wrong amount** | Line item amounts, tax settings, discounts, saved service/product pricing | Edit automation, update amounts, verify pricing, re-test |
 | **Wrong client** | Not possible - each automation tied to specific client | If seeing this, check which automation generated which invoice |
 
 <Tip>
@@ -327,11 +327,11 @@ Create automation → Select client → Yearly schedule → Set anniversary date
   </Card>
 
   <Card
-    title="Use Offerings"
+    title="Use Services"
     icon="list"
-    href="/features/offerings"
+    href="/features/services"
   >
-    Set up service templates for automation line items
+    Set up reusable services for automation line items
   </Card>
 
   <Card

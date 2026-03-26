@@ -1,0 +1,102 @@
+---
+title: "Client Portal"
+description: "Give clients a branded portal for invoices, proposals, and booking"
+icon: "globe"
+---
+
+## Overview
+
+The client portal gives each organization a branded public home on its subdomain, such as `your-company.every.ai`. Clients can use it to sign in by email, review documents, and move between your public invoice, proposal, and booking pages without juggling separate links.
+
+**What clients can do:**
+- Sign in with a magic link sent to their email
+- View invoices they are allowed to access
+- View proposals they are allowed to access
+- Jump into booking if online booking is enabled
+
+**What you get:**
+- A branded client-facing URL
+- One place for invoices, proposals, and booking
+- Public links that use your branded subdomain automatically
+
+<Card title="Open Organization Settings" icon="settings" href="https://every.ai/settings" horizontal>
+  Set your branding and subdomain in Every
+</Card>
+
+## Setting Up Your Branded Subdomain
+
+Go to [**Settings**](https://every.ai/settings) and choose your subdomain in the organization area, or use the globe shortcut in the app navigation when available.
+
+Once set, Every uses that subdomain across your public client-facing pages:
+- `https://your-company.every.ai/` for the client portal
+- `https://your-company.every.ai/invoice/...` for public invoices
+- `https://your-company.every.ai/proposal/...` for public proposals
+- `https://your-company.every.ai/book` for online booking
+
+<Note>
+  Existing root-domain public links still keep working, so older shared links do not immediately break when you add a branded subdomain.
+</Note>
+
+## How Clients Sign In
+
+Clients do not need a password. They enter their email address and Every sends a secure magic link to that inbox.
+
+After signing in, clients can see the invoices and proposals they are allowed to access based on their linked contact roles.
+
+## How It Works with Invoices, Proposals, and Booking
+
+The client portal is part of the same branded public surface as your other client-facing pages.
+
+- **Invoices** open on the same branded subdomain
+- **Proposals** open on the same branded subdomain
+- **Booking** uses the same branded subdomain and can appear as a CTA inside the portal when booking is enabled
+
+This means the client experience feels consistent across payment, approval, and scheduling flows.
+
+## Booking Integration
+
+If you have online booking enabled, the portal can point clients directly to your booking page at `/book`.
+
+That keeps your scheduling flow inside the same branded experience instead of sending clients to a different tool.
+
+## Best Practices
+
+<Tip>
+  Use your branded subdomain early, keep your logo and brand color current, and make sure the right contacts are linked to each client so portal access is predictable.
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Invoices"
+    icon="file-text"
+    href="/features/invoices"
+  >
+    Send branded public invoices through the same client-facing surface
+  </Card>
+
+  <Card
+    title="Proposals"
+    icon="file-check"
+    href="/features/proposals"
+  >
+    Share proposals on your branded subdomain
+  </Card>
+
+  <Card
+    title="Bookings"
+    icon="calendar-check"
+    href="/features/bookings"
+  >
+    Let clients schedule through your branded `/book` page
+  </Card>
+
+  <Card
+    title="Organization Setup"
+    icon="building-2"
+    href="/getting-started/organization-setup"
+  >
+    Finish branding, defaults, and public-facing setup
+  </Card>
+</CardGroup>

@@ -1,368 +1,215 @@
 ---
 title: "Export Data"
-description: "Export invoices and expenses to CSV for accounting software like QuickBooks, Xero, Wave, or custom formats"
+description: "Export invoices and expenses to CSV for Xero, Wave, or custom formats"
 icon: "file-export"
 ---
 
 ## Overview
 
-<Card title="Open Export" icon="file-export" href="https://every.ai/export" horizontal>
+<Card title="Open Export" icon="file-export" href="https://every.ai/data/export-invoices" horizontal>
   Export your data to CSV
 </Card>
 
-Export your invoice and expense data to CSV format for import into accounting software or custom analysis. Every supports preset formats for popular platforms plus fully customizable exports.
+Export invoice and expense data to CSV for accounting software or your own reporting workflows. Every includes preset formats for Xero and Wave plus a fully customizable export mode.
 
 **Key capabilities:**
-- Preset formats for QuickBooks Online, Xero, and Wave
-- Customizable column selection and ordering
+- Preset formats for **Xero** and **Wave**
+- **Custom** exports with configurable columns
+- Invoice and expense export modes
 - Date range and status filtering
 - Live preview before download
-- Save custom templates for reuse
-- Fork presets to create custom variations
+- Reusable templates for recurring exports
+- Fork preset formats into custom ones
 
 ## Quick Start
 
-**Basic export:** Data → Export → Select type (Invoices/Expenses) → Choose format → Set date range → Preview → Download CSV
+**Invoice export:** Data → Export Invoices → Choose preset → Set filters → Preview → Download CSV
 
-**Custom export:** Choose "Custom" format → Select fields → Reorder columns → Preview → Download
+**Expense export:** Data → Export Expenses → Set filters → Preview → Download CSV
 
-**Fork a preset:** Select preset (e.g., QuickBooks) → Click "Customize" → Modify fields → Save as template
+**Custom export:** Start from Xero or Wave, click **Customize**, then add/remove/reorder columns and save as a template if needed
 
 ## Export Types
 
 ### Invoice Export
 
-Export invoice data with flexible row models and comprehensive field selection.
+Invoice export supports flexible row models and field selection.
 
-**Row Models:**
+**Row models:**
 - **Invoice Summary**: One row per invoice with totals
-- **Line Item Detail**: One row per line item (for detailed accounting)
+- **Line Item Detail**: One row per line item for more detailed accounting imports
 
-**Available Fields:**
+**Available field groups:**
 - **Invoice**: Number, issue date, due date, status, payment status, currency, total, reference, notes
 - **Client**: Name, ID
-- **Line Items**: Name, description, quantity, rate, line total, position, discount, tax applied
-- **Tax**: Tax name, rate, region, amount applied
-- **Computed**: Customer email, is_taxable, net amount, tax amount, gross amount, paid date, amount paid, balance due
+- **Line Items**: Name, description, quantity, rate, line total, discount, tax fields
+- **Computed**: Customer email, net amount, tax amount, gross amount, amount paid, balance due, paid date
 
 ### Expense Export
 
-Export expense records for accounting and tax reporting.
+Expense export is designed for bookkeeping and reimbursement workflows.
 
-**Available Fields:**
-- **Expense**: ID, date, amount, description, category, merchant name, receipt URL
-- **Client**: Name, ID (for billable expenses)
-- **Billing**: Is invoiced, invoice number, invoice ID
-- **Metadata**: Created date, user ID
+**Available field groups:**
+- **Expense**: Date, amount, description, category, merchant, receipt URL
+- **Client**: Name and ID for billable expenses
+- **Billing**: Whether the expense has been invoiced and linked invoice details
+- **Metadata**: Created date and related internal IDs
 
 ## Preset Formats
 
-### QuickBooks Online
-
-Optimized format for QuickBooks Online invoice import.
-
-**Format Details:**
-- 11 columns with QBO-specific headers
-- Date format: MM/DD/YYYY
-- 2 decimal places for amounts
-- Includes: Invoice Number, Customer, Invoice Date, Due Date, Item, Description, Quantity, Rate, Amount, Tax Code, Tax Amount
-
-**Import Steps:**
-1. Click the gear icon in QBO → Import Data → Invoices
-2. Browse and select your downloaded CSV
-3. Map columns (should auto-match)
-4. Review preview → Complete Import
-
-<Tip>
-  **QBO Limits:** Max 100 invoices or 1,000 rows per import. Split larger exports into batches.
-</Tip>
-
 ### Xero
 
-Format compatible with Xero's invoice import.
+Xero export is optimized for invoice import into Xero.
 
-**Format Details:**
-- 9 columns with Xero-required headers
-- Date format: DD/MM/YYYY
-- Includes AccountCode field (defaults to "200")
-- Headers: ContactName, InvoiceNumber, InvoiceDate, DueDate, Description, Quantity, UnitAmount, AccountCode, TaxType
+**Format details:**
+- Xero-compatible invoice columns
+- Date format: `DD/MM/YYYY`
+- Includes `AccountCode`
+- Best for draft invoice imports into Xero
 
-**Import Steps:**
-1. Go to Business → Invoices → Import
-2. Browse and select your CSV file
-3. Choose tax-inclusive or tax-exclusive
-4. Map fields → Complete Import
-5. Review imported invoices in Drafts
+**Typical import flow:**
+1. Export from Every in **Xero** format
+2. In Xero, go to **Business → Invoices → Import**
+3. Upload the CSV
+4. Review field mapping and imported drafts
 
 <Note>
-  Xero imports create draft invoices. Approve them manually after review.
+  Xero imports usually create drafts. Review them in Xero before approving or sending.
 </Note>
 
-### Wave (via Wave Connect)
+### Wave
 
-Format for Wave's Google Sheets import add-on.
+Wave export is designed for Wave Connect workflows.
 
-**Format Details:**
-- 10 columns optimized for Wave Connect
-- Date format: YYYY-MM-DD
-- Includes: Customer, Invoice Number, Invoice Date, Due Date, Product, Description, Quantity, Price, Amount, Tax
+**Format details:**
+- Columns prepared for Wave Connect
+- Date format: `YYYY-MM-DD`
+- Includes customer, invoice number, line item description, quantity, price, amount, and tax fields
 
-**Import Steps:**
-1. Install Wave Connect from Google Workspace Marketplace
-2. Open Google Sheets → Extensions → Wave Connect → Connect Account
-3. Click Extensions → Wave Connect → Upload → Select "Invoices"
-4. Click Prepare Input Sheet
-5. Paste your CSV data into the sheet
-6. Validate → Fix errors → Upload
+**Typical import flow:**
+1. Export from Every in **Wave** format
+2. Open Google Sheets with Wave Connect installed
+3. Use Wave Connect to prepare and validate the data
+4. Upload the prepared sheet to Wave
 
 <Warning>
-  Wave Connect requires Wave Pro Plan. There's no direct CSV upload—you must use the Google Sheets add-on.
+  Wave import depends on Wave Connect. There is no direct CSV upload flow in Every itself.
 </Warning>
 
-### Custom Format
+### Custom
 
-Build your own export format with full control over columns.
-
-**Features:**
-- Select any combination of available fields
-- Drag-and-drop column reordering
-- Edit column headers to match your target system
-- Save as reusable template
+Custom export gives you full control over the columns and headers.
 
 **Best for:**
-- Accounting systems not listed above
-- Custom analysis in Excel/Sheets
-- Integration with other business tools
-- Specific reporting requirements
+- Accountant-specific exports
+- Internal spreadsheet analysis
+- Systems that need different headers
+- Specialized reporting or migration work
 
 ## Filtering Options
 
 ### Date Range
 
-**Presets:**
+Use presets such as:
 - This Month
 - Last Month
 - This Quarter
 - Year to Date
 - Last Year
-- Custom (pick specific dates)
+- Custom range
 
 ### Invoice Filters
 
-**Revenue Recognition:**
-- **Issue Date**: When invoice was created/sent
-- **Due Date**: When payment is due
-- **Paid Date**: When payment was received (for cash-basis accounting)
-
-**Status Filters:**
-- Invoice Status: Draft, Issued, Paid, Overdue, Void
-- Payment Status: Unpaid, Partially Paid, Fully Paid
-
-**Other Filters:**
-- Specific clients
-- Include/exclude archived invoices
+Filter invoice exports by:
+- **Date mode**: issue date, due date, or paid date
+- **Invoice status**: draft, issued, paid, overdue, void
+- **Payment status**: unpaid, partially paid, fully paid
+- **Client**
 
 ### Expense Filters
 
-**Date Mode:**
-- Expense Date (when expense occurred)
-
-**Billing Status:**
-- All expenses
-- Invoiced only (billed to client)
-- Not invoiced (unbilled)
-
-**Other Filters:**
+Filter expense exports by:
+- Expense date
+- Billing status
 - Category
-- Include/exclude archived expenses
+- Archived vs active records
 
 ## Customizing Exports
 
 ### Fork a Preset
 
-Start with a preset format and customize it:
+Start with Xero or Wave, then customize it:
 
-1. Select a preset (e.g., QuickBooks)
-2. Click the **Customize** button next to "Columns"
-3. The Field Selector opens with preset columns pre-loaded
-4. Add, remove, or reorder columns as needed
-5. Edit column headers if required
-6. Save as a template for future use
+1. Select a preset
+2. Click **Customize**
+3. Add, remove, or reorder columns
+4. Rename headers if needed
+5. Save as a template for future reuse
 
 <Tip>
-  Forking is perfect when you need "QuickBooks format plus a few extra fields" without starting from scratch.
+  Forking is the fastest way to build a custom export that is close to Xero or Wave but needs a few extra fields.
 </Tip>
 
 ### Field Selector
 
-When using Custom format or forking a preset:
+When customizing columns:
+- Choose fields from grouped categories
+- Reorder them in the export column list
+- Rename headers to match your target system
+- Remove anything you do not need
 
-**Available Fields Panel (left):**
-- Fields organized by category (Invoice, Client, Line Item, Tax, Computed)
-- Click any field to add to export
-- Star icon indicates recommended fields
-- Checkmark shows already-selected fields
+### Templates
 
-**Export Columns Panel (right):**
-- Shows selected columns in order
-- Drag to reorder columns
-- Edit column headers (click the text)
-- Use arrow buttons to move up/down
-- X button to remove
+Save recurring export setups so your team can reuse them.
 
-### Column Types
+**Templates can store:**
+- Export type
+- Preset/custom column layout
+- Filters
+- Date mode
 
-**Field Columns:**
-Direct data from your records (invoice_number, client_name, amount, etc.)
-
-**Computed Columns:**
-Calculated values:
-- `customer_email` - Primary contact email
-- `net_amount` - Subtotal before tax
-- `tax_amount` - Total tax applied
-- `gross_amount` - Total including tax
-- `balance_due` - Amount still owed
-- `is_taxable` - Whether tax applies
-
-**Constant Columns:**
-Fixed values (e.g., Xero's AccountCode = "200")
-
-## Templates
-
-Save export configurations for reuse.
-
-### Saving a Template
-
-1. Configure your export (format, columns, filters)
-2. Click **Templates** → **Save Current as Template**
-3. Enter a name (e.g., "Q4 Tax Report", "ACME Monthly Invoice")
-4. Click Save
-
-### Using a Template
-
-1. Click **Templates** dropdown
-2. Select your saved template
-3. Configuration loads automatically
-4. Adjust date range if needed
-5. Preview and download
-
-### Managing Templates
-
-- Templates are org-specific (shared with team members)
-- Delete templates from the Templates dropdown (hover and click trash icon)
-- Templates save: format, columns, filters, date mode settings
-
-<Tip>
-  Create templates for recurring exports like "Monthly QuickBooks Sync" or "Year-End Tax Export".
-</Tip>
+**Examples:**
+- Monthly accountant export
+- Quarter-end revenue detail
+- Unbilled expense review
 
 ## Preview & Download
 
-### Generate Preview
+Before downloading, Every shows a preview so you can verify:
+- Row structure
+- Headers
+- Filter results
+- Formatting
 
-Click **Generate Preview** to see:
-- Sample of first 10 rows
-- Total row count
-- Warnings about potential issues
-- Exact column headers
+If the preview looks wrong, adjust filters or columns before generating the CSV.
 
-**Always preview before downloading** to catch:
-- Missing data in key columns
-- Wrong date format for target system
-- Unexpected empty values
-- Column order issues
-
-### Download CSV
-
-Click **Download CSV** to generate and download your export.
-
-**Filename format:** `{OrgName}_{type}_{startDate}_to_{endDate}.csv`
-
-Example: `Acme_Corp_invoices_2024-01-01_to_2024-12-31.csv`
-
-## Common Workflows
-
-### Monthly QuickBooks Sync
-
-1. Go to Export → Invoices
-2. Select QuickBooks format
-3. Set date range to "Last Month"
-4. Filter to "Issued" and "Paid" status
-5. Preview → Download
-6. Import to QuickBooks
-
-### Year-End Tax Export
-
-1. Export → Invoices
-2. Select Custom format
-3. Choose: Issue Date, Client, Amount, Tax Amount, Payment Status
-4. Date range: Last Year
-5. Download for accountant
-
-### Expense Report for Tax Filing
-
-1. Export → Expenses
-2. Date range: Last Year
-3. Preview to verify categories
-4. Download CSV
-5. Provide to accountant with receipt documentation
-
-### Custom Analysis
-
-1. Export → Invoices (or Expenses)
-2. Select Custom format
-3. Add all fields you need for analysis
-4. Download CSV
-5. Open in Excel/Sheets for pivot tables, charts, etc.
-
-## Troubleshooting
-
-**Export shows 0 rows:**
-- Check date range includes your data
-- Verify status filters aren't excluding everything
-- Ensure you have data in the system for that period
-
-**Wrong date format in accounting software:**
-- Use the correct preset for your platform
-- QuickBooks: MM/DD/YYYY
-- Xero: DD/MM/YYYY
-- Wave/Custom: YYYY-MM-DD
-
-**Import fails in accounting software:**
-- Verify column headers match exactly
-- Check for special characters in data
-- Ensure amounts don't include currency symbols
-- Review the platform's specific import requirements
-
-**Missing client names:**
-- Some exports require client names to match existing records
-- For Xero: Contact names must match exactly
-
-**Large export is slow:**
-- Exports with thousands of rows may take a few seconds
-- Preview processes faster (only 10 rows)
+<Tip>
+  Preview first when using line-item detail exports. They can produce many more rows than invoice summary mode.
+</Tip>
 
 ## Best Practices
 
 <Tip>
-  **Always preview first** - Catch issues before importing into your accounting system.
+  Use presets for standard accounting flows and custom templates for everything else.
 </Tip>
 
 <Tip>
-  **Use presets when possible** - They're optimized for each platform's requirements.
+  Pick the right date mode for your accountant. Cash-basis reporting often wants paid date; accrual workflows often want issue date.
 </Tip>
 
 <Tip>
-  **Save templates** - Avoid reconfiguring the same export every month.
+  Save templates for recurring exports instead of rebuilding them every month.
 </Tip>
 
-<Tip>
-  **Export regularly** - Monthly exports are easier to manage than annual catch-ups.
-</Tip>
+## Troubleshooting
 
-<Tip>
-  **Keep a backup** - Download and store exports before importing to accounting software.
-</Tip>
+**Export missing expected invoices:** Check date mode, status filters, and client filters.
+
+**Too many rows in CSV:** You may be using line-item detail instead of invoice summary.
+
+**Wave import issues:** Validate the data through Wave Connect and make sure customer names match what Wave expects.
+
+**Xero import issues:** Verify required columns are present and dates are in the expected Xero format.
 
 ## Next Steps
 
@@ -372,31 +219,31 @@ Example: `Acme_Corp_invoices_2024-01-01_to_2024-12-31.csv`
     icon="file-import"
     href="/data/csv-import"
   >
-    Import clients, invoices, and expenses from CSV
+    Bring historical clients, invoices, expenses, or other records into Every
   </Card>
 
   <Card
-    title="Tax Management"
-    icon="calculator"
-    href="/advanced/tax-management"
+    title="Xero Integration"
+    icon="building"
+    href="/integrations/xero"
   >
-    Configure tax rates for accurate exports
+    Connect Xero for agent-powered accounting access
   </Card>
 
   <Card
     title="Reporting"
-    icon="chart-bar"
+    icon="chart-line"
     href="/advanced/reporting"
   >
-    Analyze your data before exporting
+    Analyze the data you export and track business performance
   </Card>
 
   <Card
     title="Every Agent"
-    icon="robot"
+    icon="sparkles"
     href="/ai/every-agent"
   >
-    Ask the agent to help with exports
+    Ask the agent to help you prepare exports and analyze the results
   </Card>
 </CardGroup>
 

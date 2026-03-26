@@ -60,10 +60,12 @@
         "pages": [
           "features/clients",
           "features/contacts",
-          "features/offerings",
+          "features/services",
+          "features/products",
           "features/invoices",
           "features/payments",
           "features/bookings",
+          "features/client-portal",
           "features/automations",
           "features/proposals",
           "features/time-tracking",
@@ -90,6 +92,7 @@
         "group": "AI Features",
         "pages": [
           "ai/every-agent",
+          "ai/voice-and-tone",
           "ai/tokens-and-usage",
           "ai/undo-agent-actions",
           "ai/agent-scheduled-tasks",

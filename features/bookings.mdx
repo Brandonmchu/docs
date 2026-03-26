@@ -6,9 +6,9 @@ icon: "calendar-check"
 
 ## Overview
 
-Bookings let clients self-schedule appointments through a public page at `{your-slug}.every.ai`. You configure which offerings are bookable, set your availability and payment requirements, then share the link. Clients pick a service, choose a date and time, fill in their details, pay if required, and receive confirmation with a calendar export.
+Bookings let clients self-schedule appointments through your public booking page at `{your-slug}.every.ai/book`. You choose which services are bookable, set availability and payment requirements, then share the link. Clients pick a service, choose a time, enter their details, pay if required, and receive confirmation automatically.
 
-<Card title="Open Bookings" icon="calendar-check" href="https://every.ai/clients/booking/bookings" horizontal>
+<Card title="Open Bookings" icon="calendar-check" href="https://every.ai/clients/bookings" horizontal>
   View and manage all your bookings in Every
 </Card>
 
@@ -21,17 +21,21 @@ Bookings let clients self-schedule appointments through a public page at `{your-
 
 ## How It Works
 
-**For you (the business owner):**
-1. Create offerings you want to make bookable
-2. Configure availability, payment requirements, and booking policy
-3. Share your booking link: `{your-slug}.every.ai/booking` (set your slug in [organization settings](https://every.ai/settings))
+**For you:**
+1. Create the services you want to offer online
+2. Configure booking settings, availability, and payment behavior
+3. Share your booking link: `{your-slug}.every.ai/book`
 
 **For your clients:**
 1. Visit your booking page and select a service
-2. Pick an available date and time (shown in their local timezone)
+2. Pick an available date and time in their local timezone
 3. Fill in their details
-4. Pay if required (or skip if free / schedule-later)
-5. Receive confirmation email with calendar export
+4. Pay if required, or skip payment for free/schedule-later bookings
+5. Receive confirmation email with a calendar export
+
+<Note>
+  `/book` is the current public booking path. Older `/booking` links still redirect for compatibility.
+</Note>
 
 <Frame>
   <img src="/images/features/booking-public-services.png" alt="Public booking page showing available services" />
@@ -39,65 +43,65 @@ Bookings let clients self-schedule appointments through a public page at `{your-
 
 ## Booking Modes
 
-Every booking uses one of three modes, configured per offering:
+Every published service uses one of three booking modes:
 
 | Mode | How It Works | Best For |
-|-|-|-|
-| **Standard** | Client picks date + time + pays at booking | Paid consultations, sessions with set pricing |
-| **Free** | Client picks date + time, no payment | Discovery calls, free consultations, intro meetings |
-| **Schedule Later** | Client requests a booking, you schedule the date/time after | Custom engagements where you need to coordinate timing |
+| - | - | - |
+| **Standard** | Client picks a date and time and completes payment behavior you configured | Paid consultations, fixed sessions, structured appointments |
+| **Free** | Client picks a date and time with no payment step | Discovery calls, introductions, free consults |
+| **Schedule Later** | Client submits a request and you schedule the final time afterward | Custom engagements that need coordination |
 
 <Note>
-  Booking mode is set per offering in your booking configuration. Different offerings can use different modes.
+  Booking behavior is configured per service in Booking Settings. Different services can use different modes.
 </Note>
 
 ## Payment Options
 
-For offerings that require payment, you can choose when clients pay:
+For paid services, you can choose when payment happens:
 
 | Payment Timing | Description |
-|-|-|
-| **No payment** | No charge collected (used with Free mode) |
-| **Pay at booking** | Client pays immediately via Stripe Checkout when they book |
-| **Pay before service** | Client's card is saved at booking and charged automatically N days before the appointment |
+| - | - |
+| **No payment** | No charge collected |
+| **Pay at booking** | Client pays immediately through Stripe Checkout |
+| **Pay before service** | Client's card is collected at booking and charged automatically before the appointment |
 
 <Tip>
-  "Pay at booking" reduces no-shows since clients have already committed financially.
+  Requiring payment at booking reduces no-shows for higher-value sessions.
 </Tip>
 
 <Note>
-  Payment collection requires a connected Stripe account. Set up Stripe in [Settings](https://every.ai/settings) if you haven't already.
+  Payment collection requires a connected Stripe account. Set up Stripe in [Settings → Payments](https://every.ai/settings/payments) first.
 </Note>
 
 ## Configuring Your Booking Page
 
-Go to [**Booking Settings**](https://every.ai/clients/booking/config/settings) to configure everything.
+Go to [**Booking Settings**](https://every.ai/clients/bookings/settings) to configure your booking page.
 
 <Frame>
-  <img src="/images/features/booking-admin-config.png" alt="Admin booking settings with offering configuration" />
+  <img src="/images/features/booking-admin-config.png" alt="Admin booking settings with booking configuration" />
 </Frame>
 
-### Selecting Bookable Offerings
+### Selecting Bookable Services
 
-Your booking page uses your existing Offerings. In booking settings, select which offerings should appear on your public booking page. Each offering can have its own booking mode and payment timing.
+Your booking page uses your existing [Services](/features/services). In booking settings, select which services should appear on your public booking page. Each one can have its own booking mode, payment behavior, and configuration.
 
 <Tip>
-  You don't need to create new offerings for bookings. Select from the ones you've already set up in [Offerings](https://every.ai/offerings).
+  You do not need a separate booking-only catalog. Use the same services you already quote and invoice.
 </Tip>
 
 ### Availability Schedule
 
-Set your weekly availability with day-of-week and time ranges. For example: Monday-Friday, 9:00 AM - 5:00 PM. You configure availability in your timezone — clients automatically see those times converted to their local timezone.
+Set your weekly availability with day-of-week and time ranges, for example Monday to Friday from 9:00 AM to 5:00 PM. You configure availability in your timezone and clients see those times converted automatically.
 
-**Date-specific overrides** let you block off specific dates (holidays, vacation) or add availability on days you're normally closed.
+Use **date-specific overrides** to block holidays or add special availability on specific days.
 
 ### Google Calendar Integration
 
 Connect Google Calendar to:
-- **Block busy slots** — times with existing calendar events won't appear as available
-- **Create events on booking** — confirmed bookings automatically appear on your calendar
+- Block busy slots so unavailable times do not appear
+- Create calendar events automatically when bookings are confirmed
 
-This keeps your booking page in sync with your real schedule without manual updates.
+This keeps your published schedule aligned with your actual calendar.
 
 ### Booking Policy
 
@@ -105,13 +109,13 @@ Add a booking policy using the rich text editor. This appears on your public boo
 
 ## Managing Bookings
 
-Go to [**Bookings**](https://every.ai/clients/booking/bookings) to see all your bookings.
+Go to [**Bookings**](https://every.ai/clients/bookings) to view all bookings.
 
 <Frame>
   <img src="/images/features/booking-admin-list.png" alt="Admin bookings dashboard with stats and booking table" />
 </Frame>
 
-The bookings dashboard shows summary stats and a table of all bookings with status, client, service, date/time, and payment info.
+The bookings dashboard shows summary stats plus a table of all bookings with status, client, service, date/time, and payment info.
 
 <Tip>
   **Ask Every Agent:** Manage your schedule:
@@ -125,40 +129,38 @@ The bookings dashboard shows summary stats and a table of all bookings with stat
 Every sends automated emails throughout the booking lifecycle:
 
 | Email | When It's Sent |
-|-|-|
+| - | - |
 | **Confirmation** | Immediately after booking is created |
 | **24-hour reminder** | 24 hours before the appointment |
 | **1-hour reminder** | 1 hour before the appointment |
 | **Cancellation** | When a booking is cancelled |
-| **Reschedule** | When a booking is rescheduled to a new time |
+| **Reschedule** | When a booking is moved to a new time |
 
 <Note>
-  All automated emails are sent to the client's email address provided during booking. No configuration needed — they work out of the box.
+  These emails work automatically and go to the email address the client entered during booking.
 </Note>
 
 ## Public Manage Page
 
-Clients can cancel or reschedule their own bookings through a secure link included in their confirmation email. This link uses a unique token — no login required.
+Clients can cancel or reschedule their own bookings through a secure link included in confirmation and reminder emails. No login is required for that booking-specific manage flow.
 
 Clients can:
-- View their booking details
+- View booking details
 - Cancel the booking
 - Reschedule to a new available time
 - Export the appointment to their calendar
 
-<Tip>
-  The manage link is included in every confirmation and reminder email, so clients always have easy access.
-</Tip>
-
 ## Integration with Your Data
 
-Bookings connect deeply with the rest of Every:
+Bookings connect directly with the rest of Every:
 
-**Offerings:** Your booking page pulls directly from your existing offerings. No duplicate setup needed.
+**Services:** Your booking page pulls from your existing services, so pricing and descriptions stay consistent.
 
-**Contacts & Clients:** When someone books for the first time, Every automatically creates a Contact and Client record for them. Returning clients are matched to their existing records.
+**Contacts & Clients:** When someone books for the first time, Every automatically creates a contact and client record. Returning clients are matched to existing records when possible.
 
-**Invoices:** When a client pays at booking, Every automatically creates a paid Invoice linked to the booking. This keeps your billing records complete without extra work.
+**Invoices:** When a client pays during booking, Every automatically creates a paid invoice linked to the booking.
+
+**Client Portal:** If you use a branded subdomain, booking can live alongside your invoice, proposal, and client portal experience.
 
 <Tip>
   **Ask Every Agent:** Check booking-related records:
@@ -169,46 +171,46 @@ Bookings connect deeply with the rest of Every:
 ## Best Practices
 
 <Tip>
-  **Start with a few offerings** — Enable booking for your most popular services first and expand from there.
+  Start with a small set of popular services, then expand once the flow is working well.
 </Tip>
 
 <Tip>
-  **Keep availability current** — Use date-specific overrides for holidays and time off. Connect Google Calendar to automatically block busy times.
+  Keep availability current. Use date overrides for holidays and connect Google Calendar to avoid double-booking.
 </Tip>
 
 <Tip>
-  **Require payment for high-value sessions** — "Pay at booking" significantly reduces no-shows for paid consultations.
+  Require payment for higher-value sessions when appropriate. It reduces no-shows and shortens the path to cash collected.
 </Tip>
 
 <Tip>
-  **Write a clear booking policy** — Include cancellation terms and any preparation instructions so clients know what to expect.
+  Write a clear booking policy so clients know your cancellation rules and any prep expectations before they confirm.
 </Tip>
 
 ## Common Workflows
 
-**Standard Paid Consultation:** Configure offering with Standard mode + Pay at booking → Share link → Client books and pays → Both get confirmation → Google Calendar event created → Reminders sent automatically → Meet with client
+**Paid Consultation:** Configure service with Standard mode and Pay at booking → Share link → Client books and pays → Confirmation sent → Calendar event created → Reminders go out automatically
 
-**Free Discovery Call:** Configure offering with Free mode → Share link → Client books → Confirmation sent → Reminders at 24h and 1h → Meet with client → Follow up with a proposal or invoice
+**Free Discovery Call:** Configure service with Free mode → Share link → Client books → Confirmation sent → Meet with client → Follow up with a proposal or invoice
 
-**Custom Engagement (Schedule Later):** Configure offering with Schedule Later mode → Client requests booking with their details → You review and schedule a specific date/time → Client receives confirmation → Reminders sent automatically
+**Custom Engagement:** Configure service with Schedule Later mode → Client requests booking → You confirm a final time → Client receives confirmation → Reminders go out automatically
 
 ## Troubleshooting
 
-**Clients don't see available times:** Check your weekly availability schedule. Verify Google Calendar isn't blocking all slots with existing events. Check date-specific overrides aren't blocking the dates.
+**Clients do not see available times:** Check weekly availability, date overrides, and whether Google Calendar is blocking all open slots.
 
-**Payment not collected:** Verify Stripe is connected in Settings. Confirm the offering is configured with a payment timing other than "No payment."
+**Payment is not collected:** Verify Stripe is connected and the selected service is configured with payment enabled.
 
-**Client didn't receive confirmation:** Check the email address they entered during booking. Have them check spam/junk folders. The confirmation is sent immediately on booking creation.
+**Client did not receive confirmation:** Verify the email address entered during booking and have them check spam/junk folders.
 
-**Calendar event not created:** Verify Google Calendar is connected in your booking settings. Check that calendar event creation is enabled.
+**Calendar event not created:** Reconnect Google Calendar and verify calendar event creation is enabled.
 
 ## Next Steps
 
 <CardGroup cols={2}>
   <Card
-    title="Set Up Offerings"
+    title="Set Up Services"
     icon="tag"
-    href="/features/offerings"
+    href="/features/services"
   >
     Create the services you want to make bookable
   </Card>
@@ -230,11 +232,11 @@ Bookings connect deeply with the rest of Every:
   </Card>
 
   <Card
-    title="Manage Clients"
-    icon="users"
-    href="/features/clients"
+    title="Client Portal"
+    icon="layout-dashboard"
+    href="/features/client-portal"
   >
-    View clients created from bookings
+    Use branded public links across bookings, invoices, and proposals
   </Card>
 </CardGroup>
 

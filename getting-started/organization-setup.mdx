@@ -67,9 +67,9 @@ Create reusable note templates in **Invoices** → **Customize** for common invo
   **Ask Every Agent:** "Create a note template for Net 30 payment terms" or "Set my default invoice note to thank clients for their business"
 </Tip>
 
-## Organization Prompt (Custom Instructions)
+## Business Context
 
-You can teach Every Agent about your business to get more relevant, accurate assistance. The **Organization Prompt** acts as a persistent briefing document that shapes every agent interaction.
+You can teach Every Agent about your business to get more relevant, accurate assistance. **Business Context** is the persistent context workspace that shapes how the agent understands your company.
 
 **What to include:**
 - Business description and services
@@ -78,9 +78,9 @@ You can teach Every Agent about your business to get more relevant, accurate ass
 - Specific preferences for invoices or emails
 
 **To configure:**
-1. Open the **Chat** window
-2. Click the **Settings (gear icon)** in the chat header
-3. Edit the **Organization Prompt**
+1. Go to [**Agent Settings → Context**](https://every.ai/agent/settings/context)
+2. Edit your business context sections
+3. Save changes
 
 <Card
   title="Learn more about Business Context"
@@ -113,7 +113,7 @@ Set payment timeline (1-365 days) in **Settings** → **Organization**. Due date
 
 ### Sales Tax Default
 
-Set your standard tax percentage in **Settings** → **Organization**. Applied to new offerings and invoices.
+Set your standard tax percentage in **Settings** → **Organization**. Applied to new services and invoices.
 
 **Common values:** 5% (Canadian GST), 13% (Ontario HST), 0% (no tax)
 
@@ -161,12 +161,12 @@ Without Stripe, you can still track offline payments (cash, check, bank transfer
 
 ## Tax Management
 
-Set **Sales Tax Default** percentage in **Settings** → **Organization**. Applied to new offerings and invoices with automatic calculations.
+Set **Sales Tax Default** percentage in **Settings** → **Organization**. Applied to new services and invoices with automatic calculations.
 
 All tax calculations are **tax-exclusive** (line item amount + tax = total). For example, a $100 line item with 13% tax = $113 total.
 
 <Note>
-  Tax rates can be set per-offering and overridden per line item on each invoice.
+  Tax rates can be set per service and overridden per line item on each invoice.
 </Note>
 
 <Tip>
@@ -227,11 +227,11 @@ Once your organization is configured:
   </Card>
 
   <Card
-    title="Set Up Offerings"
+    title="Set Up Services"
     icon="list"
-    href="/features/offerings"
+    href="/features/services"
   >
-    Create service/product templates for faster invoicing
+    Create reusable billable services for faster invoicing
   </Card>
 
   <Card
@@ -239,7 +239,7 @@ Once your organization is configured:
     icon="plug"
     href="/integrations/stripe"
   >
-    Integrate Stripe, Google Workspace, or HubSpot
+    Integrate Stripe, Google Workspace, or agent integrations
   </Card>
 </CardGroup>
 
