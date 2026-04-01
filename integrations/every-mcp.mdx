@@ -1,275 +1,169 @@
 ---
 title: "Every MCP"
-description: "Connect AI coding assistants like Claude Code to your Every business data using the Model Context Protocol"
+description: "Connect Every AI to ChatGPT, Claude, Cursor, and other AI assistants"
 icon: "robot"
 ---
 
 ## Overview
 
-Every MCP (Model Context Protocol) connects AI coding assistants directly to your Every business data. Query invoices, clients, expenses, and more from within your development environment using natural language.
+Every MCP connects your Every AI account to your favorite AI assistant. Create invoices, search clients, track payments, record expenses, and more — all through natural language.
 
-**Why Use Every MCP:**
-- Access business data without leaving your IDE
-- Natural language queries for all Every features
-- Create invoices and record expenses through AI assistants
-- Secure OAuth authentication
+## AI Apps
 
-## Supported AI Assistants
+### ChatGPT
 
-Every MCP works with any AI assistant that supports the Model Context Protocol:
+{/* After app store approval, replace with:
+1. Go to [chatgpt.com/apps](https://chatgpt.com/apps) and search **Every AI**
+2. Click **Connect** and sign in with your Every AI account
+3. Start a new chat and type `@Every AI` followed by your request
+*/}
 
-- **Claude Code** (Anthropic's CLI tool)
-- **ChatGPT** (via MCP plugin)
-- **Cursor** (AI-powered code editor)
-- **Other MCP-compatible clients**
-
-## Setup Instructions
-
-**MCP Server URL:** `https://every-mcp-server-production.up.railway.app/mcp`
-
-### Claude Code
-
-**Step 1: Add the MCP server**
-
-```bash
-claude mcp add --transport http every-mcp https://every-mcp-server-production.up.railway.app/mcp
+1. Open ChatGPT → **Settings** → **Apps** → **Advanced settings**
+2. Turn on **Developer mode**
+3. Go back to **Apps** → click **Add more**
+4. Paste this URL:
 ```
-
-**Step 2: Authenticate**
-
-After adding, the server shows as "failed" until you authenticate:
-
-1. Type `/mcp` in Claude Code to open the MCP manager
-2. Select **every-mcp** from the list
-3. Click **Authenticate** - your browser opens to Every's sign-in page
-4. Sign in to your Every account and authorize access
-5. Return to Claude Code - the server should now show as connected
+https://admin-mcp.every.ai
+```
+5. Click **Add** → **Connect** → sign in with your Every AI account
+6. Start a new chat and type `@Every AI` followed by your request
 
 <Tip>
-  If authentication doesn't start automatically, try asking Claude to use an Every tool (e.g., "list my invoices") - this triggers the OAuth flow.
+  **Try it:** `@Every AI show me my invoices` or `@Every AI create an invoice for Acme Corp, $500 for consulting`
 </Tip>
 
-**Step 3: Verify**
+### Claude Desktop
 
-Ask Claude: "List my recent invoices"
-
-### Cursor
-
-Add to your MCP configuration file (`.cursor/mcp.json` for project-specific, or `~/.cursor/mcp.json` for global):
+1. Open Claude Desktop → **Settings** → **Developer** → **Edit Config**
+2. Paste this into `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "every-mcp": {
-      "url": "https://every-mcp-server-production.up.railway.app/mcp"
+    "every-ai": {
+      "type": "http",
+      "url": "https://admin-mcp.every.ai/"
     }
   }
 }
 ```
 
-Restart Cursor and switch to **Agent Mode** (not Ask Mode) to access MCP tools.
+3. Restart Claude Desktop
+4. Authenticate when prompted with your Every AI account
+5. Look for the hammer icon (🔨) — your Every AI tools are ready
+
+## Developer Tools
+
+### Claude Code
+
+Add to your project's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "every-ai": {
+      "type": "http",
+      "url": "https://admin-mcp.every.ai/"
+    }
+  }
+}
+```
+
+Then run `/mcp` and click **Authenticate**.
+
+### Codex
+
+Add to your project's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "every-ai": {
+      "type": "http",
+      "url": "https://admin-mcp.every.ai/"
+    }
+  }
+}
+```
+
+Authenticate when prompted on first use.
+
+### Cursor
+
+1. Open **Settings** (⌘ + ,) → **MCP Servers** → **+ Add Server**
+2. Set:
+   - **Name:** `Every AI`
+   - **Type:** `HTTP`
+   - **URL:** `https://admin-mcp.every.ai/`
+3. Click **Save** and authenticate when prompted
 
 <Note>
-  Cursor supports up to 40 tools from MCP servers. Every MCP provides 18 tools, well within this limit.
-</Note>
-
-### ChatGPT
-
-ChatGPT supports MCP via Developer Mode (Pro and Plus users):
-
-1. Go to **Settings** → **Connectors** → **Advanced** → **Developer Mode**
-2. Enable Developer Mode
-3. Add a new MCP connector with URL: `https://every-mcp-server-production.up.railway.app/mcp`
-4. Authenticate with your Every account when prompted
-
-Access Every tools through the Developer Mode menu in your chat.
-
-<Note>
-  ChatGPT requires remote MCP servers (localhost not supported). Every MCP is hosted remotely, so it works out of the box.
+  Cursor requires **Agent Mode** (not Ask Mode) to access MCP tools.
 </Note>
 
 ### Other MCP Clients
 
-For any MCP-compatible client, use:
-- **URL:** `https://every-mcp-server-production.up.railway.app/mcp`
-- **Transport:** HTTP (Streamable HTTP / SSE)
+For any MCP-compatible client:
+- **URL:** `https://admin-mcp.every.ai/`
+- **Transport:** HTTP (Streamable HTTP)
 - **Auth:** OAuth 2.0 (prompted on first use)
-
-<Note>
-  Authentication uses secure OAuth. Your credentials are never stored locally - only a secure token that can be revoked anytime from Every settings.
-</Note>
 
 ## What You Can Do
 
-Every MCP provides 18 tools covering all major Every features.
+| Task | Example |
+|-|-|
+| Create an invoice | "Make an invoice for Brandon Chu, $300 for design services" |
+| Send an invoice | "Send invoice INV-001" |
+| Find a client | "Find client Acme" |
+| Check payments | "Show payments for this month" |
+| Record a payment | "Record $500 cash payment for INV-001" |
+| Track expenses | "Add a $150 expense at AWS for Software" |
+| Create a proposal | "Create a proposal for Acme, $5000 website redesign" |
+| View bookings | "Show my upcoming bookings" |
+| Business insights | "What's my total revenue this quarter?" |
+| Business settings | "What's my default tax rate?" |
 
-### Invoices
+### Tools
 
-| Tool | Description |
-|------|-------------|
-| `list_invoices` | Search and filter by status, client, date range |
-| `view_invoice` | Get full details of a specific invoice |
-| `create_invoice` | Create new invoices with line items |
-| `update_invoice` | Modify existing invoices |
-| `send_invoice` | Send invoice to client via email |
-| `delete_invoice` | Remove an invoice |
+Every MCP provides 27 tools covering all major features:
 
-<Tip>
-  **Example queries:**
-  - "Show my unpaid invoices"
-  - "List invoices for ACME Corp from last month"
-  - "Create an invoice for 10 hours at $150/hour"
-</Tip>
-
-### Clients
-
-| Tool | Description |
-|------|-------------|
-| `list_clients` | Search and browse your client list |
-| `view_client` | Get full client details and history |
-| `create_client` | Add new clients |
-| `update_client` | Update client information |
-
-<Tip>
-  **Example queries:**
-  - "Show all my clients"
-  - "Find clients I haven't invoiced in 6 months"
-  - "Add client TechCo with email contact@techco.com"
-</Tip>
-
-### Payments
-
-| Tool | Description |
-|------|-------------|
-| `list_payments` | View payment history |
-| `record_payment` | Record manual payments |
+| Category | Tools |
+|-|-|
+| Invoices | Create, view, update, send, void, list |
+| Clients | Create, view, update, search (fuzzy matching) |
+| Contacts | Create, update, link/unlink to clients |
+| Proposals | Create, view, list |
+| Payments | Record, list |
+| Expenses | Create, list |
+| Services | List (with booking config) |
+| Bookings | List, view |
+| Settings | View business profile, currency, tax rates |
+| AI Assistant | Complex queries and analysis |
 
 <Tip>
-  **Example queries:**
-  - "Show payments received this month"
-  - "Record a $5,000 check payment for INV-001"
-</Tip>
-
-### Expenses
-
-| Tool | Description |
-|------|-------------|
-| `list_expenses` | Browse and search expenses |
-| `create_expense` | Record new expenses |
-
-<Tip>
-  **Example queries:**
-  - "Show my travel expenses from Q4"
-  - "Record a $50 expense for office supplies"
-</Tip>
-
-### Proposals
-
-| Tool | Description |
-|------|-------------|
-| `list_proposals` | View proposals and quotes |
-| `create_proposal` | Create new proposals |
-
-<Tip>
-  **Example queries:**
-  - "Show pending proposals"
-  - "Create a proposal for website redesign"
-</Tip>
-
-### General
-
-| Tool | Description |
-|------|-------------|
-| `business_settings` | View your business profile |
-| `send_message` | Complex requests to Every Agent |
-
-<Tip>
-  For multi-step tasks, use `send_message` to leverage Every Agent's full capabilities.
+  Taxes are applied automatically based on your business settings. No need to calculate them manually.
 </Tip>
 
 ## Security
 
-**Authentication:** OAuth 2.0 industry-standard, token-based (no passwords stored locally), revocable anytime
-
-**Data Access:** Read/Write based on your permissions, organization-scoped, all actions logged in activity history
+- **OAuth 2.0** authentication — your credentials are never stored locally
+- **Organization-scoped** — you can only access your own business data
+- **Stateless** — no data cached between requests
 
 ### Revoking Access
 
-Go to **Every** → **Settings** → **Connected Apps** → Find the AI assistant → Click **Revoke Access**
-
-<Warning>
-  Revoking access immediately invalidates the connection. Re-authentication required to use Every MCP again.
-</Warning>
+Disconnect the MCP from your AI assistant's settings at any time. This immediately revokes access to your business data.
 
 ## Troubleshooting
 
-### Connection Issues
+**Can't connect?**
+Make sure you have an Every AI account at [app.every.ai](https://app.every.ai).
 
-**Server shows "failed" in `/mcp`:** This is normal before authentication. Select the server and click **Authenticate** to sign in via OAuth.
+**Tools not showing?**
+Disconnect and reconnect the MCP server. Some clients cache tool definitions.
 
-**"Authentication failed":** Token may have expired. Re-authenticate:
-- **Claude Code:** `claude mcp remove every-mcp` then re-add
-- **Cursor:** Delete and re-add the entry in `mcp.json`, restart Cursor
-- **ChatGPT:** Remove and re-add the connector in Developer Mode settings
+**Wrong data?**
+Make sure you're signed into the correct Every AI account and organization.
 
-**"Tool not found":** Verify MCP URL is exactly: `https://every-mcp-server-production.up.railway.app/mcp`
-
-**"Permission denied":** Check that your Every account has access to the organization you're querying.
-
-**Cursor not showing tools:** Ensure you're in **Agent Mode**, not Ask Mode. MCP tools only work in Agent Mode.
-
-### Data Not Showing
-
-**No results:** Verify data exists in Every web app first.
-
-**Wrong organization:** Specify which organization in your query: "Show invoices for [Organization Name]"
-
-## Best Practices
-
-<Tip>
-  **Be specific with queries** - "Show unpaid invoices over $1,000 from the last 30 days" returns better results than "show invoices"
-</Tip>
-
-<Tip>
-  **Verify before sending** - Always review invoices and emails before asking the AI to send them to clients
-</Tip>
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card
-    title="Claude Code"
-    icon="terminal"
-    href="https://docs.anthropic.com/en/docs/claude-code"
-  >
-    Anthropic's CLI tool documentation
-  </Card>
-
-  <Card
-    title="Cursor MCP Docs"
-    icon="code"
-    href="https://cursor.com/docs/context/mcp"
-  >
-    Cursor's MCP configuration guide
-  </Card>
-
-  <Card
-    title="Every Agent"
-    icon="sparkles"
-    href="/ai/every-agent"
-  >
-    Learn about Every's AI capabilities
-  </Card>
-
-  <Card
-    title="Contact Support"
-    icon="headset"
-    href="mailto:hello@every.ai"
-  >
-    Get help with setup
-  </Card>
-</CardGroup>
-
-<Note>
-  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai) for MCP setup or troubleshooting.
-</Note>
+**Need help?**
+Contact [hello@every.ai](mailto:hello@every.ai).
