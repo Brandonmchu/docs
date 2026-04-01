@@ -6,12 +6,12 @@ icon: "user-round"
 
 ## Overview
 
-Contacts are the **people** in your business world - everyone from active client contacts to potential leads you met at a conference. Unlike [Clients](/features/clients) (which represent companies or businesses), Contacts represent individuals.
+Contacts are the **people** in your business world - everyone from active client contacts to potential leads you met at a conference. Unlike [Clients](/clients/clients) (which represent companies or businesses), Contacts represent individuals.
 
 **Key capabilities:**
 - Store contact details (name, email, phone, job title)
 - Import from [LinkedIn](https://every.ai/contacts) and [Google Contacts](https://every.ai/contacts)
-- Link contacts to one or more [clients](/features/clients) with role-based email routing
+- Link contacts to one or more [clients](/clients/clients) with role-based email routing
 - AI-powered enrichment and relationship summaries
 - Google Contacts sync for duplicate detection
 
@@ -42,21 +42,39 @@ Every supports multiple ways to bulk-import contacts into your network.
 
 Import your LinkedIn connections directly from a CSV export, with optional AI relationship summaries from your message history.
 
+**How to export from LinkedIn:**
+1. Go to [LinkedIn Data Privacy settings](https://www.linkedin.com/mypreferences/d/categories/privacy)
+2. Click **"Get a copy of your data"**
+3. Select **"Connections"** (and optionally **"Messages"** for AI summaries) and click **"Request archive"**
+4. Wait for the email - LinkedIn often sends two exports over 24-48 hours. The second, larger one is the one you want
+5. Download the ZIP and extract it - find **Connections.csv** (and optionally **Messages.csv**)
+
 **How to import:**
 1. Go to [**Contacts**](https://every.ai/contacts) → **Import** dropdown → **LinkedIn**
-2. Upload your `Connections.csv` file (exported from LinkedIn)
+2. Upload your `Connections.csv` file
 3. Preview new contacts (duplicates are auto-filtered)
 4. Click **Import**
 
 **What gets imported:** Name, email (if available), job title, company (in notes), LinkedIn profile URL
 
-<Tip>
-  **Optional:** After importing, upload your LinkedIn `Messages.csv` to generate AI-powered relationship timelines showing your history with each contact.
-</Tip>
+<Accordion title="AI Relationship Summaries (Optional)">
+  After importing contacts, upload your LinkedIn `Messages.csv` to generate AI-powered relationship timelines.
 
-<Note>
-  See [Import Data](/data/csv-import) for full LinkedIn export instructions and details on AI relationship summaries.
-</Note>
+  1. After contact import completes, click **"Upload Messages.csv"**
+  2. Every matches your message history to imported contacts via LinkedIn profile URLs
+  3. AI analyzes your conversations and generates concise summaries
+  4. Summaries appear in each contact's notes section
+
+  **Example AI summary:**
+  ```
+  ## LinkedIn Message History
+  2024 - Connected and discussed potential collaboration
+  2024 - Caught up at industry conference
+  2025 - Discussed hiring for board company
+  ```
+
+  Relationship summaries help Every Agent understand your history with each contact, enabling better personalized communication suggestions.
+</Accordion>
 
 ### Google Contacts Import
 
@@ -88,9 +106,24 @@ Let Every Agent analyze your Gmail, Calendar, and Google Contacts to suggest con
   **Ask Every Agent:** "Scan my Google contacts and add any that look like potential clients"
 </Tip>
 
+### File Processing with Every Agent
+
+Beyond direct imports, Every Agent can extract contact data from files you upload to chat.
+
+**Supported formats:** CSV, Excel (XLSX, XLS), Word (DOCX), PDF, Images (JPG, PNG)
+
+Upload your file and describe what you need - the agent reads and processes the data conversationally.
+
+<Tip>
+  **Ask Every Agent:**
+  - "Import these contacts from my spreadsheet" (attach CSV or Excel)
+  - "Extract the client list from Sheet 2 of this Excel file"
+  - "Read this Word document and pull out all the contact names and emails"
+</Tip>
+
 ## Linking Contacts to Clients
 
-Contacts exist independently but can be **linked to one or more [clients](/features/clients)** with role-based email routing. This means the same contact can be associated with multiple client companies.
+Contacts exist independently but can be **linked to one or more [clients](/clients/clients)** with role-based email routing. This means the same contact can be associated with multiple client companies.
 
 ### How Linking Works
 
@@ -142,7 +175,7 @@ ACME Corp (Client) Contacts:
 
 AI-powered enrichment helps fill in contact details automatically.
 
-**During client enrichment:** When you [enrich a client](/features/clients#client-enrichment), Every Agent can discover additional contacts at the company by scanning Gmail headers and Google Contacts for matching email domains.
+**During client enrichment:** When you [enrich a client](/clients/clients#client-enrichment), Every Agent can discover additional contacts at the company by scanning Gmail headers and Google Contacts for matching email domains.
 
 **Google Contacts sync:** Every tracks which of your contacts exist in team members' Google Contacts. A sync indicator shows on matching contacts.
 
@@ -201,7 +234,7 @@ Add LinkedIn profiles, websites, and other social links to contacts for quick re
 Understanding the distinction:
 
 | | Contacts | Clients |
-|---|---|---|
+|-|-|-|
 | **Represents** | People (individuals) | Companies/businesses |
 | **Examples** | John Smith, Sarah Johnson | ACME Corp, TechStart Inc |
 | **Relationship** | Can be linked to multiple clients | Has multiple contacts linked |
@@ -260,23 +293,15 @@ Contact (Person)                    Client (Company)
   <Card
     title="Manage Clients"
     icon="building-2"
-    href="/features/clients"
+    href="/clients/clients"
   >
     Link contacts to client companies
   </Card>
 
   <Card
-    title="Import Data"
-    icon="file-import"
-    href="/data/csv-import"
-  >
-    Bulk import from LinkedIn and Google
-  </Card>
-
-  <Card
     title="Create Invoices"
     icon="file-text"
-    href="/features/invoices"
+    href="/billing/invoices"
   >
     Send invoices to your contacts
   </Card>
@@ -284,9 +309,17 @@ Contact (Person)                    Client (Company)
   <Card
     title="Create Proposals"
     icon="file-check"
-    href="/features/proposals"
+    href="/billing/proposals"
   >
     Send proposals to contacts at client companies
+  </Card>
+
+  <Card
+    title="Every Agent"
+    icon="robot"
+    href="/ai/every-agent"
+  >
+    Learn more about what the agent can do
   </Card>
 </CardGroup>
 

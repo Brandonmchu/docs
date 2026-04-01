@@ -20,7 +20,7 @@ Every Agent understands your business through several layers of context:
 
 ### Business Context
 
-Your [Business Context](/ai/business-context) is the persistent narrative context that explains how your business works.
+Your [Business Context](/ai/business-context-and-tokens) is the persistent narrative context that explains how your business works.
 
 **Use it for:**
 - What your business does
@@ -29,7 +29,7 @@ Your [Business Context](/ai/business-context) is the persistent narrative contex
 - Common workflows or constraints
 - Policies the agent should follow
 
-**Where to manage it:** [**Agent Settings → Context**](https://every.ai/agent/settings/context)
+**Where to manage it:** [**Agent Settings -> Context**](https://every.ai/agent/settings/context)
 
 ### Voice & Tone
 
@@ -40,7 +40,7 @@ Your [Voice & Tone](/ai/voice-and-tone) profile is separate from Business Contex
 - Internal casual communication
 - Non-client external communication
 
-**Where to manage it:** [**Agent Settings → Voice & Tone**](https://every.ai/agent/settings/voice-tone)
+**Where to manage it:** [**Agent Settings -> Voice & Tone**](https://every.ai/agent/settings/voice-tone)
 
 <Note>
   Business Context tells the agent what your business does. Voice & Tone tells it how your business sounds when writing.
@@ -78,8 +78,8 @@ Every Agent can connect to external systems so it can answer questions and act w
 **Granola:** Meeting notes, summaries, transcripts
 
 **Where to connect integrations:**
-- Google Workspace: [**Settings → Integrations**](https://every.ai/settings/integrations)
-- Xero, HubSpot, Granola: [**Agent Settings → Integrations**](https://every.ai/agent/settings/integrations)
+- Google Workspace: [**Settings -> Integrations**](https://every.ai/settings/integrations)
+- Xero, HubSpot, Granola: [**Agent Settings -> Integrations**](https://every.ai/agent/settings/integrations)
 
 ### Workspace Data
 
@@ -161,9 +161,7 @@ Every Agent operates in direct execution mode.
 
 ### Be Specific
 
-❌ **Vague:** "Make an invoice"
-
-✅ **Specific:** "Create an invoice for ACME Corp for consulting services, $5,000, due in 30 days"
+"Make an invoice" -> "Create an invoice for ACME Corp for consulting services, $5,000, due in 30 days"
 
 ### Give Enough Context
 
@@ -205,7 +203,7 @@ Every Agent can read supported uploads and help you work with them:
 "Log this receipt"
 ```
 
-<Card title="Import Data Guide" icon="file-import" href="/data/csv-import">
+<Card title="Import Data Guide" icon="file-import" href="/clients/contacts">
   See supported import formats, file handling, and batch workflow details
 </Card>
 
@@ -235,7 +233,7 @@ The agent can break that into steps and work through it conversationally.
 
 Every Agent supports voice input.
 
-**How it works:** Click the microphone icon in the chat input → speak your request → your speech is transcribed and sent as a normal agent message.
+**How it works:** Click the microphone icon in the chat input, speak your request, and your speech is transcribed and sent as a normal agent message.
 
 **Useful for:**
 - Logging time while working
@@ -252,13 +250,85 @@ Every Agent can remember specific business rules over time.
 - "Enterprise clients default to 45-day terms"
 - "Always include project reference numbers on TechStart invoices"
 
-Manage saved preferences in [**Agent Settings → Learned Preferences**](https://every.ai/agent/settings/learned-preferences).
+Manage saved preferences in [**Agent Settings -> Learned Preferences**](https://every.ai/agent/settings/learned-preferences).
+
+## Undoing Agent Actions
+
+Every Agent includes a built-in undo system. When the agent creates or modifies data, an **Undo** button appears below the agent's message so you can reverse the action if something is wrong.
+
+### How It Works
+
+- A yellow **Undo** button appears inline after any data-modifying action
+- Hover to preview which items will be affected (they highlight in yellow)
+- Click to reverse **all actions from that agent turn** (it's all-or-nothing to prevent inconsistent states)
+- You can also undo from the **Activity Timeline** on the Home dashboard
+
+### What Can Be Undone
+
+Most data operations can be reversed:
+
+- **Invoices & proposals** -- creation, updates, status changes, line item additions
+- **Payments & time tracking** -- payment records, time entries, expense records
+- **Clients & contacts** -- creation, updates, contact linking
+- **Complex operations** -- multi-step workflows, bulk operations, CSV import results
+
+### What Cannot Be Undone
+
+- **Emails already sent** to clients (invoices, notifications)
+- **Third-party actions** already processed (Stripe payments, Google Calendar events, HubSpot syncs)
+- **Manually edited data** -- if you edited the record after the agent action, undo is blocked to protect your changes
+
+### Limitations
+
+- Only the **most recent agent turn** can be undone -- once the agent performs a new action, the previous undo buffer is replaced
+- After undoing, you cannot "redo" -- ask the agent again instead
+- If a conflict is detected (manual edits, external processing), the system blocks undo and shows an explanation
+
+<Tip>
+  If you notice an error, undo immediately before the agent performs more actions. It is easier to undo right away than after additional turns.
+</Tip>
+
+<Warning>
+  Always double-check invoice details before asking the agent to send. Once an email is delivered to a client, it cannot be unsent.
+</Warning>
+
+<AccordionGroup>
+  <Accordion icon="file-invoice" title="Example: Undo invoice creation">
+    **You:** "Create a $5,000 invoice for ACME Corp for consulting services"
+
+    **Agent:** "I've created invoice INV-001 for $5,000..."
+
+    *Oops, should be $6,000.* Click the **Undo** button. The invoice is deleted. Then ask:
+
+    **You:** "Create a $6,000 invoice for ACME Corp for consulting services"
+  </Accordion>
+
+  <Accordion icon="money-bill-wave" title="Example: Undo payment and invoice update">
+    **You:** "Record a $5,000 check payment for invoice INV-001"
+
+    **Agent:** "I've recorded the payment and marked invoice INV-001 as paid"
+
+    *Wrong amount.* Click **Undo**. The payment record is deleted and the invoice status reverts to its previous state.
+
+    **You:** "Record a $5,500 check payment for invoice INV-001"
+  </Accordion>
+
+  <Accordion icon="table" title="Example: Undo bulk operation">
+    **You:** "Archive all paid invoices from 2023"
+
+    **Agent:** "I've archived 47 invoices from 2023"
+
+    *Wrong year!* Click **Undo (47 actions)**. All 47 invoices are unarchived.
+
+    **You:** "Archive all paid invoices from 2022"
+  </Accordion>
+</AccordionGroup>
 
 ## Getting Started
 
 1. Ask a simple question like "Show me my last 5 invoices"
 2. Try an action like "Create a draft invoice for $100"
-3. Add [Business Context](/ai/business-context)
+3. Add [Business Context](/ai/business-context-and-tokens)
 4. Review [Voice & Tone](/ai/voice-and-tone)
 5. Connect Google Workspace and any agent integrations you use
 
@@ -268,7 +338,7 @@ Manage saved preferences in [**Agent Settings → Learned Preferences**](https:/
   <Card
     title="Business Context"
     icon="brain"
-    href="/ai/business-context"
+    href="/ai/business-context-and-tokens"
   >
     Teach the agent how your business works
   </Card>
@@ -292,7 +362,7 @@ Manage saved preferences in [**Agent Settings → Learned Preferences**](https:/
   <Card
     title="Common Workflows"
     icon="route"
-    href="/workflows/common-workflows"
+    href="/quickstart"
   >
     See example workflows and prompts
   </Card>

@@ -4,44 +4,58 @@ description: "Get up and running with Every in 15 minutes - from account setup t
 icon: "rocket"
 ---
 
-## Get Started in Four Steps
+## Get Started in Five Steps
 
 Set up your Every account and send your first invoice in 15 minutes.
 
 ### Step 1: Set Up Your Organization
 
-Your organization stores your business information, branding, and default settings that appear on all invoices.
+Your organization stores your business information, branding, and default settings that appear on all invoices and proposals.
 
 <AccordionGroup>
-  <Accordion icon="building-2" title="Create your organization profile">
-    Go to **Settings** → **Organization** and fill in:
-    - Business name (required)
-    - Email, phone, and address
+  <Accordion icon="building-2" title="Create your business profile">
+    Go to [**Settings**](https://every.ai/settings) → **Organization** and fill in:
+    - **Business name** (required) — appears prominently on all invoices
+    - Email, phone, and full address
     - Website (optional)
 
-    <Tip>This information appears on all your invoices, so make sure it's accurate!</Tip>
+    <Tip>This information appears on all your invoices and client-facing documents, so make sure it's accurate!</Tip>
   </Accordion>
 
   <Accordion icon="paintbrush" title="Customize your branding">
-    In **Settings** → **Organization**, set up:
-    - **Brand color** - Used in templates and invoice pages
+    **Brand color** — Select your primary color in **Settings** → **Organization**. Applied to invoices, public pages, and buttons.
 
-    In **Invoices** → **Customize**, set up:
-    - **Logo** - Appears on invoices and public pages
-    - **Note templates** - Reusable text blocks for invoice notes (payment terms, thank you messages, etc.)
+    **Logo** — Go to **Invoices** → **Customize** → **Upload Logo** (PNG, JPG, or SVG, recommended 200x200px–400x400px with transparent background). Appears on all invoices and public pages.
+
+    **Note templates** — Create reusable text blocks in **Invoices** → **Customize** for payment terms, thank you messages, late payment policies, etc. Optionally set one as the default for all new invoices.
   </Accordion>
 
   <Accordion icon="settings" title="Configure financial defaults">
     Set defaults in **Settings** → **Organization**:
-    - **Currency**: USD or CAD
-    - **Due days**: Payment timeline (e.g., Net 30)
-    - **Sales tax**: Your standard tax rate
-    - **Invoice numbering**: Automatic sequential
+    - **Currency**: USD or CAD (can override per invoice)
+    - **Due days**: Payment timeline — e.g., Net 30 (due date auto-calculates from issue date)
+    - **Sales tax**: Your standard tax percentage (can override per line item)
+    - **Invoice numbering**: Automatic sequential (`INV-001`, `INV-002`, etc.)
+  </Accordion>
+
+  <Accordion icon="brain" title="Teach Every Agent about your business (optional)">
+    Add **Business Context** so the agent gives more relevant, accurate assistance.
+
+    Go to [**Agent Settings → Context**](https://every.ai/agent/settings/context) and describe your business, services, target clients, communication style, and invoicing preferences.
+
+    <Card
+      title="Learn more about Business Context"
+      icon="brain"
+      href="/ai/business-context-and-tokens"
+      horizontal
+    >
+      See full examples and best practices for customizing your agent.
+    </Card>
   </Accordion>
 </AccordionGroup>
 
 <Tip>
-  **Ask Every Agent:** "Update my organization name to ABC Consulting" or "Set my default invoice terms to Net 45"
+  **Ask Every Agent:** "Update my organization name to ABC Consulting" or "Set my default invoice terms to Net 45" or "Change my brand color to navy blue"
 </Tip>
 
 ### Step 2: Add Your First Client and Contacts
@@ -148,6 +162,31 @@ Enable online payments so clients can pay invoices instantly with credit cards.
   **Ask Every Agent:** "Connect my Stripe account" or "Record a $5,000 check payment from ACME Corp"
 </Tip>
 
+### Step 5: Install the Mobile App (Optional)
+
+Every works as a **Progressive Web App (PWA)** — install it on your phone for a native app experience with faster loading, offline access, and a home screen icon.
+
+<AccordionGroup>
+  <Accordion icon="android" title="Android (Chrome)">
+    **Automatic:** Use Every in Chrome for a few minutes — Chrome shows an "Install Every" banner. Tap **Install**.
+
+    **Manual:** Tap the Chrome menu (⋮) → **"Install app"** or **"Add to Home Screen"** → Confirm.
+  </Accordion>
+
+  <Accordion icon="apple" title="iOS (Safari only)">
+    1. Open Every in **Safari** (Chrome on iOS does not support PWA installation)
+    2. Tap the **Share** button (square with arrow)
+    3. Scroll down → **"Add to Home Screen"**
+    4. Tap **"Add"**
+  </Accordion>
+
+  <Accordion icon="refresh-cw" title="Updates & offline access">
+    - **Updates are automatic** — you'll see a "New version available" prompt when we deploy changes
+    - **Offline access** is read-only — view previously loaded invoices and clients without internet
+    - Creating or modifying data requires a connection
+  </Accordion>
+</AccordionGroup>
+
 ## What's Next?
 
 You're now ready to use Every! Here are some features to explore:
@@ -156,7 +195,7 @@ You're now ready to use Every! Here are some features to explore:
   <Card
     title="Track Time"
     icon="clock"
-    href="/features/time-tracking"
+    href="/scheduling/time-tracking"
   >
     Use the timer widget to track billable hours and convert them to invoice line items.
   </Card>
@@ -164,7 +203,7 @@ You're now ready to use Every! Here are some features to explore:
   <Card
     title="Manage Expenses"
     icon="receipt"
-    href="/features/expenses"
+    href="/billing/expenses"
   >
     Track business expenses, scan receipts with AI, and bill them back to clients.
   </Card>
@@ -172,7 +211,7 @@ You're now ready to use Every! Here are some features to explore:
   <Card
     title="Create Proposals"
     icon="file-check"
-    href="/features/proposals"
+    href="/billing/invoices-and-proposals"
   >
     Send professional proposals and convert approved proposals into invoices.
   </Card>
@@ -180,7 +219,7 @@ You're now ready to use Every! Here are some features to explore:
   <Card
     title="Automate Recurring Invoices"
     icon="repeat"
-    href="/features/automations"
+    href="/billing/recurring-billing"
   >
     Set up recurring invoices for clients you bill regularly (monthly, quarterly, etc.).
   </Card>
@@ -230,7 +269,7 @@ You're now ready to use Every! Here are some features to explore:
   <Card
     title="Common Workflows"
     icon="workflow"
-    href="/workflows/common-workflows"
+    href="/billing/invoices-and-proposals"
   >
     Learn how different businesses use Every
   </Card>

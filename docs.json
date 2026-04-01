@@ -50,53 +50,42 @@
         "pages": [
           "index",
           "quickstart",
-          "changelog",
-          "getting-started/organization-setup",
-          "getting-started/install-mobile-app"
+          "changelog"
         ]
       },
       {
-        "group": "Core Features",
-        "pages": [
-          "features/clients",
-          "features/contacts",
-          "features/services",
-          "features/products",
-          "features/invoices",
-          "features/payments",
-          "features/bookings",
-          "features/client-portal",
-          "features/automations",
-          "features/proposals",
-          "features/time-tracking",
-          "features/expenses"
-        ]
-      },
-      {
-        "group": "Importing/Exporting Data",
-        "pages": [
-          "data/csv-import",
-          "data/export"
-        ]
-      },
-      {
-        "group": "Advanced Features",
-        "pages": [
-          "advanced/note-templates",
-          "advanced/multi-currency",
-          "advanced/tax-management",
-          "advanced/reporting"
-        ]
-      },
-      {
-        "group": "AI Features",
+        "group": "The AI Agent",
         "pages": [
           "ai/every-agent",
           "ai/voice-and-tone",
-          "ai/tokens-and-usage",
-          "ai/undo-agent-actions",
-          "ai/agent-scheduled-tasks",
-          "ai/business-context"
+          "ai/business-context-and-tokens",
+          "ai/scheduled-tasks",
+          "ai/connect-ai-tools"
+        ]
+      },
+      {
+        "group": "Clients & Contacts",
+        "pages": [
+          "clients/clients",
+          "clients/contacts",
+          "clients/client-portal"
+        ]
+      },
+      {
+        "group": "Billing & Payments",
+        "pages": [
+          "billing/services-and-products",
+          "billing/invoices-and-proposals",
+          "billing/payments",
+          "billing/expenses",
+          "billing/recurring-billing"
+        ]
+      },
+      {
+        "group": "Scheduling & Time",
+        "pages": [
+          "scheduling/bookings",
+          "scheduling/time-tracking"
         ]
       },
       {
@@ -106,20 +95,13 @@
           "integrations/google-workspace",
           "integrations/xero",
           "integrations/hubspot",
-          "integrations/granola",
-          "integrations/every-mcp"
+          "integrations/granola"
         ]
       },
       {
-        "group": "Workflows & Best Practices",
+        "group": "Reference",
         "pages": [
-          "workflows/common-workflows",
-          "workflows/tips-for-success"
-        ]
-      },
-      {
-        "group": "Support",
-        "pages": [
+          "reference/reports-and-export",
           "troubleshooting"
         ]
       }
@@ -154,5 +136,34 @@
       "x": "https://x.com/everyai",
       "linkedin": "https://linkedin.com/company/every-ai"
     }
-  }
+  },
+  "redirects": [
+    { "source": "/getting-started/organization-setup", "destination": "/quickstart" },
+    { "source": "/getting-started/install-mobile-app", "destination": "/quickstart" },
+    { "source": "/features/clients", "destination": "/clients/clients" },
+    { "source": "/features/contacts", "destination": "/clients/contacts" },
+    { "source": "/features/client-portal", "destination": "/clients/client-portal" },
+    { "source": "/features/services", "destination": "/billing/services-and-products" },
+    { "source": "/features/products", "destination": "/billing/services-and-products" },
+    { "source": "/features/invoices", "destination": "/billing/invoices-and-proposals" },
+    { "source": "/features/proposals", "destination": "/billing/invoices-and-proposals" },
+    { "source": "/features/payments", "destination": "/billing/payments" },
+    { "source": "/features/expenses", "destination": "/billing/expenses" },
+    { "source": "/features/bookings", "destination": "/scheduling/bookings" },
+    { "source": "/features/time-tracking", "destination": "/scheduling/time-tracking" },
+    { "source": "/features/automations", "destination": "/billing/recurring-billing" },
+    { "source": "/advanced/note-templates", "destination": "/billing/invoices-and-proposals" },
+    { "source": "/advanced/multi-currency", "destination": "/billing/invoices-and-proposals" },
+    { "source": "/advanced/tax-management", "destination": "/billing/invoices-and-proposals" },
+    { "source": "/advanced/reporting", "destination": "/reference/reports-and-export" },
+    { "source": "/data/csv-import", "destination": "/clients/contacts" },
+    { "source": "/data/export", "destination": "/reference/reports-and-export" },
+    { "source": "/ai/business-context", "destination": "/ai/business-context-and-tokens" },
+    { "source": "/ai/tokens-and-usage", "destination": "/ai/business-context-and-tokens" },
+    { "source": "/ai/undo-agent-actions", "destination": "/ai/every-agent" },
+    { "source": "/ai/agent-scheduled-tasks", "destination": "/ai/scheduled-tasks" },
+    { "source": "/integrations/every-mcp", "destination": "/ai/connect-ai-tools" },
+    { "source": "/workflows/common-workflows", "destination": "/quickstart" },
+    { "source": "/workflows/tips-for-success", "destination": "/quickstart" }
+  ]
 }

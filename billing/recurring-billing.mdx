@@ -1,0 +1,356 @@
+---
+title: "Recurring Billing"
+description: "Set up automated recurring invoices with flexible scheduling, testing capabilities, and execution history tracking"
+icon: "repeat"
+---
+
+## Overview
+
+Recurring Billing automatically generates and sends invoices on a schedule. Perfect for clients you bill regularly - monthly retainers, quarterly services, annual subscriptions, or any recurring billing need.
+
+<Note>
+  **Save Time:** Set up once, automate forever. Ideal for recurring clients and predictable billing cycles.
+</Note>
+
+<Card title="Open Recurring Billing" icon="repeat" href="https://every.ai/invoices/automations" horizontal>
+  View and manage recurring invoices in Every
+</Card>
+
+## What Is Recurring Billing?
+
+Recurring billing generates invoices automatically based on your schedule:
+
+**Key Features:**
+- **Flexible Schedules**: Daily, weekly, monthly, quarterly, yearly
+- **Customizable Line Items**: Services, products, standard pricing
+- **Action Options**: Create as draft or send immediately
+- **Testing System**: Safe test mode before going live
+- **Execution History**: Complete audit trail of all generated invoices
+- **Template Inheritance**: Uses your organization branding
+
+**Common Use Cases:**
+- Monthly retainer clients
+- Quarterly maintenance contracts
+- Annual subscription renewals
+- Weekly service billing
+- Recurring project work
+
+## Creating a Recurring Invoice
+
+<Note>
+  **Required to Create a Recurring Invoice:**
+  - **Client** (select from existing clients)
+  - **Schedule** (Daily, Weekly, Monthly, Quarterly, or Yearly)
+  - **Start Date** (when recurring billing begins)
+  - **At least one line item** (services/products to invoice)
+  - **Action** (Create as Draft or Send Immediately)
+
+  **Strongly Recommended:** Always test recurring invoices in Test Mode before going live.
+</Note>
+
+### Quick Start
+
+Go to [**Recurring Billing**](https://every.ai/invoices/automations) → **Create Automation** → Configure these key fields:
+
+1. **Client**: Select who to invoice
+2. **Schedule**: Daily, Weekly, Monthly, Quarterly, or Yearly
+3. **Start Date**: When recurring billing begins
+4. **Line Items**: Add services/products (reuse your saved catalog when possible)
+5. **Action**: Create as Draft (review first) or Send Immediately (auto-send)
+6. **End Date** (optional): When recurring billing stops
+7. **Save**
+
+<Tip>
+  Start with "Create as Draft" until you're confident the recurring invoice is correct!
+</Tip>
+
+<Tip>
+  **Ask Every Agent:** To create a new recurring invoice:
+  - "Set up a monthly recurring invoice for ACME Corp for $3,000 starting on the 1st of next month"
+  - "Create a quarterly recurring invoice to bill XYZ Company $12,000 for consulting services"
+  - "Set up automatic weekly invoicing for Design Co at $500 per week"
+  - "Create a yearly subscription invoice for Tech Startup at $10,000 annually"
+  - "Set up monthly retainer billing for all my active clients at their standard rates"
+</Tip>
+
+### Schedule Types
+
+| Schedule | Frequency | Common Use | Example |
+|-|-|-|-|
+| **Daily** | Every day | Equipment rental | Runs every calendar day |
+| **Weekly** | Once per week | Service billing | Every Monday |
+| **Monthly** | Once per month | Retainers | 1st of each month |
+| **Quarterly** | Every 3 months | Consulting contracts | Jan 1, Apr 1, Jul 1, Oct 1 |
+| **Yearly** | Once per year | Annual subscriptions | January 1 every year |
+
+<Tip>
+  **Monthly on the 1st** is most common for retainer clients.
+</Tip>
+
+<Tip>
+  **Ask Every Agent:** To configure specific schedules:
+  - "Change the ACME Corp recurring invoice to bill on the 15th of each month instead"
+  - "Update the XYZ Company recurring invoice to quarterly billing starting in Q2"
+  - "Set up weekly invoicing for Consulting Inc every Friday"
+  - "Create a monthly recurring invoice that runs on the last day of each month"
+</Tip>
+
+### Adding Line Items
+
+Line items work like regular invoices. Add from saved **Services** or **Products** when you want consistency, or enter them manually with description, quantity, rate, and tax.
+
+<Tip>
+  **Ask Every Agent:** To add or modify line items in recurring invoices:
+  - "Add my 'Marketing Strategy' service to the ACME Corp recurring invoice"
+  - "Update the Tech Co recurring invoice to include two line items: design services at $2,000 and consulting at $1,500"
+  - "Change the monthly recurring invoice for XYZ to bill $3,500 instead of $3,000"
+  - "Add a 10% discount to the retainer recurring invoice for VIP Client"
+  - "Remove the consulting line item from the Startup Co recurring invoice"
+</Tip>
+
+### Action on Generation
+
+| Action | Behavior | Best For |
+|-|-|-|
+| **Create as Draft** | Invoice generated but not sent; review manually before sending | Testing, variable amounts, new recurring invoices |
+| **Send Immediately** | Invoice auto-generated and emailed to client | Established recurring invoices, fixed amounts, hands-off billing |
+
+<Warning>
+  Only use "Send Immediately" for well-tested recurring invoices with established clients!
+</Warning>
+
+<Tip>
+  **Ask Every Agent:** To configure invoice generation behavior:
+  - "Set the ACME Corp recurring invoice to create invoices as drafts first"
+  - "Change the XYZ recurring invoice to send invoices immediately instead of drafts"
+  - "Update all my recurring invoices to generate drafts for review"
+  - "Make the Tech Co recurring invoice send invoices automatically"
+</Tip>
+
+## Testing Recurring Invoices
+
+### Test Mode
+
+Enable **Test Mode** to generate test invoices before going live:
+
+1. Edit recurring invoice → Enable **Test Mode**
+2. Test invoices are prefixed "TEST-" and sent to your email (not client)
+3. Review invoice for accuracy (amounts, line items, formatting, branding)
+4. Disable test mode → Activate recurring invoice
+
+<Tip>
+  Always test recurring invoices before going live, especially "Send Immediately" ones!
+</Tip>
+
+<Tip>
+  **Ask Every Agent:** To test a recurring invoice:
+  - "Run a test of the ACME Corp recurring invoice and show me what invoice it would generate"
+  - "Enable test mode for the XYZ Company recurring invoice"
+  - "Generate a test invoice for the monthly retainer recurring invoice"
+  - "Test all my new recurring invoices before I activate them"
+  - "Show me the test invoice that would be created for Tech Startup"
+</Tip>
+
+## Managing Recurring Invoices
+
+### Activating/Deactivating
+
+Set recurring invoice status to **Active** to start generating invoices automatically. Set to **Inactive** to pause (useful for contract ends, temporary pauses, or updates).
+
+<Tip>
+  **Ask Every Agent:** To manage recurring invoice status:
+  - "Activate the ACME Corp monthly recurring invoice"
+  - "Pause the XYZ recurring invoice for the next 3 months"
+  - "Deactivate all recurring invoices for inactive clients"
+  - "Turn on the recurring invoice for Tech Startup"
+</Tip>
+
+### Next Run Date
+
+The system automatically calculates when each recurring invoice runs next based on schedule type and last execution (shown on the detail page).
+
+<Tip>
+  **Ask Every Agent:** To check recurring invoice schedules:
+  - "When will the ACME Corp recurring invoice run next?"
+  - "Show me all recurring invoices running this week"
+  - "Which recurring invoices are scheduled for the 1st of next month?"
+  - "List all upcoming recurring invoice runs for the next 30 days"
+</Tip>
+
+### Execution History
+
+View complete record of every invoice generated by opening the recurring invoice and checking **Execution History**. Includes execution date/time, invoice link, success/failure status, and error messages.
+
+<Tip>
+  **Ask Every Agent:** To review execution history:
+  - "Show me all invoices generated by the ACME Corp recurring invoice"
+  - "Did any recurring invoices fail in the last month?"
+  - "List all invoices created automatically this quarter"
+  - "Check the execution history for the XYZ Company recurring invoice"
+  - "Show me which recurring invoices ran successfully last week"
+  - "What went wrong with the Tech Startup recurring invoice on January 15th?"
+</Tip>
+
+## Recurring Billing Features
+
+### Date Range Control
+
+Set **Start Date** (when recurring billing begins) and optional **End Date** (when it stops) - useful for fixed-term contracts. Leave end date blank for ongoing recurring invoices.
+
+<Tip>
+  **Ask Every Agent:** To manage recurring invoice date ranges:
+  - "Set the ACME Corp recurring invoice to end on December 31, 2025"
+  - "Update the start date for XYZ recurring invoice to the 1st of next month"
+  - "Create a 6-month recurring invoice for Tech Co starting in Q2"
+  - "Remove the end date from the Design Co recurring invoice so it runs indefinitely"
+  - "Show me all recurring invoices that are ending this quarter"
+</Tip>
+
+### Error Handling
+
+Recurring invoices fail safely - errors are logged in execution history, notifications sent to owner, but no incorrect invoices are generated. Fix the underlying issue (e.g., restore client, complete settings) and the recurring invoice will retry on next scheduled run.
+
+### Template and Branding
+
+Recurring invoices inherit all organization settings: logo, colors, template, currency, due days, and address.
+
+<Tip>
+  **Ask Every Agent:** To manage recurring invoice branding and settings:
+  - "Update all my recurring invoices to use the new company logo"
+  - "Change the payment terms for the ACME Corp recurring invoice to net 15"
+  - "Add custom notes to the monthly retainer recurring invoice"
+  - "Apply my professional template to all recurring invoices"
+</Tip>
+
+## Best Practices
+
+<Tip>
+  **Ask Every Agent:** To manage all recurring invoices:
+  - "Show me all my active recurring invoices"
+  - "List all recurring invoices set to send automatically"
+  - "Which recurring invoices need to be reviewed or tested?"
+  - "Show me recurring invoices by client"
+  - "What's the total monthly recurring revenue from all my recurring invoices?"
+  - "List all recurring invoices that will run this month"
+  - "Export a report of all my recurring billing"
+</Tip>
+
+**Key practices:**
+- Test before activating (use test mode)
+- Use saved services/products for consistency
+- Start with "Create as Draft" until confident
+- Set end dates for fixed contracts
+- Review execution history regularly
+- Use clear naming: "ACME Corp - Monthly Retainer"
+
+## Common Workflows
+
+### Monthly Retainer
+Create recurring invoice → Select client → Monthly schedule (1st) → Add retainer line item → Create as Draft → Test → Activate → Switch to Send Immediately after first success
+
+<Tip>
+  **Ask Every Agent:** For monthly retainer setup:
+  - "Set up monthly retainer billing for ACME Corp at $5,000, starting on the 1st of next month"
+  - "Create recurring monthly invoices for all my retainer clients"
+</Tip>
+
+### Quarterly Contracts
+Create recurring invoice → Select client → Quarterly schedule → Set start/end dates → Add line items → Test → Activate
+
+<Tip>
+  **Ask Every Agent:** For quarterly billing:
+  - "Create a quarterly recurring invoice for Tech Co billing $12,000 starting in Q2"
+  - "Set up quarterly invoicing for ACME Corp at $15,000 per quarter for the next year"
+</Tip>
+
+### Annual Subscriptions
+Create recurring invoice → Select client → Yearly schedule → Set anniversary date → Add subscription line item → Test → Activate with Send Immediately
+
+<Tip>
+  **Ask Every Agent:** For annual billing:
+  - "Create a yearly recurring invoice for Software Co at $10,000 renewing on January 1st"
+  - "Set up annual membership billing for all my subscription clients"
+</Tip>
+
+## Troubleshooting
+
+| Issue | Check | Solution |
+|-|-|-|
+| **Recurring invoice not running** | Status is Active, next run date, start/end dates, client exists | Activate if inactive, verify dates and client status, review execution history |
+| **Test invoice not generated** | Test mode enabled, recurring invoice saved, organization email configured | Re-enable test mode, save, check drafts and spam folder |
+| **Wrong amount** | Line item amounts, tax settings, discounts, saved service/product pricing | Edit recurring invoice, update amounts, verify pricing, re-test |
+| **Wrong client** | Not possible - each recurring invoice tied to specific client | If seeing this, check which recurring invoice generated which invoice |
+
+<Tip>
+  **Ask Every Agent:** To troubleshoot:
+  - "Why didn't the ACME Corp recurring invoice run on the 1st?"
+  - "Check if any of my recurring invoices failed last month"
+  - "Diagnose why the XYZ Company recurring invoice isn't generating invoices"
+  - "List all recurring invoices that have errors in their execution history"
+</Tip>
+
+## Advanced Tips
+
+**Multiple Recurring Invoices Per Client:** Create multiple recurring invoices for the same client (e.g., monthly retainer + quarterly audit). They run independently.
+
+<Tip>
+  **Ask Every Agent:**
+  - "Show me all recurring invoices for ACME Corp"
+  - "Create two recurring invoices for Tech Co: one monthly retainer at $3,000 and one quarterly audit at $5,000"
+</Tip>
+
+**Manual Invoices:** Recurring invoices don't prevent manual invoicing - both appear in client history with no conflicts.
+
+<Tip>
+  **Ask Every Agent:**
+  - "Create a one-time invoice for ACME Corp for extra project work, separate from their monthly retainer"
+  - "Show me all invoices for XYZ Company, both recurring and manual"
+</Tip>
+
+**Seasonal Billing:** Use end dates for seasonal contracts or deactivate/reactivate recurring invoices to preserve configuration.
+
+<Tip>
+  **Ask Every Agent:**
+  - "Set up a summer recurring invoice for Landscaping Co from June through September"
+  - "Pause all my seasonal recurring invoices until next spring"
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Create Invoices"
+    icon="file-invoice"
+    href="/billing/invoices"
+  >
+    Learn about manual invoice creation
+  </Card>
+
+  <Card
+    title="Use Services"
+    icon="list"
+    href="/billing/services"
+  >
+    Set up reusable services for recurring invoice line items
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="users"
+    href="/clients/clients"
+  >
+    Add clients for recurring billing
+  </Card>
+
+  <Card
+    title="Track Execution"
+    icon="history"
+    href="/scheduling/reporting"
+  >
+    Monitor recurring billing performance
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

@@ -1,0 +1,585 @@
+---
+title: "Invoices & Proposals"
+description: "Create professional invoices and proposals, send them to clients, track delivery, accept payments, convert proposals to invoices, and manage your entire billing lifecycle"
+icon: "file-text"
+---
+
+## Overview
+
+Invoices and proposals are the core of billing in Every. **Proposals** let you collaborate with clients before work begins — build structured estimates, get approval, then convert to an invoice with one click. **Invoices** are payment requests you send after work is complete (or at milestones), with branded templates, online payments, and full email tracking.
+
+**Typical flow:** Create proposal → Client approves → Convert to invoice → Client pays
+
+You can also create invoices directly when no proposal is needed.
+
+<CardGroup cols={2}>
+  <Card title="Open Invoices" icon="file-text" href="https://every.ai/invoices" horizontal>
+    View and manage all your invoices
+  </Card>
+  <Card title="Open Proposals" icon="file-check" href="https://every.ai/proposals" horizontal>
+    View and manage all your proposals
+  </Card>
+</CardGroup>
+
+---
+
+## Invoices
+
+### Creating Invoices
+
+<Note>
+  **Required to create an invoice:**
+  - **Client** (select from existing clients; create clients first if needed)
+  - **At least one line item** (from services, products, manual entry, time records, or expenses)
+
+  All other fields (payment terms, notes, attachments) are optional.
+</Note>
+
+Go to [**Invoices**](https://every.ai/invoices) → **Create Invoice** → Select client → Add line items → Set payment terms → Save as Draft or Send
+
+<Tip>
+  **Ask Every Agent:** Create invoices with natural language:
+  - "Create an invoice for ACME Corp for $5,000"
+  - "Make a draft invoice for Tech Solutions with 20 hours of consulting at $150/hour"
+  - "Invoice Client ABC for the web design project we discussed"
+</Tip>
+
+### Invoice Components
+
+#### Client Selection
+
+Every invoice must have a client. Select from existing clients — their name, email (for delivery), address, and CC emails appear automatically. You cannot change the client after an invoice is issued.
+
+#### Line Items
+
+**Fields:** Description, quantity, rate, tax (optional), total (auto-calculated)
+
+**Adding line items:**
+- **From Services**: Select a saved service — details auto-fill, adjust quantity
+- **From Products**: Select a saved product or variant — details auto-fill, adjust quantity
+- **Manual Entry**: Add a line item and enter description, quantity, rate, tax
+- **From Time Records**: Select unbilled time — converts to line items (hours x rate), marked as billed
+- **From Expenses**: Select billable expenses — becomes line items, marked as billed
+
+<Tip>
+  **Ask Every Agent:** Add line items easily:
+  - "Add 10 hours of consulting to the invoice for Client ABC"
+  - "Add my unbilled time from last month to this invoice"
+  - "Add all billable expenses for ACME Corp to their invoice"
+</Tip>
+
+#### Financial Details
+
+**Calculation**: Subtotal - Discount + Tax = Total Amount Due (all automatic)
+
+- **Tax**: Applied per line item or to the entire invoice with a configurable rate. See [Tax Management](#tax-management) below.
+- **Discounts**: Percentage (10%, 15%) or fixed amount ($50, $100) applied to subtotal before tax.
+
+<Tip>
+  **Ask Every Agent:** Apply discounts:
+  - "Apply a 10% discount to the invoice for returning customer"
+  - "Give ACME Corp a $500 discount on their invoice"
+</Tip>
+
+#### Payment Terms
+
+- **Issue Date**: Defaults to today, can be backdated
+- **Due Date**: Auto-calculated from org defaults or set manually (determines overdue status)
+- **Reference/PO Number**: Client's purchase order or project reference (optional)
+- **Online Payments**: Enable Stripe "Pay Now" button per invoice
+
+#### Notes, Terms & Attachments
+
+Add custom notes for payment instructions, terms, or thank-you messages. Organization defaults auto-fill and can be edited per invoice. You can also use [Note Templates](#note-templates) for reusable text.
+
+Upload PDFs, images, Word docs, or Excel files (up to 5MB each). Attachments are visible and downloadable by clients on the public invoice page.
+
+<Tip>
+  **Ask Every Agent:** Manage attachments:
+  - "Attach the contract to invoice INV-123"
+  - "Add the signed agreement to the ACME Corp invoice"
+</Tip>
+
+### Templates & Branding
+
+Choose from Modern, Classic, Professional, or Creative templates. Your logo, brand colors, and styling apply automatically. Override the default template per invoice if needed.
+
+### Invoice Status Lifecycle
+
+| Status | Description |
+|-|-|
+| **Draft** | Work in progress — not sent, fully editable, not visible to client |
+| **Issued** | Sent to client — payment pending, email delivered, public page available |
+| **Paid** | Payment received — full amount paid, automatically updated |
+| **Overdue** | Past due date — no payment received, needs follow-up |
+| **Void** | Cancelled — no payment expected, preserved for records, cannot be un-voided |
+
+<Note>
+  Invoice status updates automatically based on due dates and payments received.
+</Note>
+
+### Sending Invoices
+
+Review invoice → Check client email → Preview → Click **Send Invoice**
+
+**What happens:** Email sent to client (and CC recipients), status changes to Issued, public invoice page created, email tracking begins. Email contains PDF attachment, public page link, and payment instructions.
+
+<Tip>
+  **Ask Every Agent:** Send invoices:
+  - "Send invoice INV-123 to the client"
+  - "Send the ACME Corp invoice now"
+</Tip>
+
+#### Email Delivery Tracking
+
+Track delivery, opens, clicks, bounces, and spam reports with timestamps in the Email Activity section. Use this to time follow-ups and identify delivery issues.
+
+#### Resending Invoices
+
+Open invoice → Click **Resend Invoice** → Add message (optional) → Send. Creates a new email event with separate tracking while preserving full history.
+
+<Tip>
+  **Ask Every Agent:** "Send a reminder for the ACME Corp invoice"
+</Tip>
+
+### Scheduled Sends
+
+Queue invoices to send automatically on a future date/time instead of sending immediately. Perfect for aligning with project milestones, client billing cycles, or month-end cadences.
+
+**How to schedule:**
+1. Complete invoice details → Click **Schedule Send** (instead of "Send Invoice") → Choose date and time → Confirm
+2. Or open an existing draft → **Schedule Send** → Select future date/time → Confirm
+
+When the scheduled time arrives, the system automatically sends the invoice, changes status to Issued, creates the public page, and starts email tracking.
+
+<Tip>
+  **Ask Every Agent:** Manage scheduled sends:
+  - "Schedule invoice INV-123 to send on January 1st at 9:00 AM"
+  - "Reschedule the ACME Corp invoice for next Friday"
+  - "Show me all invoices scheduled to send this week"
+  - "Cancel the scheduled send for invoice INV-123"
+</Tip>
+
+<Warning>
+  Invoices scheduled for past dates will send immediately when the schedule is created.
+</Warning>
+
+### Public Invoice Pages
+
+Every issued invoice has a secure, branded public page with full invoice details, your branding, line items, payment terms, downloadable attachments, and a Pay Now button (if Stripe is connected). Mobile-responsive, print-friendly, with a unique non-guessable URL.
+
+**Payment flow:** Client opens page → Clicks Pay Now → Enters card details → Payment processes → Invoice marked Paid automatically → Confirmation sent to both parties
+
+### Managing Invoices
+
+#### Editing
+
+- **Draft invoices:** Edit freely — change any field, add/remove line items, update client
+- **Issued invoices:** Limited editing — can't change amounts or client, but can add attachments/notes and record payments
+
+<Warning>
+  Once an invoice is issued, major changes are restricted. Create a new invoice or void the old one if significant changes are needed.
+</Warning>
+
+#### Voiding
+
+Open invoice → Click **Void Invoice** → Add reason (optional) → Confirm. Status changes to Void, removed from outstanding balances, preserved in history. Cannot be un-voided.
+
+<Tip>
+  **Ask Every Agent:** "Update invoice INV-123 status to void"
+</Tip>
+
+#### Duplicating
+
+Open invoice → Click **Duplicate Invoice** → New draft created with same client, line items, notes, and terms → Adjust as needed → Send. Great for recurring manual invoicing or similar projects.
+
+<Note>
+  Duplicating invoices must be done via the UI. The agent cannot duplicate invoices directly.
+</Note>
+
+#### Archiving
+
+Select invoices → Click **Archive** → Invoices hidden from main view (still accessible via filter, included in reports, can be restored).
+
+<Tip>
+  **Ask Every Agent:** "Mark all paid invoices from last year as archived"
+</Tip>
+
+#### Filtering & Search
+
+Summary cards (total, paid, overdue), filters by status/client/date range, search by invoice number/client/amount, sort options, and bulk actions.
+
+<Tip>
+  **Ask Every Agent:** View and filter invoices:
+  - "Show me all draft invoices"
+  - "List all overdue invoices"
+  - "Show invoices for ACME Corp from last month"
+</Tip>
+
+### Invoice Activity Timeline
+
+Complete chronological history of all invoice events: created, edited, sent, delivered, opened, clicked, payment received, voided, and notes/attachments added. Includes timestamps, actor, and event details. Filterable and exportable for audit trails.
+
+### Common Invoice Workflows
+
+**Standard Invoicing:** Create → Select client → Add line items → Review → Send → Track delivery → Receive payment
+
+**Time-Based Invoicing:** Track time → Create invoice at billing cycle → Add time records as line items → Send → Time records marked as billed
+
+**Expense Billback:** Log expenses → Mark as billable → Create invoice → Add expenses as line items → Send → Expenses marked as billed
+
+---
+
+## Proposals
+
+### Creating Proposals
+
+<Note>
+  **Required to create a proposal:**
+  - **Client** (select from existing clients)
+  - **Title** (descriptive name)
+  - **At least one line item** (scope description and pricing)
+</Note>
+
+Go to [**Proposals**](https://every.ai/proposals) → **Create Proposal** → Fill required fields and optional fields (scope, client message, media, attachments, terms, expiration) → Save as Draft or Send
+
+<Tip>
+  **Ask Every Agent:** Create proposals:
+  - "Create a proposal for website redesign project, $15,000 for ACME Corp"
+  - "Draft a proposal for consulting services at $150/hour for Client XYZ"
+  - "Generate a proposal for mobile app development, 3 months at $12,000"
+</Tip>
+
+### Proposal Components
+
+**Title & Scope:** Short descriptive title (e.g., "Website Redesign Proposal") plus detailed scope covering what's included/excluded, timeline, deliverables, and success criteria.
+
+<Tip>
+  **Ask Every Agent:** "Add detailed scope to this proposal describing 5-page website build"
+</Tip>
+
+**Client Message:** Personal greeting, context about the proposal, and next steps. Adds warmth to the professional document.
+
+**Line Items:** Same system as invoices — select from saved services or products, or create custom line items with description, quantity, rate, tax, and discounts.
+
+**Media & Attachments:** Add inline images (mockups, design samples, portfolio) and downloadable files (specifications, contracts, reference materials). Supported: JPG, PNG, PDF, DOCX (up to 5MB per file).
+
+### Proposal Status Flow
+
+| Status | Description |
+|-|-|
+| **Draft** | Work in progress — not sent, fully editable |
+| **Issued** | Sent to client — awaiting response, public page available |
+| **Approved** | Client accepted — captures signer name, email, timestamp; ready to convert to invoice |
+| **Void** | Cancelled/declined — preserved for history |
+
+<Note>
+  Unlike invoices, proposals can be revised and reissued if the client requests changes.
+</Note>
+
+### Sending Proposals
+
+Complete proposal → Review → **Send Proposal** → Email sent to client with branded message and proposal link.
+
+Client receives a professional, branded public page with your logo, full proposal details, line items, scope, media/attachments, and a prominent **Approve Proposal** button. Mobile-optimized for review and approval from any device.
+
+<Tip>
+  **Ask Every Agent:** Send and track proposals:
+  - "Send the ACME Corp proposal to their email"
+  - "Has ACME Corp viewed their proposal yet?"
+  - "Show me all pending proposals"
+</Tip>
+
+#### PDF Generation
+
+Generate professional PDF versions for offline sharing, client records, or printing. Open proposal → **Generate PDF** → Download.
+
+<Tip>
+  **Ask Every Agent:** "Create a PDF of the ACME Corp proposal"
+</Tip>
+
+### Approval Process
+
+**Client side:** Receives email → Clicks link → Reviews details → Clicks **Approve Proposal** → Enters name and email → Submits
+
+**Your side:** Receive notification → Approval details recorded (name, email, timestamp, IP) → Status changes to Approved → Ready to convert to invoice
+
+<Tip>
+  **Ask Every Agent:** Handle approvals:
+  - "Did ACME Corp approve their proposal?"
+  - "List proposals that clients have approved but not yet invoiced"
+</Tip>
+
+### Converting Proposals to Invoices
+
+One of the most powerful features: instant conversion of approved proposals to invoices.
+
+Open approved proposal → **Convert to Invoice** → New invoice created with same client, line items, attachments, pricing, discounts, and taxes → Review → Adjust dates/payment terms if needed → Send
+
+**What's preserved:** All line items, client info, attachments, descriptions, pricing, discounts, taxes
+**What's not copied:** Scope description, client message, proposal-specific media (add invoice-specific notes separately)
+
+<Tip>
+  **Ask Every Agent:** Convert to invoices:
+  - "Turn this proposal into an invoice and send it"
+  - "Create invoice from the website redesign proposal"
+  - "Convert proposal #123 to an invoice"
+</Tip>
+
+### Managing Proposals
+
+**Editing:** Draft proposals are fully editable. Issued proposals have limited editing to preserve what the client saw — create a new version for major changes.
+
+**Duplicating:** Open proposal → **Duplicate** → New draft created → Edit for new client/project → Send. Great for similar projects across different clients.
+
+**Voiding:** Cancel obsolete proposals when a project is cancelled, a client went elsewhere, or a revised version supersedes the original.
+
+<Tip>
+  **Ask Every Agent:** Manage proposals:
+  - "Update the ACME proposal to change the price to $18,000"
+  - "Duplicate the ACME proposal for Client XYZ"
+  - "Void the ACME Corp proposal"
+  - "Show me proposals from last quarter"
+</Tip>
+
+### Common Proposal Workflows
+
+**Full Proposal-to-Invoice Flow:** Prospect inquiry → Discovery call → Create proposal → Send → Track when opened → Follow up after 3 days → Client approves → Convert to invoice → Begin work → Client pays
+
+**Revised Proposal After Negotiation:** Send initial proposal → Client requests changes → Duplicate original → Adjust scope/pricing → Add note: "Revised per our discussion" → Send revised → Client approves → Convert to invoice
+
+---
+
+## Note Templates
+
+Snippets are reusable text blocks you can insert into invoice notes, proposal scope sections, and client messages. They standardize your payment terms, thank-you messages, and scope descriptions for consistent, professional messaging.
+
+Go to **Invoices** → **Customize** → **Add Snippet** to create one. Set a snippet as **Default** to auto-fill it on every new invoice or proposal.
+
+<Tip>
+  **Ask Every Agent:** Create and use snippets:
+  - "Create a snippet called 'Net 30 Payment Terms' with standard payment instructions"
+  - "Use my standard payment terms snippet on this invoice for ACME Corp"
+  - "Show me all my snippets"
+</Tip>
+
+<Accordion title="Snippet examples and management details">
+
+**Payment Terms:**
+```
+Payment due within 30 days. We accept credit cards and bank transfers.
+Late payments subject to 1.5% monthly interest.
+```
+
+**Thank You:**
+```
+Thank you for your business! We appreciate your trust and look forward
+to continuing to serve you.
+```
+
+**Project Scope:**
+```
+Includes: Custom design, responsive development, CMS integration, SEO, 2 revision
+rounds. Excludes: Content creation, photography. Timeline: 6-8 weeks from approval.
+```
+
+**Using snippets:** In any invoice or proposal, find the notes/scope field → **Insert Snippet** → Select → Edit if needed → Save. Default snippets auto-fill but can always be overridden.
+
+**Editing snippets:** Updates only affect new uses — existing documents are preserved.
+
+**Every Agent integration:** The agent automatically references your snippets when creating invoices and proposals, maintaining your brand voice.
+
+<Warning>
+  Deleted snippets cannot be recovered. Make sure you no longer need a snippet before deleting it.
+</Warning>
+
+</Accordion>
+
+---
+
+## Multi-Currency
+
+Every supports **USD** and **CAD**, allowing you to invoice clients in their preferred currency while maintaining your books in your primary currency.
+
+Set your organization default in **Settings** → **Organization** → **Default Currency**. Override per invoice at creation time by selecting the currency before adding line items.
+
+<Tip>
+  **Ask Every Agent:** Work with currencies:
+  - "Create an invoice in CAD for my Canadian client ACME Corp"
+  - "Change my organization's default currency to CAD"
+  - "Show me all invoices in Canadian dollars"
+</Tip>
+
+<Warning>
+  Currency cannot be changed after an invoice is issued. Double-check before sending.
+</Warning>
+
+<Accordion title="Currency details, exchange rates, and reporting">
+
+**Formatting:** Both currencies display as $1,000.00. The system tracks which currency each invoice uses and shows it clearly in lists and reports.
+
+**Exchange rate helpers:** For cross-currency reporting (revenue totals, tax reports), Every converts foreign currency to your default using current rates. For tax purposes, use the exchange rate from the payment date — consult your accountant.
+
+**Best practices:**
+- Invoice in the client's local currency for faster payment
+- Stay consistent with one currency per client relationship
+- Document currency in contracts to avoid disputes
+
+**Limitations:** Only USD and CAD are currently supported. Currency cannot be changed after issuing. Exchange rates are approximate — use bank rates for tax filings.
+
+</Accordion>
+
+---
+
+## Tax Management
+
+Every helps you collect sales tax, track deductible expenses, and generate compliance reports. Configure rates once, and they apply automatically.
+
+### Setting Up Tax Rates
+
+Go to [**Settings**](https://every.ai/settings) → **Organization** → **Sales Tax Default** → Enter percentage (e.g., 13) → Save. This rate applies to new services, quick invoice creation, and automation templates.
+
+You can also set **per-service tax rates** (e.g., consulting at 13%, educational workshops at 0%) so the correct rate applies automatically when that service is added to an invoice.
+
+<Tip>
+  **Ask Every Agent:** Configure taxes:
+  - "Set my default sales tax rate to 13%"
+  - "What's my current default tax rate?"
+</Tip>
+
+### Per-Invoice Tax Control
+
+- **Line item tax:** Set a different rate per line — mix taxable and exempt items on the same invoice
+- **Invoice-level tax:** Apply a single rate to the entire invoice
+- **Tax-exclusive (default):** Line amount + tax = total
+- **Tax-inclusive:** Line amount already includes tax
+
+**Calculation:** Line Total x Tax Rate = Tax. Tax is calculated after discounts are applied.
+
+<Tip>
+  **Ask Every Agent:** "Apply 8% tax to this line item on the invoice"
+</Tip>
+
+<Accordion title="Regional tax rates, expense tracking, and reporting">
+
+**Canadian tax system:**
+- **GST:** 5% federal across Canada
+- **HST (Harmonized):** 13% (ON/PEI), 15% (NS/NB/NL)
+- **PST (Provincial):** 7% (BC), 6% (SK), 7% (MB), 9.975% (QC QST) — applied alongside GST
+- **GST only:** AB, NT, NU, YT
+
+**US sales tax:** Varies by state (0-10%+). Consider nexus rules, local taxes, and product exemptions. Consult a tax professional.
+
+**Multiple taxes (GST + PST):** Calculate the combined rate (e.g., 5% + 7% = 12%), apply as a single rate, and note on the invoice: "Includes GST and PST."
+
+**Expense tax tracking:** Every tracks deductible expenses with amount, category, receipt, date, and description. Navigate to **Expenses** → Filter date range → **Export CSV** → Provide to accountant.
+
+**Tax reports:** Go to **Reports** → **Tax Report** → Select date range → Export. Includes total sales, tax collected by rate, and client detail. Use for quarterly/annual remittance and audit prep.
+
+<Warning>
+  Tax collected is NOT your revenue — it must be remitted to tax authorities on schedule.
+</Warning>
+
+</Accordion>
+
+---
+
+## Troubleshooting
+
+<Accordion title="Invoice issues">
+
+**Invoice not sending:** Verify client email address, check internet connection, try resending, check email delivery status in invoice activity.
+
+**Client didn't receive invoice:** Check delivery status → Verify email → Ask client to check spam → Resend or send public invoice link directly.
+
+**Can't edit issued invoice:** Invoices are locked after sending. Void and create a new invoice, or record a payment adjustment for minor changes.
+
+**Wrong total calculation:** Review each line item, verify tax applied correctly, check discount, ensure no duplicate line items.
+
+**Wrong currency on issued invoice:** Void and recreate in the correct currency.
+
+</Accordion>
+
+<Accordion title="Proposal issues">
+
+**Client can't approve:** Ensure the proposal is issued (not draft), the link is correct, it's not expired, and the browser allows form submission.
+
+**Conversion doesn't copy everything:** By design — scope and client message are proposal-specific. Line items, attachments, and client info do copy. Add invoice-specific notes separately.
+
+</Accordion>
+
+<Accordion title="Tax issues">
+
+**Tax not calculating:** Verify the rate is set on the line item, enter as a whole number (13, not 0.13), and check that organization settings are saved.
+
+**Wrong tax rate on issued invoice:** Void and recreate with the correct rate.
+
+</Accordion>
+
+---
+
+## Best Practices
+
+<Tip>
+  **Complete organization setup first** — logo, branding, default currency, and tax rates make every document professional from the start.
+</Tip>
+
+<Tip>
+  **Use saved services and enable online payments** — reusable line items speed up creation, and Stripe integration helps clients pay faster.
+</Tip>
+
+<Tip>
+  **Set clear due dates and detailed line items** — Net 30 is standard. Clear descriptions reduce client questions and billing disputes.
+</Tip>
+
+<Tip>
+  **Use proposals for new clients and large projects** — get approval before work begins to set expectations and prevent scope creep.
+</Tip>
+
+<Tip>
+  **Track email opens before following up** — no need to chase a client who hasn't seen the invoice yet.
+</Tip>
+
+<Tip>
+  **Convert approved proposals promptly** — once approved, convert and send the invoice to keep momentum.
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Accept Payments"
+    icon="credit-card"
+    href="/billing/payments"
+  >
+    Set up payment processing and track payments
+  </Card>
+
+  <Card
+    title="Automate Recurring Invoices"
+    icon="rotate"
+    href="/billing/automations"
+  >
+    Set up automated recurring billing
+  </Card>
+
+  <Card
+    title="Track Time"
+    icon="clock"
+    href="/scheduling/time-tracking"
+  >
+    Convert tracked time to invoice line items
+  </Card>
+
+  <Card
+    title="Manage Clients"
+    icon="users"
+    href="/clients/overview"
+  >
+    Track client billing history and contact info
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
