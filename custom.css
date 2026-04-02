@@ -1,20 +1,15 @@
-/* Every AI Documentation - Minimal Custom Styles */
-/* Based on Mintlify default theme with Every AI branding */
+/* Every AI Documentation — Custom Styles */
+/* Willow theme + minimal overrides to match Every AI design system */
 
 :root {
-  /* Minimal overrides to match Every AI design system */
-  --radius: 0.5rem; /* 8px border radius */
+  --radius: 0.5rem;
 }
 
-/* ===== EVERY AI BRANDING ===== */
+/* ===== LOGO ===== */
 
-/* Logo sizing - make it more proportionate */
 img[src*="every-logo"],
 img[src*="/logo/"],
-[data-logo] img,
-header img,
-aside img,
-nav img {
+[data-logo] img {
   max-height: 20px !important;
   height: 20px !important;
   width: auto !important;
@@ -22,32 +17,32 @@ nav img {
   object-fit: contain !important;
 }
 
-/* Font: Inter (matching Every AI) */
+/* ===== TYPOGRAPHY ===== */
+
 body,
 #content-area,
 .mdx-content {
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Border radius: 8px (matching Every AI) */
+/* ===== BORDER RADIUS ===== */
+
 .card,
-button,
-input,
 pre,
 code {
   border-radius: 0.5rem;
 }
 
-/* Sidebar background - bg-contrast color */
+/* ===== SIDEBAR ===== */
+
 #sidebar,
 #sidebar-content,
 nav[aria-label="Sidebar navigation"],
 .sidebar-nav,
 aside[data-sidebar] {
-  background-color: #edece8 !important;
+  background-color: #F2F1EF !important;
 }
 
-/* Fix sidebar horizontal scroll */
 #sidebar,
 #sidebar-content,
 nav[aria-label="Sidebar navigation"],
@@ -56,7 +51,6 @@ nav[aria-label="Sidebar navigation"],
   max-width: 100% !important;
 }
 
-/* Ensure navigation items don't overflow */
 #sidebar a,
 #sidebar button,
 .sidebar-nav a,
@@ -67,85 +61,17 @@ nav[aria-label="Sidebar navigation"],
   max-width: 100% !important;
 }
 
-/* Callout boxes - dark background like hero section */
+/* ===== CALLOUTS ===== */
+/* Let Mintlify's native semantic callout colors through (blue/green/yellow). */
+/* Only add border-radius to match our design system. */
+
 .callout,
-[data-callout],
-.note,
-.tip,
-.info,
-.warning,
-div[class*="callout"],
-div[role="note"],
-aside[class*="callout"] {
-  background-color: #0A0A0A !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+[data-callout] {
   border-radius: 0.5rem !important;
-  padding: 1rem 1.25rem !important;
-}
-
-/* Force all child elements to be white */
-.callout *,
-[data-callout] *,
-.note *,
-.tip *,
-.info *,
-.warning *,
-div[class*="callout"] *,
-div[role="note"] *,
-aside[class*="callout"] * {
-  color: #FFFFFF !important;
-}
-
-/* Callout icons - light color */
-.callout svg,
-[data-callout] svg,
-.note svg,
-.tip svg,
-.info svg,
-.warning svg,
-div[class*="callout"] svg,
-div[role="note"] svg,
-aside[class*="callout"] svg {
-  color: #FFFFFF !important;
-  opacity: 0.9 !important;
-}
-
-/* Callout headings and text */
-.callout h1,
-.callout h2,
-.callout h3,
-.callout h4,
-.callout h5,
-.callout h6,
-.callout p,
-.callout li,
-[data-callout] h1,
-[data-callout] h2,
-[data-callout] h3,
-[data-callout] h4,
-[data-callout] h5,
-[data-callout] h6,
-[data-callout] p,
-[data-callout] li {
-  color: #FFFFFF !important;
-}
-
-/* Callout links */
-.callout a,
-[data-callout] a {
-  color: #FFFFFF !important;
-  text-decoration: underline !important;
-}
-
-.callout a:hover,
-[data-callout] a:hover {
-  opacity: 0.8 !important;
 }
 
 /* ===== HIDE DARK MODE TOGGLE ===== */
 
-/* Hide the theme/appearance toggle completely */
 button[aria-label*="theme" i],
 button[aria-label*="appearance" i],
 button[aria-label*="dark" i],
@@ -157,61 +83,22 @@ button[aria-label*="light" i],
   display: none !important;
 }
 
-/* ===== BREADCRUMB/SECTION LINKS ===== */
+/* ===== BREADCRUMBS ===== */
 
-/* Bold section links above page title */
-/* Target the "Getting Started" link and similar breadcrumb navigation */
-main a[href*="/getting-started"],
-main a[href*="/features"],
-main a[href*="/workflows"],
-main a[href*="/integrations"],
-main a[href*="/advanced"],
-main a[href*="/ai"],
-#content-area > a,
-.mdx-content > a:first-of-type,
-h1 + a,
-a + h1,
-header a:not([aria-label]):not([role="button"]) {
-  font-weight: 600 !important;
-}
-
-/* More general breadcrumb selectors */
 [class*="breadcrumb"] a,
 [class*="Breadcrumb"] a {
   font-weight: 600 !important;
 }
 
-/* ===== BUTTON GROUP FIXES ===== */
+/* ===== BUTTON GROUPS ===== */
+/* Scope to adjacent sibling buttons only (e.g. Copy page + dropdown) */
 
-/* Fix button groups (like Copy page + dropdown) to connect seamlessly */
-/* Remove right border radius from left button in group */
-button:has(+ button),
-button:has(+ [role="button"]),
-[role="button"]:has(+ button),
-[role="button"]:has(+ [role="button"]) {
+button:has(+ button) {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
 
-/* Remove left border radius from right button in group */
-button:not(:first-child),
-[role="button"]:not(:first-child) {
+button + button {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
-
-/* Ensure first button in group keeps left radius */
-button:first-child,
-[role="button"]:first-child {
-  border-top-left-radius: 0.5rem !important;
-  border-bottom-left-radius: 0.5rem !important;
-}
-
-/* Ensure last button in group keeps right radius */
-button:last-child,
-[role="button"]:last-child {
-  border-top-right-radius: 0.5rem !important;
-  border-bottom-right-radius: 0.5rem !important;
-}
-
-/* Let Mintlify handle all default styling - we only override what's needed */

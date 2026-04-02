@@ -5,7 +5,7 @@
   "css": "custom.css",
   "colors": {
     "primary": "#0A0A0A",
-    "light": "#0A0A0A",
+    "light": "#6B6865",
     "dark": "#0A0A0A"
   },
   "font": {
@@ -18,7 +18,7 @@
   },
   "background": {
     "color": {
-      "light": "#FAFAFA",
+      "light": "#FFFFFF",
       "dark": "#0A0A0A"
     }
   },
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "group": "The AI Agent",
+        "group": "Every Agent",
         "pages": [
           "ai/every-agent",
           "ai/voice-and-tone",
