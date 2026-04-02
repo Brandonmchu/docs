@@ -37,22 +37,29 @@ https://admin-mcp.every.ai
 ### Claude Desktop
 
 1. Open Claude Desktop → **Settings** → **Developer** → **Edit Config**
-2. Paste this into `claude_desktop_config.json`:
+2. Add `mcpServers` inside the existing JSON (as a sibling to `preferences`, not a separate block):
 
 ```json
 {
+  "preferences": {
+    ...
+  },
   "mcpServers": {
     "every-ai": {
-      "type": "http",
-      "url": "https://admin-mcp.every.ai/"
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://admin-mcp.every.ai/"]
     }
   }
 }
 ```
 
-3. Restart Claude Desktop
-4. Authenticate when prompted with your Every AI account
+3. Save and restart Claude Desktop
+4. A browser window opens — sign in with your Every AI account
 5. Look for the hammer icon (🔨) — your Every AI tools are ready
+
+<Note>
+  Requires [Node.js](https://nodejs.org) installed. Claude Desktop doesn't support remote servers directly, so `mcp-remote` acts as a bridge.
+</Note>
 
 ## Developer Tools
 
