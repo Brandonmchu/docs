@@ -1,5 +1,5 @@
 /* Every AI Documentation — Custom Styles */
-/* Willow theme + minimal overrides to match Every AI design system */
+/* Maple theme + minimal overrides to match Every AI design system */
 
 :root {
   --radius: 0.5rem;
@@ -57,7 +57,7 @@ nav[aria-label="Sidebar navigation"],
 .sidebar-nav button {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
   max-width: 100% !important;
 }
 
@@ -68,6 +68,27 @@ nav[aria-label="Sidebar navigation"],
 .callout,
 [data-callout] {
   border-radius: 0.5rem !important;
+}
+
+/* ===== TIP CALLOUTS ===== */
+/* Black background with light text */
+
+[data-callout="tip"],
+.callout-tip {
+  background-color: #0A0A0A !important;
+  color: #D4D4D4 !important;
+  border-color: #0A0A0A !important;
+}
+
+[data-callout="tip"] *,
+.callout-tip * {
+  color: #D4D4D4 !important;
+}
+
+[data-callout="tip"] code,
+.callout-tip code {
+  color: #FFFFFF !important;
+  background-color: #2A2A2A !important;
 }
 
 /* ===== HIDE DARK MODE TOGGLE ===== */

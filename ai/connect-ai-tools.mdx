@@ -1,38 +1,16 @@
 ---
-title: "Connect to ChatGPT & Claude"
-description: "Use Every's tools directly inside ChatGPT, Claude, Cursor, and other AI assistants"
+title: "Connect to Claude & ChatGPT"
+description: "Use Every's tools directly inside Claude, ChatGPT, Cursor, and other AI assistants"
 icon: "plug"
 ---
 
 ## Overview
 
-Every works inside the AI tools you already use. Connect your account to ChatGPT, Claude, Cursor, or any MCP-compatible assistant and you get full access to your clients, invoices, proposals, bookings, expenses, and more — without leaving the conversation.
+Every works inside the AI tools you already use. Connect your account to Claude, ChatGPT, Cursor, or any MCP-compatible assistant and you get full access to your clients, invoices, proposals, bookings, expenses, and more — without leaving the conversation.
 
 This means the AI assistant you're already using becomes an AI assistant that knows your business.
 
 ## AI Apps
-
-### ChatGPT
-
-{/* After app store approval, replace with:
-1. Go to [chatgpt.com/apps](https://chatgpt.com/apps) and search **Every AI**
-2. Click **Connect** and sign in with your Every AI account
-3. Start a new chat and type `@Every AI` followed by your request
-*/}
-
-1. Open ChatGPT → **Settings** → **Apps** → **Advanced settings**
-2. Turn on **Developer mode**
-3. Go back to **Apps** → click **Add more**
-4. Paste this URL:
-```
-https://admin-mcp.every.ai
-```
-5. Click **Add** → **Connect** → sign in with your Every AI account
-6. Start a new chat and type `@Every AI` followed by your request
-
-<Tip>
-  **Try it:** `@Every AI show me my invoices` or `@Every AI create an invoice for Acme Corp, $500 for consulting`
-</Tip>
 
 ### Claude Desktop
 
@@ -61,7 +39,36 @@ https://admin-mcp.every.ai
   Requires [Node.js](https://nodejs.org) installed. Claude Desktop doesn't support remote servers directly, so `mcp-remote` acts as a bridge.
 </Note>
 
+### Claude CoWork
+
+1. Go to [claude.ai/settings/connectors](https://claude.ai/settings/connectors)
+2. Click **Add Connector** → set the URL to `https://admin-mcp.every.ai/`
+3. Authenticate with your Every AI account
+4. CoWork will now have access to your Every workspace
+
 ## Developer Tools
+
+### ChatGPT (Pro)
+
+<Note>
+  Requires a ChatGPT **Pro** or **Enterprise** plan with Developer mode enabled.
+</Note>
+
+{/* After app store approval, replace with:
+1. Go to [chatgpt.com/apps](https://chatgpt.com/apps) and search **Every AI**
+2. Click **Connect** and sign in with your Every AI account
+3. Start a new chat and type `@Every AI` followed by your request
+*/}
+
+1. Open ChatGPT → **Settings** → **Apps** → **Advanced settings**
+2. Turn on **Developer mode**
+3. Go back to **Apps** → click **Add more**
+4. Paste this URL:
+```
+https://admin-mcp.every.ai
+```
+5. Click **Add** → **Connect** → sign in with your Every AI account
+6. Start a new chat and type `@Every AI` followed by your request
 
 ### Claude Code
 
@@ -160,7 +167,7 @@ Every exposes 27 tools to your AI assistant, covering:
 Every Agent inside the app and these external AI connections share the same tools and data. The difference is where you work:
 
 - **[Every Agent](/ai/every-agent)** — purpose-built assistant inside the Every app, with full access to your [Business Context](/ai/business-context-and-tokens) and [Voice & Tone](/ai/voice-and-tone)
-- **ChatGPT, Claude, Cursor, etc.** — bring Every's capabilities into the AI tools you already use for other work
+- **Claude, ChatGPT, Cursor, etc.** — bring Every's capabilities into the AI tools you already use for other work
 
 Use whichever fits your workflow. Both operate on the same live data.
 
