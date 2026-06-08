@@ -1,0 +1,245 @@
+---
+title: "Context & Voice"
+description: "Teach Every Agent what your business does with Business Context, and shape how it writes on your behalf with Voice & Tone — all on one page"
+icon: "sliders"
+---
+
+## Overview
+
+Every Agent does its best work when it understands two things about you: **what your business is**, and **how your business sounds**. Both live in one place — [**Agent → Context**](https://every.ai/agent/context) — alongside the files, links, and preferences that round out what the agent knows.
+
+- **Business Context** — the narrative and facts about your business: what you do, who you serve, your services, pricing logic, and operating rules.
+- **Voice & Tone** — your writing style, tailored per audience, so drafts sound like you.
+
+<Card title="Open Context" icon="sliders" href="https://every.ai/agent/context" horizontal>
+  Manage context, voice, sources, and preferences in one place
+</Card>
+
+<Note>
+  Business Context tells the agent **what is true** about your business. Voice & Tone tells it **how to express it**. Use both together.
+</Note>
+
+## Business Context
+
+Business Context is where you teach Every Agent how your business works. It combines written context, uploaded files, Google Drive references, and web links so the agent can answer questions and take action with better business-specific judgment.
+
+**Use Business Context for:**
+- Business description and positioning
+- Services, products, and pricing logic
+- Target clients and ideal customer profile
+- Internal operating rules or constraints
+- Supporting files and reference links
+
+Good Business Context improves invoice and proposal drafting, business Q&A, data analysis, follow-up suggestions, and context-aware recommendations.
+
+### Written Context
+
+The written context area is where you describe your business directly.
+
+**Good things to include:**
+- What your company does
+- Main services and products
+- Target industries or client types
+- Pricing philosophy
+- Delivery model and process
+- Important rules the agent should follow
+
+**Example:**
+
+```text
+We are a boutique product strategy firm working with B2B SaaS companies.
+Our work is usually sold as discovery sprints, roadmap workshops, and
+fractional product leadership retainers.
+
+Typical engagements are $5K-$20K. Keep communication concise, confident,
+and practical. We prefer clear scope, milestone-based invoicing, and
+Net 15 terms for smaller clients.
+```
+
+<Tip>
+  Write context the way you'd brief a new operator joining your company. That level of specificity works well.
+</Tip>
+
+### Build Context From Your Workspace
+
+Business Context can also be generated from your existing workspace data — clients, financial activity, communication patterns, and structure. Use **Build Context** when:
+
+- You're setting things up for the first time
+- Your business has changed materially
+- You want the agent to refresh its understanding from recent activity
+
+<Warning>
+  Building context can replace the current generated narrative. Review the result after it finishes and edit anything that needs tightening.
+</Warning>
+
+### Files & Link References
+
+You can add files and links the agent should reference, managed on the same Context page.
+
+- **Uploaded Files** — Upload PDF contracts, Word proposals, Excel rate cards, CSV exports, images, or text notes. Good for standard agreements, pricing sheets, brand guidelines, deliverable templates, and internal playbooks.
+- **Google Drive References** — Attach Drive files you select through the picker so the agent works from the current version. Good for living docs and shared templates. (Every can reference Drive files you create in or open with Every — see [Google Workspace](/integrations/google-workspace) for scope details.)
+- **Web Links** — Add URLs the agent should reference, like your marketing site, pricing page, or services page.
+
+<Tip>
+  Prefer live Drive docs or URLs when the source changes often. Prefer uploads when you want a fixed snapshot.
+</Tip>
+
+**Ask Every Agent:**
+
+```text
+"Use my service agreement when drafting this proposal"
+"Check the pricing sheet before creating that invoice"
+"Read the onboarding guide and summarize our implementation steps"
+```
+
+## Voice & Tone
+
+Voice & Tone controls how Every Agent sounds when it drafts on your behalf. It's separate from Business Context — facts vs. style — and lives as its own section on the Context page.
+
+Every stores voice guidance in three audience buckets:
+- **Client-facing** — prospects, clients, and revenue-facing communication
+- **Internal / casual** — founders, teammates, and close collaborators
+- **Non-client external** — vendors, partners, candidates, and other outside operators
+
+The agent uses the right audience profile depending on who it's writing to.
+
+<Note>
+  Voice & Tone is not injected into every chat turn. It's used mainly when the agent is drafting business-authored content such as proposals, invoice notes, and outbound messages — so everyday operational Q&A stays lean.
+</Note>
+
+### How It's Generated
+
+Voice & Tone is generated from your email history, then made editable. Each audience can include:
+
+- A short voice/tone description
+- Tags such as `direct`, `warm`, `concise`, or `professional`
+- A short, paraphrased example (paraphrased so private email language is never copied into output)
+
+### Refreshing the Profile
+
+Use the **Refresh** action on the Voice & Tone section when:
+
+- Your writing style has changed
+- You want fresher guidance from newer emails
+- The current profile feels out of date
+
+After refreshing, review the generated content and tighten anything too generic or too broad.
+
+### Editing the Profile
+
+Each audience can be edited directly. A good workflow:
+
+1. Review the generated description
+2. Remove tags that don't fit
+3. Add the traits you actually want the agent to lean on
+4. Add a short example that sounds like you
+
+<Tip>
+  Keep examples short and representative. A few strong examples work better than a lot of filler. One strong paragraph per audience is usually enough.
+</Tip>
+
+### What to Put Where
+
+| Setting | Best used for |
+|-|-|
+| **Business Context** | Facts, operating rules, services, products, pricing logic |
+| **Voice & Tone** | Style, tone, audience-specific communication patterns |
+
+Pricing rules, the service catalog, operational policies, and client segmentation logic belong in **Business Context** — not Voice & Tone.
+
+## Where This Fits
+
+Context and Voice are two of the layers that shape the agent. They pair with:
+
+- [**Memory & Skills**](/ai/memory-and-skills) — what the agent recalls across chats, and the reusable how-to guidance you create
+- **Learned Preferences** — single standing rules the agent saves with your confirmation (manage at [**Agent → Preferences**](https://every.ai/agent/preferences))
+
+## Best Practices
+
+<Tip>
+  Keep written context practical — focus on what the agent needs to know to make better decisions.
+</Tip>
+
+<Tip>
+  Add source files for anything you want referenced consistently: pricing, terms, messaging.
+</Tip>
+
+<Tip>
+  Keep client-facing tone aligned with how you actually sell and communicate, not how you think a generic business "should" sound.
+</Tip>
+
+<Tip>
+  Revisit both when your positioning, pricing, branding, or team changes significantly. Review generated content after a rebuild — treat it as a draft to refine.
+</Tip>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="brain" title="Agent isn't using my context">
+    **Check:** Your changes were saved, files uploaded successfully, links are still accessible, and the context is specific enough to be actionable.
+
+    **Try:** Tighten vague sections, re-upload important files, fix broken links or permissions, and ask the agent a task that clearly depends on the context you added.
+  </Accordion>
+
+  <Accordion icon="file" title="File upload failed">
+    **Check:** File format is supported, internet connection is stable, the file is not corrupted.
+
+    **Try:** Compress or convert the file, upload a PDF instead of a more complex format, or use a Drive link if the file works better as a live document.
+  </Accordion>
+
+  <Accordion icon="message-square" title="The writing style feels wrong">
+    **Try:** Edit the audience description directly, remove tags pushing the style the wrong way, add stronger examples, or refresh the profile if your recent email history is now more representative.
+  </Accordion>
+
+  <Accordion icon="circle-question" title="The agent is ignoring Voice & Tone">
+    Voice & Tone is used mainly for drafting flows. If you're asking a simple operational question, the profile may not be relevant to that turn. Test it with proposal drafting, invoice note generation, or outbound email drafting.
+  </Accordion>
+
+  <Accordion icon="ban" title="The generated profile is too generic">
+    That usually means there isn't enough signal in the current email-derived profile. Edit it manually, add clearer example snippets, or refresh again later after more representative email activity.
+  </Accordion>
+</AccordionGroup>
+
+## A Note on Credits
+
+Building or refreshing context and voice uses AI, and AI usage consumes credits. See [What is a credit?](/plans/what-is-a-credit) and [Credit usage & errors](/plans/credit-usage-and-errors) for how that works.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    See how the agent uses context and voice together
+  </Card>
+
+  <Card
+    title="Memory & Skills"
+    icon="brain"
+    href="/ai/memory-and-skills"
+  >
+    Persistent memory and reusable, auto-applied skills
+  </Card>
+
+  <Card
+    title="Proposals"
+    icon="file-check"
+    href="/billing/invoices-and-proposals"
+  >
+    Use Voice & Tone when drafting polished client-facing proposals
+  </Card>
+
+  <Card
+    title="Google Workspace"
+    icon="mail"
+    href="/integrations/google-workspace"
+  >
+    Connect Google so you can add Drive references and workspace context
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

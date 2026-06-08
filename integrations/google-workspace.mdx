@@ -12,19 +12,19 @@ Google Workspace integration connects Every with your Gmail, Calendar, Drive, an
 - Import contacts from Google Contacts
 - Send emails through Gmail (via Every Agent)
 - Create and view calendar events
-- Search and attach Google Drive files
+- Attach Google Drive files you create in or open with Every (Drive Picker)
 - Automate workflows with Google services
 
 ## Connecting Google Workspace
 
 ### Quick Setup
 
-Go to [**Settings**](https://every.ai/settings) → **Integrations** → **Connect Google Account** → Select your Google account → Review permissions → Click Allow → Return to Every.
+Go to [**Agent Settings → Connections**](https://every.ai/agent/connections) → find the **Google Workspace** card → **Connect Google Account** → Select your Google account → Review permissions → Click Allow → Return to Every.
 
 **Permissions Requested:**
 - **Gmail:** Send emails, read messages
 - **Calendar:** Read and write events
-- **Drive:** View and search files
+- **Drive:** Access files you create in or open with Every (the `drive.file` scope — Every cannot browse your full Drive)
 - **Contacts:** Read contact information
 
 <Tip>
@@ -42,7 +42,7 @@ Go to [**Settings**](https://every.ai/settings) → **Integrations** → **Conne
 
 Scopes define what Every can access. If a feature requires missing scopes, the app prompts you to reconnect and grant additional permissions.
 
-**To Update:** Settings → Integrations → Reconnect Google → Grant additional permissions
+**To Update:** Agent Settings → Connections → Reconnect Google → Grant additional permissions
 
 ## Gmail Integration
 
@@ -102,30 +102,32 @@ Agent generates context-aware email suggestions (API: `/api/generate-suggested-m
 
 ## Google Drive Integration
 
-### Searching and Attaching Files
+### Attaching Files from Drive
 
-**Drive integration capabilities:** Search by filename, file type, recent files, starred files, or specific folders
+Every connects to Drive with the **`drive.file`** scope. This is a privacy-preserving, file-by-file grant: Every can only access files you **explicitly pick** through the Google Drive Picker (or that you create with Every) — it **cannot** browse, enumerate, or search your full Drive folder tree, and it has no access to documents you haven't selected.
+
+<Note>
+  Every does **not** read your entire Drive. The Drive Picker shows your files so you can choose which ones to share; once you select a file, that specific file becomes accessible to Every. Files you never pick stay private.
+</Note>
 
 **Use Cases:**
-- Find contracts to attach to invoices
-- Locate project files and specifications
-- Reference documentation
-- Attach proposals and templates
+- Attach a contract you select to an invoice
+- Add a proposal template or spec sheet you pick from Drive
+- Reference a document you've shared with Every
 
 <Tip>
-  **Ask Every Agent:** Search Drive:
-  - "Find the ACME Corp contract in my Drive"
-  - "Search for project specifications in Google Drive"
-  - "Attach the proposal template from Drive"
+  **Ask Every Agent** to work with files you've already picked or created with Every:
+  - "Attach the proposal template I selected from Drive"
+  - "Use the spec sheet I shared from Drive for this proposal"
 </Tip>
 
 ### Attaching Files
 
-Create/edit invoice or proposal → Click "Attach from Drive" → Search or browse → Select file → Link added → Client can access (based on Drive permissions)
+Create/edit invoice or proposal → Click "Attach from Drive" → **Pick a file** in the Google Drive Picker → Select file → Link added → Client can access (based on Drive permissions)
 
-**Supported:** Documents, Spreadsheets, Presentations, Images, PDFs, any file type in Drive
+**Supported:** Documents, Spreadsheets, Presentations, Images, PDFs, any file type you select in the Picker
 
-**Permissions:** File access managed in Google Drive. Consider making files public or sharing with client email.
+**Permissions:** File access is managed in Google Drive. Picking a file in the Picker grants Every access to that file only. Consider making files public or sharing with the client email so recipients can open them.
 
 ## Google Contacts Integration
 
@@ -197,7 +199,7 @@ The Agent leverages Google integrations with the `check_google_services_status` 
 **Agent Capabilities:**
 - Send Gmail emails
 - Create calendar events
-- Search Drive files
+- Attach Drive files you've picked or created with Every
 - Reference contact data
 - Schedule follow-ups and reminders
 
@@ -214,7 +216,7 @@ Agent: ✓ Checks Gmail connection
 
 ### Connection Status
 
-**View Status:** Settings → Integrations → Google Workspace section
+**View Status:** Agent Settings → Connections → Google Workspace section
 
 **Status Indicators:**
 - ✅ Connected
@@ -234,11 +236,11 @@ Agent: ✓ Checks Gmail connection
 
 **When Needed:** Adding new scopes, token expired, connection error, or permission changes
 
-**To Reconnect:** Settings → Integrations → Reconnect Google → Log in → Grant permissions
+**To Reconnect:** Agent Settings → Connections → Reconnect Google → Log in → Grant permissions
 
 ### Disconnecting
 
-**To Disconnect:** Settings → Integrations → Google Workspace → Disconnect → Confirm
+**To Disconnect:** Agent Settings → Connections → Google Workspace → Disconnect → Confirm
 
 **What Happens:**
 - Stored tokens removed
@@ -270,7 +272,7 @@ Agent: ✓ Checks Gmail connection
 
 **Calendar events not creating:** Verify Calendar scope granted, correct calendar selected, valid date/time, or reconnect
 
-**Drive files not found:** Verify Drive scope granted, files exist, accurate search terms, check file permissions, or reconnect
+**Drive file not accessible:** Verify Drive scope granted, re-pick the file in the Drive Picker (the `drive.file` scope only reaches files you've selected or created with Every), check file permissions, or reconnect
 
 ## Best Practices
 
@@ -300,7 +302,7 @@ Agent: ✓ Checks Gmail connection
   <Card
     title="Connect Google"
     icon="google"
-    href="https://every.ai/settings/integrations"
+    href="https://every.ai/agent/connections"
   >
     Set up Google Workspace integration
   </Card>

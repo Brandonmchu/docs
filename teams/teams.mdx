@@ -1,0 +1,111 @@
+---
+title: "Teams & Multi-User"
+description: "Invite teammates into one organization with shared records, per-member ownership and attribution, private agent chats, and per-user Google connections"
+icon: "users"
+---
+
+## Overview
+
+An Every organization can have more than one member. Everyone in the org shares the same business records — clients, contacts, invoices, proposals, and pipeline deals — while a few things stay personal to each member: their agent chats can be kept private, and each person connects their own Google account.
+
+<Note>
+  Multi-user behavior only appears once your org has **two or more members**. Solo organizations see the single-user experience with none of the team UI below (no avatars, no "Owner" labels, no All/My filters).
+</Note>
+
+## How sharing works
+
+Every uses a simple two-layer model:
+
+- **Shared by default.** All business records — clients, contacts, invoices, proposals, and deals — are organization-wide. Every member sees every record. There is no per-record or role-based access control on business data.
+- **Personal where it matters.** Agent chat threads can be made private to a single member, and Gmail / Google Calendar / Google Contacts connections are scoped per person rather than per org.
+
+<Note>
+  AI credits are a single **organization-wide pool** — all members draw from the same balance. There is no per-seat metering or per-member usage breakdown.
+</Note>
+
+## Inviting teammates
+
+Members are managed through your Clerk organization. Go to **Settings → Organization**, open the **Team** section, and use the invite button to add teammates by email. The Team section lists current members with their avatar, name, email, and role.
+
+<Note>
+  All members have equal access to business records. Roles are shown for identity but do not restrict what a member can view or edit within Every.
+</Note>
+
+## Ownership & attribution
+
+In a multi-member org, records show **who created or owns them** so the team can see at a glance who is responsible for what.
+
+- Records carry an owner / creator, surfaced as an **avatar and "Owner" or "Created by" label** on cards, detail dialogs, and activity timelines.
+- Attribution is about responsibility and behavior — it is **not** a visibility gate. Non-owners still see (and can edit) shared records.
+
+### Pipeline deal ownership
+
+The [Every Agent](/ai/every-agent) pipeline gives ownership a functional role:
+
+- Every deal has an **owner**. The Pipeline shows all deals by default, with a **"My deals" filter** to narrow to the ones you own.
+- The deal detail dialog includes an **owner switcher** to reassign a deal to another member.
+- **Outreach is owner-gated.** Only a deal's owner can send its outreach — the owner's connected Gmail is used to draft and scan replies. Non-owners can read and copy the drafted message, but the send action is reserved for the owner. This is enforced on the backend, not just hidden in the UI.
+
+<Tip>
+  If you can't send a teammate's outreach, that's by design — reassign the deal's owner to yourself (or ask the owner to send) from the deal detail dialog.
+</Tip>
+
+## Private agent chats
+
+Each agent chat thread has a visibility setting:
+
+- **Organization (default)** — visible to every member of the org.
+- **Private** — visible only to the member who owns the thread.
+
+You can toggle a thread between Organization and Private from the thread menu when you own it. Private threads (and their messages) are hidden from teammates everywhere they're read.
+
+<Note>
+  Threads that touch **personal Google data** (your Gmail, Calendar, Drive, or Contacts) and threads created by **scheduled tasks** — like your [Daily Brief](/heartbeat/daily-brief) — are automatically made private and locked so they can't be re-shared. This keeps one member's inbox and calendar content from appearing in a teammate's view.
+</Note>
+
+## Per-user Google connections
+
+Google connections are **per member, not per organization**. Each teammate connects their own Gmail, Google Calendar, and Google Contacts under **Agent Settings → Connections**.
+
+- The agent uses **your** Google account for your work — reading your calendar, scanning your inbox for replies, sending on your behalf.
+- The Connections page shows your personal connection status alongside which teammates have connected their own accounts.
+- For pipeline outreach, the agent uses the **deal owner's** Gmail to send and to scan for replies.
+
+<Card title="Connect Google Workspace" icon="mail" href="/integrations/google-workspace" horizontal>
+  Connect your own Gmail, Calendar, and Contacts
+</Card>
+
+## Member identity
+
+Across the app, members appear as avatars (their photo, or initials when no photo is set) with a tooltip showing name and email. You'll see them on:
+
+- Pipeline deal cards and the deal detail dialog ("Owner")
+- Contact activity timelines ("Created by")
+- The Team section in Organization settings
+- The thread list, next to private-thread indicators
+
+All of this identity UI only renders in multi-member orgs.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    How the AI agent works with your team's data
+  </Card>
+
+  <Card
+    title="Google Workspace"
+    icon="mail"
+    href="/integrations/google-workspace"
+  >
+    Connect your personal Gmail and Calendar
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

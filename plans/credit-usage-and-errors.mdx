@@ -1,0 +1,115 @@
+---
+title: "Credit Usage & Errors"
+description: "Answers to the common questions about credits: charges on failed runs, what happens when you run out, scheduled tasks that quietly skip, the free trial size, and monthly resets."
+icon: "circle-help"
+---
+
+This page answers the questions people most often have about how credits are charged — especially around errors, running out, and scheduled tasks. For what a credit is and what consumes them, see [What is a credit?](/plans/what-is-a-credit); for plan amounts, see [Plans &amp; Pricing](/plans/plans-and-pricing).
+
+## Charges & failures
+
+<AccordionGroup>
+  <Accordion title="Am I charged if an AI task fails?">
+    **You're charged for the work the model actually did, even if the run fails partway through.** Credits meter the AI work that happened — so if a task got partway and then errored, the work up to that point still consumes credits. There is **no automatic refund or rollback**.
+
+    The one exception: a run that fails **immediately, with zero AI work done**, is **not** charged. If the model never did any work, you aren't billed for it.
+
+    So in short:
+
+    - Run did some work, then errored → charged for the work done, no refund.
+    - Run failed instantly with no model usage → not charged.
+
+    If you believe you were charged in error, contact [hello@every.ai](mailto:hello@every.ai).
+  </Accordion>
+
+  <Accordion title="Will a failed automation retry?">
+    Background and scheduled jobs automatically retry transient infrastructure errors (and Every avoids double-billing across those retries). They do **not** retry when the failure is due to running out of credits or a logical error in the task — for those, check the activity timeline and the linked thread, fix the cause, and run it again.
+  </Accordion>
+</AccordionGroup>
+
+## Running out of credits
+
+<AccordionGroup>
+  <Accordion title="What happens when I run out of credits?">
+    It depends on your plan.
+
+    **Free / trial orgs hit a full gate.** When a Free org's credits reach zero, AI features pause **and** the app routes you to the billing page. Some non-AI actions are paused too — notably **sending an invoice** and **downloading a PDF** — until you add credits or subscribe. This is a deliberate full-app gate, not just an AI pause.
+
+    **Paid orgs hit an AI-only limit, not a lockout.** When an Every Core or Every Pro org uses up its credits, AI features pause with an upgrade/top-up prompt, but the rest of the app keeps working normally — you can still send invoices, download PDFs, record payments, and use every non-AI feature. There's no full-app redirect.
+
+    To restore AI access in either case:
+
+    - **Buy [extra credits](/plans/what-is-a-credit#extra-credits)** for immediate access (they're used after your monthly allocation).
+    - **Subscribe** (Free orgs) or **upgrade** (Core → Pro) for a larger monthly allocation.
+    - **Wait for your monthly reset** if you're on a paid plan.
+  </Accordion>
+
+  <Accordion title="Do I get warned before I run out?">
+    When a paid org uses up its monthly credits, Every sends a notification email shortly after you hit zero (skipped if you've already topped up or upgraded in that window). To avoid interruptions entirely — especially if you rely on scheduled tasks — enable [auto-recharge](/plans/what-is-a-credit#auto-recharge), which buys extra credits automatically when your balance drops below a threshold you set.
+  </Accordion>
+</AccordionGroup>
+
+## Scheduled tasks
+
+<AccordionGroup>
+  <Accordion title="My scheduled task says Completed but nothing happened.">
+    If your credits were **exhausted** when a scheduled or background task was due, Every **skips** the run and marks it **Completed** — a no-op. The task didn't fail; there were simply no credits to do the work, so nothing ran. You won't get a separate per-skip email, push, or in-app notice for each skipped run.
+
+    What to do:
+
+    1. Top up with [extra credits](/plans/what-is-a-credit#extra-credits), or wait for your monthly reset (paid plans).
+    2. Re-run the task with **Run Now** if you need it immediately.
+
+    To prevent silent skips on tasks you depend on, enable [auto-recharge](/plans/what-is-a-credit#auto-recharge) so a low balance never interrupts your automations.
+  </Accordion>
+
+  <Accordion title="How do I know if a scheduled task actually failed?">
+    A task that **ran out of credits** is marked Completed (see above) — that's a skip, not a failure. A task that genuinely **errored** while running shows up in the activity timeline and the linked thread. Mobile users with notifications enabled may also get a failure push; there isn't a proactive web notification for every failure, so the activity timeline is the place to check.
+  </Accordion>
+</AccordionGroup>
+
+## Free trial & monthly resets
+
+<AccordionGroup>
+  <Accordion title="How big is the free trial?">
+    New orgs start with a one-time grant of **trial credits**, sized by where you signed up:
+
+    - **Web or mobile signup:** 3,000 credits
+    - **MCP / AI-tool connector signup:** 500 credits
+
+    These are **one-time** trial credits, not a monthly allowance. They live in your extra-credits bucket and do **not** reset — once they're used up, AI features pause until you subscribe or buy more. (Some promotions can add credits on top of the base grant.)
+  </Accordion>
+
+  <Accordion title="When do my credits reset?">
+    **Paid plans** include a monthly credit allocation (Every Core: 10,000; Every Pro: 50,000) that **resets at the start of each billing period**. The reset takes effect the first time you use Every after the new period begins.
+
+    A few details:
+
+    - **Unused monthly credits do not roll over** — each period starts fresh at your plan's allocation.
+    - **Extra credits never expire** and are spent only after your monthly allocation runs out.
+    - **Free orgs have no monthly reset** — their trial grant is one-time and doesn't refill.
+
+    Your exact reset date is shown on the Monthly Credits card in **Settings &gt; Billing**.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="What is a credit?" icon="coins" href="/plans/what-is-a-credit">
+    The unit behind your balance and what consumes it
+  </Card>
+  <Card title="Plans & Pricing" icon="badge-dollar-sign" href="/plans/plans-and-pricing">
+    What each plan includes
+  </Card>
+  <Card title="Manage credits" icon="settings" href="https://every.ai/settings/billing">
+    Balance, usage history, extra credits, and auto-recharge
+  </Card>
+  <Card title="Troubleshooting" icon="life-ring" href="/troubleshooting">
+    Other common issues and fixes
+  </Card>
+</CardGroup>
+
+<Note>
+  **Billing questions?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

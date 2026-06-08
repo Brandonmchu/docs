@@ -1,6 +1,6 @@
 ---
 title: "Clients"
-description: "Manage your client companies with AI-powered enrichment, CRM pipeline tracking, and comprehensive billing history"
+description: "Manage your client companies with AI-powered enrichment, comprehensive billing history, and role-based contacts"
 icon: "building-2"
 ---
 
@@ -11,13 +11,16 @@ Clients are the **companies and businesses** you work with and invoice. They rep
 **Key capabilities:**
 - Track client companies with full business details
 - AI-powered company enrichment from web, Gmail, and Google Contacts
-- Visual CRM pipeline for sales tracking
 - Complete billing history (invoices, proposals, payments)
 - Link multiple [contacts](/clients/contacts) with role-based email routing
 
 <Card title="Open Clients" icon="building-2" href="https://every.ai/clients" horizontal>
   View and manage all your clients in Every
 </Card>
+
+<Note>
+  Looking for the AI sales pipeline? Tracking *deals* through Lead → Opportunity → Won/Lost — with an agent that reviews each deal, drafts outreach, and detects won deals — lives on the new [Sales Pipeline](/prospecting/pipeline), not here. This page is about your client **records**.
+</Note>
 
 ## Creating Clients
 
@@ -81,98 +84,15 @@ AI-powered enrichment automatically finds and fills company and contact informat
   Works best for established businesses with web presence. May not find data for small businesses or individuals.
 </Tip>
 
-## Client Pipeline (CRM View)
+## Tracking Sales with the AI Pipeline
 
-Every includes a visual pipeline for tracking client relationships - like a lightweight CRM built into your invoicing platform.
+Every's sales tracking lives on the dedicated **[Sales Pipeline](/prospecting/pipeline)** — an AI-managed kanban board that tracks *deals* (potential sales) through Lead → Opportunity → Won/Lost. An agent reviews each deal, drafts outreach and follow-ups, recommends the next step, and can detect won deals automatically. Deals link back to the client records you manage here.
 
-**To access:** [**Clients**](https://every.ai/clients) page → Toggle from Table view to **Pipeline view**
+This is a separate surface from your client list: the Clients page is for managing client **records** (details, contacts, billing history), while the pipeline is for working **deals**.
 
-### Pipeline Views
-
-**Table View (Default):**
-- Spreadsheet-style list of all clients
-- Sort and filter by name, revenue, status
-- Quick search and bulk actions
-
-**Pipeline View:**
-- Visual kanban board with client cards
-- Drag clients between status columns
-- See deal values and proposal status at a glance
-
-### Status Columns
-
-Organize clients by where they are in your sales/relationship funnel:
-
-**Default statuses:**
-- **Lead** - Potential client, early conversation
-- **Qualified** - Interested, budget confirmed
-- **Proposal Sent** - Waiting for proposal approval
-- **Active Client** - Work in progress
-- **Closed - Won** - Successful engagement
-- **Closed - Lost** - Opportunity didn't convert
-
-**Customize statuses:** Create your own pipeline stages in **Clients → Pipeline Settings**
-
-### Using the Pipeline
-
-**Drag & Drop:**
-1. Grab a client card
-2. Drag to new status column
-3. Status change saves automatically
-
-**Client Cards Show:**
-- Client name and logo (if enriched)
-- Current status
-- Total revenue (all invoices)
-- Outstanding balance
-- Proposal count and status
-- Last activity date
-
-**Quick Actions (Click card):**
-- Create invoice
-- Create proposal
-- Log time entry
-- Add expense
-- Set up automation
-- View full client details
-
-<Tip>
-  **Ask Every Agent:** Manage pipeline:
-  - "Move ACME Corp to Active Client status"
-  - "Show me all clients in the Proposal Sent stage"
-  - "Update the status for TechStart Inc to Qualified"
-  - "List all leads from this month"
-</Tip>
-
-### Pipeline Workflows
-
-**Lead Qualification:**
-1. Create client as "Lead"
-2. Initial conversation → Move to "Qualified"
-3. Send proposal → Move to "Proposal Sent"
-4. Proposal approved → Move to "Active Client"
-5. Complete work → Move to "Closed - Won"
-
-**Sales Pipeline Tracking:**
-```
-Lead (10 clients, $50K potential)
-  ↓ (qualify)
-Qualified (5 clients, $30K potential)
-  ↓ (send proposal)
-Proposal Sent (3 clients, $20K potential)
-  ↓ (approved)
-Active Client (15 clients, $100K in progress)
-```
-
-### Pipeline Best Practices
-
-<Tip>
-  **Keep status current** - Update as relationships progress so pipeline reflects reality
-</Tip>
-
-<Tip>
-  **Review weekly** - Check pipeline for stuck deals and follow-up opportunities
-</Tip>
+<Card title="Open the Sales Pipeline" icon="git-branch" href="/prospecting/pipeline" horizontal>
+  Track deals and let the AI agent run your sales motion
+</Card>
 
 ## Client History
 
@@ -186,7 +106,7 @@ View complete activity timeline per client:
 ## Search & Filtering
 
 **Search by:** Name, email, company, phone
-**Filter by:** Active/archived, pipeline status, outstanding/overdue invoices, revenue
+**Filter by:** Active/archived, outstanding/overdue invoices, revenue
 **Sort by:** Alphabetical, recent, revenue, invoice count
 
 <Tip>

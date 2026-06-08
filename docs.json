@@ -57,10 +57,22 @@
         "group": "Every Agent",
         "pages": [
           "ai/every-agent",
-          "ai/voice-and-tone",
-          "ai/business-context-and-tokens",
-          "ai/scheduled-tasks",
-          "ai/connect-ai-tools"
+          "ai/memory-and-skills",
+          "ai/context-and-voice"
+        ]
+      },
+      {
+        "group": "Prospecting & Pipeline",
+        "pages": [
+          "prospecting/prospecting-agent",
+          "prospecting/pipeline"
+        ]
+      },
+      {
+        "group": "Heartbeat",
+        "pages": [
+          "heartbeat/heartbeat",
+          "heartbeat/daily-brief"
         ]
       },
       {
@@ -89,13 +101,28 @@
         ]
       },
       {
-        "group": "Integrations",
+        "group": "Plans & Credits",
+        "pages": [
+          "plans/plans-and-pricing",
+          "plans/what-is-a-credit",
+          "plans/credit-usage-and-errors"
+        ]
+      },
+      {
+        "group": "Integrations & MCP",
         "pages": [
           "integrations/stripe",
           "integrations/google-workspace",
           "integrations/xero",
           "integrations/hubspot",
-          "integrations/granola"
+          "integrations/granola",
+          "integrations/connect-ai-tools"
+        ]
+      },
+      {
+        "group": "Teams",
+        "pages": [
+          "teams/teams"
         ]
       },
       {
@@ -158,11 +185,15 @@
     { "source": "/advanced/reporting", "destination": "/reference/reports-and-export" },
     { "source": "/data/csv-import", "destination": "/clients/contacts" },
     { "source": "/data/export", "destination": "/reference/reports-and-export" },
-    { "source": "/ai/business-context", "destination": "/ai/business-context-and-tokens" },
-    { "source": "/ai/tokens-and-usage", "destination": "/ai/business-context-and-tokens" },
+    { "source": "/ai/business-context", "destination": "/ai/context-and-voice" },
+    { "source": "/ai/business-context-and-tokens", "destination": "/ai/context-and-voice" },
+    { "source": "/ai/voice-and-tone", "destination": "/ai/context-and-voice" },
+    { "source": "/ai/tokens-and-usage", "destination": "/plans/what-is-a-credit" },
     { "source": "/ai/undo-agent-actions", "destination": "/ai/every-agent" },
-    { "source": "/ai/agent-scheduled-tasks", "destination": "/ai/scheduled-tasks" },
-    { "source": "/integrations/every-mcp", "destination": "/ai/connect-ai-tools" },
+    { "source": "/ai/scheduled-tasks", "destination": "/heartbeat/heartbeat" },
+    { "source": "/ai/agent-scheduled-tasks", "destination": "/heartbeat/heartbeat" },
+    { "source": "/ai/connect-ai-tools", "destination": "/integrations/connect-ai-tools" },
+    { "source": "/integrations/every-mcp", "destination": "/integrations/connect-ai-tools" },
     { "source": "/workflows/common-workflows", "destination": "/quickstart" },
     { "source": "/workflows/tips-for-success", "destination": "/quickstart" }
   ]

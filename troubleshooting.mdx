@@ -163,7 +163,7 @@ icon: "wrench"
     - Void invoice and create new one with changes
     - If minor change, add note to invoice
     - Contact client to explain correction
-    - For major changes, issue credit note (future feature)
+    - For an overpayment or downward adjustment, record a negative payment instead
 
     <Note>This protection ensures financial records remain accurate and auditable.</Note>
   </Accordion>
@@ -236,13 +236,13 @@ icon: "wrench"
     <Note>Stripe payouts follow their standard schedule. Check your Stripe Dashboard for exact timing.</Note>
   </Accordion>
 
-  <Accordion icon="trash-2" title="Can't Delete Payment">
-    **Reason:** Payment cannot be deleted to maintain financial integrity
+  <Accordion icon="trash-2" title="Deleting a Payment / Refunding a Client">
+    Any payment record can be deleted in Every — including online Stripe payments. Deleting a payment only removes the local record; it **does not refund the client through Stripe**.
 
     **Solutions:**
     - Only delete payments recorded in error
-    - For refunds, process through Stripe Dashboard
-    - For adjustments, create new payment with negative amount
+    - To return money to a client who paid online, issue the refund in the Stripe Dashboard — the Every record won't move money
+    - For an overpayment or adjustment, record a new payment with a negative amount
     - Contact support for complex scenarios
   </Accordion>
 </AccordionGroup>
@@ -335,13 +335,13 @@ icon: "wrench"
 
   <Accordion icon="database" title="HubSpot Lookup Not Working">
     **Check:**
-    - Connection status in **Agent Settings → Integrations**
+    - Connection status in **Agent Settings → Connections**
     - HubSpot permissions were approved
     - Internet connection
     - HubSpot service status
 
     **Solutions:**
-    1. Check connection in [**Agent Settings → Integrations**](https://every.ai/agent/settings/integrations)
+    1. Check connection in [**Agent Settings → Connections**](https://every.ai/agent/connections)
     2. Reconnect if status shows error
     3. Retry with a more specific company, contact, or deal name
     4. Check HubSpot directly for data integrity
@@ -357,7 +357,7 @@ icon: "wrench"
 
     **Solutions:**
     1. Check HubSpot for contact
-    2. Reconnect HubSpot in [**Agent Settings → Integrations**](https://every.ai/agent/settings/integrations)
+    2. Reconnect HubSpot in [**Agent Settings → Connections**](https://every.ai/agent/connections)
     3. Search by email or full company name
     4. Check record permissions in HubSpot
     5. Ask Every Agent with more context, for example: "Find John Smith at Acme Corp in HubSpot"
@@ -477,6 +477,10 @@ icon: "wrench"
     - Follow agent's guidance to connect integration
     - Grant required permission
     - Create missing prerequisites (client, service, product, etc.)
+  </Accordion>
+
+  <Accordion icon="coins" title="Credits, Billing & Failed AI Runs">
+    Questions about AI credits — what they cost, whether a failed run is charged, why a scheduled task shows "Completed" with no result, or what happens when you run out — are answered on the [Credit Usage & Errors](/plans/credit-usage-and-errors) page. See also [What Is a Credit](/plans/what-is-a-credit) and [Plans & Pricing](/plans/plans-and-pricing).
   </Accordion>
 </AccordionGroup>
 

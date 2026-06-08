@@ -1,0 +1,164 @@
+---
+title: "Memory & Skills"
+description: "How Every Agent remembers facts across chats and applies the reusable skills you create to shape how it works"
+icon: "brain"
+---
+
+## Overview
+
+Every Agent doesn't start from scratch in every conversation. Two systems let it carry knowledge forward and apply your preferred way of working automatically:
+
+- **Agent Memory** — the agent keeps a private, evolving notepad of facts and observations about you, available in every chat.
+- **Skills** — reusable guidance documents you create that tell the agent how to handle specific kinds of work.
+
+<CardGroup cols={2}>
+  <Card title="Manage Skills" icon="sparkles" href="https://every.ai/agent/skills" horizontal>
+    Create, enable, and edit your agent's skills
+  </Card>
+  <Card title="Agent Settings" icon="sliders" href="https://every.ai/agent/context" horizontal>
+    Context, voice, sources, and preferences
+  </Card>
+</CardGroup>
+
+## Agent Memory
+
+As you work with Every Agent, it builds up a running understanding of you and your business — open todos, project details, things you've mentioned, observations worth keeping. The agent writes these down to its own **memory** so they persist from one chat to the next.
+
+**How it works:**
+- The agent decides what's worth remembering and saves it as it goes — you don't have to manage memory yourself
+- That memory is loaded into every conversation, so the agent has its notes in view from the first message
+- Memory is **private to you** — in a shared workspace, teammates do not see each other's agent memory
+
+**What lands in memory:**
+- Running lists and open todos ("still need to follow up with ACME on the renewal")
+- Observations about how you work or what you prefer
+- Project and client details the agent picked up in earlier chats
+
+<Note>
+  You don't need to do anything to turn memory on. If you want the agent to remember something specific, just tell it — "remember that the Q3 project kicked off in June" — and it will note it.
+</Note>
+
+### Memory vs. Preferences vs. Context
+
+Every Agent has a few different ways of knowing things, and they serve different purposes:
+
+| Surface | What it holds | How it's set |
+|-|-|-|
+| **Agent Memory** | Freeform recall — running lists, observations, open todos | The agent writes it as you work, automatically |
+| **Learned Preferences** | Standing rules — "always do X," "never do Y" | The agent proposes a rule; you confirm it |
+| **Business Context** | The narrative of what your business is and does | You write it, or build it from your workspace |
+
+They reinforce each other: Memory tracks the loose ends, Preferences enforce hard rules, and [Business Context](/ai/context-and-voice) gives the big picture. Manage standing rules in [**Agent → Preferences**](https://every.ai/agent/preferences); manage Business Context in [**Agent → Context**](https://every.ai/agent/context).
+
+## Skills
+
+**Skills** are short guidance documents that tell Every Agent how *you* want certain tasks done. Instead of repeating the same instructions every time, you capture them once as a skill, and the agent applies it automatically whenever it's relevant.
+
+A skill is plain language — there's no code involved. For example:
+
+- An **Invoice Formatting** skill that always adds your payment terms to the notes field and uses formal descriptions
+- A **Client Communication** skill that sets the tone and formality of outbound messages
+- A **Gmail** skill that defines how the agent should triage and reply to email
+
+<Card title="Manage Skills" icon="sparkles" href="https://every.ai/agent/skills" horizontal>
+  Create and manage your organization's skills
+</Card>
+
+### How Skills Get Applied
+
+Active skills are available to the agent in every chat. When your request matches a skill's purpose, the agent reads the skill and follows it — **you don't have to mention the skill by name**.
+
+```text
+You: "Create an invoice for ACME Corp for $2,000"
+→ The agent applies your Invoice Formatting skill automatically:
+  payment terms in the notes, formal line-item descriptions, your preferred format.
+```
+
+You can turn individual skills on or off, so you control exactly which guidance is active.
+
+### Creating a Skill
+
+There are several ways to create a skill, from fastest to most hands-on:
+
+<AccordionGroup>
+  <Accordion icon="comments" title="Build one in conversation (recommended)">
+    Click **Create** in the skills area and the agent interviews you — what kind of work is this for, what should it do differently, any examples — then writes the skill for you. This produces the highest-quality skills because the agent shapes your answers into clear guidance.
+  </Accordion>
+
+  <Accordion icon="bolt" title="Start from a template">
+    Add a recommended starter skill (like Gmail or Calendar management) with one click, then edit it to match how you work.
+  </Accordion>
+
+  <Accordion icon="pen" title="Write it yourself">
+    Use the editor to fill in a name, when it should apply, your guidelines, and good/bad examples — or write the markdown directly.
+  </Accordion>
+
+  <Accordion icon="wand-magic-sparkles" title="Tweak an existing skill with AI">
+    Open a skill and choose **Tweak with AI** to refine it conversationally — add rules, adjust when it applies, or add examples.
+  </Accordion>
+</AccordionGroup>
+
+### Writing a Good Skill
+
+The strongest skills are specific and give the agent concrete examples to follow:
+
+- **When to apply** — the situations that should trigger the skill (creating invoices, drafting emails)
+- **Guidelines** — clear, actionable rules ("always include payment terms in the notes field")
+- **Examples** — a good example and a bad example so the agent can tell the difference
+- **Exceptions** — when the skill should *not* apply
+
+<Tip>
+  Keep guidelines actionable, not aspirational. "Use Net 30 terms and reference the PO number" is more useful than "be professional."
+</Tip>
+
+### Skills vs. Preferences vs. Context
+
+Skills sit alongside the other ways you teach the agent:
+
+- Use a **Skill** for *how to do a kind of task* (how to format invoices, how to draft a proposal)
+- Use a [**Learned Preference**](/ai/every-agent) for a *single standing rule* ("ACME always gets Net 15")
+- Use [**Business Context**](/ai/context-and-voice) for *what your business is* (services, pricing logic, who you serve)
+
+## A Note on Credits
+
+Memory and skills are part of how the agent works in chat — agent conversations consume credits. See [What is a credit?](/plans/what-is-a-credit) for how that works.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Every Agent"
+    icon="sparkles"
+    href="/ai/every-agent"
+  >
+    See how the agent uses memory and skills day to day
+  </Card>
+
+  <Card
+    title="Context & Voice"
+    icon="sliders"
+    href="/ai/context-and-voice"
+  >
+    Teach the agent what your business is and how it sounds
+  </Card>
+
+  <Card
+    title="Heartbeat"
+    icon="heart-pulse"
+    href="/heartbeat/heartbeat"
+  >
+    Put skills and memory to work in recurring automated runs
+  </Card>
+
+  <Card
+    title="Connect AI Tools"
+    icon="plug"
+    href="/integrations/connect-ai-tools"
+  >
+    Give the agent more to reach with external connections
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

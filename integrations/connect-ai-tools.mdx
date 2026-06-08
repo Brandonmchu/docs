@@ -1,14 +1,29 @@
 ---
 title: "Connect to Claude & ChatGPT"
-description: "Use Every's tools directly inside Claude, ChatGPT, Cursor, and other AI assistants"
+description: "Use Every's tools directly inside Claude, ChatGPT, Cursor, and other AI assistants over MCP"
 icon: "plug"
 ---
 
 ## Overview
 
-Every works inside the AI tools you already use. Connect your account to Claude, ChatGPT, Cursor, or any MCP-compatible assistant and you get full access to your clients, invoices, proposals, bookings, expenses, and more — without leaving the conversation.
+Every works inside the AI tools you already use. Connect your account to Claude, ChatGPT, Cursor, or any [MCP](https://modelcontextprotocol.io)-compatible assistant and you get full access to your clients, invoices, proposals, bookings, expenses, and more — without leaving the conversation.
 
 This means the AI assistant you're already using becomes an AI assistant that knows your business.
+
+<Note>
+  Every exposes its tools over the **Model Context Protocol (MCP)**, an open standard for connecting AI assistants to live data and actions. Any MCP-compatible client can connect.
+</Note>
+
+### Two MCP connectors
+
+Every runs **two** MCP servers for two different audiences:
+
+| Connector | Who it's for | URL | What it does |
+|-|-|-|-|
+| **Admin MCP** | You (the business owner) | `https://admin-mcp.every.ai` | Your full Every toolset — create/send invoices, manage clients and contacts, proposals, payments, expenses, bookings, and ask the Every Assistant — from inside your own AI assistant |
+| **Client MCP** | Your customers | Provided per-business | A scoped set of booking and self-service tools your clients can use to check availability, book, view their invoices and proposals, and pay — without an Every account |
+
+Most of this page covers the **Admin MCP** (connecting your own AI assistant). See [Client MCP](#client-mcp-tools-for-your-customers) at the end for the customer-facing connector.
 
 ## AI Apps
 
@@ -124,6 +139,22 @@ For any MCP-compatible client:
 - **Transport:** HTTP (Streamable HTTP)
 - **Auth:** OAuth 2.0 (prompted on first use)
 
+## Earn +2,500 credits by connecting Google
+
+If you signed up to Every **through an MCP connection** (for example, you started using Every from inside ChatGPT or Claude rather than the web app), you can earn a one-time **+2,500 credit bonus** by connecting your Google account.
+
+<Card title="Connect Google" icon="google" href="/integrations/google-workspace">
+  Connect Gmail so Every can scan your network, draft outreach, and send on your behalf
+</Card>
+
+**How to claim:**
+1. Connect your Google account with the Gmail permission from [**Agent Settings → Connections**](https://every.ai/agent/connections) (or follow the in-app banner)
+2. The bonus is granted automatically, **once per organization**, the first time you connect Google with Gmail access
+
+<Note>
+  This bonus is for orgs that originally signed up via MCP. Connecting Google also unlocks contact scanning, AI prospecting, and sending email through your own Gmail. See the [Google Workspace integration](/integrations/google-workspace) for the full setup.
+</Note>
+
 ## What You Can Do
 
 Once connected, your AI assistant has direct access to your Every workspace. Ask it anything you'd normally do inside Every:
@@ -137,26 +168,27 @@ Once connected, your AI assistant has direct access to your Every workspace. Ask
 | Record a payment | "Record $500 cash payment for INV-001" |
 | Track expenses | "Add a $150 expense at AWS for Software" |
 | Create a proposal | "Create a proposal for Acme, $5000 website redesign" |
+| Manage proposals | "Send the Acme proposal" / "Convert it to an invoice" |
 | View bookings | "Show my upcoming bookings" |
 | Business insights | "What's my total revenue this quarter?" |
-| Business settings | "What's my default tax rate?" |
+| Ask the Assistant | "Which clients haven't paid in 60 days?" |
 
 ### Available Tools
 
-Every exposes 27 tools to your AI assistant, covering:
+The Admin MCP exposes **40 tools** to your AI assistant, covering your full Every workspace:
 
 | Category | Tools |
 |-|-|
-| [Invoices](/billing/invoices) | Create, view, update, send, void, list |
-| [Clients](/clients/clients) | Create, view, update, search (fuzzy matching) |
-| [Contacts](/clients/contacts) | Create, update, link/unlink to clients |
-| [Proposals](/billing/proposals) | Create, view, list |
+| [Invoices](/billing/invoices-and-proposals) | Create, view, update, delete, send, list |
+| [Clients](/clients/clients) | Create, view, update, list (fuzzy matching) |
+| [Contacts](/clients/contacts) | Create, update, link/unlink to clients, list |
+| [Proposals](/billing/invoices-and-proposals) | Create, view, update, delete, send, void, duplicate, convert to invoice, generate PDF, list, save/list templates |
 | [Payments](/billing/payments) | Record, list |
 | [Expenses](/billing/expenses) | Create, list |
-| [Services](/scheduling/services) | List (with booking config) |
+| [Services](/scheduling/bookings) | List (with booking config) |
 | [Bookings](/scheduling/bookings) | List, view |
 | Settings | View business profile, currency, tax rates |
-| AI Assistant | Complex queries and analysis |
+| Every Assistant | `ask_assistant` — read-only Q&A and analysis over your business |
 
 <Tip>
   Taxes are applied automatically based on your business settings. No need to calculate them manually.
@@ -164,18 +196,32 @@ Every exposes 27 tools to your AI assistant, covering:
 
 ## How This Extends Every Agent
 
-Every Agent inside the app and these external AI connections share the same tools and data. The difference is where you work:
+The [Every Agent](/ai/every-agent) inside the app and these external AI connections share the same tools and data. The difference is where you work:
 
-- **[Every Agent](/ai/every-agent)** — purpose-built assistant inside the Every app, with full access to your [Business Context](/ai/business-context-and-tokens) and [Voice & Tone](/ai/voice-and-tone)
+- **[Every Agent](/ai/every-agent)** — purpose-built assistant inside the Every app, with full access to your [Memory & Skills](/ai/memory-and-skills) and business context
 - **Claude, ChatGPT, Cursor, etc.** — bring Every's capabilities into the AI tools you already use for other work
 
 Use whichever fits your workflow. Both operate on the same live data.
+
+## Client MCP — tools for your customers
+
+Alongside the Admin MCP for your own assistant, Every runs a separate **Client MCP** designed for your **customers**. It exposes a scoped, customer-safe set of tools — no Every account required — so your clients can self-serve from their own AI assistant:
+
+| Category | Client tools |
+|-|-|
+| Services | List services, view a service |
+| Bookings | Check availability, estimate price, request a booking, view, cancel, reschedule |
+| Invoices | View their invoices, get a payment link |
+| Proposals | View and approve proposals |
+
+The Client MCP is **read-scoped and redacted** — it never exposes another customer's data or your internal fields, and it resolves to your specific business. If you'd like to offer this to your clients, contact [hello@every.ai](mailto:hello@every.ai).
 
 ## Security
 
 - **OAuth 2.0** authentication — your credentials are never stored locally
 - **Organization-scoped** — you can only access your own business data
 - **Stateless** — no data cached between requests
+- **Client MCP** is additionally redacted and scoped to a single business
 
 ### Revoking Access
 

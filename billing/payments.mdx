@@ -192,10 +192,12 @@ Invoice status auto-updates based on payments:
 
 Navigate to invoice → Find payment in Payments section → Click payment → Delete Payment → Confirm
 
-**Result:** Payment record removed, outstanding balance recalculated, invoice status updated, activity timeline updated (cannot delete Stripe payments - refund through Stripe instead)
+**Result:** Payment record removed, outstanding balance recalculated, invoice status updated, activity timeline updated
+
+Any payment **record** can be deleted in Every — including ones created by an online Stripe payment. Deleting a payment only removes the local record from Every; it **does not issue a refund through Stripe**. To return money to a client, process the refund in the Stripe dashboard separately.
 
 <Warning>
-  Only delete payments recorded in error. For refunds, process through Stripe dashboard or record negative adjustment.
+  Only delete payments recorded in error. To refund a client who paid online, issue the refund in the [Stripe dashboard](https://dashboard.stripe.com) — deleting the payment record in Every never moves money. For adjustments, record a negative payment instead.
 </Warning>
 
 <Tip>

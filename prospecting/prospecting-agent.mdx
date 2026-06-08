@@ -1,0 +1,160 @@
+---
+title: "Prospecting Agent"
+description: "An autonomous AI agent that mines your existing network, surfaces warm sales opportunities, drafts outreach in your voice, and learns from your goals and feedback"
+icon: "telescope"
+---
+
+## Overview
+
+The **Prospecting Agent** is Every's autonomous deal-finder. It scans the network you already have — your contacts, the people you email, who's on your calendar, and anyone you've imported from LinkedIn — scores each potential deal for fit, relationship strength, and timing, drafts a first outreach message in your voice, and drops the strongest candidates into a **Pending** review queue for you to approve.
+
+You stay in control: nothing is sent and no deal enters your pipeline until you approve it. Once you do, the [Sales Pipeline](/prospecting/pipeline) and its agent take over to sustain the conversation.
+
+<Card title="Open Pipeline" icon="git-branch" href="https://every.ai/pipeline" horizontal>
+  The Prospecting Agent runs from the Pipeline page, and approved deals land there
+</Card>
+
+<Note>
+  Prospecting runs are AI runs and consume credits. Larger scans (more candidate contacts) use more credits. See [Plans & Credits](/billing/payments) for how usage is metered.
+</Note>
+
+## What the agent does
+
+When you start a scan, the agent works through a full discovery pass:
+
+1. **Reads your business context** — what you sell, who you serve, and your active prospecting goal (your "selling motion").
+2. **Looks at your existing pipeline** so it doesn't re-surface deals you're already working.
+3. **Enriches sparse contacts** — fills in company, role, and other professional details for thin records so they can be evaluated.
+4. **Lists eligible network contacts** — everyone who clears a minimum bar of professional information.
+5. **Triages and deep-researches** the most promising candidates.
+6. **Scores each one** on fit, relationship, and timing.
+7. **Drafts an initial outreach email** in your voice for the deals worth pursuing.
+8. **Saves the results** into the **Pending** review column.
+
+Discovered deals always start as **Pending** — the agent never places a deal directly into your visible pipeline. You approve or dismiss each one.
+
+## Where it pulls from (your network)
+
+The agent prospects across **your existing relationships**, not a cold-purchased list. It considers contacts from every source you've connected, with no bias toward any one of them:
+
+- **Manually added contacts**
+- **Google Contacts** (import and sync)
+- **Gmail** — people you correspond with, and recent correspondence (used to gauge relationship and timing)
+- **Google Calendar** — meeting history with a contact
+- **LinkedIn imports** — connections and message history you've uploaded
+- **Booking-derived and enrichment-provided** contacts
+
+A contact needs at least one real professional anchor — a company, a title or role, an industry, a professional link, or a business email domain — before the agent will evaluate it. Name-only or personal-email-only contacts stay below the bar until enrichment finds better clues. For deeper signal, the agent reads recent Gmail correspondence (about 180 days) and calendar meeting history (about a year) for the contacts it shortlists.
+
+<Note>
+  The agent reads from the data sources **you've connected** to Every. Connect [Google Workspace](/integrations/google-workspace) and import your [contacts](/clients/contacts) to give it the richest network to work from.
+</Note>
+
+## Scoring
+
+Every candidate the agent shortlists gets a structured score made up of:
+
+- **Fit** — how well the contact matches what you sell and who you target.
+- **Relationship** — how warm the connection is (correspondence, meetings, shared history).
+- **Timing** — signals that now is a good moment to reach out.
+- **Confidence** — how sure the agent is in its read; low-confidence deals are penalized.
+
+These combine into a single total score the agent uses to decide which deals are worth surfacing and drafting outreach for. Each deal carries its evidence and rationale, visible when you open it.
+
+## Setting a prospecting goal (your selling motion)
+
+A **prospecting goal** is a *selling motion* — an angle plus a targeting segment — that tells the agent what to look for. You set it from the prospecting card on the [Pipeline](/prospecting/pipeline) page using a short three-field intake:
+
+1. **What are you trying to sell?** (required) — accepts `@`-mentions of your [services](/billing/services-and-products), which resolve to specific offerings.
+2. **Who do you want to target?** (optional) — the segment you're going after.
+3. **Anything else?** (optional) — extra context appended to the goal.
+
+If you don't set a goal, the agent runs a sensible **default** derived from your business context — its "What are you selling?" shows your services summary so you can see what it's working from. The default is a fallback identity; it never prompts you to review or merge it.
+
+### Reusing vs. creating goals
+
+When you enter a new goal, Every checks whether it matches a selling motion you already have:
+
+- An **exact match** quietly reuses the existing goal.
+- A **likely match** prompts you: *"This looks like your existing goal 'X' — reuse it or create a new one?"*
+- A **genuinely new** motion creates a fresh goal and re-opens your full contact pool for it.
+
+This matching is powered by a fast classifier so similar motions ("sell branding to hospitality" vs. "rebrand work for restaurants") collapse into one goal instead of fragmenting your pipeline. Only goals you type are matched — the auto-derived default never triggers a merge prompt.
+
+<Tip>
+  Different goals scan different slices of your network. A contact you dismissed under one goal becomes eligible again under a different goal, so you can re-prospect the same network from a new angle without starting over.
+</Tip>
+
+### Available Contacts
+
+As you set or change a goal, the prospecting card shows an **Available Contacts** count scoped to that goal — how many people in your network are eligible to be scanned for *this* motion. It changes by goal because contacts already approved, dismissed, or recently triaged under the same goal are excluded.
+
+## Running a scan
+
+There are two ways the Prospecting Agent runs.
+
+### On demand
+
+Open the prospecting card on the [Pipeline](/prospecting/pipeline) page, set or confirm your goal, choose a **scan size** (100, 200, 500, or 1,000 candidate contacts), and run it. Larger scans cover more of your network but cost more credits. The agent works through discovery and you can watch the run progress; results land in **Pending** when it finishes. You can also kick off a run by asking [Every Agent](/ai/every-agent) in chat (e.g. *"prospect my network for design clients"*).
+
+<Note>
+  Networks larger than your scan size are processed incrementally across runs — never-scanned contacts come first, and a freshness window keeps the agent from re-evaluating people it just looked at.
+</Note>
+
+### As a scheduled Heartbeat routine
+
+You can put prospecting on autopilot as a recurring **Heartbeat** routine. The **Prospecting heartbeat** scans your network on a schedule (a daily local cadence by default) and surfaces new Pending deals for you to review — so warm opportunities keep showing up without you starting a scan each time.
+
+Set it up from the prospecting card's heartbeat pill or from the Heartbeat hub. Scheduled runs bill credits like a manual run, and the goal is re-resolved on each run.
+
+<Card title="Set up the Prospecting heartbeat" icon="heart-pulse" href="/heartbeat/heartbeat" horizontal>
+  Schedule recurring prospecting and other agent routines
+</Card>
+
+## Reviewing results
+
+Discovered deals appear in the **Pending** column on the [Pipeline](/prospecting/pipeline) page. For each one you can:
+
+- **Open the deal** to see the score, the evidence the agent found, and the drafted outreach.
+- **Approve** it — the deal moves into your **Lead** stage and the [Pipeline](/prospecting/pipeline) agent takes over.
+- **Dismiss** it — the agent learns not to surface that contact for this goal again.
+
+No outreach is sent automatically from the Pending queue. You preview and approve first.
+
+## How it learns
+
+The Prospecting Agent improves from what you do. Approving, dismissing, sending outreach, and saving prospecting settings all feed a **learning loop**: the agent reviews your explicit decision and, when the feedback is clear and durable, updates its own guidance so future runs reflect your taste.
+
+Learning is goal-aware. Durable feedback ("never pitch competitors") generalizes across your org; goal-specific feedback stays scoped to that selling motion. Over time, scoring, enrichment, and outreach tone all sharpen to match how *you* prospect.
+
+<Tip>
+  The most powerful way to teach the agent is to act on its suggestions. Every approve, dismiss, and edited outreach draft is a signal.
+</Tip>
+
+## Your professional profile
+
+Prospecting quality depends partly on knowing who *you* are. Every keeps a per-user **professional context** (title, company, location, industry, a short summary, and your professional links) that the agent uses to disambiguate contacts and judge relationship strength. You can review and edit it — and let Every auto-enrich it — from your profile settings.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Sales Pipeline" icon="git-branch" href="/prospecting/pipeline">
+    Approve deals and let the pipeline agent run the sales motion
+  </Card>
+
+  <Card title="Heartbeat" icon="heart-pulse" href="/heartbeat/heartbeat">
+    Schedule recurring prospecting and pipeline reviews
+  </Card>
+
+  <Card title="Connect Google Workspace" icon="google" href="/integrations/google-workspace">
+    Give the agent your Gmail, Calendar, and Contacts to prospect from
+  </Card>
+
+  <Card title="Manage Contacts" icon="user-round" href="/clients/contacts">
+    Import and organize the network the agent prospects
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>

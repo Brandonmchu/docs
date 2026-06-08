@@ -1,0 +1,121 @@
+---
+title: "Heartbeat"
+description: "Recurring autonomous agent routines that keep a daily pulse on your business — prospecting, pipeline review, AR follow-ups, scheduled messages, and your Daily Brief"
+icon: "heart-pulse"
+---
+
+## Overview
+
+Heartbeat is where Every runs autonomously on a schedule. Instead of asking the agent something each time, you turn on the routines you want Every to keep doing — scanning for new leads, reviewing your pipeline, drafting payment reminders, or running any custom request — and Every keeps a daily pulse on your business in the background.
+
+Every routine runs with full agent context, posts its results to its own thread (with undo history), shows up in the Activity Timeline, and rolls the important changes into your morning [Daily Brief](/heartbeat/daily-brief).
+
+<Card title="Open Heartbeat" icon="heart-pulse" href="https://every.ai/agent/heartbeat" horizontal>
+  Turn routines on or off, set their cadence, and review past runs
+</Card>
+
+**Highlights:**
+- Routines run on a cadence you choose — daily, weekly, monthly, or a custom interval — with timezone-aware start times
+- Results post to a dedicated agent thread with **undo history**, plus an optional email summary
+- One agent task runs at a time per workspace, so automations never overlap
+- A manual **Run Now** lets you test a routine without touching its future schedule
+
+<Note>
+  Heartbeat was previously called "Automations" / "Tasks." The old `/agent/automations` and `/agent/settings/tasks` links now redirect to **Agent Settings → Heartbeat** at [https://every.ai/agent/heartbeat](https://every.ai/agent/heartbeat).
+</Note>
+
+## The Routines
+
+Heartbeat groups its routines into three areas.
+
+### Daily Brief
+
+Your **[Daily Brief](/heartbeat/daily-brief)** is the headline routine — a "chief of staff" morning readout of what moved overnight, what needs your attention, and what your other Heartbeat routines did. It is private to you and delivered by email each morning.
+
+See the dedicated [Daily Brief](/heartbeat/daily-brief) page for what it synthesizes and how to configure it.
+
+### Pulse Checks
+
+Pulse Checks are the routines that keep your Prospecting and Pipeline current. They run automatically and feed their results into your Daily Brief.
+
+| Routine | What it does | Default cadence |
+|-|-|-|
+| **Prospecting** | Runs the [Prospecting Agent](/prospecting/prospecting-agent): checks your available contacts, finds warm leads, scores them, and drafts initial outreach for one-click send. | Daily |
+| **Pipeline** | Reviews your active [pipeline](/prospecting/pipeline) deals, advances anything that changed, and flags follow-ups that need attention. | Daily |
+
+<Tip>
+  The Prospecting routine carries an inline targeting editor — set who you're trying to reach and what you're selling, or leave it blank to scan **everything**. The same intake also drives manual scans on the Pipeline page.
+</Tip>
+
+### Scheduled Messages
+
+Scheduled Messages are recurring requests you write yourself, plus a built-in starter. Each runs in its own thread on your schedule.
+
+| Routine | What it does |
+|-|-|
+| **Accounts Receivable Sweep** | A built-in starter that reviews overdue invoices, checks email for in-flight payment threads, and **drafts** tiered reminders. It never auto-sends — you review and send. |
+| **Custom Scheduled Messages** | You write the full request (e.g. "Every Monday, summarize last week's revenue and open proposals"). Use the **Add Scheduled Message** button, tag specific clients or entities with `@`, pick a cadence, and Every runs it for you. |
+
+<Tip>
+  **Ask Every Agent:** You can also set routines up conversationally — "Every weekday at 8am, check my inbox for unpaid invoices and draft reminders."
+</Tip>
+
+## Cadence & Scheduling
+
+Every routine stores a local run time, so it fires at the right moment for your timezone.
+
+| Cadence | Behavior |
+|-|-|
+| **Daily** | Runs every day (or on chosen days of the week) at a set time. |
+| **Weekly** | Runs on a chosen day of the week at a set time. |
+| **Monthly** | Runs on a chosen day of the month at a set time. |
+| **Custom interval** | Runs every _N_ hours or days. |
+| **One-time** | Runs once at a specific date and time (Scheduled Messages only). |
+
+<Note>
+  Routines that analyze history (like the Daily Brief) keep their lookback window in sync with cadence — a daily routine reviews the last day, a weekly routine the last week — so coverage doesn't overlap or leave gaps.
+</Note>
+
+## Results, Threads & Undo
+
+- **Its own thread.** Each run posts a summary, links, and any drafts into a dedicated agent thread. Open it from [Every Agent](https://every.ai/agent) to read the full result or follow up directly.
+- **Undo history.** Runs that change records capture an undo snapshot, so you can revert an automated change right from the thread.
+- **Activity Timeline.** Upcoming runs preview on **Home → Activity Timeline**; completed runs show success or failure badges with quick links back to the originating thread.
+- **Optional email.** Turn on the email summary for any routine to also receive a recap by email after each run.
+
+<Tip>
+  Use **Run Now** on any routine to validate a fresh setup on demand. A manual run uses the same executor as the schedule but leaves your future runs untouched.
+</Tip>
+
+## Good to Know
+
+<Warning>
+  **One task at a time per workspace.** If you trigger a run while another agent task is already in flight, you'll see "Another agent task is running for this workspace" — wait for the current run to finish (check the Activity Timeline or the latest agent thread) before retrying.
+</Warning>
+
+- **Routines use AI credits.** Each run consumes credits based on the work the agent does. If your credits are exhausted when a run is due, it's skipped — see [Credit Usage & Errors](/plans/credit-usage-and-errors) for exactly what happens (including why a skipped run can show as "Completed").
+- **Team scope.** In a multi-member workspace, your Daily Brief is private to you, while shared routines (Prospecting, Pipeline) run for the whole team. Cards show a **Private** or **Team** badge so you know who can see each one.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Daily Brief" icon="sun" href="/heartbeat/daily-brief">
+    Configure your chief-of-staff morning digest
+  </Card>
+
+  <Card title="Prospecting Agent" icon="crosshair" href="/prospecting/prospecting-agent">
+    Understand how Every finds and drafts outreach to warm leads
+  </Card>
+
+  <Card title="Sales Pipeline" icon="kanban" href="/prospecting/pipeline">
+    See how reviewed deals move through your pipeline
+  </Card>
+
+  <Card title="Credit Usage & Errors" icon="circle-dollar-sign" href="/plans/credit-usage-and-errors">
+    What routines cost and what happens on errors or exhaustion
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
