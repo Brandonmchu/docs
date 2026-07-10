@@ -120,6 +120,13 @@
         ]
       },
       {
+        "group": "Every CLI",
+        "pages": [
+          "cli/every-cli",
+          "cli/agent-skill"
+        ]
+      },
+      {
         "group": "Teams",
         "pages": [
           "teams/teams"

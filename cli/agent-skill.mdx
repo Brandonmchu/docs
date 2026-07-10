@@ -1,0 +1,70 @@
+---
+title: "Agent skill (use-every)"
+description: "Install the use-every skill so Claude Code or Codex drives the Every CLI correctly — the right workflows, safety flags, and domain rules, automatically"
+icon: "book-open"
+---
+
+## Overview
+
+The Every CLI ships with a **skill** called `use-every` — a set of instructions that teaches a coding agent (Claude Code, Codex, Cursor) how to drive the CLI well: parse the `--json` envelope, branch on exit codes, resolve IDs before acting, apply the right safety flags, and follow Every's domain workflows (like converting an accepted proposal to an invoice, or never double-logging an activity that Every already tracks).
+
+Without the skill an agent can still use the CLI — the commands are self-describing via `every docs` and `every tools describe`. With the skill, it gets there in far fewer steps and avoids the common mistakes.
+
+## Bundled vs. installed
+
+<Note>
+  Installing the CLI does **not** automatically install the skill into your agent. The skill file ships *inside* the npm package, but it only becomes active once it's placed in your agent's skills directory. That step is deliberate and explicit — a package shouldn't silently write into your project.
+</Note>
+
+- `npm install -g @everyai/cli` puts the `every` binary on your `PATH` and the skill file inside the package. Your agent doesn't see it yet.
+- The skill becomes active once it lives in `./.claude/skills/use-every/` (Claude Code) or `./.agents/skills/use-every/` (Codex).
+
+## Install the skill
+
+<Steps>
+  <Step title="Run the install command">
+    <CodeGroup>
+    ```bash Claude Code
+    every skills install claude   # → ./.claude/skills/use-every/
+    ```
+    ```bash Codex
+    every skills install codex    # → ./.agents/skills/use-every/
+    ```
+    </CodeGroup>
+    Both write into the current directory by default. Pass `--dir <path>` to install elsewhere.
+  </Step>
+  <Step title="Commit it to share">
+    The skill is a plain file in your repo — commit it so everyone on the team (and their agents) gets the same behavior.
+  </Step>
+</Steps>
+
+<Tip>
+  You don't have to remember the command. After `every login` in an interactive terminal, the CLI detects Claude Code or Codex on your machine and offers to install the skill for you — just pick an option at the prompt.
+</Tip>
+
+### As a plugin
+
+You can also install it through your agent's plugin system, which delivers the skill and points you at the CLI:
+
+<CodeGroup>
+```text Claude Code
+/plugin marketplace add Every-AI-Inc/everyai-cli
+/plugin install every@everyai-cli
+```
+```text Codex
+# Add the marketplace from the everyai-cli repo, then install the "every" plugin.
+```
+</CodeGroup>
+
+## What the skill teaches
+
+- **The output contract** — always `--json`, parse the envelope, branch on exit codes.
+- **ID discipline** — list or search first, act only with the exact ID returned; ask when a name is ambiguous.
+- **Safety choreography** — reads run free; add `--yes` only for a requested write; add `--allow-destructive` only for a requested send/delete/payment; confirm anything a client will see.
+- **Every's domain rules**, the things a generic tool description can't convey — for example:
+  - Creating a proposal, invoice, or booking is auto-recorded on a matching deal, so it should never be double-logged.
+  - Only issued or approved proposals convert to invoices, and conversion (not manual re-creation) preserves the link.
+  - Invoice line items use per-unit prices; Every applies the business's default tax automatically.
+  - For "who owes me money", filter by status and paginate to completion before totaling.
+
+The result: an agent that behaves like it already knows how your business runs in Every.

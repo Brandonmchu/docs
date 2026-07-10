@@ -1,0 +1,141 @@
+---
+title: "Every CLI"
+description: "The agent-agnostic command line for Every — install once, sign in once, and manage your business from any shell, coding agent, or CI job"
+icon: "terminal"
+---
+
+## Overview
+
+The **Every CLI** (`@everyai/cli`) gives you and your coding agents command-line access to your Every workspace — clients, contacts, invoices, proposals, deals, pipeline, payments, and more. Install it once, sign in once, and the same `every` command works everywhere a shell runs: Claude Code, Codex, Cursor, a plain terminal, or a CI job.
+
+Under the hood the CLI is a client of Every's [MCP server](/integrations/connect-ai-tools), so it inherits Every's full tool surface automatically — new tools show up with no CLI upgrade.
+
+<Note>
+  If you'd rather use Every *inside* one assistant, you can add the MCP server to it directly — see [Connect to Claude & ChatGPT](/integrations/connect-ai-tools). The CLI is the portable alternative: one install and one login cover every agent and machine context, including CI, where per-assistant MCP config isn't practical.
+</Note>
+
+## Install and sign in
+
+Requires [Node.js](https://nodejs.org) 18 or newer.
+
+<Steps>
+  <Step title="Install globally">
+    ```bash
+    npm install -g @everyai/cli
+    ```
+    This installs two identical commands: `every` (primary) and `everyai` (alias).
+  </Step>
+  <Step title="Sign in">
+    ```bash
+    every login
+    ```
+    Opens your browser to authenticate with your Every account (OAuth 2.0 + PKCE). Tokens are stored in your operating system's keychain and refreshed automatically — you won't need to sign in again for a long time.
+  </Step>
+  <Step title="Confirm who you are">
+    ```bash
+    every whoami
+    ```
+    Shows the signed-in user, the **organization** your commands act on, the environment, and how many tools are available. Always worth checking before a write, so you know exactly which workspace it lands in.
+  </Step>
+</Steps>
+
+<Note>
+  **Headless / CI:** set the `EVERY_TOKEN` environment variable to a valid access token to skip the browser flow entirely. `every login` requires an interactive terminal and exits with code `3` without one, so it never hangs a script.
+</Note>
+
+## Output contract
+
+Every command supports `--json`. In JSON mode, stdout is **exactly one JSON document** and nothing else, so it's safe to pipe and parse:
+
+```jsonc
+// success
+{ "ok": true,  "data": { /* ... */ },                    "env": "production", "schema_version": 1 }
+// failure
+{ "ok": false, "error": { "message": "...", "code": "..." }, "env": "production", "schema_version": 1 }
+```
+
+Branch on the process **exit code** rather than scraping text:
+
+| Code | Meaning | What to do |
+|-|-|-|
+| `0` | Success | Read `data` |
+| `1` | Tool or generic error | Read `error.message` before retrying |
+| `2` | Usage error | Fix the command or arguments |
+| `3` | Auth required or expired | Run `every login` |
+| `4` | Permission / confirmation needed | A write needs `--yes` (or `--allow-destructive`) |
+| `5` | Rate limited | Back off and retry |
+| `6` | Not found | Re-list and verify the ID |
+| `7` | Network / timeout | Check connectivity and retry |
+
+The `env` field on every JSON response tells you whether the command targeted `production`, `staging`, or a `custom` server — a quick way to confirm blast radius.
+
+## Safety model
+
+The CLI classifies every tool and gates it locally, so an autonomous agent can't quietly do something irreversible:
+
+- **Reads** run freely.
+- **Writes** (create/update) require `--yes`.
+- **Destructive or external-impact actions** — sending invoices/proposals, deletes, voids, recording payments — require **both** `--yes` and `--allow-destructive`.
+- **`--read-only`** (or the `EVERY_READ_ONLY=1` environment variable) blocks anything that isn't a read, for safe automation.
+
+In a non-interactive context, a missing flag fails fast with exit code `4` and names the exact flag needed — it never silently prompts and hangs.
+
+```bash
+# See how a specific tool is classified and what it requires
+every policy explain send_invoice --json
+```
+
+<Warning>
+  Only add `--yes` when the human explicitly asked for the change, and only add `--allow-destructive` when they explicitly asked for the send/delete/payment. These flags are the confirmation.
+</Warning>
+
+## Commands
+
+<CodeGroup>
+```bash Discovery
+every docs                         # full command tree + conventions, offline
+every tools list                   # all available tools with safety classification
+every tools list --filter invoice  # filter by substring
+every tools describe list_invoices # schema + policy + guidance for one tool
+```
+
+```bash Run any tool
+# Inline arguments (repeatable); values are parsed as JSON when possible
+every tool call list_invoices --arg payment_status=overdue --arg limit=100 --json
+
+# Or pass a JSON object as a file, or on stdin with -
+every tool call create_invoice --args invoice.json --yes --json
+```
+
+```bash Curated aliases
+every invoice list --status overdue --json
+every invoice create --client "Acme Consulting" --amount 100 --yes --json
+every invoice send <invoice_id> --yes --allow-destructive --json
+every deal list --stage opportunity --json
+every deal move <deal_id> won --yes --json
+every contact list --search "acme" --json
+```
+
+```bash Auth & identity
+every login                        # browser sign-in
+every whoami                       # user, org, environment, tool count
+every auth status                  # local session state (no network)
+every org                          # the organization commands act on
+every logout
+```
+</CodeGroup>
+
+`every invoice create` resolves the client by name — if the name is ambiguous it returns exit code `6` with the candidate list (each `client_id` and name) so a retry with `--client-id` is mechanical.
+
+## For AI agents
+
+If you're a coding agent driving this CLI, four rules make you reliable:
+
+<Tip>
+  1. **Always pass `--json`** and read the envelope (`ok`, `data`/`error.code`, `env`, `schema_version`).
+  2. **Branch on exit codes**, not on stderr text — exit `3` means tell the user to run `every login`.
+  3. **Never guess an ID.** List or search first, then act with the exact ID returned in `[id: ...]`.
+  4. **Only add `--yes` / `--allow-destructive` when the human explicitly asked** for that write or send.
+</Tip>
+
+Every ships a skill that encodes these rules plus Every's domain workflows. Install it so your agent follows them automatically — see [Agent skill (use-every)](/cli/agent-skill).
