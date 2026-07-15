@@ -69,10 +69,10 @@
         ]
       },
       {
-        "group": "Heartbeat",
+        "group": "Scheduled Tasks",
         "pages": [
-          "heartbeat/heartbeat",
-          "heartbeat/daily-brief"
+          "scheduled-tasks/scheduled-tasks",
+          "scheduled-tasks/daily-brief"
         ]
       },
       {
@@ -197,8 +197,10 @@
     { "source": "/ai/voice-and-tone", "destination": "/ai/context-and-voice" },
     { "source": "/ai/tokens-and-usage", "destination": "/plans/what-is-a-credit" },
     { "source": "/ai/undo-agent-actions", "destination": "/ai/every-agent" },
-    { "source": "/ai/scheduled-tasks", "destination": "/heartbeat/heartbeat" },
-    { "source": "/ai/agent-scheduled-tasks", "destination": "/heartbeat/heartbeat" },
+    { "source": "/ai/scheduled-tasks", "destination": "/scheduled-tasks/scheduled-tasks" },
+    { "source": "/ai/agent-scheduled-tasks", "destination": "/scheduled-tasks/scheduled-tasks" },
+    { "source": "/heartbeat/heartbeat", "destination": "/scheduled-tasks/scheduled-tasks" },
+    { "source": "/heartbeat/daily-brief", "destination": "/scheduled-tasks/daily-brief" },
     { "source": "/ai/connect-ai-tools", "destination": "/integrations/connect-ai-tools" },
     { "source": "/integrations/every-mcp", "destination": "/integrations/connect-ai-tools" },
     { "source": "/workflows/common-workflows", "destination": "/quickstart" },

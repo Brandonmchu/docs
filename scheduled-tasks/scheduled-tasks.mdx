@@ -1,0 +1,129 @@
+---
+title: "Scheduled Tasks"
+description: "Schedule agent work to run as a recurring routine or a one-time reminder — built-in and custom tasks, managed from Agent Settings or right in chat"
+icon: "clock"
+---
+
+## Overview
+
+Schedule agent work to run as a recurring routine or a one-time reminder. Instead of asking Every something each time, turn on the tasks you want it to keep doing — a morning brief, a scan for warm leads, a sweep of overdue invoices, or any custom request — and Every runs them for you, on your schedule.
+
+<Card title="Open Scheduled Tasks" icon="clock" href="https://app.every.ai/agent/tasks" horizontal>
+  Turn tasks on or off, set their cadence, and review past runs
+</Card>
+
+**Highlights:**
+- Every run uses full agent context and posts its results to its own thread, with undo history
+- Recurring tasks run on a cadence you choose — daily, weekly, monthly, or a custom interval — with timezone-aware start times
+- One-time tasks run once, at a specific date and time
+- Results show up in the Activity Timeline, plus an optional email summary
+- One agent task runs at a time per workspace, so scheduled work never overlaps
+- A manual **Run Now** lets you test a task without touching its future schedule
+
+<Note>
+  Scheduled Tasks was previously called "Heartbeat" / "Automations." The old `/agent/heartbeat` and `/agent/automations` links now redirect to **Agent Settings → Scheduled Tasks** at [https://app.every.ai/agent/tasks](https://app.every.ai/agent/tasks).
+</Note>
+
+## Recurring
+
+Recurring tasks run on a repeating cadence you set. Four built-ins are always available, and you can add as many custom recurring tasks as you like.
+
+### Built-in tasks
+
+| Task | What it does |
+|-|-|
+| **Daily Brief** | Your "chief of staff" morning readout of what moved overnight and what needs your attention — see [Daily Brief](/scheduled-tasks/daily-brief). |
+| **Warm Leads** | Runs the [Prospecting Agent](/prospecting/prospecting-agent): scans your available contacts, finds warm leads, scores them, and drafts initial outreach for one-click send. |
+| **Clients & Deals** | Reviews your active [pipeline](/prospecting/pipeline) deals, advances anything that changed, and flags follow-ups that need attention. |
+| **Accounts Receivable Sweep** | Reviews overdue invoices, checks email for in-flight payment threads, and **drafts** tiered reminders. It never auto-sends — you review and send. |
+
+The four built-ins are **always on** and can't be deleted — toggle any of them off if you don't want it running, and adjust its cadence and delivery to fit how you work.
+
+<Tip>
+  **Warm Leads** carries an inline targeting editor — set who you're trying to reach and what you're selling, or leave it blank to scan **everything**. The same intake also drives manual scans on the Pipeline page.
+</Tip>
+
+### Custom recurring tasks
+
+Write your own recurring request and Every runs it on the schedule you set — for example, "Every Monday, summarize last week's revenue and open proposals." Use **Add Task**, describe the work, and pick a cadence.
+
+## One-time
+
+A one-time task runs once, at a specific date and time, then it's done — useful for a single reminder or a request you only need run once, like "Next Friday at 9am, check whether the ACME invoice was paid." Create one from **Add Task** the same way as a custom recurring task, but choose a specific date and time instead of a repeating cadence.
+
+## Creating a task
+
+Use **Add Task** from [Scheduled Tasks](https://app.every.ai/agent/tasks) (or ask Every Agent in chat) to create a custom recurring or one-time task:
+
+1. Describe the request in plain language.
+2. **@-tag** specific clients, contacts, or deals to scope the task to them, or **@-tag an active [skill](/ai/memory-and-skills)** so the task follows that skill's guidance.
+3. Choose **Recurring** (pick a cadence) or **One-time** (pick a date and time).
+4. Save — Every runs it from here on.
+
+<Tip>
+  **Ask Every Agent:** You can also set up a task conversationally — "Every weekday at 8am, check my inbox for unpaid invoices and draft reminders."
+</Tip>
+
+## Cadence & scheduling
+
+Every recurring task stores a local run time, so it fires at the right moment for your timezone.
+
+| Cadence | Behavior |
+|-|-|
+| **Daily** | Runs every day (or on chosen days of the week) at a set time. |
+| **Weekly** | Runs on a chosen day of the week at a set time. |
+| **Monthly** | Runs on a chosen day of the month at a set time. |
+| **Custom interval** | Runs every _N_ hours or days. |
+| **One-time** | Runs once at a specific date and time. |
+
+<Note>
+  Tasks that analyze history (like the Daily Brief) keep their lookback window in sync with cadence — a daily task reviews the last day, a weekly task the last week — so coverage doesn't overlap or leave gaps.
+</Note>
+
+## Managing tasks from chat
+
+Every agent thread has a **clock icon** that opens a popup listing the tasks connected to that conversation, so you can check status, adjust cadence, or turn a task off without leaving the chat. Active [skills](/ai/memory-and-skills) can also be @-tagged directly in chat, the same way you'd tag them when creating a task.
+
+## Results, threads & undo
+
+- **Its own thread.** Each run posts a summary, links, and any drafts into a dedicated agent thread. Open it from [Every Agent](https://every.ai/agent) to read the full result or follow up directly.
+- **Undo history.** Runs that change records capture an undo snapshot, so you can revert a scheduled change right from the thread.
+- **Activity Timeline.** Upcoming runs preview on **Home → Activity Timeline**; completed runs show success or failure badges with quick links back to the originating thread.
+- **Optional email.** Turn on the email summary for any task to also receive a recap by email after each run.
+
+<Tip>
+  Use **Run Now** on any task to validate a fresh setup on demand. A manual run uses the same executor as the schedule but leaves your future runs untouched.
+</Tip>
+
+## Good to know
+
+<Warning>
+  **One task at a time per workspace.** If you trigger a run while another agent task is already in flight, you'll see "Another agent task is running for this workspace" — wait for the current run to finish (check the Activity Timeline or the latest agent thread) before retrying.
+</Warning>
+
+- **Tasks use AI credits.** Each run consumes credits based on the work the agent does. If your credits are exhausted when a run is due, it's skipped — see [Credit Usage & Errors](/plans/credit-usage-and-errors) for exactly what happens (including why a skipped run can show as "Completed").
+- **Team scope.** In a multi-member workspace, your Daily Brief is private to you, while shared built-ins (Warm Leads, Clients & Deals) run for the whole team. Cards show a **Private** or **Team** badge so you know who can see each one.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Daily Brief" icon="sun" href="/scheduled-tasks/daily-brief">
+    Configure your chief-of-staff morning digest
+  </Card>
+
+  <Card title="Prospecting Agent" icon="crosshair" href="/prospecting/prospecting-agent">
+    Understand how Every finds and drafts outreach to warm leads
+  </Card>
+
+  <Card title="Sales Pipeline" icon="kanban" href="/prospecting/pipeline">
+    See how reviewed deals move through your pipeline
+  </Card>
+
+  <Card title="Credit Usage & Errors" icon="circle-dollar-sign" href="/plans/credit-usage-and-errors">
+    What tasks cost and what happens on errors or exhaustion
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
