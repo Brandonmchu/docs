@@ -111,6 +111,7 @@
       {
         "group": "Integrations & MCP",
         "pages": [
+          "integrations/slack",
           "integrations/stripe",
           "integrations/google-workspace",
           "integrations/xero",

@@ -1,0 +1,143 @@
+---
+title: "Every AI for Slack"
+description: "Talk to Every from Slack — DM the agent privately or @mention it in channels to look up clients, create invoices, and run your business where your team already works"
+icon: "slack"
+---
+
+<Note>
+  **Early Access.** Every AI for Slack is currently available to pilot customers. Want it for your team? Contact [hello@every.ai](mailto:hello@every.ai).
+</Note>
+
+## Overview
+
+Every AI for Slack puts the same agent you chat with in the app directly into your Slack workspace. DM it for a private conversation, or @mention it in a channel so your whole team can see the answer.
+
+**What You Can Do:**
+- Ask anything you'd ask in the Every app — invoices, clients, deals, expenses, reports
+- DM **Every AI** for a private, continuous conversation (like your in-app chat)
+- @mention **@Every AI** in any channel it's been invited to — it answers in a thread, visible to everyone there
+- Get rich cards for things like invoices, with an **Open in Every** button that jumps straight to the record
+- Approve or deny consequential actions (like sending an invoice) with buttons right in Slack
+
+## How It Works
+
+One Slack workspace connects to one Every organization. Each person then links their own Slack identity to their own Every account — so when you ask a question, the agent answers **as you**, and can only see what you could already see in Every.
+
+That means two teammates asking the same question can get different answers: each person sees their own data, with their own permissions, exactly like in the app.
+
+## Connecting Your Workspace (Admin)
+
+An organization admin connects Slack once for the whole team:
+
+Go to [**Agent Settings → Connections**](https://every.ai/agent/connections) → find the **Slack** card → **Connect your Slack workspace** → review the Slack consent screen → **Allow**.
+
+That's it — the workspace is now linked to your Every organization. You can disconnect at any time from the same card, which immediately stops the bot for everyone.
+
+<Note>
+  Connecting the workspace doesn't give anyone access by itself. Each teammate still links their own account (below), and only members of your Every organization can talk to the bot.
+</Note>
+
+## Linking Your Account (Everyone)
+
+The first time you DM **Every AI** or @mention it in a channel, it replies with a one-time sign-in link:
+
+1. Click the link — it opens Every and asks you to sign in (if you aren't already)
+2. Your Slack identity is now bound to **your** Every account
+3. Go back to Slack and ask your question again — from now on, every answer runs as you
+
+You only do this once. If you're in the Slack workspace but **not** a member of the Every organization, the sign-in link won't complete — ask your admin to invite you (see [Team Access](#team-access-who-can-use-it) below).
+
+## Using It Day to Day
+
+### Direct Messages — private, continuous
+
+A DM with Every AI works like your in-app chat: one continuous private conversation that remembers context. Ask follow-ups naturally — "what about last month?" works because it remembers what you were just talking about.
+
+**Use it for:** anything you'd rather keep private — revenue questions, drafting a sensitive email, checking overdue invoices.
+
+### Channels — public, threaded
+
+@mention **@Every AI** in any channel it's been invited to (`/invite @Every AI`). It answers in a thread on your message, and everyone in the channel can read it. Each thread is its own conversation.
+
+**Use it for:** questions the whole team should see — "@Every AI what's our pipeline looking like this week?" in your sales channel.
+
+<Tip>
+  Rule of thumb: ask **privately in a DM**, ask **publicly in a channel**. That's by design — channel answers are team knowledge; DM answers are yours.
+</Tip>
+
+### Rich cards and links
+
+When the agent references a record like an invoice, it posts a card with the key details and an **Open in Every** button that takes you straight to that record in the app.
+
+### Approvals
+
+Consequential actions — like actually sending an invoice to a client — don't just run. The agent posts **Approve / Deny** buttons in the thread first. Only the person who asked can click them; the agent proceeds only on Approve.
+
+## What the Bot Can (and Can't) See
+
+Every AI for Slack is deliberately narrow about what it reads:
+
+- **It only sees messages addressed to it** — your DMs with it, and messages that @mention it
+- **It does not read channel history.** Inviting it to a channel doesn't let it see the conversation — only the messages that mention it
+- **It can't see images or file attachments yet** — paste text, or handle files in the Every app
+
+## Team Access — Who Can Use It
+
+Access to the bot follows your **Every organization membership**, not your Slack membership:
+
+- Anyone in the Slack workspace can **see** the bot and **read** its channel answers
+- Only members of your Every organization can **ask** it anything
+
+So if a channel has ten people and five of them have Every accounts in your organization, those five can talk to the agent — the other five can read along but will hit a sign-in prompt if they try to ask.
+
+**To give a teammate access:** invite them to your Every organization first. Go to **Settings → Organization**, open the **Team** section, and invite them by email. Once they've joined, they link their Slack identity like everyone else and they're in.
+
+<Note>
+  There's no separate "enable for everyone" switch in Slack — a Slack admin can add the bot to every channel, but each person who wants to *use* it needs a seat in your Every organization. Everyone in the channel can read; only Every members can ask.
+</Note>
+
+## Disconnecting
+
+**To Disconnect:** Agent Settings → Connections → Slack → Disconnect.
+
+This immediately stops the bot for the whole workspace. Your Every data is untouched, and you can reconnect anytime.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Connect Slack"
+    icon="slack"
+    href="https://every.ai/agent/connections"
+  >
+    Link your workspace from Agent Connections
+  </Card>
+
+  <Card
+    title="Invite Your Team"
+    icon="users"
+    href="/teams/teams"
+  >
+    Add teammates to your Every organization so they can use the bot
+  </Card>
+
+  <Card
+    title="Meet Every Agent"
+    icon="bot"
+    href="/ai/every-agent"
+  >
+    Everything the agent can do — in Slack or in the app
+  </Card>
+
+  <Card
+    title="Invoices & Proposals"
+    icon="file-text"
+    href="/billing/invoices-and-proposals"
+  >
+    The records the agent works with most
+  </Card>
+</CardGroup>
+
+<Note>
+  **Need help?** Contact support at [hello@every.ai](mailto:hello@every.ai)
+</Note>
