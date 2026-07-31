@@ -143,6 +143,20 @@ For any MCP-compatible client:
 - **Transport:** HTTP (Streamable HTTP)
 - **Auth:** OAuth 2.0 (prompted on first use)
 
+## Approving actions in MCP clients
+
+Every applies the same server-side safety gate whether you connect through ChatGPT, Claude, Cursor, the Every CLI, or another Admin MCP client.
+
+- Read-only requests run immediately.
+- Ordinary workspace changes may require the client to repeat an exact action-and-target confirmation supplied by Every.
+- Higher-impact sends, deletes, and cancellations require you to inspect the complete action details in [**Every → Settings → Approvals**](https://app.every.ai/settings/approvals), then choose **Approve** or **Cancel**.
+
+If your AI client returns a pending message before you approve, approve the request in Every and ask the client to retry the **same action with the same arguments**. The approval remains valid for 10 minutes, can be used only once, and cannot authorize changed arguments.
+
+<Card title="How approvals work" icon="shield-check" href="/reference/approvals">
+  See the complete flow, timing, client-specific instructions, and troubleshooting
+</Card>
+
 ## Earn +2,500 credits by connecting Google
 
 If you signed up to Every **through an MCP connection** (for example, you started using Every from inside ChatGPT or Claude rather than the web app), you can earn a one-time **+2,500 credit bonus** by connecting your Google account.
@@ -179,7 +193,7 @@ Once connected, your AI assistant has direct access to your Every workspace. Ask
 
 ### Available Tools
 
-The Admin MCP exposes **40 tools** to your AI assistant, covering your full Every workspace:
+The Admin MCP exposes a growing toolset across your Every workspace:
 
 | Category | Tools |
 |-|-|
@@ -200,7 +214,7 @@ The Admin MCP exposes **40 tools** to your AI assistant, covering your full Ever
 
 ## How This Extends Every Agent
 
-The [Every Agent](/ai/every-agent) inside the app and these external AI connections share the same tools and data. The difference is where you work:
+The [Every Agent](/ai/every-agent) inside the app and these external AI connections operate on the same workspace data and share many actions. The difference is where you work:
 
 - **[Every Agent](/ai/every-agent)** — purpose-built assistant inside the Every app, with full access to your [Memory & Skills](/ai/memory-and-skills) and business context
 - **Claude, ChatGPT, Cursor, etc.** — bring Every's capabilities into the AI tools you already use for other work
@@ -224,7 +238,7 @@ The Client MCP is **read-scoped and redacted** — it never exposes another cust
 
 - **OAuth 2.0** authentication — your credentials are never stored locally
 - **Organization-scoped** — you can only access your own business data
-- **Stateless** — no data cached between requests
+- **Short-lived approvals** — sensitive-action approvals are stored only long enough to survive a client timeout and authorize one identical retry
 - **Client MCP** is additionally redacted and scoped to a single business
 
 ### Revoking Access

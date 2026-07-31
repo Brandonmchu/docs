@@ -63,7 +63,7 @@ You: "Perfect, send it"
 
 ### Confirm Before It Sends or Deletes
 
-The agent acts on your data, so the actions that **leave your workspace or remove data are gated**. The agent shows you what it's about to do and waits for your go-ahead before:
+In interactive app chat, actions that **leave your workspace or remove data are gated**. The agent shows you what it's about to do and waits for your go-ahead before:
 
 - **Sending** anything to a client — invoices, proposals, payment reminders, confirmations, and emails
 - **Deleting** records — clients, contacts, invoices, proposals, payments, services, and more
@@ -73,6 +73,32 @@ Reads, drafts, and internal edits happen directly so the conversation stays fast
 <Warning>
   Always double-check invoice and email details before confirming a send. Once an email is delivered to a client, it cannot be unsent.
 </Warning>
+
+### Using Every Agent by email
+
+Email `agent@every.ai` from the address on your Every account to continue an agent conversation from your inbox.
+
+<Card title="Email Every Agent" icon="mail" href="mailto:agent@every.ai">
+  Start a request from your inbox
+</Card>
+
+Email is a delayed channel, so it uses a different approval flow from interactive chat. Invoice deletion is currently the only destructive email action you can authorize this way. Ask naturally—such as “Delete invoice INV-123”—and Every emails back the invoice details plus the exact command:
+
+```text
+DELETE INVOICE INV-123
+```
+
+Reply directly to that confirmation email with only the command to approve. To cancel, reply with:
+
+```text
+CANCEL DELETE INVOICE INV-123
+```
+
+The newly written part of your reply must be exact, the invoice number must match literally, and the approval expires after 24 hours. Standard quoted reply history is ignored, but extra prose or a signature will not approve the deletion.
+
+<Card title="Email and MCP approval guide" icon="shield-check" href="/reference/approvals">
+  Learn how approvals are bound, expire, retry, and fail safely
+</Card>
 
 ## Navigation
 

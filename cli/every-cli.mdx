@@ -8,7 +8,7 @@ icon: "terminal"
 
 The **Every CLI** (`@everyai/cli`) gives you and your coding agents command-line access to your Every workspace — clients, contacts, invoices, proposals, deals, pipeline, payments, and more. Install it once, sign in once, and the same `every` command works everywhere a shell runs: Claude Code, Codex, Cursor, a plain terminal, or a CI job.
 
-Under the hood the CLI is a client of Every's [MCP server](/integrations/connect-ai-tools), so it inherits Every's full tool surface automatically — new tools show up with no CLI upgrade.
+Under the hood the CLI is a client of Every's [MCP server](/integrations/connect-ai-tools), so it discovers the current tool surface automatically. Keep the CLI current for new client-side behavior such as approval handling.
 
 <Note>
   If you'd rather use Every *inside* one assistant, you can add the MCP server to it directly — see [Connect to Claude & ChatGPT](/integrations/connect-ai-tools). The CLI is the portable alternative: one install and one login cover every agent and machine context, including CI, where per-assistant MCP config isn't practical.
@@ -62,7 +62,7 @@ Branch on the process **exit code** rather than scraping text:
 | `1` | Tool or generic error | Read `error.message` before retrying |
 | `2` | Usage error | Fix the command or arguments |
 | `3` | Auth required or expired | Run `every login` |
-| `4` | Permission / confirmation needed | A write needs `--yes` (or `--allow-destructive`) |
+| `4` | Permission / confirmation needed | Add the required local safety flag, or approve a pending sensitive action in Every and retry identically |
 | `5` | Rate limited | Back off and retry |
 | `6` | Not found | Re-list and verify the ID |
 | `7` | Network / timeout | Check connectivity and retry |
@@ -71,12 +71,16 @@ The `env` field on every JSON response tells you whether the command targeted `p
 
 ## Safety model
 
-The CLI classifies every tool and gates it locally, so an autonomous agent can't quietly do something irreversible:
+The CLI classifies every tool and gates it locally, then Every applies its server-side approval policy:
 
 - **Reads** run freely.
 - **Writes** (create/update) require `--yes`.
 - **Destructive or external-impact actions** — sending invoices/proposals, deletes, voids, recording payments — require **both** `--yes` and `--allow-destructive`.
 - **`--read-only`** (or the `EVERY_READ_ONLY=1` environment variable) blocks anything that isn't a read, for safe automation.
+
+For ordinary writes, Every may return an exact action-and-target confirmation. In an interactive terminal, CLI 0.6.3 or newer can confirm the trusted phrase and retry once after your local consent.
+
+Higher-impact actions also create a request in [**Every → Settings → Approvals**](https://app.every.ai/settings/approvals). The CLI never automatically retries a human-approved action: after approving, rerun the identical command with the same arguments and flags within 10 minutes.
 
 In a non-interactive context, a missing flag fails fast with exit code `4` and names the exact flag needed — it never silently prompts and hangs.
 
@@ -86,8 +90,12 @@ every policy explain send_invoice --json
 ```
 
 <Warning>
-  Only add `--yes` when the human explicitly asked for the change, and only add `--allow-destructive` when they explicitly asked for the send/delete/payment. These flags are the confirmation.
+  Only add `--yes` when the human explicitly asked for the change, and only add `--allow-destructive` when they explicitly asked for the send/delete/payment. These flags confirm local intent; they do not replace a server-required approval.
 </Warning>
+
+<Card title="How MCP approvals work" icon="shield-check" href="/reference/approvals">
+  Review the exact retry, expiry, and single-use rules
+</Card>
 
 ## Commands
 

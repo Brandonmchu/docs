@@ -136,6 +136,7 @@
       {
         "group": "Reference",
         "pages": [
+          "reference/approvals",
           "reference/reports-and-export",
           "troubleshooting"
         ]
