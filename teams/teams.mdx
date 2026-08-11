@@ -25,7 +25,22 @@ Every uses a simple two-layer model:
 
 ## Inviting teammates
 
-Members are managed through your Clerk organization. Go to **Settings → Organization**, open the **Team** section, and use the invite button to add teammates by email. The Team section lists current members with their avatar, name, email, and role.
+Open the **avatar menu** in the top-right, go to **Settings → Organization** (`/settings/organization`), and find the **Team** card. Click **Invite teammate** and add them by email — they'll receive an invitation link that adds them to this workspace once they sign in. The Team card also lists current members with their avatar, name, email, and role.
+
+You can also just ask the agent: *"invite dana@example.com to this workspace."* It confirms the address with you before sending.
+
+### Seats and plans
+
+Inviting teammates requires the **Team plan**. On a single-seat plan the Team card shows **Add teammates with Pro** instead of the invite button, linking to **Settings → Billing** (`/settings/billing`).
+
+|Plan|Members included|
+|-|-|
+|Team|5|
+|Solo (and free/legacy plans)|1 — the owner only|
+
+<Note>
+  Seat limits are enforced when the invitation is created, so a workspace that has used all its seats can't invite anyone else until it upgrades. Existing teams that already exceed a limit are never reduced — nobody gets removed when plans change.
+</Note>
 
 <Note>
   All members have equal access to business records. Roles are shown for identity but do not restrict what a member can view or edit within Every.
