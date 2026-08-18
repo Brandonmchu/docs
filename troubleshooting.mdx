@@ -106,12 +106,12 @@ icon: "wrench"
   <Accordion icon="mail" title="Google Contact Scan Not Working">
     **Check:**
     - Google Workspace connected with Contacts + Gmail/Calendar scopes
-    - **Home → Import Data → Scan Contacts** button appears
+    - **Let Every import your contacts** button appears on the Contacts page
     - Contact exists in Google with an email address
 
     **Solutions:**
-    1. Reconnect Google integration in **Settings → Integrations**
-    2. Re-run **Scan Contacts** from Home dashboard
+    1. Reconnect Google integration in **Agent → Connections**
+    2. Re-run **Scan Contacts** from the Contacts page
     3. Ask Every Agent: "scan my Google contacts"
     4. Use inline email field suggestions for single contacts
     5. Confirm contact exists in Google Contacts with correct email
@@ -320,13 +320,13 @@ icon: "wrench"
 
   <Accordion icon="mail" title="Google Workspace Features Not Working">
     **Check:**
-    - Connection status (**Settings → Integrations**)
+    - Connection status (**Agent → Connections**)
     - Required scopes granted
     - Token not expired
     - Feature requires specific scope
 
     **Solutions:**
-    1. Go to **Settings → Integrations**
+    1. Go to **Agent → Connections**
     2. Click "Reconnect Google"
     3. Grant all requested permissions
     4. Verify scope matches feature needs
@@ -335,13 +335,13 @@ icon: "wrench"
 
   <Accordion icon="database" title="HubSpot Lookup Not Working">
     **Check:**
-    - Connection status in **Agent Settings → Connections**
+    - Connection status in **Agent → Connections**
     - HubSpot permissions were approved
     - Internet connection
     - HubSpot service status
 
     **Solutions:**
-    1. Check connection in [**Agent Settings → Connections**](https://every.ai/agent/connections)
+    1. Check connection in [**Agent → Connections**](https://app.every.ai/agent/connections)
     2. Reconnect if status shows error
     3. Retry with a more specific company, contact, or deal name
     4. Check HubSpot directly for data integrity
@@ -357,7 +357,7 @@ icon: "wrench"
 
     **Solutions:**
     1. Check HubSpot for contact
-    2. Reconnect HubSpot in [**Agent Settings → Connections**](https://every.ai/agent/connections)
+    2. Reconnect HubSpot in [**Agent → Connections**](https://app.every.ai/agent/connections)
     3. Search by email or full company name
     4. Check record permissions in HubSpot
     5. Ask Every Agent with more context, for example: "Find John Smith at Acme Corp in HubSpot"

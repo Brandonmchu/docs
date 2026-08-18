@@ -12,7 +12,7 @@ It is not a separate chatbot with a copied database. It works against the live r
 
 **What makes it useful:**
 - It works directly with your live business data in Every
-- It uses your saved [Business Context and Voice & Tone](/ai/context-and-voice) so its work sounds like you
+- It uses your saved [Business DNA and Voice & Tone](/ai/context-and-voice) so its work fits your business and sounds like you
 - It [remembers facts and applies skills](/ai/memory-and-skills) you've taught it across every chat
 - It connects to external systems like Google Workspace, Xero, HubSpot, and Granola
 - It handles multi-step workflows without you mapping every click
@@ -135,7 +135,7 @@ The agent gets better the more it knows about your business. Three layers shape 
   </Card>
 </CardGroup>
 
-### Learned Preferences
+### Rules
 
 Beyond freeform memory, the agent can save specific, standing business rules.
 
@@ -145,10 +145,10 @@ Beyond freeform memory, the agent can save specific, standing business rules.
 - "Enterprise clients default to 45-day terms"
 - "Always include project reference numbers on TechStart invoices"
 
-When the agent proposes saving a rule, the app shows a permission card. Manage saved rules in [**Agent → Preferences**](https://app.every.ai/agent/preferences).
+When the agent proposes saving a rule, it asks you to confirm. Manage saved rules in [**Agent → Business DNA → Rules**](https://app.every.ai/agent/dna?tab=rules).
 
 <Note>
-  Learned Preferences are standing rules ("always do X"). [Agent Memory](/ai/memory-and-skills) is freeform recall (running lists, observations, open todos). [Business Context](/ai/context-and-voice) is the narrative of what your business is. They work together.
+  Rules are standing instructions ("always do X"). [Agent Memory](/ai/memory-and-skills) is freeform recall (running lists, observations, open todos). [Business DNA](/ai/context-and-voice) is the structured profile of your business. They work together.
 </Note>
 
 ## File Processing
@@ -200,7 +200,7 @@ Every Agent includes a built-in undo system. When the agent creates or modifies 
 - A yellow **Undo** button appears inline after any data-modifying action
 - Hover to preview which items will be affected (they highlight in yellow)
 - Click to reverse **all actions from that agent turn** (it's all-or-nothing to prevent inconsistent states)
-- You can also undo from the **Activity Timeline** on the Home dashboard
+- You can also undo from the **Activity Timeline** on the [Activity](https://app.every.ai/activity) page
 
 ### What Can Be Undone
 
@@ -261,7 +261,7 @@ Most data operations can be reversed:
 
 ## Activity History
 
-Every action the agent takes is recorded in the **Activity Timeline** on your Home dashboard. Use it to review what the agent did, see which records changed, and undo a past turn even after you've moved on in the conversation.
+Every action the agent takes is recorded in the **Activity Timeline** on your [Activity](https://app.every.ai/activity) page. Use it to review what the agent did, see which records changed, and undo a past turn even after you've moved on in the conversation.
 
 ## Data access and AI limits
 
@@ -297,7 +297,7 @@ AI usage consumes credits — agent conversations, file processing, and schedule
 
 1. Ask a simple question like "Show me my last 5 invoices"
 2. Try an action like "Create a draft invoice for $100"
-3. Add [Business Context and Voice & Tone](/ai/context-and-voice)
+3. Review [Business DNA and Voice & Tone](/ai/context-and-voice)
 4. Create a [skill](/ai/memory-and-skills) for a workflow you repeat
 5. Connect Google Workspace and any agent integrations you use
 
@@ -305,7 +305,7 @@ AI usage consumes credits — agent conversations, file processing, and schedule
 
 <CardGroup cols={2}>
   <Card
-    title="Context & Voice"
+    title="Business DNA & Voice"
     icon="sliders"
     href="/ai/context-and-voice"
   >
@@ -338,5 +338,5 @@ AI usage consumes credits — agent conversations, file processing, and schedule
 </CardGroup>
 
 <Note>
-  The better your Business Context, Voice & Tone, skills, and integrations are set up, the more useful Every Agent becomes.
+  The better your Business DNA, Voice & Tone, Rules, skills, and integrations are set up, the more useful Every Agent becomes.
 </Note>
