@@ -40,7 +40,7 @@
       "og:site_name": "Every Documentation",
       "og:image": "https://every.ai/og-image.png",
       "twitter:card": "summary_large_image",
-      "twitter:site": "@everyai"
+      "twitter:site": "@tryeveryai"
     }
   },
   "navigation": {
@@ -94,9 +94,8 @@
         ]
       },
       {
-        "group": "Scheduling & Time",
+        "group": "Time Tracking",
         "pages": [
-          "scheduling/bookings",
           "scheduling/time-tracking"
         ]
       },
@@ -146,7 +145,7 @@
   "topbarLinks": [
     {
       "name": "Launch App",
-      "url": "https://every.ai"
+      "url": "https://app.every.ai"
     },
     {
       "name": "Contact Support",
@@ -169,8 +168,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/everyai",
-      "linkedin": "https://linkedin.com/company/every-ai"
+      "x": "https://x.com/tryeveryai",
+      "linkedin": "https://www.linkedin.com/company/every-ai-inc"
     }
   },
   "redirects": [
@@ -185,7 +184,6 @@
     { "source": "/features/proposals", "destination": "/billing/invoices-and-proposals" },
     { "source": "/features/payments", "destination": "/billing/payments" },
     { "source": "/features/expenses", "destination": "/billing/expenses" },
-    { "source": "/features/bookings", "destination": "/scheduling/bookings" },
     { "source": "/features/time-tracking", "destination": "/scheduling/time-tracking" },
     { "source": "/features/automations", "destination": "/billing/recurring-billing" },
     { "source": "/advanced/note-templates", "destination": "/billing/invoices-and-proposals" },

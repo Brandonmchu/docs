@@ -1,290 +1,112 @@
 ---
 title: "Time Tracking"
-description: "Track billable hours with live timer widgets and manual entry, then convert tracked time directly into invoice line items"
+description: "Track client work with a live timer or manual entries, then add unbilled time to an invoice at the linked service rate"
 icon: "clock"
 ---
 
 ## Overview
 
-Track billable hours and convert them seamlessly into invoice line items. Perfect for consultants, developers, designers, lawyers, and any professional who bills by the hour.
+Every's timesheet connects work performed to the client, service, and invoice that bills it. Use the live timer while you work, add an entry after the fact, or ask Every Agent to log completed time from a plain-language description.
 
-**Key capabilities:**
-- Live timer widget with client selection
-- Manual time entry for historical records
-- One-click conversion to invoice line items
-- Billable vs non-billable tracking
-- Client-specific hourly rates
-
-<Tip>
-  **Ask Every Agent:** Start tracking time:
-  - "Start a timer for the ACME Corp website project"
-  - "Begin timing my consulting call with Client XYZ"
-  - "Log 3 hours of consulting work for ACME Corp yesterday"
-  - "Add a time entry: 2.5 hours of design work for Client XYZ on Monday at $150/hour"
-</Tip>
-
-<Card title="Open Timesheet" icon="clock" href="https://every.ai/timesheet" horizontal>
-  Track and manage billable hours in Every
+<Card title="Open Timesheet" icon="clock" href="https://app.every.ai/timesheet" horizontal>
+  Track and review client time
 </Card>
 
-## Quick Start
+## Use the live timer
 
-**Live Timer:** Start Timer → Select client → Add description → Work → Stop
-**Manual Entry:** Go to [**Timesheet**](https://every.ai/timesheet) → **Add Time Entry** → Fill details (client, description, duration, rate) → Save
+Open the timer widget, choose a client, optionally choose a service, add a description, and start the timer. You can pause, resume, collapse, or hide it while you move through the app.
 
-## Time Tracking Methods
-
-### Live Timer Widget
-
-Real-time tracking with a floating timer that stays visible across all pages.
-
-**Usage:** Click Start Timer → Select client → Add work description → Timer runs in background → Pause/resume as needed → Stop when complete
-
-Timer widget floats in corner, tracks elapsed time, and doesn't interfere with other work.
-
-<Tip>
-  The timer widget stays active even if you navigate to different pages. Your time keeps tracking!
-</Tip>
-
-### Manual Time Entry
-
-Add time records after the fact for forgotten timer starts, historical time, or batch entry.
-
-**Process:** Go to [**Timesheet**](https://every.ai/timesheet) → **Add Time Entry** → Fill in client, description, start/end time (duration auto-calculates), hourly rate, and billable status → Save
-
-<Tip>
-  **Ask Every Agent:** Log time manually:
-  - "Record 5 hours of development time for Project ABC from 9am to 2pm today"
-  - "Add billable time: 1.5 hours client call with Sarah this morning"
-</Tip>
-
-## Time Record Details
+The active timer is saved in the browser for the current organization, so hiding the widget or reloading the page does not silently discard an in-progress session. Choose **Stop and save** when the work is complete.
 
 <Note>
-  **Required to Track Time:**
-  - **Client** (required for billable time; internal work can be non-billable without client)
-  - **Description** (what work was performed)
-  - **Duration** (hours worked) or start/end times
-
-  **To Convert to Invoices:** Time must be marked as **Billable** and in **Unbilled** status.
+  The timer requires a client before it can save. Add a service when you want the entry to carry that service's billing rate into an invoice.
 </Note>
 
-Each time record includes:
-- **Client**: Who you worked for (required for billable time)
-- **Description**: What work was performed (appears on invoice when billed)
-- **Duration**: Start time, end time, total hours calculated
-- **Rate**: Hourly rate for this work
-- **Billing Status**: Unbilled, Billed, or Non-billable
-- **Date**: When work was performed
+## Add time manually
 
-### Billable vs Non-Billable
+Go to [**Timesheet**](https://app.every.ai/timesheet) → **Add Time** and enter:
 
-**Billable time** will be invoiced to client and counts toward revenue. **Non-billable time** is for internal work, learning, pro bono, or admin tasks that won't be charged.
+- Date, start time, and end time
+- Client, when the work belongs to a client
+- Service, when the work should use a saved service and rate
+- A client-facing description
+- Optional private notes for Every Agent
 
-<Tip>
-  Mark administrative work and internal meetings as non-billable to track time accurately without over-billing.
-</Tip>
+You can also ask Every Agent to create a completed entry:
 
-<Tip>
-  **Ask Every Agent:** Manage billing status:
-  - "Show me all unbilled time for ACME Corp"
-  - "Mark the last 3 time entries as non-billable"
-  - "Which clients have unbilled time this month?"
-</Tip>
-
-## Hourly Rate Management
-
-**Set rates per time entry** for flexible pricing on different work types, or **set client-specific defaults** to auto-apply rates to new entries.
-
-**Example rates:**
-- Client A - Standard Consulting: $150/hour
-- Client A - After-hours Support: $225/hour
-- Client B - Development: $175/hour
-
-**Rate changes:** Old time records keep original rate, new records use new rate. No retroactive changes preserves historical accuracy.
-
-<Tip>
-  **Ask Every Agent:** Set or update rates:
-  - "Set my hourly rate for ACME Corp to $175"
-  - "Update Client XYZ's rate to $200 per hour"
-  - "What's my current hourly rate for each client?"
-</Tip>
-
-## Converting Time to Invoices
-
-### Adding Time to Invoices
-
-The main benefit: Easy invoicing!
-
-**Process:** Create invoice → Select client → Click "Add from Time Tracking" → Select unbilled time records → Add Selected → Time becomes line items with hours × rate calculation → Records marked as Billed
-
-**Example:**
-```
-Time Record: Website Development, 5.5 hours @ $150/hour
-Invoice Line Item:
-  Description: Website Development
-  Quantity: 5.5
-  Rate: $150
-  Total: $825
+```text
+Log 90 minutes for ACME today for the strategy workshop service.
+Add a time entry from 1:00 to 3:30 yesterday for the Northwind design review.
+Show me unbilled time for ACME this month.
 ```
 
-<Tip>
-  Time tracking makes invoicing incredibly fast. Just select unbilled time and everything calculates automatically!
-</Tip>
+Every Agent creates a time record; it does not control the live browser timer.
+
+## Rates and billable time
+
+Time entries use the rate on the linked service. The invoice quantity comes from the entry duration, and the rate comes from that service when you add the time to an invoice.
+
+- A client plus a service makes the entry ready for client billing.
+- An entry without a client or service can still record internal work, but it is not ready to become a priced invoice line item.
+- Updating a service rate affects the rate used when work is added later; review historical entries and invoice amounts before billing.
+
+## Add time to an invoice
+
+1. Create or open a draft invoice for the same client.
+2. Choose **Add from Time Tracking**.
+3. Select the unbilled entries.
+4. Review the generated descriptions, quantities, service rates, taxes, and total.
+5. Save the invoice, then send it when ready.
+
+Each selected time entry becomes a linked invoice line item. Once linked, Every treats the time as billed and prevents it from being deleted out from under the invoice.
 
 <Tip>
-  **Ask Every Agent:** Add time to invoices:
-  - "Add all unbilled time for ACME Corp to an invoice"
-  - "Create an invoice with this week's time for Client XYZ"
-  - "Convert unbilled time for Project ABC into an invoice"
+  **Ask Every Agent:** "Create a draft invoice for ACME with all of this month's unbilled strategy time."
 </Tip>
 
-### Batch Invoicing
+## Review and correct time
 
-Invoice multiple time records at once for monthly billing or project completion.
+The Timesheet can be filtered by client, service, date range, and billed status. Open an unbilled entry to correct the client, service, time range, description, or private notes.
 
-**Example:** Track time all month → Create invoice at month-end → Select all unbilled time → Add to invoice → Review total → Send
+For billed time, correct the invoice relationship first. A source time record cannot be deleted while an invoice line item references it; this keeps the timesheet and client document from disagreeing.
 
-<Tip>
-  **Ask Every Agent:** Batch invoice time:
-  - "Create an invoice for all of Client ABC's unbilled time this month"
-  - "Add all unbilled time from January to an invoice for ACME Corp"
-</Tip>
+## Frequently asked questions
 
-## Managing Time Records
+<AccordionGroup>
+  <Accordion title="Can Every Agent start the live timer?">
+    No. Use the timer widget for a running session. Every Agent can create a completed time entry when you provide a start/end time or duration.
+  </Accordion>
 
-### Viewing & Filtering
+  <Accordion title="Where does the hourly rate come from?">
+    From the service linked to the time entry. Set or update service pricing under Services, then review the rate when the time becomes an invoice line item.
+  </Accordion>
 
-**Time List View** shows all records with filters for client, billable status, date range, and search by description.
+  <Accordion title="Can I invoice several time entries together?">
+    Yes. Open a draft invoice for the client and select all relevant unbilled entries from Time Tracking. Each entry remains linked to the invoice for billed-status integrity.
+  </Accordion>
 
-**Summary Cards** display total hours tracked, billable/non-billable breakdown, unbilled amount, and revenue from billed time.
+  <Accordion title="Can I delete billed time?">
+    Not while an invoice line item references it. Remove it from a draft invoice first. If the invoice has already been issued, preserve the source record and correct the client document through the invoice workflow.
+  </Accordion>
+</AccordionGroup>
 
-<Tip>
-  **Ask Every Agent:** View time records:
-  - "Show me my time entries for last week"
-  - "What time did I track for ACME Corp this month?"
-  - "Display all non-billable time entries from January"
-</Tip>
-
-### Editing & Deleting
-
-**Unbilled time** can be edited freely (description, duration, rate, billable status). **Billed time** cannot be edited to preserve invoice accuracy.
-
-**Deleting:** Can delete unbilled time anytime. Cannot delete billed time unless removed from invoice first.
-
-<Warning>
-  Only delete time records recorded in error. Deleting loses the historical record.
-</Warning>
-
-<Tip>
-  **Ask Every Agent:** Edit or delete:
-  - "Update yesterday's time entry to 4 hours instead of 3"
-  - "Change the description on my last time entry to 'Strategic consulting call'"
-  - "Delete my last time entry"
-</Tip>
-
-## Time Tracking Reports
-
-### Analytics
-
-Track productivity and billing with metrics like total hours by client, billable vs non-billable breakdown, average hourly rate, utilization rate, revenue from time tracking, and unbilled time value.
-
-**Date ranges:** Daily, weekly, monthly, quarterly, yearly overviews available.
-
-<Tip>
-  **Ask Every Agent:** Generate analytics:
-  - "Show me a breakdown of my time this month"
-  - "How many billable hours did I track last week?"
-  - "What's my total unbilled time value?"
-</Tip>
-
-### Client Time Reports
-
-View total hours per client, revenue generated, average rate, project breakdowns, and unbilled time to identify most valuable clients and ensure nothing goes unbilled.
-
-<Tip>
-  **Ask Every Agent:** Get client reports:
-  - "How many hours have I worked for ACME Corp this year?"
-  - "Show me revenue generated from Client XYZ"
-  - "List all clients with unbilled time right now"
-</Tip>
-
-## Best Practices
-
-<Tip>
-  **Use the timer widget** - Real-time tracking is more accurate than manual entry after the fact.
-</Tip>
-
-<Tip>
-  **Add descriptions immediately** - Don't wait. Add what you're working on when you start the timer.
-</Tip>
-
-<Tip>
-  **Bill regularly** - Convert unbilled time to invoices weekly, bi-weekly, or monthly.
-</Tip>
-
-<Tip>
-  **Review unbilled time** - Check regularly to ensure nothing falls through the cracks.
-</Tip>
-
-## Common Workflows
-
-### Daily Consulting
-
-**During work:** Start timer for each client task → Select client → Add description → Work → Stop timer
-**End of day:** Review entries for accuracy → Adjust descriptions if needed
-**End of week:** Create invoices → Add unbilled time → Send invoices
-
-### Retainer Time Tracking
-
-**Setup:** Client has 40-hour monthly retainer at $150/hour
-**During month:** Track all time → Monitor approaching limit → Notify client as needed
-**End of month:** Review total hours → Create invoice → Add all time for month → Send invoice
-**Overage:** Invoice separately or roll over per agreement
-
-## Troubleshooting
-
-**Timer not starting:** Ensure client is selected, check browser permissions, stop any other active timers.
-
-**Time entry missing:** Clear filters (date, client, billable status) and search by description.
-
-**Can't edit billed time:** Time is linked to invoice. Remove from invoice first (if draft) or leave as-is to maintain accuracy.
-
-**Time not appearing in "Add to Invoice":** Verify time is unbilled, for selected client, and marked as billable.
-
-## Next Steps
+## Next steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Create Invoices"
-    icon="file-invoice"
-    href="/billing/invoices-and-proposals"
-  >
-    Convert tracked time into invoices
+  <Card title="Invoices & Proposals" icon="file-invoice" href="/billing/invoices-and-proposals">
+    Add unbilled time to client invoices
   </Card>
 
-  <Card
-    title="Manage Clients"
-    icon="users"
-    href="/clients/clients"
-  >
-    Set up clients for time tracking
+  <Card title="Services & Products" icon="list" href="/billing/services-and-products">
+    Create the services and rates used for billed time
   </Card>
 
-  <Card
-    title="Use Services"
-    icon="list"
-    href="/billing/services-and-products"
-  >
-    Associate time with billable services
+  <Card title="Clients" icon="users" href="/clients/clients">
+    Manage the clients linked to time entries
   </Card>
 
-  <Card
-    title="View Reports"
-    icon="chart-line"
-    href="/reference/reports-and-export"
-  >
-    Analyze time tracking data
+  <Card title="Reports & Export" icon="chart-line" href="/reference/reports-and-export">
+    Review and export time-related business data
   </Card>
 </CardGroup>
 

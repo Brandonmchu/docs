@@ -1,6 +1,6 @@
 ---
 title: "Google Workspace Integration"
-description: "Sync with Gmail, Google Calendar, Google Drive, and Google Contacts for seamless workflow integration"
+description: "Connect Gmail, Google Calendar, selected Drive files, and Google Contacts for email, relationship context, calendar work, and imports"
 icon: "mail"
 ---
 
@@ -19,7 +19,7 @@ Google Workspace integration connects Every with your Gmail, Calendar, Drive, an
 
 ### Quick Setup
 
-Go to [**Agent Settings → Connections**](https://every.ai/agent/connections) → find the **Google Workspace** card → **Connect Google Account** → Select your Google account → Review permissions → Click Allow → Return to Every.
+Go to [**Agent Settings → Connections**](https://app.every.ai/agent/connections) → find the **Google Workspace** card → **Connect Google Account** → Select your Google account → Review permissions → Click Allow → Return to Every.
 
 **Permissions Requested:**
 - **Gmail:** Send emails, read messages
@@ -50,7 +50,7 @@ Scopes define what Every can access. If a feature requires missing scopes, the a
 
 The Every Agent can send emails through your Gmail account:
 
-**How It Works:** Chat with Agent ("Send an email to ACME Corp thanking them for payment") → Agent drafts email → You review → Approve → Sent from your Gmail
+**How It Works:** Chat with Agent ("Send an email to ACME Corp thanking them for payment") → Agent drafts the exact email → The app shows a permission card → You approve or deny → Approved email is sent from your Gmail
 
 **Use Cases:**
 - Invoice reminders and thank you messages
@@ -136,7 +136,7 @@ Create/edit invoice or proposal → Click "Attach from Drive" → **Pick a file*
 Every provides multiple ways to import contacts from Google:
 
 **1. Direct Import (Bulk):**
-Go to [**Contacts**](https://every.ai/contacts) page → Click **Import** dropdown → Select **Google Contacts**
+Go to [**Contacts**](https://app.every.ai/contacts) page → Click **Import** dropdown → Select **Google Contacts**
 
 - Fetches all your Google contacts at once
 - Automatically filters out non-person contacts (organizations, bots)
@@ -149,24 +149,22 @@ Go to [**Contacts**](https://every.ai/contacts) page → Click **Import** dropdo
 **2. Inline Autocomplete:**
 Once Google is connected, the Email field in client and contact forms uses Google Contacts search. Pick a result to auto-fill name, phone, and other details instantly.
 
-**3. Scan Contacts (AI-Powered):**
-Open the **Home** dashboard → **Get Started** card → **Scan Contacts**
-
-This AI-powered workflow reviews your Gmail, Calendar, and Contacts history to identify which contacts look like potential business clients, rather than importing all contacts.
+**3. Warm Leads:**
+Open [**Pipeline**](https://app.every.ai/pipeline) → **Find warm leads**. Every evaluates eligible contacts against the audience you describe and uses available Gmail and Calendar relationship evidence when ranking matches.
 
 **Duplicate Prevention:** All import methods filter by email so existing contacts are skipped automatically.
 
-**Refresh cadence:** Both Direct Import and Scan Contacts are on-demand. Re-run whenever you want fresh suggestions.
+**Refresh cadence:** Contact import and one-time Warm Leads searches run when you request them. A scheduled Warm Leads routine can continue searching automatically.
 
 <Tip>
-  Use **Direct Import** when you want to bring in your full address book. Use **Scan Contacts** when you want AI to identify likely business clients from your recent activity.
+  Use **Direct Import** to build the contact pool. Use **Warm Leads** to identify which people in that pool fit the business audience you are targeting.
 </Tip>
 
 <Tip>
-  **Ask Every Agent:** Start the AI analysis from chat:
-  - "Scan my Google contacts and add likely clients"
-  - "Review Google contacts marked as clients and add them to Every"
-  - "Show me Google contacts we haven't imported yet"
+  **Ask Every Agent:**
+  - "Find 10 warm leads among agency founders in my network"
+  - "What did my last Warm Leads search target?"
+  - "Show me my scheduled Warm Leads routine"
 </Tip>
 
 <Tip>
@@ -180,8 +178,7 @@ Every tracks which contacts exist in your team's Google Contacts, helping you id
 **How it works:**
 - When a contact is created with an email, Every checks if that email exists in any team member's Google Contacts
 - A sync indicator badge appears on contacts that match
-- Daily background sync at 3 AM UTC keeps the status current
-- Manual sync available via API for immediate updates
+- Background sync keeps the relationship indicator current
 
 **Benefits:**
 - See at a glance which client contacts are already in your Google ecosystem
@@ -208,7 +205,9 @@ The Agent leverages Google integrations with the `check_google_services_status` 
 User: "Send invoice reminder to ACME Corp"
 Agent: ✓ Checks Gmail connection
        ✓ Drafts professional reminder
-       ✓ Sends via your Gmail
+       ✓ Shows the exact recipient and message for approval
+User:  ✓ Approves the permission card
+Agent: ✓ Sends via your Gmail
        ✓ Logs activity
 ```
 
@@ -252,6 +251,26 @@ Agent: ✓ Checks Gmail connection
   Disconnecting removes integration features but doesn't delete imported data.
 </Warning>
 
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can Every read my entire Google Drive?">
+    No. Every uses Google's `drive.file` permission. It can access files you explicitly select through the Drive Picker and files created with Every, not browse your full Drive.
+  </Accordion>
+
+  <Accordion title="Can Every send Gmail messages without review?">
+    In interactive chat, the send tool shows the recipient, subject, and message in a permission card. Scheduled and unattended routines can prepare a draft but cannot perform the final send while nobody is present.
+  </Accordion>
+
+  <Accordion title="Do I need to grant every Google permission?">
+    No. You can connect only the scopes needed for the workflows you use. If a later task needs another permission, Every asks you to reconnect and add it.
+  </Accordion>
+
+  <Accordion title="What happens to imported contacts if I disconnect Google?">
+    The Google connection stops working, but contacts and other records already imported into Every remain in your workspace until you edit or remove them there.
+  </Accordion>
+</AccordionGroup>
+
 ## Troubleshooting
 
 ### Connection Issues
@@ -293,7 +312,7 @@ Agent: ✓ Checks Gmail connection
 </Tip>
 
 <Tip>
-  **Grant all scopes** - Full integration provides the best experience and most features.
+  **Grant the scopes you need** - Every supports partial Google permissions. Add a scope later if a workflow needs it.
 </Tip>
 
 ## Next Steps
@@ -302,7 +321,7 @@ Agent: ✓ Checks Gmail connection
   <Card
     title="Connect Google"
     icon="google"
-    href="https://every.ai/agent/connections"
+    href="https://app.every.ai/agent/connections"
   >
     Set up Google Workspace integration
   </Card>
@@ -312,7 +331,7 @@ Agent: ✓ Checks Gmail connection
     icon="users"
     href="/clients/clients"
   >
-    Import Google Contacts as clients
+    Import people from Google Contacts
   </Card>
 
   <Card

@@ -8,7 +8,7 @@ icon: "credit-card"
 
 Every supports both online credit card payments through Stripe and manual payment tracking for offline payment methods. All payments are automatically linked to invoices, updating invoice status and maintaining accurate payment records.
 
-<Card title="Open Payments" icon="credit-card" href="https://every.ai/payments" horizontal>
+<Card title="Open Payments" icon="credit-card" href="https://app.every.ai/payments" horizontal>
   View and manage all payment records in Every
 </Card>
 
@@ -20,7 +20,7 @@ Accept major credit cards (Visa, MasterCard, Amex, Discover) directly on invoice
 
 **How It Works:** Connect Stripe account → Create invoice with online payments enabled → Client opens invoice page → Clicks Pay Now → Enters card details (secure Stripe form) → Payment processes instantly → Invoice marked Paid automatically → Both parties receive confirmation
 
-**Processing Fees:** Typically 2.9% + $0.30 per transaction (automatically deducted before deposit)
+**Processing Fees:** Stripe deducts the processing fee that applies to your connected account, country, card type, and payment method. Check your Stripe dashboard and [Stripe's current pricing](https://stripe.com/pricing) for the amount that applies to you.
 
 <Tip>
   Clients pay significantly faster when they can pay with a credit card immediately!
@@ -42,14 +42,12 @@ Accept major credit cards (Visa, MasterCard, Amex, Discover) directly on invoice
 
 ### Setting Up Stripe
 
-**Requirements:** Business bank account, business information, government ID, tax information
+Stripe determines the business, identity, tax, and payout information required for your account and country.
 
-**Setup:** [**Settings**](https://every.ai/settings) → **Payments** → Connect Stripe Account → Complete Stripe onboarding (business details, bank account, identity verification, tax info) → Return to Every
-
-**Timeline:** Basic setup 5-10 minutes, full verification 1-3 business days (can accept payments during verification)
+**Setup:** [**Settings → Payments**](https://app.every.ai/settings/payments) → Connect Stripe Account → Complete Stripe's onboarding → Return to Every
 
 <Note>
-  You can accept payments even if your Stripe account is still under review. Payouts may be delayed until verification is complete.
+  Payment and payout availability depends on the status Stripe returns for your connected account. If Stripe requests more information, complete it in the Stripe dashboard.
 </Note>
 
 ### Stripe Account Status
@@ -146,6 +144,10 @@ Send reminder emails to clients with overdue or upcoming invoices.
 
 **What's Included:** Invoice details, amount due, due date, payment link (if online payments enabled)
 
+<Note>
+  Payment reminders are external messages. Review the recipient and invoice before sending. A scheduled or background agent run can prepare reminder work but cannot send it while nobody is present to approve it.
+</Note>
+
 <Tip>
   **Ask Every Agent:** Send reminders efficiently:
   - "Send payment reminders to all overdue invoices"
@@ -238,7 +240,7 @@ Deeper analytics (average days to payment, on-time rate, method breakdowns, reve
 ## Best Practices
 
 <Tip>
-  **Enable online payments** - Clients pay 5-10x faster when they can pay by credit card immediately.
+  **Enable online payments when they fit the engagement** - A Pay button reduces payment friction, while manual payment records still cover checks and bank transfers.
 </Tip>
 
 <Tip>
@@ -260,6 +262,26 @@ Deeper analytics (average days to payment, on-time rate, method breakdowns, reve
 **Manual Check Payment:** Client mails check → You receive and deposit → Once cleared, open invoice → Record Payment with amount and check number → Select method: Check → Save → Invoice status updates to Paid
 
 **Partial Payment:** Client pays first installment → Record first payment (partial) → Invoice shows Partially Paid with balance → Client pays second installment → Record second payment → Continue until fully paid (balance = $0, status = Paid)
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Do I need Stripe to use payments in Every?">
+    No. Stripe is required for the online Pay button, but you can record cash, check, bank-transfer, or externally processed card payments without connecting Stripe.
+  </Accordion>
+
+  <Accordion title="Are overdue reminders sent automatically?">
+    No reminder is sent just because an invoice becomes overdue. Send one from the invoice, or ask Every Agent to prepare it and approve the send. Background routines can surface what is overdue without contacting the client.
+  </Accordion>
+
+  <Accordion title="Does a client's payment claim mark the invoice paid?">
+    Not until you review and accept it. A claim reports that the client says payment was made; accepting the claim creates the payment record that updates the invoice balance.
+  </Accordion>
+
+  <Accordion title="Does deleting a Stripe payment in Every refund the client?">
+    No. Deleting the local payment record only changes Every's records. Refund money in Stripe, then keep the Every record aligned with what actually happened.
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting
 

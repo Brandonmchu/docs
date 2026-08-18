@@ -1,6 +1,6 @@
 ---
 title: "Every Agent"
-description: "Your AI assistant that reads and acts across your whole workspace — clients, invoices, proposals, payments, bookings, and more — with confirm-before-send safety and one-click undo"
+description: "An AI business assistant for CRM, warm-lead prospecting, proposals, invoicing, payments, expenses, and time tracking, with review gates for external sends"
 icon: "sparkles"
 ---
 
@@ -8,7 +8,7 @@ icon: "sparkles"
 
 Every Agent is Every's conversational assistant. Instead of clicking through menus, you describe what you need in plain language and the agent creates, updates, analyzes, and drafts across your workspace.
 
-It is not a chatbot bolted onto the side of the app — it operates the same data you do, through a large and continually growing toolset, with the same permissions and the same records.
+It is not a separate chatbot with a copied database. It works against the live records in your Every workspace and the connected services you authorize.
 
 **What makes it useful:**
 - It works directly with your live business data in Every
@@ -17,7 +17,7 @@ It is not a chatbot bolted onto the side of the app — it operates the same dat
 - It connects to external systems like Google Workspace, Xero, HubSpot, and Granola
 - It handles multi-step workflows without you mapping every click
 
-<Card title="Open Every Agent" icon="message-circle" href="https://every.ai" horizontal>
+<Card title="Open Every Agent" icon="message-circle" href="https://app.every.ai" horizontal>
   Start chatting with Every Agent in the app
 </Card>
 
@@ -30,16 +30,16 @@ Every Agent works directly with your data in Every. It can read, create, update,
 | **Clients** | Create and update clients, enrich company records, analyze concentration and revenue |
 | **Contacts** | Create and link contacts; import from Google, LinkedIn, or CSV |
 | **Invoices** | Draft, edit, apply tax and discounts, schedule sends, send to clients |
-| **Proposals** | Draft structured proposals, track approval, convert approved proposals into invoices |
+| **Proposals** | Draft structured proposals, track approval, convert issued or approved proposals into invoices |
 | **Payments** | Record manual payments, send reminders and confirmations, check Stripe-linked state |
 | **Expenses** | Parse receipt uploads into expenses, add unbilled expenses to invoices |
 | **Time** | Log time entries, add unbilled time to invoices |
-| **Bookings** | Check upcoming bookings, create booking records |
+| **Pipeline** | Find warm leads, review deals, update sales plans, and draft outreach |
 | **Recurring invoices** | Create, pause, and update recurring invoice automations; review run history |
 
 It also runs reporting and analysis on top of all of this — revenue summaries, overdue and cash-flow reviews, client concentration, and service or product trends.
 
-The agent's toolset is large and grows continuously as new capabilities ship, so think of it less as a fixed menu and more as: *if you can do it in Every, you can usually ask the agent to do it.*
+The exact toolset changes as Every adds capabilities. If a task is outside the current product or requires access you have not connected, the agent should say so instead of pretending it completed the work.
 
 <Tip>
   **Ask Every Agent:**
@@ -48,6 +48,12 @@ The agent's toolset is large and grows continuously as new capabilities ship, so
   - "Find the HubSpot deal for Acme and summarize what stage it's in"
   - "Pull the action items from my Granola meeting with Sarah last week"
 </Tip>
+
+## What kind of CRM is Every?
+
+Every is an **AI-native CRM and client-operations workspace** for service businesses. It connects relationship-based prospecting and a sales pipeline to proposals, invoices, payments, expenses, time tracking, and client records.
+
+It is not a full enterprise CRM administration suite, and it is not a general ledger or tax-filing system. If you already use HubSpot or Xero, Every Agent can work with those connected systems while Every handles the client workflows that live in its own workspace.
 
 ## How Every Agent Works
 
@@ -73,6 +79,8 @@ Reads, drafts, and internal edits happen directly so the conversation stays fast
 <Warning>
   Always double-check invoice and email details before confirming a send. Once an email is delivered to a client, it cannot be unsent.
 </Warning>
+
+Scheduled and background routines use a stricter boundary: they can read, analyze, create internal drafts, and prepare work, but outbound sends and destructive actions are unavailable while nobody is present to review them.
 
 ### Using Every Agent by email
 
@@ -137,7 +145,7 @@ Beyond freeform memory, the agent can save specific, standing business rules.
 - "Enterprise clients default to 45-day terms"
 - "Always include project reference numbers on TechStart invoices"
 
-When the agent proposes saving a rule, it asks you to confirm. Manage saved rules in [**Agent → Preferences**](https://every.ai/agent/preferences).
+When the agent proposes saving a rule, the app shows a permission card. Manage saved rules in [**Agent → Preferences**](https://app.every.ai/agent/preferences).
 
 <Note>
   Learned Preferences are standing rules ("always do X"). [Agent Memory](/ai/memory-and-skills) is freeform recall (running lists, observations, open todos). [Business Context](/ai/context-and-voice) is the narrative of what your business is. They work together.
@@ -159,6 +167,12 @@ Every Agent can read supported uploads and help you work with them:
 <Card title="Import Data Guide" icon="file-import" href="/clients/contacts">
   See supported import formats, file handling, and batch workflow details
 </Card>
+
+### Moving from another CRM or invoicing tool
+
+Export your existing system to CSV or Excel, then open [**Data → Import**](https://app.every.ai/data/import). The Import Agent analyzes the file, proposes how its columns map to Every records, and asks you to review the mapping before it writes data.
+
+Imports can create connected clients, contacts, invoices, line items, payments, services, expenses, and time records. Start with a representative export, check dates, currencies, status values, and client matching carefully, then run the full import. If the source system has a compatible direct integration, use that connection for ongoing access and CSV import for the historical backfill.
 
 ## Batch & Multi-Step Workflows
 
@@ -248,6 +262,32 @@ Most data operations can be reversed:
 ## Activity History
 
 Every action the agent takes is recorded in the **Activity Timeline** on your Home dashboard. Use it to review what the agent did, see which records changed, and undo a past turn even after you've moved on in the conversation.
+
+## Data access and AI limits
+
+Every scopes workspace data to your organization. Connected services use the permissions you grant; for example, Google Drive uses file-by-file access rather than permission to browse your full Drive. Some AI features send the content and context needed for the request to Every's AI service providers, as described in the [Privacy Policy](https://every.ai/privacy).
+
+AI output can be incomplete or wrong. Use the source records, previews, and permission cards to verify consequential work, especially recipient addresses, proposal scope, invoice amounts, payment records, and imported data.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can Every Agent send an email or invoice without me reviewing it?">
+    In interactive chat, outbound send tools pause on an approval card showing what will be sent. Scheduled and unattended routines can prepare drafts but cannot perform the final send by themselves.
+  </Accordion>
+
+  <Accordion title="Does Every replace an accounting system?">
+    Every handles proposals, invoices, payments, expenses, time tracking, and operational reporting. It is not a general ledger, bank-reconciliation, payroll, or tax-filing system. Connect Xero or export accounting-ready CSV files when you need those workflows.
+  </Accordion>
+
+  <Accordion title="Does a connection give Every access to everything in that service?">
+    No. Each connection has a defined permission scope. For example, Google Drive access is limited to files you explicitly select or create with Every. Review the permissions during setup and see the [Privacy Policy](https://every.ai/privacy) for current processing and provider terms.
+  </Accordion>
+
+  <Accordion title="Can I migrate from another CRM?">
+    Yes. Export the source data as CSV or Excel and use Data → Import. Review the Import Agent's mapping before the write, then verify record counts and a sample of clients, invoices, and balances after completion.
+  </Accordion>
+</AccordionGroup>
 
 ## A Note on Credits
 

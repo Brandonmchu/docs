@@ -10,18 +10,18 @@ Contacts are the **people** in your business world - everyone from active client
 
 **Key capabilities:**
 - Store contact details (name, email, phone, job title)
-- Import from [LinkedIn](https://every.ai/contacts) and [Google Contacts](https://every.ai/contacts)
+- Import from [LinkedIn](https://app.every.ai/contacts) and [Google Contacts](https://app.every.ai/contacts)
 - Link contacts to one or more [clients](/clients/clients) with role-based email routing
 - AI-powered enrichment and relationship summaries
 - Google Contacts sync for duplicate detection
 
-<Card title="Open Contacts" icon="user-round" href="https://every.ai/contacts" horizontal>
+<Card title="Open Contacts" icon="user-round" href="https://app.every.ai/contacts" horizontal>
   View and manage all your contacts in Every
 </Card>
 
 ## Creating Contacts
 
-Go to [**Contacts**](https://every.ai/contacts) → **Add Contact** → Fill details → **Save**
+Go to [**Contacts**](https://app.every.ai/contacts) → **Add Contact** → Fill details → **Save**
 
 **Required:** Name
 **Recommended:** Email address (needed for invoicing and proposals)
@@ -54,7 +54,7 @@ Import your LinkedIn connections directly from a CSV export, with optional AI re
 </Frame>
 
 **How to import:**
-1. Go to [**Contacts**](https://every.ai/contacts) → **Import** dropdown → **LinkedIn**
+1. Go to [**Contacts**](https://app.every.ai/contacts) → **Import** dropdown → **LinkedIn**
 2. Upload your `Connections.csv` file
 3. Preview new contacts (duplicates are auto-filtered)
 4. Click **Import**
@@ -85,7 +85,7 @@ Import your LinkedIn connections directly from a CSV export, with optional AI re
 Import your entire Google Contacts library with one click.
 
 **How to import:**
-1. Go to [**Contacts**](https://every.ai/contacts) → **Import** dropdown → **Google Contacts**
+1. Go to [**Contacts**](https://app.every.ai/contacts) → **Import** dropdown → **Google Contacts**
 2. Authorize Google Contacts access if not already connected
 3. Preview new vs. existing contacts
 4. Click **Import**
@@ -93,22 +93,14 @@ Import your entire Google Contacts library with one click.
 **What gets imported:** Name, email, phone, organization, social URLs (LinkedIn, Twitter, etc.)
 
 <Note>
-  Google Contacts **Import** brings in all your contacts. The **Scan Contacts** workflow on the Home dashboard is different - it uses AI to identify which contacts look like potential business clients.
+  Google Contacts **Import** builds your contact pool. [Warm Leads](/prospecting/prospecting-agent) is the separate AI workflow that evaluates that pool for people who match what you sell.
 </Note>
 
-### Scan Contacts (AI-Powered)
+### Find warm leads from imported contacts
 
-Let Every Agent analyze your Gmail, Calendar, and Google Contacts to suggest contacts that look like business leads.
+After importing contacts, open [**Pipeline**](https://app.every.ai/pipeline) → **Find warm leads**. Describe who you want to reach and how many matches you want. Every ranks eligible contacts using professional fit and available relationship evidence, then puts qualified matches in Pending for review.
 
-**How it works:**
-1. On the [**Home**](https://every.ai) dashboard → **Import Data** card → **Scan Contacts**
-2. Every Agent scans recent email, calendar, and contact activity
-3. Review suggested contacts and select ones to add
-4. Contacts are created with context from your interactions
-
-<Tip>
-  **Ask Every Agent:** "Scan my Google contacts and add any that look like potential clients"
-</Tip>
+Import does not turn every person into a client or deal. The prospecting review and your approval determine who enters the sales pipeline.
 
 ### File Processing with Every Agent
 
@@ -124,6 +116,22 @@ Upload your file and describe what you need - the agent reads and processes the 
   - "Extract the client list from Sheet 2 of this Excel file"
   - "Read this Word document and pull out all the contact names and emails"
 </Tip>
+
+## Migrating from another CRM
+
+Use a spreadsheet export when you are moving historical records from another CRM or invoicing tool.
+
+1. Export the source data as CSV, XLSX, or XLS.
+2. Open [**Data → Import**](https://app.every.ai/data/import) and upload one representative file.
+3. Review the Import Agent's proposed mapping, especially contact-versus-client identity, dates, currencies, status values, and relationships between records.
+4. Correct the mapping before the final import.
+5. After completion, compare record counts and spot-check several contacts, clients, invoices, and balances.
+
+The Import Agent can map connected business records such as clients, contacts, invoices, line items, payments, services, expenses, and time entries. Imports support undo receipts, but source exports are still your rollback reference—keep an untouched copy until you have verified the result.
+
+<Note>
+  Importing data into Every is different from connecting HubSpot or Xero for live agent access. Use import for records that should live in Every; use an integration when the external system remains the source of truth.
+</Note>
 
 ## Linking Contacts to Clients
 
@@ -156,7 +164,7 @@ ACME Corp (Client) Contacts:
 
 ### Linking from Client Page
 
-1. Open a [client](https://every.ai/clients) → **Edit** → **Add Contact**
+1. Open a [client](https://app.every.ai/clients) → **Edit** → **Add Contact**
 2. Search for an existing contact or create a new one
 3. Set invoice and proposal roles
 4. First contact defaults to Primary for both
@@ -187,7 +195,7 @@ AI-powered enrichment helps fill in contact details automatically.
 
 ### Viewing & Filtering
 
-Go to [**Contacts**](https://every.ai/contacts) to see all contacts with:
+Go to [**Contacts**](https://app.every.ai/contacts) to see all contacts with:
 - Search by name, email, company, phone
 - Filter by linked clients
 - Sort by name, date added, or recent activity
@@ -281,11 +289,31 @@ Contact (Person)                    Client (Company)
   **Use AI summaries** - Upload LinkedIn Messages.csv after import for valuable relationship context.
 </Tip>
 
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="What is the difference between a contact and a client?">
+    A contact is a person. A client is the business record used for proposals, invoices, expenses, and time. One contact can be linked to more than one client with separate invoice and proposal recipient roles.
+  </Accordion>
+
+  <Accordion title="Does importing contacts put everyone into my sales pipeline?">
+    No. Import creates contact records. Warm Leads separately evaluates eligible contacts, and each match stays in Pending until you approve it.
+  </Accordion>
+
+  <Accordion title="Can I migrate historical CRM data, not just contacts?">
+    Yes. Use Data → Import with a CSV or Excel export. The Import Agent can map multiple related Every record types; review its proposed relationships and status mapping before the write.
+  </Accordion>
+
+  <Accordion title="How does Every prevent duplicate contacts?">
+    Direct imports use email and source identity to skip or match obvious duplicates. No automatic rule can resolve every messy CRM export, so review the preview and spot-check people who share names, emails, or companies.
+  </Accordion>
+</AccordionGroup>
+
 ## Troubleshooting
 
 **Contact not receiving invoices:** Verify the contact is linked to the client with a Primary or CC invoice role. Check email address is correct.
 
-**Duplicate contacts after import:** System checks by email for duplicates. If imported from multiple sources (LinkedIn + Google), merge manually or ask Every Agent.
+**Duplicate contacts after import:** Open **Review duplicates** on the Contacts page. Every groups likely matches by confidence; review uncertain pairs before merging. Recent merges can be undone from that workflow.
 
 **Can't delete contact:** Contact may be set as Primary recipient on a client. Set another contact as Primary first.
 

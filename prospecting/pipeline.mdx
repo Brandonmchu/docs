@@ -1,141 +1,135 @@
 ---
 title: "Sales Pipeline"
-description: "An AI-managed kanban pipeline where approved deals advance through stages, the agent reviews and recommends next steps per deal, asks you questions when it's unsure, and detects won deals automatically"
+description: "Manage warm leads from first review through outreach, proposals, invoices, and close in an AI-assisted sales pipeline"
 icon: "git-branch"
 ---
 
 ## Overview
 
-The **Sales Pipeline** is Every's AI-managed kanban board for the deals you're actively working. Deals discovered by the [Prospecting Agent](/prospecting/prospecting-agent) (and deals you add yourself) flow onto a board where an AI agent continuously reviews each one, recommends the best next step, drafts follow-ups, advances stages, and surfaces questions for you when it can't decide on its own.
+The **Sales Pipeline** is where Every turns a promising relationship into a managed sales process. Warm leads discovered by the [Prospecting Agent](/prospecting/prospecting-agent) arrive for review; approved leads get a plan, outreach drafts, linked proposals and invoices, and a history of what happened.
 
-You drive the high-stakes moves; the agent does the watching, drafting, and recommending in between.
+Every prepares and updates the work, while you control who enters the pipeline and what gets sent.
 
-<Card title="Open Pipeline" icon="git-branch" href="https://every.ai/pipeline" horizontal>
-  View and manage your deals on the AI pipeline
+<Card title="Open Pipeline" icon="git-branch" href="https://app.every.ai/pipeline" horizontal>
+  Review warm leads and manage active deals
 </Card>
 
-<Note>
-  This AI pipeline is **not** the older client status board on the [Clients](/clients/clients) page. The Clients page tracks your client *records*; the pipeline here tracks *deals* and is run by an AI agent. See [Clients](/clients/clients) for managing client records.
-</Note>
+## Pipeline stages
 
-## The board
-
-The pipeline is organized into columns. **Pending** is a review queue, not a real stage; the four stages after it are the live pipeline.
+**Pending** is a review queue. The four columns after it are the active pipeline.
 
 | Column | What it means |
 |-|-|
-| **Pending** | Agent-discovered deals waiting for your approval. Not a pipeline stage — a review queue. |
-| **Lead** | An approved prospect, usually before meaningful engagement. |
-| **Opportunity** | An active sales motion — from a positive reply through booking, proposal, invoice, and the close decision. |
-| **Won** | Closed successfully, per your configured "Won" definition. |
-| **Lost** | Closed unsuccessfully, or intentionally parked. |
+| **Pending** | Agent-discovered warm leads waiting for approval or rejection. |
+| **Lead** | An approved prospect before a meaningful sales motion is underway. |
+| **Opportunity** | An active sales motion, from a positive reply through proposal, invoice, and close. |
+| **Won** | Work closed successfully under your configured criteria. |
+| **Lost** | Work closed unsuccessfully or intentionally parked. |
 
-Opportunity is a single stage that holds the whole active conversation. Rather than adding a stage for every milestone, each deal card shows a **commercial-state chip** — *Waiting for reply*, *Proposal sent*, *Invoice issued*, *Invoice paid*, and so on — derived from the deal's linked proposals, invoices, and bookings. The chip is the factual situation; the agent's recommendation (below) is the opinion about what to do next.
+Opportunity holds the full active conversation instead of splitting every milestone into a separate stage. Proposal and invoice status appear on the deal so you can see the commercial state without rebuilding your pipeline around each document.
 
-### Empty state and the initial scan
+## How deals get into the pipeline
 
-A brand-new org sees a **"Start scan"** call to action prompting it to scan its connected Google Workspace network. Once that initial import scan has completed even once — even if it surfaced nothing — the board shows your (possibly empty) pipeline instead of the prompt: you've already scanned, there's just nothing yet. A failed scan leaves the prompt up so you can retry.
+- **Warm Leads:** Every searches your network and puts qualified matches in Pending.
+- **Manual deals:** Add a contact or client directly to any active stage.
+- **Commercial activity:** When configured, proposals or invoices created outside the board can be linked to a deal so the sales and billing records stay connected.
 
-## How deals get created
+## Review the Pending queue
 
-Deals reach the board a few ways:
+Open a Pending lead to see:
 
-- **Approved from Pending.** The [Prospecting Agent](/prospecting/prospecting-agent) discovers warm deals and drops them in **Pending**. Approving one moves it into **Lead**.
-- **Added manually.** You can create a deal directly (from the board or by asking [Every Agent](/ai/every-agent)), with a short intake describing what you're selling and to whom. A manual deal must be tied to at least a contact or a client.
+- The reason Every surfaced the person
+- Fit and relationship scores
+- Supporting evidence and source context
+- The intended path from relationship to sale
 
-## The Pending review queue
+Then choose:
 
-Everything the Prospecting Agent finds lands in **Pending** first. Nothing is sent and no deal enters your live pipeline until you act:
+- **Approve** — moves the person to Lead and asks the pipeline agent to build the first sales plan and outreach draft.
+- **Reject** — removes the person and prevents that contact from being suggested in future Warm Leads searches. An optional reason helps improve future scoring.
 
-- **Approve** — the deal moves into **Lead** and the pipeline agent begins managing it.
-- **Dismiss** — the deal is removed and the agent learns not to re-surface that contact for this goal.
+No message is sent from Pending.
 
-You can open any pending deal to read the agent's reasoning, the evidence, and the drafted first outreach before deciding.
+## Plans, outreach, and activity
 
-## How deals advance
+Each approved deal has a plan made of concrete next steps. The agent refreshes that plan when relevant facts change—for example, after you log a conversation, move the stage, send outreach, receive a reply, or link a proposal or invoice.
 
-Once a deal is approved, the pipeline keeps it moving through a mix of automation and your decisions.
+Open a deal to:
 
-### Drag to move
+- Review the current plan and its rationale
+- Edit and send an outreach draft
+- Log a call, meeting, note, or attachment
+- Draft a proposal
+- Link or inspect proposals and invoices
+- Change the deal owner on a team workspace
+- Review the chronological history
 
-You can drag a deal between stages at any time. A manual move is **authoritative** — it immediately supersedes any in-flight agent work on that deal, and the agent will refresh its strategy for the stage you chose rather than override your move.
+<Note>
+  An agent-generated draft is not a sent message. Outreach is sent only after you review it and choose to send.
+</Note>
 
-### Reply detection (Deal Sync)
+## Reply detection
 
-Every periodically checks the outreach you've sent for replies. When a reply comes in, it's classified:
+For outreach sent through the connected Gmail account, the Deal Sync routine checks for replies and updates the deal context:
 
-- **Positive** → the deal auto-advances to **Opportunity** and the agent replans.
-- **Neutral** → the agent replans at the current stage.
-- **Negative** → the reply is recorded for context.
+- A positive reply can move the deal to Opportunity and trigger a new plan.
+- A neutral reply updates the plan without forcing a stage change.
+- A negative reply is recorded so the agent does not plan from stale assumptions.
 
-This runs as the **Pipeline / Deal Sync** background sweep, and you can also trigger an **Update now** check from the pipeline toolbar.
+Gmail and Calendar events can provide real-time context; the background check provides a catch-up path when needed.
 
-### Per-deal agent review (replan)
+## Proposals and invoices
 
-Whenever something changes on a deal — a stage move, a new reply, an answered question — the pipeline agent **replans** that deal: it reloads the full context (linked proposals, invoices, bookings, outreach history, and its own memory of the deal) and decides the best next step. It can refresh your strategy, draft a follow-up, or recommend advancing the stage.
+The pipeline connects sales activity to the documents that close and collect the work.
 
-### Agent recommendations
+- **Draft a proposal** from the deal so the client, scope context, and pipeline link stay together.
+- **Convert an issued or approved proposal to an invoice** when you are ready to bill.
+- **Link an invoice** so issued and paid status can update the deal's commercial context.
+- **Move to Won** after linking or creating the client record required for the closed deal.
 
-For each deal the agent produces up to three **ranked recommendations** — for example *Send follow-up*, *Draft a proposal*, *Move to Won*. The top recommendation gets prominent styling on the deal's action cards so you always see the single "do this first" suggestion, with the agent's short rationale. You execute the move; the agent suggests it.
+See [Invoices & Proposals](/billing/invoices-and-proposals) for the full proposal-to-invoice workflow.
 
-## Reviewing the agent's work
+## Human control and learning
 
-Open any deal to see the **deal detail** view: the commercial-state chip, the agent's ranked recommendations as action cards (send outreach, draft/send proposal, create/send invoice, schedule a booking, advance stage), the linked sales records, and any open questions.
+Manual stage moves are authoritative: the agent replans around the stage you chose. Every also learns from durable signals such as rejections with reasons, edited outreach, stage moves, and won/lost outcomes. You can review Warm Lead preferences separately from the plan for an individual deal.
 
-### Review Pipeline
+## Frequently asked questions
 
-The **Review Pipeline** button in the page header runs an autonomous pass: the agent surveys the deals that need attention (stale ones, deals with open questions, deals with new signals), reviews each, and acts on or records its top recommendation — advancing stages or drafting follow-ups, and surfacing questions for the rest. It reviews a bounded batch per run and bills credits.
+<AccordionGroup>
+  <Accordion title="Does Every send outreach automatically?">
+    No. The pipeline agent prepares the plan and draft, but you review the message and initiate the send. Unattended routines can prepare work but cannot send external messages on their own.
+  </Accordion>
 
-### Operator questions
+  <Accordion title="Is Pending a pipeline stage?">
+    No. Pending is a review queue for agent-discovered matches. A lead enters the active pipeline only after approval.
+  </Accordion>
 
-When the agent genuinely can't decide on its own, it doesn't guess — it **asks you**. An operator question appears on the deal (with suggested options) and you answer it inline. Your answer immediately triggers the agent to act on it, so it can post the right reply or move in the same pass rather than waiting for the next cycle. Deal cards show a live indicator when they have an open question.
+  <Accordion title="Why does Every need a client before Won?">
+    The client record connects the deal to proposals, invoices, payments, and revenue. If one is missing, Every asks you to link an existing client or create one from the deal.
+  </Accordion>
 
-## Closing deals
-
-### Won requires a client
-
-Before a deal can move to **Won**, it must be linked to a [client](/clients/clients) record — this is how Every connects the deal to proposals, invoices, and revenue. If you (or the agent) try to move a deal to Won without one, Every prompts you to either **link an existing client** or **create a new one** pre-filled from the deal's details, then completes the move.
-
-### Auto-move to Won
-
-Every can detect won deals for you. Based on your org's **Won definition**, a deal advances to Won automatically when the right signal appears:
-
-- **Agent-determined** (default) — an AI judge evaluates replies and linked sales records (e.g. *"yes, let's do it"*, an accepted proposal, a paid booking) against your criteria.
-- **Proposal accepted / Proposal sent** — a linked proposal reaching that status closes the deal.
-- **Service booking made** — a confirmed booking closes the deal.
-
-You configure the Won definition in the prospecting/pipeline settings.
-
-## Deals, proposals, and invoices
-
-The pipeline is wired into the rest of Every. From a deal you can:
-
-- **Draft a proposal** — creates (and links a client to) a draft [proposal](/billing/invoices-and-proposals), then opens it.
-- See **linked proposals, invoices, and bookings** on the deal, with their live status feeding the commercial-state chip.
-
-When a deal is Won, its linked paid invoices roll up into the deal's realized revenue.
-
-## How it learns
-
-Like prospecting, the pipeline agent improves from your decisions. Approving, dismissing, moving deals, winning, losing, sending outreach, and drafting proposals feed a learning loop that updates the agent's own guidance — clear, durable feedback generalizes across your org, while deal- or goal-specific feedback stays scoped. The more you act, the better the recommendations get.
+  <Accordion title="Can I move a deal myself?">
+    Yes. Drag the deal to another stage. Your move takes precedence, and the agent updates the plan for the stage you selected.
+  </Accordion>
+</AccordionGroup>
 
 ## Next steps
 
 <CardGroup cols={2}>
   <Card title="Prospecting Agent" icon="telescope" href="/prospecting/prospecting-agent">
-    Discover the warm deals that fill this pipeline
+    Find and score warm leads from your existing network
+  </Card>
+
+  <Card title="Invoices & Proposals" icon="file-text" href="/billing/invoices-and-proposals">
+    Turn accepted work into billing
   </Card>
 
   <Card title="Scheduled Tasks" icon="clock" href="/scheduled-tasks/scheduled-tasks">
-    Schedule recurring pipeline reviews and prospecting scans
-  </Card>
-
-  <Card title="Daily Brief" icon="sun" href="/scheduled-tasks/daily-brief">
-    Get a morning digest of what your agents did across the pipeline
+    Manage scheduled Warm Leads and other recurring agent tasks
   </Card>
 
   <Card title="Clients" icon="building-2" href="/clients/clients">
-    Manage the client records your deals link to
+    Manage the client records connected to won work
   </Card>
 </CardGroup>
 

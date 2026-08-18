@@ -13,10 +13,10 @@ Invoices and proposals are the core of billing in Every. **Proposals** let you c
 You can also create invoices directly when no proposal is needed.
 
 <CardGroup cols={2}>
-  <Card title="Open Invoices" icon="file-text" href="https://every.ai/invoices" horizontal>
+  <Card title="Open Invoices" icon="file-text" href="https://app.every.ai/invoices" horizontal>
     View and manage all your invoices
   </Card>
-  <Card title="Open Proposals" icon="file-check" href="https://every.ai/proposals" horizontal>
+  <Card title="Open Proposals" icon="file-check" href="https://app.every.ai/proposals" horizontal>
     View and manage all your proposals
   </Card>
 </CardGroup>
@@ -35,7 +35,7 @@ You can also create invoices directly when no proposal is needed.
   All other fields (payment terms, notes, attachments) are optional.
 </Note>
 
-Go to [**Invoices**](https://every.ai/invoices) → **Create Invoice** → Select client → Add line items → Set payment terms → Save as Draft or Send
+Go to [**Invoices**](https://app.every.ai/invoices) → **Create Invoice** → Select client → Add line items → Set payment terms → Save as Draft or Send
 
 <Tip>
   **Ask Every Agent:** Create invoices with natural language:
@@ -123,6 +123,10 @@ Choose from Modern, Classic, Professional, or Creative templates. Your logo, bra
 Review invoice → Check client email → Preview → Click **Send Invoice**
 
 **What happens:** Email sent to client (and CC recipients), status changes to Issued, public invoice page created, email tracking begins. Email contains PDF attachment, public page link, and payment instructions.
+
+<Note>
+  Creating or editing a draft does not contact the client. In Every Agent, the send tool shows an approval card with the invoice and recipient before delivery.
+</Note>
 
 <Tip>
   **Ask Every Agent:** Send invoices:
@@ -241,7 +245,7 @@ Complete chronological history of all invoice events: created, edited, sent, del
   - **At least one line item** (scope description and pricing)
 </Note>
 
-Go to [**Proposals**](https://every.ai/proposals) → **Create Proposal** → Fill required fields and optional fields (scope, client message, media, attachments, terms, expiration) → Save as Draft or Send
+Go to [**Proposals**](https://app.every.ai/proposals) → **Create Proposal** → Fill required fields and optional fields (scope, client message, media, attachments, terms, expiration) → Save as Draft or Send
 
 <Tip>
   **Ask Every Agent:** Create proposals:
@@ -312,16 +316,23 @@ Generate professional PDF versions for offline sharing, client records, or print
 
 ### Converting Proposals to Invoices
 
-One of the most powerful features: instant conversion of approved proposals to invoices.
+Convert an issued or approved proposal into a draft invoice without re-entering the commercial details.
 
-Open approved proposal → **Convert to Invoice** → New invoice created with same client, line items, attachments, pricing, discounts, and taxes → Review → Adjust dates/payment terms if needed → Send
+Open an issued or approved proposal → **Convert to Invoice** → New draft invoice created with the same client and line items → Review the new issue date, due date, notes, attachments, taxes, discounts, and payment settings → Send when ready
 
-**What's preserved:** All line items, client info, attachments, descriptions, pricing, discounts, taxes
-**What's not copied:** Scope description, client message, proposal-specific media (add invoice-specific notes separately)
+**Copied:** Client, currency, line items, linked time/expense sources, pricing, discounts, taxes, and downloadable attachments
+
+**Rebuilt for the invoice:** A new invoice number, today's issue date, a due date based on your invoice defaults, invoice notes, and online-payment setting
+
+**Not copied:** Proposal scope, client message, and proposal-only media. Add invoice-specific notes before sending.
+
+<Note>
+  Conversion is retry-safe. If the proposal already points to a non-void invoice, Every returns that invoice instead of creating a duplicate.
+</Note>
 
 <Tip>
   **Ask Every Agent:** Convert to invoices:
-  - "Turn this proposal into an invoice and send it"
+  - "Turn this proposal into a draft invoice for me to review"
   - "Create invoice from the website redesign proposal"
   - "Convert proposal #123 to an invoice"
 </Tip>
@@ -437,7 +448,7 @@ Every helps you collect sales tax, track deductible expenses, and generate compl
 
 ### Setting Up Tax Rates
 
-Go to [**Settings**](https://every.ai/settings) → **Organization** → **Sales Tax Default** → Enter percentage (e.g., 13) → Save. This rate applies to new services, quick invoice creation, and automation templates.
+Go to [**Settings**](https://app.every.ai/settings) → **Organization** → **Sales Tax Default** → Enter percentage (e.g., 13) → Save. This rate applies to new services, quick invoice creation, and automation templates.
 
 You can also set **per-service tax rates** (e.g., consulting at 13%, educational workshops at 0%) so the correct rate applies automatically when that service is added to an invoice.
 
@@ -481,6 +492,28 @@ You can also set **per-service tax rates** (e.g., consulting at 13%, educational
 </Warning>
 
 </Accordion>
+
+---
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does converting a proposal send an invoice?">
+    No. Conversion creates a draft invoice. Review its dates, notes, payment settings, recipient, and amount before sending it.
+  </Accordion>
+
+  <Accordion title="Can I convert a proposal before the client approves it?">
+    Yes. Every allows conversion from Issued or Approved. Approval remains useful evidence that the client accepted the work; conversion itself does not create or replace that approval.
+  </Accordion>
+
+  <Accordion title="Can billable time and expenses move from a proposal to its invoice?">
+    Yes. When those source records are part of proposal line items, conversion carries the links into the invoice and marks the records as billed. A billed source cannot be deleted out from under its invoice.
+  </Accordion>
+
+  <Accordion title="Does Every send payment reminders automatically?">
+    You can send a reminder from an issued invoice or ask Every Agent to prepare one. Outbound reminders require an interactive send action; unattended routines can identify overdue invoices and prepare drafts but cannot send by themselves.
+  </Accordion>
+</AccordionGroup>
 
 ---
 

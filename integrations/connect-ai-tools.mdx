@@ -1,41 +1,57 @@
 ---
 title: "Connect to Claude & ChatGPT"
-description: "Use Every's tools directly inside Claude, ChatGPT, Cursor, and other AI assistants over MCP"
+description: "Use your Every CRM, pipeline, invoices, proposals, payments, expenses, reports, and Google workflows from compatible AI assistants over MCP"
 icon: "plug"
 ---
 
 ## Overview
 
-Every works inside the AI tools you already use. Connect your account to Claude, ChatGPT, Cursor, or any [MCP](https://modelcontextprotocol.io)-compatible assistant and you get full access to your clients, invoices, proposals, bookings, expenses, and more — without leaving the conversation.
+Every's **Admin MCP** connection lets compatible AI assistants work with the live records in your Every workspace. After you sign in with Every, you can ask ChatGPT, Claude, Codex, Cursor, and other MCP clients to look up business data or perform supported actions.
 
-This means the AI assistant you're already using becomes an AI assistant that knows your business.
+The connection is for you and your team as business operators. Client self-service happens through Every's branded client portal and public proposal or invoice pages, not through the Admin MCP.
 
 <Note>
-  Every exposes its tools over the **Model Context Protocol (MCP)**, an open standard for connecting AI assistants to live data and actions. Any MCP-compatible client can connect.
+  [Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open standard for connecting an AI client to tools and data. The AI client supplies the conversation; Every supplies authenticated business tools.
 </Note>
 
-### The Admin MCP connector
+## Connection details
 
-Every runs an MCP server for business owners:
+- **Server URL:** `https://admin-mcp.every.ai/`
+- **Transport:** Streamable HTTP
+- **Authentication:** Every account through Clerk OAuth 2.0
+- **Data scope:** Your current Every organization and user permissions
 
-| Connector | Who it's for | URL | What it does |
-|-|-|-|-|
-| **Admin MCP** | You (the business owner) | `https://admin-mcp.every.ai` | Your full Every toolset — create/send invoices, manage clients and contacts, proposals, payments, expenses, and ask the Every Assistant — from inside your own AI assistant |
+## Connect ChatGPT
 
-This page covers the **Admin MCP** (connecting your own AI assistant).
+<Note>
+  Manual MCP setup requires a ChatGPT plan and workspace configuration that supports Developer mode and custom apps.
+</Note>
 
-## AI Apps
+1. Open ChatGPT → **Settings** → **Apps** → **Advanced settings**.
+2. Turn on **Developer mode**.
+3. Return to **Apps** and choose **Add more**.
+4. Enter `https://admin-mcp.every.ai`.
+5. Choose **Add**, then **Connect**.
+6. Sign in with your Every account and select the intended organization.
+7. Start a new chat and invoke the Every app for your request.
 
-### Claude Desktop
+ChatGPT displays confirmation UI for Every tools marked as writes. Every's server-side permission gate still applies independently of the client UI.
 
-1. Open Claude Desktop → **Settings** → **Developer** → **Edit Config**
-2. Add `mcpServers` inside the existing JSON (as a sibling to `preferences`, not a separate block):
+## Connect Claude
+
+### Claude web and connectors
+
+1. Open [Claude connector settings](https://claude.ai/settings/connectors).
+2. Choose **Add Connector**.
+3. Enter `https://admin-mcp.every.ai/`.
+4. Authenticate with your Every account.
+
+### Claude Desktop with `mcp-remote`
+
+Claude Desktop configurations that do not support remote HTTP directly can use the `mcp-remote` bridge:
 
 ```json
 {
-  "preferences": {
-    ...
-  },
   "mcpServers": {
     "every-ai": {
       "command": "npx",
@@ -45,52 +61,17 @@ This page covers the **Admin MCP** (connecting your own AI assistant).
 }
 ```
 
-3. Save and restart Claude Desktop
-4. A browser window opens — sign in with your Every AI account
-5. Look for the hammer icon (🔨) — your Every AI tools are ready
+Save the configuration, restart Claude Desktop, then complete the browser sign-in. This method requires Node.js.
+
+## Connect developer tools
 
 <Note>
-  Requires [Node.js](https://nodejs.org) installed. Claude Desktop doesn't support remote servers directly, so `mcp-remote` acts as a bridge.
+  Prefer one terminal login for scripts and multiple agents? The [Every CLI](/cli/every-cli) can be used from Claude Code, Codex, Cursor, or an ordinary shell without configuring MCP in each tool.
 </Note>
-
-### Claude CoWork
-
-1. Go to [claude.ai/settings/connectors](https://claude.ai/settings/connectors)
-2. Click **Add Connector** → set the URL to `https://admin-mcp.every.ai/`
-3. Authenticate with your Every AI account
-4. CoWork will now have access to your Every workspace
-
-## Developer Tools
-
-<Note>
-  Prefer the command line, or need Every in CI and across several agents at once? The [Every CLI](/cli/every-cli) is one install and one login that works in any shell — Claude Code, Codex, Cursor, or a script — instead of configuring the MCP server in each tool.
-</Note>
-
-### ChatGPT (Pro)
-
-<Note>
-  Requires a ChatGPT **Pro** or **Enterprise** plan with Developer mode enabled.
-</Note>
-
-{/* After app store approval, replace with:
-1. Go to [chatgpt.com/apps](https://chatgpt.com/apps) and search **Every AI**
-2. Click **Connect** and sign in with your Every AI account
-3. Start a new chat and type `@Every AI` followed by your request
-*/}
-
-1. Open ChatGPT → **Settings** → **Apps** → **Advanced settings**
-2. Turn on **Developer mode**
-3. Go back to **Apps** → click **Add more**
-4. Paste this URL:
-```
-https://admin-mcp.every.ai
-```
-5. Click **Add** → **Connect** → sign in with your Every AI account
-6. Start a new chat and type `@Every AI` followed by your request
 
 ### Claude Code
 
-Add to your project's `.mcp.json`:
+Add the server to your project's `.mcp.json`, then run `/mcp` and authenticate:
 
 ```json
 {
@@ -102,144 +83,90 @@ Add to your project's `.mcp.json`:
   }
 }
 ```
-
-Then run `/mcp` and click **Authenticate**.
 
 ### Codex
 
-Add to your project's `.mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "every-ai": {
-      "type": "http",
-      "url": "https://admin-mcp.every.ai/"
-    }
-  }
-}
-```
-
-Authenticate when prompted on first use.
+Add the same HTTP server to the MCP configuration used by Codex, then complete OAuth when prompted.
 
 ### Cursor
 
-1. Open **Settings** (⌘ + ,) → **MCP Servers** → **+ Add Server**
-2. Set:
-   - **Name:** `Every AI`
-   - **Type:** `HTTP`
-   - **URL:** `https://admin-mcp.every.ai/`
-3. Click **Save** and authenticate when prompted
+Open **Settings → MCP Servers → Add Server**, choose HTTP, and enter `https://admin-mcp.every.ai/`. Cursor needs Agent mode to call MCP tools.
 
-<Note>
-  Cursor requires **Agent Mode** (not Ask Mode) to access MCP tools.
-</Note>
+### Other MCP clients
 
-### Other MCP Clients
+Use the server URL and Streamable HTTP transport above. The client must support remote OAuth-authenticated MCP servers.
 
-For any MCP-compatible client:
-- **URL:** `https://admin-mcp.every.ai/`
-- **Transport:** HTTP (Streamable HTTP)
-- **Auth:** OAuth 2.0 (prompted on first use)
+## What connected assistants can do
 
-## Approving actions in MCP clients
+The current Admin MCP includes tools across:
 
-Every applies the same server-side safety gate whether you connect through ChatGPT, Claude, Cursor, the Every CLI, or another Admin MCP client.
-
-- Read-only requests run immediately.
-- Ordinary workspace changes may require the client to repeat an exact action-and-target confirmation supplied by Every.
-- Higher-impact sends, deletes, and cancellations require you to inspect the complete action details in [**Every → Settings → Approvals**](https://app.every.ai/settings/approvals), then choose **Approve** or **Cancel**.
-
-If your AI client returns a pending message before you approve, approve the request in Every and ask the client to retry the **same action with the same arguments**. The approval remains valid for 10 minutes, can be used only once, and cannot authorize changed arguments.
-
-<Card title="How approvals work" icon="shield-check" href="/reference/approvals">
-  See the complete flow, timing, client-specific instructions, and troubleshooting
-</Card>
-
-## Earn +2,500 credits by connecting Google
-
-If you signed up to Every **through an MCP connection** (for example, you started using Every from inside ChatGPT or Claude rather than the web app), you can earn a one-time **+2,500 credit bonus** by connecting your Google account.
-
-<Card title="Connect Google" icon="google" href="/integrations/google-workspace">
-  Connect Gmail so Every can scan your network, draft outreach, and send on your behalf
-</Card>
-
-**How to claim:**
-1. Connect your Google account with the Gmail permission from [**Agent Settings → Connections**](https://every.ai/agent/connections) (or follow the in-app banner)
-2. The bonus is granted automatically, **once per organization**, the first time you connect Google with Gmail access
-
-<Note>
-  This bonus is for orgs that originally signed up via MCP. Connecting Google also unlocks contact scanning, AI prospecting, and sending email through your own Gmail. See the [Google Workspace integration](/integrations/google-workspace) for the full setup.
-</Note>
-
-## What You Can Do
-
-Once connected, your AI assistant has direct access to your Every workspace. Ask it anything you'd normally do inside Every:
-
-| Task | Example |
+| Area | Examples |
 |-|-|
-| Create an invoice | "Make an invoice for Brandon Chu, $300 for design services" |
-| Send an invoice | "Send invoice INV-001" |
-| Find a client | "Find client Acme" |
-| Check payments | "Show payments for this month" |
-| Record a payment | "Record $500 cash payment for INV-001" |
-| Track expenses | "Add a $150 expense at AWS for Software" |
-| Create a proposal | "Create a proposal for Acme, $5000 website redesign" |
-| Manage proposals | "Send the Acme proposal" / "Convert it to an invoice" |
-| View bookings | "Show my upcoming bookings" |
-| Business insights | "What's my total revenue this quarter?" |
-| Ask the Assistant | "Which clients haven't paid in 60 days?" |
+| **CRM and contacts** | Find, create, and update clients or contacts; inspect timelines and metadata |
+| **Warm Leads and pipeline** | Review network summaries, find prospects, inspect deals, log activity, and move stages |
+| **Invoices** | List, create, update, generate PDFs, send, and manage recurring invoices |
+| **Proposals** | Draft, view, update, convert to invoices, generate PDFs, and send |
+| **Payments and expenses** | Record or list payments; create and review expenses |
+| **Services and settings** | Manage service records and read business settings |
+| **Reports and routines** | Read financial or pipeline summaries, Daily Brief data, and scheduled-task status |
+| **Google Workspace** | Read supported Gmail/Calendar context, create Gmail drafts, and perform permitted Google actions |
 
-### Available Tools
-
-The Admin MCP exposes a growing toolset across your Every workspace:
-
-| Category | Tools |
-|-|-|
-| [Invoices](/billing/invoices-and-proposals) | Create, view, update, delete, send, list |
-| [Clients](/clients/clients) | Create, view, update, list (fuzzy matching) |
-| [Contacts](/clients/contacts) | Create, update, link/unlink to clients, list |
-| [Proposals](/billing/invoices-and-proposals) | Create, view, update, delete, send, void, duplicate, convert to invoice, generate PDF, list, save/list templates |
-| [Payments](/billing/payments) | Record, list |
-| [Expenses](/billing/expenses) | Create, list |
-| [Services](/scheduling/bookings) | List (with booking config) |
-| [Bookings](/scheduling/bookings) | List, view |
-| Settings | View business profile, currency, tax rates |
-| Every Assistant | `ask_assistant` — read-only Q&A and analysis over your business |
+The exact tool list evolves. Ask the connected client to list Every's available tools when you need to confirm whether a specific operation is supported.
 
 <Tip>
-  Taxes are applied automatically based on your business settings. No need to calculate them manually.
+  Start with a read such as "Show my overdue invoices" or "Summarize my pipeline." After you confirm the right organization and records are visible, try a draft or write.
 </Tip>
 
-## How This Extends Every Agent
+## Write and send safety
 
-The [Every Agent](/ai/every-agent) inside the app and these external AI connections operate on the same workspace data and share many actions. The difference is where you work:
+Every's MCP server classifies actions before dispatch:
 
-- **[Every Agent](/ai/every-agent)** — purpose-built assistant inside the Every app, with full access to your [Memory & Skills](/ai/memory-and-skills) and business context
-- **Claude, ChatGPT, Cursor, etc.** — bring Every's capabilities into the AI tools you already use for other work
+- **Reads** run without a write confirmation.
+- **Ordinary writes** require an exact action-specific confirmation phrase.
+- **Higher-risk actions**, including external sends and destructive changes, create a short-lived approval request for the signed-in user. The approved request is bound to that organization, requester, tool, and exact normalized arguments, and can be consumed once.
 
-Use whichever fits your workflow. Both operate on the same live data.
+Client behavior varies, so do not rely on an AI assistant's wording alone. Read the target identifiers, recipient, amount, and other arguments shown in the confirmation or Every approval card.
 
-## Security
+<Card title="Email and MCP approval guide" icon="shield-check" href="/reference/approvals">
+  Learn how approvals are bound, expire, retry, and fail safely
+</Card>
 
-- **OAuth 2.0** authentication — your credentials are never stored locally
-- **Organization-scoped** — you can only access your own business data
-- **Short-lived approvals** — sensitive-action approvals are stored only long enough to survive a client timeout and authorize one identical retry
+<Warning>
+  A connected AI client can reach live business data. Remove the connector when you no longer use it, and do not approve a write whose target or details are wrong.
+</Warning>
 
-### Revoking Access
+## Google connection bonus for MCP signups
 
-Disconnect the MCP from your AI assistant's settings at any time. This immediately revokes access to your business data.
+Organizations originally created through an MCP connection can receive the current one-time onboarding credit bonus after connecting Google with Gmail access. Open [**Agent Settings → Connections**](https://app.every.ai/agent/connections) to connect the account. Eligibility and the amount shown in the app are authoritative.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does ChatGPT or Claude receive my Every password?">
+    No. Authentication uses the Every OAuth flow. The AI client receives a scoped connection token, not your password.
+  </Accordion>
+
+  <Accordion title="Can a connected assistant send an invoice immediately?">
+    A send is a higher-risk action. Every creates an out-of-band approval request for the signed-in user, bound to the exact operation. Review the recipient and invoice before approval.
+  </Accordion>
+
+  <Accordion title="Is the MCP connection a copy of my CRM?">
+    No. Tools read and write the live Every workspace. Disconnecting the MCP client revokes that access but does not delete the underlying Every records.
+  </Accordion>
+
+  <Accordion title="Can my customers use this connection?">
+    The Admin MCP is for business operators. Give customers the branded client portal or the public proposal and invoice links intended for their records.
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting
 
-**Can't connect?**
-Make sure you have an Every AI account at [app.every.ai](https://app.every.ai).
+**Connection fails:** Confirm the client supports remote OAuth MCP servers, use the server URL exactly, and allow the browser sign-in window.
 
-**Tools not showing?**
-Disconnect and reconnect the MCP server. Some clients cache tool definitions.
+**Tools do not appear:** Disconnect and reconnect. Some clients cache tool schemas until a new session starts.
 
-**Wrong data?**
-Make sure you're signed into the correct Every AI account and organization.
+**Wrong organization:** Disconnect, sign in again, and select the intended Every organization. Do not write until a read returns the expected records.
 
-**Need help?**
-Contact [hello@every.ai](mailto:hello@every.ai).
+**Approval expired:** Retry the exact action to create a fresh request. Changing the arguments creates a different approval identity.
+
+**Need help:** Contact [hello@every.ai](mailto:hello@every.ai).

@@ -62,7 +62,7 @@ You can also install it through your agent's plugin system, which delivers the s
 - **ID discipline** — list or search first, act only with the exact ID returned; ask when a name is ambiguous.
 - **Safety choreography** — reads run free; add `--yes` only for a requested write; add `--allow-destructive` only for a requested send/delete/payment; satisfy Every's server confirmation when requested; after a human approves a sensitive action in Every, retry only the identical command.
 - **Every's domain rules**, the things a generic tool description can't convey — for example:
-  - Creating a proposal, invoice, or booking is auto-recorded on a matching deal, so it should never be double-logged.
+  - Creating a proposal or invoice is auto-recorded on a matching deal, so it should never be double-logged.
   - Only issued or approved proposals convert to invoices, and conversion (not manual re-creation) preserves the link.
   - Invoice line items use per-unit prices; Every applies the business's default tax automatically.
   - For "who owes me money", filter by status and paginate to completion before totaling.

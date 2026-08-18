@@ -1,6 +1,6 @@
 ---
 title: "HubSpot CRM Integration"
-description: "Access HubSpot CRM data through Every Agent to manage contacts, companies, and deals conversationally"
+description: "Connect HubSpot for conversational lookups of contacts, companies, deals, properties, owners, and campaign data in Every Agent"
 icon: "hubspot"
 ---
 
@@ -8,14 +8,14 @@ icon: "hubspot"
 
 HubSpot integration connects Every Agent to your HubSpot CRM, enabling conversational access to your contacts, companies, and deals. Instead of switching between apps, ask Every Agent to look up CRM data, search contacts, and view deal pipeline information.
 
-**Key Features:**
+**Key features:**
 - Search and view HubSpot contacts and companies
 - Access deal information and pipeline stages
-- Manage CRM objects through natural conversation
+- Use HubSpot records as context while working in Every
 - Secure OAuth connection with fine-grained permissions
 
 <Note>
-  HubSpot integration is **agent-powered** - you interact with HubSpot data conversationally through Every Agent, not through direct UI sync. This gives you flexible, on-demand access to your CRM data.
+  HubSpot integration is **agent-powered**: you query HubSpot data through Every Agent. It is not an automatic two-way sync, and connecting it does not copy the whole CRM into Every.
 </Note>
 
 ## How HubSpot Integration Works
@@ -58,20 +58,14 @@ Agent: "You have 3 deals closing in January:
 
 ### OAuth Connection
 
-1. Go to [**Agent Settings → Connections**](https://every.ai/agent/connections)
+1. Go to [**Agent Settings → Connections**](https://app.every.ai/agent/connections)
 2. Find HubSpot in the list of available integrations
 3. Click **Connect**
 4. Log in to your HubSpot account
 5. Review and approve the requested permissions
 6. You'll be redirected back to Every with connection confirmed
 
-**Permissions Requested:**
-- Read contacts and contact properties
-- Write contacts (for updates via agent)
-- Read companies and company properties
-- Write companies
-- Read deals and deal properties
-- Read deal schemas (pipeline stages)
+HubSpot shows the current permission set during OAuth. Review it there before connecting. Every's supported HubSpot tools are used for searches and reads; do not assume a HubSpot record was updated unless the tool result explicitly proves it.
 
 <Tip>
   **Ask Every Agent:** After connecting, verify access:
@@ -194,12 +188,28 @@ Agent: "TechStart Inc from HubSpot:
 </Tip>
 
 <Tip>
-  **Use for context, not sync** - HubSpot integration is for lookups and queries, not automatic data sync. Invoice in Every, manage CRM in HubSpot.
+  **Use for context, not sync** - HubSpot integration is for lookups and queries, not automatic two-way data sync. Invoice in Every and manage HubSpot-owned CRM records in HubSpot.
 </Tip>
 
 <Tip>
   **Be specific in queries** - "Find John at Acme" works better than "find my contact" when you have many contacts.
 </Tip>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does connecting HubSpot migrate my CRM into Every?">
+    No. The connection gives Every Agent conversational access to supported HubSpot reads. If you want historical records to live in Every, export them from HubSpot and use [Data → Import](https://app.every.ai/data/import) after reviewing the mapping.
+  </Accordion>
+
+  <Accordion title="Which system is the source of truth?">
+    Keep HubSpot as the source of truth for HubSpot-owned CRM records. Every holds its own clients, contacts, warm leads, proposals, invoices, payments, expenses, and time records.
+  </Accordion>
+
+  <Accordion title="Does disconnecting delete HubSpot or Every data?">
+    No. It removes the agent's HubSpot access. Records already stored in either system remain where they are.
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting
 
@@ -230,7 +240,7 @@ Agent: "TechStart Inc from HubSpot:
   <Card
     title="Connect HubSpot"
     icon="hubspot"
-    href="https://every.ai/agent/connections"
+    href="https://app.every.ai/agent/connections"
   >
     Set up HubSpot integration now
   </Card>

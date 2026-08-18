@@ -1,408 +1,153 @@
 ---
 title: "Xero Accounting Integration"
-description: "Connect Every Agent to Xero for full accounting access - manage invoices, contacts, payments, and financial reports conversationally"
+description: "Connect Xero so Every Agent can read accounting context and perform supported invoice, contact, payment, transaction, and accounting actions with permission"
 icon: "building"
 ---
 
 ## Overview
 
-Xero integration connects Every Agent directly to your Xero accounting software. Create invoices, manage contacts, record payments, and pull financial reports - all through natural conversation with Every Agent.
+The generally available Xero connection gives Every Agent conversational access to supported Xero accounting data and actions. Use it to answer questions, check records, prepare or update supported Xero objects, and bring accounting context into work you are doing in Every.
 
-**Key Features:**
-- Full read/write access to Xero invoices and contacts
-- Record and view payments
-- Create and manage bank transactions
-- Pull financial reports (P&L, balance sheet, trial balance)
-- Access chart of accounts and tax rates
-- Manage inventory items
+Xero remains the accounting system of record. Every remains the client-operations workspace for warm leads, proposals, invoices, payments, expenses, time tracking, and agent workflows.
 
 <Note>
-  Xero integration gives Every Agent **full accounting access** to your Xero organization. This is a powerful integration for businesses that use Xero as their primary accounting system.
+  Every also has a separate direct accounting-sync gateway in a limited pilot. Do not assume that connecting Xero on this page creates an automatic two-way sync or exposes pilot controls to your organization.
 </Note>
 
-## How Xero Integration Works
+## What Every Agent can do
 
-### Agent-Powered Accounting
+The connected toolset includes reads such as:
 
-Every Agent connects directly to Xero's API with comprehensive accounting capabilities:
+- Organization details
+- Contacts and contact groups
+- Invoices, payments, and credit notes
+- Bank transactions and accounts
+- Items and tax rates
+- Profit and loss, balance sheet, trial balance, aged receivables, and aged payables
+- Tracking categories, quotes, timesheets, and selected payroll/leave data when available to the connected Xero user
 
+It also includes supported Xero writes such as creating invoices, contacts, payments, bank transactions, credit notes, items, manual journals, quotes, tracking categories, and payroll timesheets, plus updating supported draft records.
+
+Examples:
+
+```text
+Show me unpaid Xero invoices for Acme.
+Pull the Xero profit and loss report for last quarter.
+List recent bank transactions in Xero.
+What tax rates are configured in my Xero organization?
+Compare overdue invoices in Every with aged receivables in Xero.
+Create a draft Xero invoice for Acme using account code 200.
 ```
-You: "Create an invoice in Xero for Acme Corp, $5,000 for consulting services"
-Agent: "I've created invoice INV-0042 in Xero:
-       - Contact: Acme Corp
-       - Amount: $5,000.00
-       - Description: Consulting services
-       - Due Date: Feb 28, 2026
 
-       The invoice is saved as a draft in Xero."
-
-You: "Show me my profit and loss for last quarter"
-Agent: "Xero P&L Report (Q4 2025):
-       Revenue: $125,000
-       Cost of Sales: $45,000
-       Gross Profit: $80,000
-       Operating Expenses: $35,000
-       Net Profit: $45,000"
-```
-
-### What You Can Do
-
-**Invoicing:**
-- Create, update, and delete invoices
-- List and search invoices by status, date, or contact
-- View invoice details and line items
-
-**Contacts:**
-- Create and update contacts
-- Search contacts by name or email
-- View contact details and history
-
-**Payments:**
-- Record payments against invoices
-- List payment history
-- View payment allocations
-
-**Bank Transactions:**
-- Create and update bank transactions
-- View bank transaction history
-- Reconcile transactions
-
-**Financial Reports:**
-- Profit and Loss statements
-- Balance sheets
-- Trial balance
-- Aged receivables and payables
-
-**Configuration:**
-- View chart of accounts
-- Access tax rates
-- Manage inventory items
-
-## Connecting Xero
-
-### OAuth Connection
-
-1. Go to [**Agent Settings → Connections**](https://every.ai/agent/connections)
-2. Find Xero in the list of available integrations
-3. Click **Connect**
-4. Log in to your Xero account
-5. Select your Xero organization (if you have multiple)
-6. Review and approve the requested permissions
-7. You'll be redirected back to Every with connection confirmed
-
-**Permissions Requested:**
-- Accounting transactions (read/write)
-- Contacts (read/write)
-- Settings (read)
-- Reports (read)
-- Attachments (read/write)
-- Files (read/write)
-- Assets (read/write)
+The exact result depends on the connected Xero organization, your Xero role, the status of the target record, and the tools exposed by the current Xero connector.
 
 <Warning>
-  Xero integration has **write access** to your accounting data. Every Agent can create and modify invoices, contacts, and transactions. Review the permissions carefully before connecting.
+  Xero writes change the accounting system of record. Use them in interactive chat and review Every's permission step carefully. Scheduled and unattended agent runs are limited to the reviewed read-only Xero tools.
 </Warning>
 
-<Tip>
-  **Ask Every Agent:** After connecting, test the integration:
-  - "List my recent Xero invoices"
-  - "Show me my Xero contacts"
-  - "What's my current trial balance in Xero?"
-</Tip>
+## Connect Xero
 
-### Connection Status
+1. Open [**Agent Settings → Connections**](https://app.every.ai/agent/connections).
+2. Find Xero and choose **Connect**.
+3. Sign in to Xero.
+4. Select the Xero organization you intend to use.
+5. Review the permissions Xero shows.
+6. Return to Every and test with a read such as "List my recent Xero invoices."
 
-**View Status:** Agent Settings → Connections → Xero
+<Warning>
+  Confirm you connected the correct Xero organization before asking questions that may influence billing or financial decisions.
+</Warning>
 
-**Status Indicators:**
-- ✅ Connected - Integration active and working
-- ⚠️ Needs reconnection - Token expired, click to reconnect
-- ❌ Not connected - Integration not set up
+## Xero data and Every data are separate
 
-## Using Xero with Every Agent
+An invoice in Xero is not automatically the same record as an invoice in Every. A Xero contact lookup—or a contact created in Xero—also does not create an Every client. Be explicit about the source in your request:
 
-### Invoice Management
-
-**Create invoices:**
-```
-"Create a Xero invoice for TechStart Inc for $3,500 web design"
-"Make an invoice in Xero: Acme Corp, 20 hours consulting at $150/hour"
-"Draft a Xero invoice for Beta Corp with two line items: Design $2,000, Development $5,000"
+```text
+Show overdue invoices in Xero.
+Show overdue invoices in Every.
+Use the Xero contact details as context while I create a draft client record in Every.
 ```
 
-**View and search invoices:**
-```
-"Show me all unpaid invoices in Xero"
-"List Xero invoices from last month"
-"Find invoice INV-0035 in Xero"
-"What invoices are overdue in Xero?"
-```
+When you need records to live in Every, import or create them in Every and verify the result. When Xero should remain authoritative, use the Xero connection and name Xero explicitly in the request.
 
-**Update invoices:**
-```
-"Update invoice INV-0042 in Xero to add a line item for expenses"
-"Change the due date on Xero invoice INV-0035 to March 15"
-```
+## Export Every invoices for Xero
 
-### Contact Management
+You can export an accounting-ready CSV without using the live connection:
 
-**Create and update contacts:**
-```
-"Create a new contact in Xero: Widget Corp, contact@widget.com"
-"Add a contact to Xero for Sarah Chen at TechStart Inc"
-"Update Acme Corp's email address in Xero to billing@acme.com"
-```
+1. Open [**Data → Export Invoices**](https://app.every.ai/data/export-invoices).
+2. Choose the Xero preset.
+3. Set the date and status filters.
+4. Preview and download the CSV.
+5. Import it into Xero and review Xero's field mapping and validation results.
 
-**Search contacts:**
-```
-"Find all contacts in Xero"
-"Search Xero for contacts with 'tech' in the name"
-"Look up Beta Corp in Xero"
-```
+Xero imports normally create records in Xero's own workflow. Review them there before approval or sending.
 
-### Payment Recording
+<Card title="Reports & Export" icon="file-export" href="/reference/reports-and-export" horizontal>
+  See Xero preset fields, filters, and custom exports
+</Card>
 
-**Record payments:**
-```
-"Record a $5,000 payment for invoice INV-0042 in Xero"
-"Mark invoice INV-0035 as paid in Xero"
-"Add a partial payment of $2,500 to Xero invoice INV-0040"
-```
+## Migrating accounting history
 
-**View payments:**
-```
-"Show me all payments in Xero this month"
-"List payments for Acme Corp in Xero"
-```
+Choose the path based on where the records should live:
 
-### Financial Reports
+- **Historical Every workspace:** Export CSV/XLSX from the source and use [**Data → Import**](https://app.every.ai/data/import). Review client matching, currencies, taxes, invoice status, line items, and payments before the write.
+- **Xero stays authoritative:** Keep the data in Xero and use Every Agent for supported Xero reads and permission-gated actions.
+- **Accounting-sync pilot:** If your organization has the Accounting settings feature, follow the controls and mapping requirements shown there. Do not infer pilot availability from this public connection guide.
 
-**Profit and Loss:**
-```
-"Show me my Xero P&L for this month"
-"Generate a profit and loss report from Xero for Q4"
-"What's my year-to-date revenue in Xero?"
-```
+## Disconnect or reconnect
 
-**Balance Sheet:**
-```
-"Pull my balance sheet from Xero"
-"Show Xero balance sheet as of December 31"
-```
+Manage the connection under **Agent Settings → Connections**.
 
-**Trial Balance:**
-```
-"Get my trial balance from Xero"
-"Show Xero trial balance for last month"
-```
+- Reconnect when Xero access is revoked, the organization changes, or the connection reports that authentication is required.
+- Disconnecting removes Every Agent's Xero access; it does not delete records in Xero or Every.
 
-**Aged Reports:**
-```
-"Show aged receivables from Xero"
-"What invoices are overdue? Pull from Xero"
-"Get aged payables report from Xero"
-```
+## Frequently asked questions
 
-### Bank Transactions
+<AccordionGroup>
+  <Accordion title="Can Every Agent create or edit Xero records through this connection?">
+    Yes, for the supported Xero object types and states. For example, it can create an invoice and update a draft invoice. Interactive writes use Every's permission flow; unattended runs are restricted to reviewed read-only Xero tools.
+  </Accordion>
 
-**Create transactions:**
-```
-"Record a bank transaction in Xero: $500 office supplies from Office Depot"
-"Add a spend transaction to Xero for software subscription $99"
-```
+  <Accordion title="Does connecting Xero turn Every into a general ledger?">
+    No. Xero remains the ledger, reconciliation, payroll, and accounting system. Every uses its own operational records for CRM, proposals, invoicing, payments, expenses, time, and pipeline workflows.
+  </Accordion>
 
-**View transactions:**
-```
-"List recent bank transactions in Xero"
-"Show me unreconciled transactions in Xero"
-```
+  <Accordion title="Will disconnecting Xero delete anything?">
+    No. It removes the agent's access token and Xero capabilities. Existing records remain in their original systems.
+  </Accordion>
 
-## Export to Xero Format
-
-Even without the live Xero integration, you can export Every invoices in Xero-compatible CSV format:
-
-1. Go to **Data** → **Export**
-2. Select **Invoices**
-3. Choose **Xero** format
-4. Set date range
-5. Download CSV
-6. Import into Xero: Business → Invoices → Import
-
-**Xero CSV format includes:**
-- ContactName (required)
-- InvoiceNumber (required)
-- InvoiceDate (DD/MM/YYYY)
-- DueDate (DD/MM/YYYY)
-- Description
-- Quantity
-- UnitAmount
-- AccountCode
-- TaxType
-
-<Tip>
-  Use CSV export when you want to batch-import historical invoices or when you prefer manual control over what gets pushed to Xero.
-</Tip>
-
-## Managing the Integration
-
-### Refreshing Connection
-
-If your Xero connection expires:
-
-1. Go to Agent Settings → Connections
-2. Click **Reconnect** on Xero
-3. Log in to Xero
-4. Select your organization
-5. Approve permissions
-6. Connection restored
-
-<Tip>
-  Xero tokens refresh automatically. You typically only need to reconnect if you revoke app access in Xero or change organizations.
-</Tip>
-
-### Disconnecting Xero
-
-1. Go to Agent Settings → Connections
-2. Find Xero → Click **Disconnect**
-3. Confirm disconnection
-
-**What happens:** Every Agent loses access to Xero. No data is deleted from either system. You can reconnect anytime.
-
-## Common Workflows
-
-### Create and Send Invoice
-
-```
-You: "Create an invoice in Xero for Acme Corp for the Q1 consulting project"
-
-Agent: "I'll create a Xero invoice:
-       - Contact: Acme Corp
-       - Description: Q1 Consulting Project
-       - Amount: Based on your time entries, 45 hours at $175/hr = $7,875
-
-       Should I create this invoice as a draft or approved in Xero?"
-
-You: "Approved"
-
-Agent: "Invoice INV-0043 created in Xero as Approved.
-       Acme Corp will receive the invoice at their registered email."
-```
-
-### Monthly Financial Review
-
-```
-You: "Give me a financial summary from Xero for last month"
-
-Agent: "January 2026 Summary from Xero:
-
-       Revenue: $45,000
-       Expenses: $28,000
-       Net Profit: $17,000
-
-       Outstanding Invoices: 8 ($32,500)
-       Overdue: 2 ($7,200)
-
-       Top clients by revenue:
-       1. Acme Corp - $15,000
-       2. TechStart - $12,000
-       3. Beta Inc - $8,000"
-```
-
-### Record Client Payment
-
-```
-You: "Acme Corp paid their invoice INV-0038"
-
-Agent: "I found invoice INV-0038 in Xero for Acme Corp, amount $5,000.
-
-       Recording full payment of $5,000...
-
-       Payment recorded. Invoice INV-0038 is now marked as Paid in Xero."
-```
-
-## Best Practices
-
-<Tip>
-  **Use Xero as source of truth** - Treat Xero as your accounting system of record. Create invoices directly in Xero via Every Agent or use CSV export.
-</Tip>
-
-<Tip>
-  **Review before approving** - When creating invoices via Every Agent, review the details before approving. Draft invoices can be edited in Xero.
-</Tip>
-
-<Tip>
-  **Check permissions** - Ensure your Xero user has the necessary permissions for actions you want Every Agent to perform.
-</Tip>
+  <Accordion title="Should I import my Xero data into Every?">
+    Import only the history you want Every to operate on. If Xero should remain the source of truth, use the connection for lookups instead of creating a second unmanaged copy.
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting
 
-### "Xero not connected" error
+**Xero not connected:** Reconnect under Agent Settings → Connections.
 
-**Solution:** Go to Agent Settings → Connections → Reconnect Xero
+**Wrong organization:** Disconnect and connect again, selecting the intended Xero organization.
 
-### "Contact not found in Xero"
+**A report is unavailable:** Check that the connected Xero user has access to that report and try a narrower period.
 
-**Possible causes:**
-- Contact doesn't exist in Xero
-- Different spelling than in Every
-- Contact was archived in Xero
+**Every and Xero totals differ:** Confirm that you are comparing the same dates, currencies, statuses, and record sets. The two systems do not automatically share one database.
 
-**Solution:** Create the contact in Xero first, or ask agent to create it: "Create a new contact in Xero for [name]"
-
-### "Permission denied"
-
-**Solution:** Reconnect Xero and ensure you approve all requested permissions. Check that your Xero user role has necessary permissions.
-
-### Invoice creation fails
-
-**Check:**
-- Contact exists in Xero
-- Account codes are valid
-- Tax rates are configured
-- Required fields are provided
-
-### Reports not loading
-
-**Possible causes:**
-- Large data volume (report may take time)
-- Date range too broad
-- Xero organization access issue
-
-**Solution:** Try a narrower date range, or check Xero directly to verify data access
-
-## Next Steps
+## Next steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Connect Xero"
-    icon="building"
-    href="https://every.ai/agent/connections"
-  >
-    Set up Xero integration now
+  <Card title="Connect Xero" icon="building" href="https://app.every.ai/agent/connections">
+    Add Xero to Every Agent
   </Card>
 
-  <Card
-    title="Export to Xero"
-    icon="file-export"
-    href="/reference/reports-and-export"
-  >
-    Export invoices in Xero CSV format
+  <Card title="Reports & Export" icon="file-export" href="/reference/reports-and-export">
+    Export Every invoices in Xero format
   </Card>
 
-  <Card
-    title="Every Agent"
-    icon="sparkles"
-    href="/ai/every-agent"
-  >
-    Learn more about agent capabilities
+  <Card title="Every Agent" icon="sparkles" href="/ai/every-agent">
+    Learn how the agent works with connected data
   </Card>
 
-  <Card
-    title="HubSpot Integration"
-    icon="hubspot"
-    href="/integrations/hubspot"
-  >
-    Connect your CRM
+  <Card title="HubSpot Integration" icon="hubspot" href="/integrations/hubspot">
+    Connect CRM context separately
   </Card>
 </CardGroup>
 

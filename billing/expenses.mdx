@@ -23,7 +23,7 @@ Track business expenses for tax purposes and bill them back to clients. Upload r
   - "Add all unbilled expenses for ACME Corp to their invoice"
 </Tip>
 
-<Card title="Open Expenses" icon="receipt" href="https://every.ai/expenses" horizontal>
+<Card title="Open Expenses" icon="receipt" href="https://app.every.ai/expenses" horizontal>
   Track and manage business expenses in Every
 </Card>
 
@@ -41,15 +41,15 @@ Track business expenses for tax purposes and bill them back to clients. Upload r
   - **Amount** (total spent)
   - **Date** (when expense occurred)
 
-  **To Bill Expenses to Clients:** Mark as billable and select a client. Upload receipts for tax compliance.
+  **To Bill Expenses to Clients:** Mark as billable and select a client. Keep the documentation your accountant or local tax authority requires.
 </Note>
 
 ### Basic Expense Entry
 
-Go to [**Expenses**](https://every.ai/expenses) → **Add Expense** → Fill required fields (merchant, amount, date) and optional fields (category, description, receipt, client) → Save
+Go to [**Expenses**](https://app.every.ai/expenses) → **Add Expense** → Fill required fields (merchant, amount, date) and optional fields (category, description, receipt, client) → Save
 
 <Tip>
-  Upload receipts for all expenses! They're required for tax deductions and audit protection.
+  Receipt and record-keeping requirements vary by jurisdiction and expense type. Keep the source documents your accountant recommends.
 </Tip>
 
 <Tip>
@@ -67,7 +67,7 @@ Every's AI-powered receipt scanner automatically extracts expense details from p
 
 **Step-by-step:**
 1. Take a photo of your receipt or have a PDF ready
-2. Go to [**Expenses**](https://every.ai/expenses) → **Add Expense** OR ask Every Agent "Log this receipt"
+2. Go to [**Expenses**](https://app.every.ai/expenses) → **Add Expense** OR ask Every Agent "Log this receipt"
 3. Upload the image/PDF (drag & drop or click to browse)
 4. Every Agent's AI analyzes the receipt and extracts:
    - **Merchant name** (business name)
@@ -80,28 +80,12 @@ Every's AI-powered receipt scanner automatically extracts expense details from p
 7. Add optional details (client for billback, notes)
 8. Save expense
 
-**Supported formats:** JPG, PNG, HEIC, GIF, WEBP (images), PDF, CSV, Excel (XLS, XLSX), Word (DOCX)
+**Supported in the expense form:** JPEG, PNG, GIF, WEBP, PDF, and CSV
 **File size limit:** Up to 5MB per file
-**Processing time:** Typically 2-5 seconds
 
 #### What AI Can Extract
 
-**High accuracy (95%+):**
-- Merchant/business name
-- Final total amount
-- Transaction date
-- Business address
-
-**Good accuracy (85-90%):**
-- Itemized line items
-- Subtotal vs total
-- Tax amount
-- Payment method
-
-**Moderate accuracy (70-80%):**
-- Category classification
-- Tip amounts
-- Multiple currency symbols
+Depending on the receipt, Every can extract the merchant, final amount, transaction date, currency, tax amount, description, and a suggested category. The form shows a confidence warning when the file may not be a receipt or the reading is uncertain.
 
 **Tips for best results:**
 - Use clear, well-lit photos
@@ -146,7 +130,7 @@ Process multiple receipts at once by asking Every Agent:
 
 **Issue: Category is wrong**
 - **Cause:** Merchant doesn't clearly indicate business type
-- **Fix:** Manually select correct category (AI learns from corrections)
+- **Fix:** Manually select the correct category. You can also create consistent vendor rules for recurring merchants.
 
 **Issue: Merchant name truncated**
 - **Cause:** Receipt shows abbreviated name
@@ -226,7 +210,7 @@ Becomes Invoice Line Item:
   Quantity: 1
 ```
 
-**Markup options:** Add percentage markup, round to nearest $5/$10, or add flat handling fee as needed.
+**Markup:** Set a percentage markup on a billable expense. When it becomes an invoice line item, Every applies that percentage to the expense amount.
 
 <Tip>
   Clearly communicate your expense policy with clients upfront. Some expect expenses at cost, others accept markup.
@@ -274,8 +258,8 @@ Becomes Invoice Line Item:
 ### Receipt Management
 
 **Uploading:** Create/edit expense → Upload Receipt → Select image/PDF → Receipt attached and stored securely
-**Storage:** Cloud-based, accessible anytime, downloadable, backed up automatically
-**Multiple receipts:** Upload all relevant documentation per expense
+**Storage:** The attachment stays with the expense record and can be opened again later.
+**Multiple receipts:** The expense form accepts one receipt file per expense. Use separate expense records when the documents represent separate purchases.
 **Missing receipts:** Add expense without receipt, upload later when found
 
 <Tip>
@@ -316,7 +300,7 @@ Track spending patterns with metrics for total expenses by period, breakdown by 
 ## Best Practices
 
 <Tip>
-  **Always upload receipts** - Required for tax deductions and protects in audits.
+  **Keep source documents** - Follow the record-keeping rules that apply to your business and jurisdiction.
 </Tip>
 
 <Tip>
@@ -347,6 +331,26 @@ Track spending patterns with metrics for total expenses by period, breakdown by 
 
 **Throughout year:** Log all business expenses → Categorize correctly → Upload receipts
 **Year-end:** Generate full-year expense report → Review categories → Export data → Provide to accountant
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can Every read a receipt for me?">
+    Yes. Upload a supported image, PDF, or CSV in the expense form, or attach receipt files in Every Agent. Review the merchant, date, amount, currency, tax, and category before saving; receipt extraction is not guaranteed to be correct.
+  </Accordion>
+
+  <Accordion title="How do I bill an expense to a client?">
+    Mark the expense as billable, choose the client, and optionally set a percentage markup. On that client's draft invoice, add the unbilled expense as a line item.
+  </Accordion>
+
+  <Accordion title="Can I delete an expense after it is invoiced?">
+    Not while an invoice line item still references it. Remove it from a draft invoice first. For an issued invoice, preserve the billed record and correct the client document through the appropriate invoice workflow.
+  </Accordion>
+
+  <Accordion title="Does Every decide whether an expense is tax-deductible?">
+    No. Categories and exports help organize records, but deductibility and documentation rules depend on your jurisdiction and circumstances. Confirm them with your accountant or tax authority.
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting
 
