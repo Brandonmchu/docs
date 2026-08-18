@@ -14,16 +14,15 @@ This means the AI assistant you're already using becomes an AI assistant that kn
   Every exposes its tools over the **Model Context Protocol (MCP)**, an open standard for connecting AI assistants to live data and actions. Any MCP-compatible client can connect.
 </Note>
 
-### Two MCP connectors
+### The Admin MCP connector
 
-Every runs **two** MCP servers for two different audiences:
+Every runs an MCP server for business owners:
 
 | Connector | Who it's for | URL | What it does |
 |-|-|-|-|
-| **Admin MCP** | You (the business owner) | `https://admin-mcp.every.ai` | Your full Every toolset — create/send invoices, manage clients and contacts, proposals, payments, expenses, bookings, and ask the Every Assistant — from inside your own AI assistant |
-| **Client MCP** | Your customers | Provided per-business | A scoped set of booking and self-service tools your clients can use to check availability, book, view their invoices and proposals, and pay — without an Every account |
+| **Admin MCP** | You (the business owner) | `https://admin-mcp.every.ai` | Your full Every toolset — create/send invoices, manage clients and contacts, proposals, payments, expenses, and ask the Every Assistant — from inside your own AI assistant |
 
-Most of this page covers the **Admin MCP** (connecting your own AI assistant). See [Client MCP](#client-mcp-tools-for-your-customers) at the end for the customer-facing connector.
+This page covers the **Admin MCP** (connecting your own AI assistant).
 
 ## AI Apps
 
@@ -221,25 +220,11 @@ The [Every Agent](/ai/every-agent) inside the app and these external AI connecti
 
 Use whichever fits your workflow. Both operate on the same live data.
 
-## Client MCP — tools for your customers
-
-Alongside the Admin MCP for your own assistant, Every runs a separate **Client MCP** designed for your **customers**. It exposes a scoped, customer-safe set of tools — no Every account required — so your clients can self-serve from their own AI assistant:
-
-| Category | Client tools |
-|-|-|
-| Services | List services, view a service |
-| Bookings | Check availability, estimate price, request a booking, view, cancel, reschedule |
-| Invoices | View their invoices, get a payment link |
-| Proposals | View and approve proposals |
-
-The Client MCP is **read-scoped and redacted** — it never exposes another customer's data or your internal fields, and it resolves to your specific business. If you'd like to offer this to your clients, contact [hello@every.ai](mailto:hello@every.ai).
-
 ## Security
 
 - **OAuth 2.0** authentication — your credentials are never stored locally
 - **Organization-scoped** — you can only access your own business data
 - **Short-lived approvals** — sensitive-action approvals are stored only long enough to survive a client timeout and authorize one identical retry
-- **Client MCP** is additionally redacted and scoped to a single business
 
 ### Revoking Access
 
