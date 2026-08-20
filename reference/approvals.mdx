@@ -55,8 +55,20 @@ Copy the invoice number exactly as Every shows it. The command words are case-in
 
 Every emails the final result. Repeating a used command cannot delete the invoice again. If the invoice changed, disappeared, became ineligible for deletion, or your organization access changed, Every refuses the deletion and explains why.
 
+### Sending by email — approve with a one-time code
+
+Outbound sends requested over email — **sending an email, an invoice, or a proposal** — use the same reply-approval pattern with a one-time code instead of a record number. Ask naturally ("Send the ACME invoice"), and Every replies with the full send details — recipient, document, amount — plus a command like:
+
+```text
+SEND 7f3ka92m
+```
+
+Reply directly to that confirmation email with only the command to approve, or with `CANCEL SEND 7f3ka92m` to cancel. Each code is high-entropy and **single-use**: it matches exactly one prepared send, so a reply can never approve a different pending action, and Every's delivery machinery guarantees a send is **never dispatched twice** — even if something crashes and retries mid-send.
+
+The same checks as deletion apply: same authenticated sender, same thread, within the 24-hour window, unused, and your organization access unchanged.
+
 <Note>
-  Email approval currently supports **invoice deletion only**. Scheduled tasks cannot use this flow, and other sending or destructive actions remain unavailable during unattended email-agent runs.
+  Email approval currently supports **outbound sends** (emails, invoices, proposals) and **invoice deletion**. Scheduled tasks cannot use this flow, and other destructive actions remain unavailable during unattended email-agent runs.
 </Note>
 
 ## MCP-client approvals

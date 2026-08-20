@@ -4,6 +4,24 @@ description: "Latest features and improvements in Every"
 icon: "sparkles"
 ---
 
+## August 2026
+
+### Send by Email — Approve with a Reply
+
+Released August 6, 2026.
+
+Sending over email now works end-to-end. When you ask `agent@every.ai` to send an email, invoice, or proposal, Every replies with the full send details and a one-time approval command — the send goes out only after your exact reply.
+
+**What's new:**
+- **Reply-to-approve sends** — Every emails back the recipient, document, and amount plus a one-time `SEND <code>` command; reply with only that command to approve, or `CANCEL SEND <code>` to cancel
+- **Single-use, 24-hour approvals** — each code matches exactly one prepared send and expires after 24 hours; a used or expired code can never send again
+- **Never sent twice** — delivery is crash-safe by design, so a retry can never dispatch the same send a second time
+
+**How to use it:**
+Email [`agent@every.ai`](mailto:agent@every.ai) — "Send the ACME invoice" — then reply to the confirmation with the command it gives you. Full details: [approval guide](/reference/approvals).
+
+---
+
 ## July 2026
 
 ### Safer approvals from email and connected AI tools

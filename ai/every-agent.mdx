@@ -90,7 +90,7 @@ Email `agent@every.ai` from the address on your Every account to continue an age
   Start a request from your inbox
 </Card>
 
-Email is a delayed channel, so it uses a different approval flow from interactive chat. Invoice deletion is currently the only destructive email action you can authorize this way. Ask naturally—such as “Delete invoice INV-123”—and Every emails back the invoice details plus the exact command:
+Email is a delayed channel, so it uses a different approval flow from interactive chat: instead of an Approve button, you **reply with an exact command**. This covers **outbound sends** (emails, invoices, proposals — Every replies with the send details plus a one-time `SEND <code>` command) and **invoice deletion**, currently the only destructive email action. For deletion, ask naturally—such as “Delete invoice INV-123”—and Every emails back the invoice details plus the exact command:
 
 ```text
 DELETE INVOICE INV-123
