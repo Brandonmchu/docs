@@ -10,7 +10,7 @@ A **credit** is Every's unit of AI usage. Every time the agent does AI work on y
 
 Your plan determines how many credits you get each month, and you can always see your balance, usage, and reset date in **Settings &gt; Billing**.
 
-<Card title="View your credits" icon="coins" href="https://every.ai/settings/billing" horizontal>
+<Card title="View your credits" icon="coins" href="https://app.every.ai/settings/billing" horizontal>
   See your balance, usage breakdown, and reset date in **Settings &gt; Billing**.
 </Card>
 
@@ -18,9 +18,9 @@ Your plan determines how many credits you get each month, and you can always see
 
 The credit number shown throughout Every — in **Settings &gt; Billing** and on your plan — is the **display credit**. It's the number that matters to you day-to-day:
 
-- **Every Core** includes **10,000 credits per month**.
-- **Every Pro** includes **50,000 credits per month**.
-- **Free** orgs get a one-time grant of **1,000 trial credits**, good for 14 days (see [the free trial](/plans/credit-usage-and-errors#how-big-is-the-free-trial)).
+- **Solo** includes **10,000 credits per month**.
+- **Team** includes **50,000 credits per month**.
+- A new workspace gets **10,000 one-time trial credits** during its 14-day free trial (see [the free trial](/plans/credit-usage-and-errors#how-big-is-the-free-trial)).
 
 As a rough anchor, **$1 of extra credits is about 200 credits**. You can buy [extra credits](/plans/what-is-a-credit#extra-credits) on demand starting at $5; they never expire and are used only after your monthly allocation runs out.
 
@@ -35,19 +35,19 @@ Your credit balance is made of two parts, spent in this order:
 1. **Monthly credits** — included with your plan, reset each billing period. **Spent first.** Unused monthly credits do **not** roll over.
 2. **Extra credits** — bought on demand (or granted via promotions, and to people who redeem a referral link). **Never expire**, and only kick in once your monthly credits are used up.
 
-Free orgs have **no monthly allocation** — their 1,000-credit trial grant lives entirely in the extra-credits bucket, does not reset, and the 14-day trial window closes even if credits remain.
+Trial workspaces have **no monthly allocation** — their 10,000-credit trial grant lives in the extra-credits bucket, does not reset, and the 14-day trial window closes even if credits remain.
 
 ### Extra credits
 
-Extra credits are purchased on demand in **Settings &gt; Billing**, starting at $5. They **never expire** and are only spent once your monthly allocation runs out (monthly credits are always used first). Buying extra credits once also saves a payment method, which unlocks auto-recharge.
+Solo and Team workspace admins can purchase extra credits on demand in **Settings &gt; Billing**, starting at $5. They **never expire** and are only spent once your monthly allocation runs out (monthly credits are always used first). Buying extra credits once also saves a payment method, which unlocks auto-recharge.
 
-**To buy:** Go to [**Settings &gt; Billing**](https://every.ai/settings/billing) → click **Buy** next to Extra credits → choose an amount → check out.
+**To buy:** Go to [**Settings &gt; Billing**](https://app.every.ai/settings/billing) → click **Buy extra credits** → choose an amount → check out.
 
 ### Auto-recharge
 
 Auto-recharge keeps you from running out unexpectedly — it automatically buys extra credits whenever your balance drops below a threshold you set. Ideal if you rely on recurring [Scheduled Tasks](/scheduled-tasks/scheduled-tasks) or background work that shouldn't be interrupted.
 
-**To enable:** Buy extra credits at least once (this saves a payment method) → in [**Settings &gt; Billing**](https://every.ai/settings/billing) toggle **Auto recharge** on → set your threshold and recharge amount.
+**To enable:** Buy extra credits at least once (this saves a payment method) → in [**Settings &gt; Billing**](https://app.every.ai/settings/billing) toggle **Auto recharge** on → set your threshold and recharge amount.
 
 ## What consumes credits
 
@@ -57,7 +57,7 @@ Any AI-powered action consumes credits. The big ones:
 |-|-|
 | **Agent chat** | Each message you send that the model responds to. Longer, more involved conversations use more. |
 | **Scheduled Task runs** | Every time a [Scheduled Task](/scheduled-tasks/scheduled-tasks) runs — daily brief, pipeline review, prospecting scan, check for new clients, custom prompts, etc. |
-| **Prospecting & pipeline** | The [prospecting agent](/scheduled-tasks/scheduled-tasks) scanning your network, scoring deals, and drafting outreach, plus per-deal pipeline work. |
+| **Prospecting & pipeline** | The [Prospecting Agent](/prospecting/prospecting-agent) scanning your authorized network, scoring deals, and drafting outreach, plus per-deal pipeline work. |
 | **Contact & client enrichment** | Pulling company details and context from the web, Gmail, and Calendar. |
 | **Contact imports** | Importing contacts (e.g. Google Contacts, LinkedIn CSV) — larger imports cost more. |
 | **Image generation & editing** | Asking the agent to create or edit images, logos, and graphics. |
@@ -75,8 +75,8 @@ A handful of lightweight, system-level AI calls are **free** — they don't debi
 
 ## How resets and exhaustion work
 
-- **Monthly credits reset** at the start of each billing period (paid plans only). The reset happens the first time you use Every after the period rolls over.
-- **When you run out**, what happens depends on your plan — Free orgs and paid orgs behave differently. See [Credit usage &amp; errors](/plans/credit-usage-and-errors) for the full breakdown, plus answers on failed runs and silent skips.
+- **Monthly credits reset** at the start of each billing period (Solo and Team). The reset happens the first time you use Every after the period rolls over.
+- **When you run out**, what happens depends on whether you are in the free trial or on a paid plan. See [Credit usage &amp; errors](/plans/credit-usage-and-errors) for the full breakdown, plus answers on failed runs and silent skips.
 
 ## Next steps
 
@@ -87,7 +87,7 @@ A handful of lightweight, system-level AI calls are **free** — they don't debi
   <Card title="Credit usage & errors" icon="circle-help" href="/plans/credit-usage-and-errors">
     Failed runs, running out, monthly resets, and the free trial
   </Card>
-  <Card title="Manage credits" icon="settings" href="https://every.ai/settings/billing">
+  <Card title="Manage credits" icon="settings" href="https://app.every.ai/settings/billing">
     Balance, usage history, extra credits, and auto-recharge
   </Card>
   <Card title="Every Agent" icon="sparkles" href="/ai/every-agent">
