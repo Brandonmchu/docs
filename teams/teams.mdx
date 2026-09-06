@@ -25,13 +25,13 @@ Every uses a simple two-layer model:
 
 ## Inviting teammates
 
-Open the **avatar menu** in the top-right, go to **Settings → Organization** (`/settings/organization`), and find the **Team** card. Click **Invite teammate** and add them by email — they'll receive an invitation link that adds them to this workspace once they sign in. The Team card also lists current members with their avatar, name, email, and role.
+Open the **avatar menu** in the top-right, go to **Settings → Business** (`/settings/organization`), and find the **Team** card. Click **Invite teammate** and add them by email — they'll receive an invitation link that adds them to this workspace once they sign in. The Team card also lists current members with their avatar, name, email, and role.
 
 You can also just ask the agent: *"invite dana@example.com to this workspace."* It confirms the address with you before sending.
 
 ### Seats and plans
 
-Inviting teammates requires the **Team plan**. On a single-seat plan the Team card shows **Add teammates with Pro** instead of the invite button, linking to **Settings → Billing** (`/settings/billing`).
+Inviting teammates requires the **Team plan**. On a single-seat plan the Team card shows **Add teammates with Team** instead of the invite button, linking to **Settings → Billing** (`/settings/billing`).
 
 |Plan|Members included|
 |-|-|
@@ -43,7 +43,7 @@ Inviting teammates requires the **Team plan**. On a single-seat plan the Team ca
 </Note>
 
 <Note>
-  All members have equal access to business records. Roles are shown for identity but do not restrict what a member can view or edit within Every.
+  Business records are shared across the workspace. Workspace administration is separate: admins manage invitations, business settings, billing changes, and finance connections. Teammates can view shared business and billing information without changing those settings.
 </Note>
 
 ## Ownership & attribution
@@ -58,11 +58,11 @@ In a multi-member org, records show **who created or owns them** so the team can
 The [Every Agent](/ai/every-agent) pipeline gives ownership a functional role:
 
 - Every deal has an **owner**. The Pipeline shows all deals by default, with a **"My deals" filter** to narrow to the ones you own.
-- The deal detail dialog includes an **owner switcher** to reassign a deal to another member.
+- The deal detail dialog includes an **owner switcher**. The current owner or a workspace admin can reassign an owned deal to another member.
 - **Outreach is owner-gated.** Only a deal's owner can send its outreach — the owner's connected Gmail is used to draft and scan replies. Non-owners can read and copy the drafted message, but the send action is reserved for the owner. This is enforced on the backend, not just hidden in the UI.
 
 <Tip>
-  If you can't send a teammate's outreach, that's by design — reassign the deal's owner to yourself (or ask the owner to send) from the deal detail dialog.
+  If you can't send a teammate's outreach, that's by design — ask the owner to send, or ask the owner or a workspace admin to reassign the deal to you.
 </Tip>
 
 ## Private agent chats
@@ -96,7 +96,7 @@ Across the app, members appear as avatars (their photo, or initials when no phot
 
 - Pipeline deal cards and the deal detail dialog ("Owner")
 - Contact activity timelines ("Created by")
-- The Team section in Organization settings
+- The Team section in Business settings
 - The thread list, next to private-thread indicators
 
 All of this identity UI only renders in multi-member orgs.

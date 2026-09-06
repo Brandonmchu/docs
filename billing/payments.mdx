@@ -6,7 +6,7 @@ icon: "credit-card"
 
 ## Overview
 
-Every supports both online credit card payments through Stripe and manual payment tracking for offline payment methods. All payments are automatically linked to invoices, updating invoice status and maintaining accurate payment records.
+Every supports both online credit card payments through Stripe and manual payment tracking for offline payment methods. Link payments to the invoice they settle so Every can update its payment status and outstanding balance. Every Agent can also record a payment without an invoice when that is what you intend.
 
 <Card title="Open Payments" icon="credit-card" href="https://app.every.ai/payments" horizontal>
   View and manage all payment records in Every
@@ -81,7 +81,7 @@ Payments collect in Stripe balance → Automatic payout to bank account (usually
 
 <Note>
   **Required to Record/Accept Payments:**
-  - **Invoice must be Issued** (not draft - payments require issued invoice)
+  - **For Manual Payments:** Choose the invoice the payment settles. The payment form accepts draft or issued invoices; recording payment against a draft marks it issued.
   - **For Online Payments:** Stripe account must be connected and enabled on the invoice
   - **For Manual Payments:** Amount, date, and payment method
 
@@ -199,7 +199,7 @@ Navigate to invoice → Find payment in Payments section → Click payment → D
 Any payment **record** can be deleted in Every — including ones created by an online Stripe payment. Deleting a payment only removes the local record from Every; it **does not issue a refund through Stripe**. To return money to a client, process the refund in the Stripe dashboard separately.
 
 <Warning>
-  Only delete payments recorded in error. To refund a client who paid online, issue the refund in the [Stripe dashboard](https://dashboard.stripe.com) — deleting the payment record in Every never moves money. For adjustments, record a negative payment instead.
+  Only delete payments recorded in error. To refund a client who paid online, issue the refund in the [Stripe dashboard](https://dashboard.stripe.com) — deleting the payment record in Every never moves money.
 </Warning>
 
 <Tip>

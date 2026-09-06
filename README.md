@@ -1,43 +1,17 @@
-# Mintlify Starter Kit
+# Every support documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+These pages are published at https://docs.every.ai and retrieved by Every's agent through `search_mintlify_docs`. Incorrect feature claims can become incorrect support answers.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Accuracy and release boundaries
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+Verify customer-facing instructions against the production code in `every-fastapi` and `every-react` (`origin/main`). Compare `origin/staging` separately: staging features are not production features. Keep pending feature notes in the meta-repo's plan or release entry, rather than presenting them as available in these pages. Check feature flags and permissions before making universal availability claims.
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+The backend's `support_agent_product_docs` snippet supplies web navigation. Feature semantics belong in these pages and current domain guidance, not a duplicate embedded handbook. When navigation changes, check both sources.
 
-## Development
+## Local validation
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+Run `mint broken-links`, then `mint dev` from this directory for a local preview. Check changed pages and navigation before publishing.
 
-```
-npm i -g mint
-```
+## Publishing
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
-mint dev
-```
-
-View your local preview at `http://localhost:3000`.
-
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+Pushing this repository's `main` automatically deploys the public Mintlify site. Local audit and edit requests do not authorize that production deployment; use the `update-user-facing-docs` workflow and obtain explicit production approval first.

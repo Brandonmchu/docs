@@ -146,7 +146,7 @@ Contacts exist independently but can be **linked to one or more [clients](/clien
 
 ### How Linking Works
 
-When you link a contact to a client, you assign roles that control email routing:
+Contact-client links carry invoice and proposal recipient roles. In the client form, one **Primary**, **Copied**, or **None** choice sets both roles together. Every Agent can manage document-specific roles when needed:
 
 **Invoice Role:**
 - **Primary (TO):** Receives the main invoice email - exactly one required per client
@@ -173,8 +173,8 @@ ACME Corp (Client) Contacts:
 
 1. Open a [client](https://app.every.ai/clients) → **Edit** → **Add Contact**
 2. Search for an existing contact or create a new one
-3. Set invoice and proposal roles
-4. First contact defaults to Primary for both
+3. Choose Primary, Copied, or None. The client form applies the choice to both invoices and proposals.
+4. The first contact defaults to Primary; additional contacts default to Copied.
 
 ### Linking via Agent
 
@@ -254,7 +254,7 @@ Understanding the distinction:
 
 | | Contacts | Clients |
 |-|-|-|
-| **Represents** | People (individuals) | Companies/businesses |
+| **Represents** | People (individuals) | Billing accounts for businesses or individuals |
 | **Examples** | John Smith, Sarah Johnson | ACME Corp, TechStart Inc |
 | **Relationship** | Can be linked to multiple clients | Has multiple contacts linked |
 | **Primary use** | Email routing, relationship tracking | Invoicing, proposals, billing |
@@ -300,7 +300,7 @@ Contact (Person)                    Client (Company)
 
 <AccordionGroup>
   <Accordion title="What is the difference between a contact and a client?">
-    A contact is a person. A client is the business record used for proposals, invoices, expenses, and time. One contact can be linked to more than one client with separate invoice and proposal recipient roles.
+    A contact is a person. A client is the billing account used for proposals, invoices, expenses, and time. One contact can be linked to more than one client with separate invoice and proposal recipient roles.
   </Accordion>
 
   <Accordion title="Does importing contacts put everyone into my sales pipeline?">

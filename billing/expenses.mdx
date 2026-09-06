@@ -36,17 +36,17 @@ Track business expenses for tax purposes and bill them back to clients. Upload r
 ## Creating Expenses
 
 <Note>
-  **Required to Create an Expense:**
-  - **Merchant name** (business where expense occurred)
-  - **Amount** (total spent)
-  - **Date** (when expense occurred)
+  **Required in the web expense form:**
+  - **Description** (what the expense was for)
+
+  Add the merchant, amount, date, currency, and receipt when available so the record is useful for billing and reporting.
 
   **To Bill Expenses to Clients:** Mark as billable and select a client. Keep the documentation your accountant or local tax authority requires.
 </Note>
 
 ### Basic Expense Entry
 
-Go to [**Expenses**](https://app.every.ai/expenses) → **Add Expense** → Fill required fields (merchant, amount, date) and optional fields (category, description, receipt, client) → Save
+Go to [**Expenses**](https://app.every.ai/expenses) → **Add Expense** → Enter a description and add merchant, amount, date, category, receipt, and client as needed → Save
 
 <Tip>
   Receipt and record-keeping requirements vary by jurisdiction and expense type. Keep the source documents your accountant recommends.
@@ -240,7 +240,7 @@ Becomes Invoice Line Item:
 
 ### Editing & Deleting
 
-**Editing:** All fields can be edited anytime except billed expenses linked to issued invoices (limited editing to preserve invoice accuracy).
+**Editing:** Open the expense to update its details. If it is already billed, also review the invoice: editing the source expense does not automatically revise the saved invoice line item.
 
 **Deleting:** Can delete unbilled expenses anytime. Cannot delete billed expenses unless removed from invoice first.
 
@@ -354,11 +354,11 @@ Track spending patterns with metrics for total expenses by period, breakdown by 
 
 ## Troubleshooting
 
-**Receipt upload failed:** Check file size (under 5MB), format (JPG, PNG, PDF, CSV, XLS, XLSX, DOCX), internet connection, browser file upload permissions. Compress large images if needed.
+**Receipt upload failed:** Check file size (under 5MB), format (JPEG, PNG, GIF, WEBP, PDF, CSV), internet connection, browser file upload permissions. Compress large images if needed.
 
 **Every Agent extracted wrong amount:** Common issue is reading tax/subtotal instead of total. Always review extracted data and correct before saving.
 
-**Can't edit billed expense:** Expense is linked to issued invoice. Remove from invoice first (if draft) or accept current values to maintain invoice accuracy.
+**Billed expense differs from invoice:** Check the source expense and its saved invoice line item. Correct the relevant record and review the client document before resending.
 
 **Expense not in "Add to Invoice":** Verify expense is marked billable, assigned to correct client, not already billed, and exists (not deleted).
 

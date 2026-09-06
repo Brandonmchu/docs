@@ -195,11 +195,11 @@ The agent can apply changes across many records at once, and break a goal into o
 
 ## Undoing Agent Actions
 
-Every Agent includes a built-in undo system. When the agent creates or modifies data, an **Undo** button appears below its message so you can reverse the action if something is wrong.
+Every Agent includes a built-in undo system. For supported changes, an **Undo** button appears with the agent’s action summary so you can review and reverse the recorded changes.
 
 ### How It Works
 
-- A yellow **Undo** button appears inline after any data-modifying action
+- An **Undo** button appears when a recorded undo is available
 - Hover to preview which items will be affected (they highlight in yellow)
 - Click to reverse **all actions from that agent turn** (it's all-or-nothing to prevent inconsistent states)
 - You can also undo from the **Activity Timeline** on the [Activity](https://app.every.ai/activity) page
@@ -210,20 +210,20 @@ Most data operations can be reversed:
 
 - **Invoices & proposals** — creation, updates, status changes, line item additions
 - **Payments & time tracking** — payment records, time entries, expense records
-- **Clients & contacts** — creation, updates, contact linking
+- **Clients** — supported client record changes
 - **Complex operations** — multi-step workflows, bulk operations, CSV import results
 
 ### What Cannot Be Undone
 
 - **Emails already sent** to clients (invoices, notifications)
 - **Third-party actions** already processed (Stripe payments, Google Calendar events, HubSpot syncs)
-- **Manually edited data** — if you edited the record after the agent action, undo is blocked to protect your changes
+- **Unrecorded operations** — not every tool or external service action has an undo snapshot
 
 ### Limitations
 
-- Only the **most recent agent turn** can be undone — once the agent performs a new action, the previous undo buffer is replaced
+- The ordinary chat undo buffer holds the **latest recorded data-changing turn** for the workspace. A newer recorded change replaces it; a read-only reply does not.
 - After undoing, you cannot "redo" — ask the agent again instead
-- If a conflict is detected (manual edits, external processing), the system blocks undo and shows an explanation
+- Undo can replace later manual edits to affected records. Review the actions before confirming; do not rely on automatic conflict detection to preserve those edits.
 
 <Tip>
   If you notice an error, undo immediately before the agent performs more actions. It is easier to undo right away than after additional turns.
@@ -263,7 +263,7 @@ Most data operations can be reversed:
 
 ## Activity History
 
-Every action the agent takes is recorded in the **Activity Timeline** on your [Activity](https://app.every.ai/activity) page. Use it to review what the agent did, see which records changed, and undo a past turn even after you've moved on in the conversation.
+Every action the agent takes is recorded in the **Activity Timeline** on your [Activity](https://app.every.ai/activity) page. Use it to review what the agent did, see which records changed, and use an available undo action. Activity history does not make every older turn undoable.
 
 ## Data access and AI limits
 

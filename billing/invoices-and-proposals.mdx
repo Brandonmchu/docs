@@ -50,7 +50,7 @@ Go to [**Invoices**](https://app.every.ai/invoices) → **Create Invoice** → S
 
 #### Client Selection
 
-Every invoice must have a client. Select from existing clients — their name, email (for delivery), address, and CC emails appear automatically. You cannot change the client after an invoice is issued.
+Every invoice must have a client. Select from existing clients — their name, email (for delivery), address, and CC emails appear automatically. Review the selected client before saving or sending.
 
 #### Line Items
 
@@ -181,7 +181,7 @@ Every issued invoice has a secure, branded public page with full invoice details
 #### Editing
 
 - **Draft invoices:** Edit freely — change any field, add/remove line items, update client
-- **Issued invoices:** Limited editing — can't change amounts or client, but can add attachments/notes and record payments
+- **Issued invoices:** You can edit the existing invoice, including line items, prices, and taxes. Review the total and any recorded payments, then resend the updated document when needed.
 
 <Warning>
   Once an invoice is issued, major changes are restricted. Create a new invoice or void the old one if significant changes are needed.
@@ -280,7 +280,7 @@ Go to [**Proposals**](https://app.every.ai/proposals) → **Create Proposal** �
 | **Void** | Cancelled/declined — preserved for history |
 
 <Note>
-  Unlike invoices, proposals can be revised and reissued if the client requests changes.
+  Proposals can be revised and reissued if the client requests changes.
 </Note>
 
 ### Sending Proposals
@@ -414,7 +414,7 @@ rounds. Excludes: Content creation, photography. Timeline: 6-8 weeks from approv
 
 Every supports **USD** and **CAD**, allowing you to invoice clients in their preferred currency while maintaining your books in your primary currency.
 
-Set your organization default in **Settings** → **Organization** → **Default Currency**. Override per invoice at creation time by selecting the currency before adding line items.
+Set your default currency in [**Invoice Defaults**](https://app.every.ai/invoices/settings). Override per invoice at creation time by selecting the currency before adding line items.
 
 <Tip>
   **Ask Every Agent:** Work with currencies:
@@ -424,7 +424,7 @@ Set your organization default in **Settings** → **Organization** → **Default
 </Tip>
 
 <Warning>
-  Currency cannot be changed after an invoice is issued. Double-check before sending.
+  Double-check currency before sending. If correcting an existing invoice, review its amounts and recorded payments together.
 </Warning>
 
 <Accordion title="Currency details, exchange rates, and reporting">
@@ -438,7 +438,7 @@ Set your organization default in **Settings** → **Organization** → **Default
 - Stay consistent with one currency per client relationship
 - Document currency in contracts to avoid disputes
 
-**Limitations:** Only USD and CAD are currently supported. Currency cannot be changed after issuing. Exchange rates are approximate — use bank rates for tax filings.
+**Limitations:** The invoice currency selector offers USD and CAD. Exchange rates are approximate — use bank rates for tax filings.
 
 </Accordion>
 
@@ -450,7 +450,7 @@ Every helps you collect sales tax, track deductible expenses, and generate compl
 
 ### Setting Up Tax Rates
 
-Go to [**Settings**](https://app.every.ai/settings) → **Organization** → **Sales Tax Default** → Enter percentage (e.g., 13) → Save. This rate applies to new services, quick invoice creation, and automation templates.
+Open [**Invoice Defaults**](https://app.every.ai/invoices/settings) and choose a **Tax Rate** from the available rates. Services can use that default or select another rate. Review the tax on each invoice before sending.
 
 You can also set **per-service tax rates** (e.g., consulting at 13%, educational workshops at 0%) so the correct rate applies automatically when that service is added to an invoice.
 
@@ -475,13 +475,7 @@ You can also set **per-service tax rates** (e.g., consulting at 13%, educational
 
 <Accordion title="Regional tax rates, expense tracking, and reporting">
 
-**Canadian tax system:**
-- **GST:** 5% federal across Canada
-- **HST (Harmonized):** 13% (ON/PEI), 15% (NS/NB/NL)
-- **PST (Provincial):** 7% (BC), 6% (SK), 7% (MB), 9.975% (QC QST) — applied alongside GST
-- **GST only:** AB, NT, NU, YT
-
-**US sales tax:** Varies by state (0-10%+). Consider nexus rules, local taxes, and product exemptions. Consult a tax professional.
+**Regional tax rates:** Confirm the current rate and applicable rules with your tax authority or accountant. Rates depend on location, the type of supply, and your registration obligations.
 
 **Multiple taxes (GST + PST):** Calculate the combined rate (e.g., 5% + 7% = 12%), apply as a single rate, and note on the invoice: "Includes GST and PST."
 
@@ -527,11 +521,11 @@ You can also set **per-service tax rates** (e.g., consulting at 13%, educational
 
 **Client didn't receive invoice:** Check delivery status → Verify email → Ask client to check spam → Resend or send public invoice link directly.
 
-**Can't edit issued invoice:** Invoices are locked after sending. Void and create a new invoice, or record a payment adjustment for minor changes.
+**Need to correct an issued invoice:** Open the existing invoice and edit it directly, or ask Every Agent to make the specific correction. Review the updated total and payments before resending.
 
 **Wrong total calculation:** Review each line item, verify tax applied correctly, check discount, ensure no duplicate line items.
 
-**Wrong currency on issued invoice:** Void and recreate in the correct currency.
+**Wrong currency on issued invoice:** Review the currency, line-item amounts, and recorded payments together before correcting the document.
 
 </Accordion>
 
@@ -545,9 +539,9 @@ You can also set **per-service tax rates** (e.g., consulting at 13%, educational
 
 <Accordion title="Tax issues">
 
-**Tax not calculating:** Verify the rate is set on the line item, enter as a whole number (13, not 0.13), and check that organization settings are saved.
+**Tax not calculating:** Verify the selected tax rate on each line item and check that your default settings are saved. When asking Every Agent, state the percentage explicitly, such as “13%.”
 
-**Wrong tax rate on issued invoice:** Void and recreate with the correct rate.
+**Wrong tax rate on issued invoice:** Edit the existing line-item tax rate, review the total, and resend the corrected invoice when appropriate.
 
 </Accordion>
 
